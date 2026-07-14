@@ -290,8 +290,8 @@ document.addEventListener('DOMContentLoaded', () => {
       initStorybook();
     } else if (tabId === 'alefbet') {
       initFlashcards();
-    } else if (tabId === 'asistencia') {
-      initAttendance();
+    } else if (tabId === 'colorear') {
+      initColoringBook();
     } else if (tabId === 'mitzvot') {
       initMitzvot();
     } else if (tabId === 'cofre') {
@@ -3385,218 +3385,228 @@ Equipo Shabateinu - Comunidad Israelita Nueva Bnei Israel (NBI)`;
   }
 
   // ==========================================================================
-  // 12. DASHBOARD DE ASISTENCIA
+  // 12. LIBRO DE COLOREAR INTERACTIVO (PINTA PARASHOT)
   // ==========================================================================
-  let attendanceCount = 0;
+  let coloringCanvas = null;
+  let coloringCtx = null;
+  let isColoring = false;
+  let lastColorX = 0;
+  let lastColorY = 0;
+  let currentColor = '#000000';
+  let currentBrushSize = 6;
+  let outlineImage = new Image();
+  let hasDrawnSomething = false;
 
-  function initAttendance() {
-    const minusBtn = document.getElementById('att-minus');
-    const plusBtn = document.getElementById('att-plus');
-    const countDisplay = document.getElementById('att-count-display');
-    const saveBtn = document.getElementById('btn-save-attendance');
-    const dateInput = document.getElementById('att-date');
+  function initColoringBook() {
+    coloringCanvas = document.getElementById('coloring-canvas');
+    if (!coloringCanvas) return;
+    coloringCtx = coloringCanvas.getContext('2d');
+    
+    // Configurar pincel por defecto
+    currentColor = '#000000';
+    currentBrushSize = 6;
+    hasDrawnSomething = false;
 
-    // Set default date to next friday
-    if (dateInput) {
-      const nextFri = getFridayOfDate(new Date());
-      const y = nextFri.getFullYear();
-      const m = String(nextFri.getMonth() + 1).padStart(2, '0');
-      const d = String(nextFri.getDate()).padStart(2, '0');
-      dateInput.value = `${y}-${m}-${d}`;
-    }
+    // Registrar eventos del mouse
+    coloringCanvas.addEventListener('mousedown', startDrawing);
+    coloringCanvas.addEventListener('mousemove', draw);
+    coloringCanvas.addEventListener('mouseup', stopDrawing);
+    coloringCanvas.addEventListener('mouseout', stopDrawing);
 
-    if (minusBtn) {
-      minusBtn.addEventListener('click', () => {
-        if (attendanceCount > 0) {
-          attendanceCount--;
-          if (countDisplay) countDisplay.textContent = attendanceCount;
+    // Registrar eventos táctiles para móviles
+    coloringCanvas.addEventListener('touchstart', startDrawingTouch, { passive: false });
+    coloringCanvas.addEventListener('touchmove', drawTouch, { passive: false });
+    coloringCanvas.addEventListener('touchend', stopDrawing);
+
+    // Configurar selectores y botones
+    const imageSelect = document.getElementById('select-coloring-image');
+    if (imageSelect) {
+      imageSelect.addEventListener('change', loadColoringOutline);
+      // Auto-seleccionar según la parashá activa
+      const currentParashaKey = state.selectedParasha.toLowerCase();
+      // Buscar coincidencia en las opciones
+      for (let option of imageSelect.options) {
+        if (currentParashaKey.includes(option.value)) {
+          imageSelect.value = option.value;
+          break;
         }
-      });
-    }
-    if (plusBtn) {
-      plusBtn.addEventListener('click', () => {
-        attendanceCount++;
-        if (countDisplay) countDisplay.textContent = attendanceCount;
-      });
-    }
-    if (saveBtn) {
-      saveBtn.addEventListener('click', saveAttendanceRecord);
+      }
     }
 
-    loadAttendance().then(() => {
-      renderAttendanceHistory();
-      drawAttendanceChart();
+    const clearBtn = document.getElementById('btn-coloring-clear');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', clearColoringCanvas);
+    }
+
+    const downloadBtn = document.getElementById('btn-coloring-download');
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', downloadDrawing);
+    }
+
+    const xpBtn = document.getElementById('btn-coloring-xp');
+    if (xpBtn) {
+      xpBtn.addEventListener('click', claimColoringXP);
+    }
+
+    const brushInput = document.getElementById('input-brush-size');
+    const brushText = document.getElementById('brush-size-text');
+    if (brushInput) {
+      brushInput.addEventListener('input', (e) => {
+        currentBrushSize = parseInt(e.target.value);
+        if (brushText) brushText.textContent = `${currentBrushSize}px`;
+      });
+    }
+
+    // Configurar paleta de colores
+    const swatches = document.querySelectorAll('.coloring-palette .color-swatch');
+    swatches.forEach(swatch => {
+      swatch.addEventListener('click', (e) => {
+        swatches.forEach(s => s.classList.remove('active'));
+        e.target.classList.add('active');
+        currentColor = e.target.getAttribute('data-color');
+      });
     });
+
+    // Cargar imagen de contorno inicial
+    loadColoringOutline();
   }
 
-  // Caché en memoria de la asistencia compartida. Se llena desde la API
-  // (base de datos comunitaria) y se respalda en localStorage para que la
-  // sección siga funcionando sin conexión.
-  let attendanceCache = [];
-
-  async function loadAttendance() {
-    try {
-      const res = await fetch('/api/attendance');
-      if (!res.ok) throw new Error('respuesta no válida');
-      const rows = await res.json();
-      attendanceCache = rows.map(r => ({
-        date: typeof r.event_date === 'string' ? r.event_date.slice(0, 10) : r.event_date,
-        count: r.count,
-        notes: r.notes || '',
-        parasha: r.parasha || '',
-        timestamp: r.created_at ? new Date(r.created_at).getTime() : Date.now()
-      })).slice(-12); // mantener los últimos 12 Shabatot, como antes
-      localStorage.setItem('shabat_attendance', JSON.stringify(attendanceCache));
-    } catch {
-      // Sin acceso a la API: usar la copia local como respaldo.
-      try { attendanceCache = JSON.parse(localStorage.getItem('shabat_attendance') || '[]'); }
-      catch { attendanceCache = []; }
-    }
-    return attendanceCache;
-  }
-
-  function getAttendanceRecords() {
-    return attendanceCache;
-  }
-
-  async function saveAttendanceRecord() {
-    const dateInput = document.getElementById('att-date');
-    const notesInput = document.getElementById('att-notes');
-    const dateVal = dateInput ? dateInput.value : '';
-    const notes = notesInput ? notesInput.value : '';
-
-    if (!dateVal || attendanceCount <= 0) {
-      showToast('⚠️ Completa la fecha y cantidad de niños');
-      return;
-    }
-
-    const record = {
-      date: dateVal,
-      count: attendanceCount,
-      notes: notes,
-      parasha: state.selectedParasha,
-      timestamp: Date.now()
+  function loadColoringOutline() {
+    const imageSelect = document.getElementById('select-coloring-image');
+    if (!imageSelect || !coloringCtx || !coloringCanvas) return;
+    
+    const key = imageSelect.value;
+    outlineImage.src = `assets/${key}_outline.png`;
+    
+    outlineImage.onload = () => {
+      clearColoringCanvas(false); // Limpiar canvas pero no vaciar si es una recarga
     };
-
-    try {
-      const res = await fetch('/api/attendance', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(record)
-      });
-      if (!res.ok) throw new Error('respuesta no válida');
-      await loadAttendance();
-    } catch {
-      // Respaldo local: conservar el registro aunque la API no responda.
-      const records = getAttendanceRecords();
-      records.push(record);
-      while (records.length > 12) records.shift();
-      localStorage.setItem('shabat_attendance', JSON.stringify(records));
+    
+    // Habilitar botón de XP de nuevo cuando cambie la ilustración
+    const xpBtn = document.getElementById('btn-coloring-xp');
+    if (xpBtn) {
+      xpBtn.disabled = true;
     }
-
-    showToast(`✅ Registro guardado: ${attendanceCount} niños el ${dateVal}`);
-    awardXP(10, 'Registro de asistencia');
-
-    // Reset
-    attendanceCount = 0;
-    const countDisplay = document.getElementById('att-count-display');
-    if (countDisplay) countDisplay.textContent = '0';
-    if (notesInput) notesInput.value = '';
-
-    renderAttendanceHistory();
-    drawAttendanceChart();
+    hasDrawnSomething = false;
   }
 
-  function renderAttendanceHistory() {
-    const container = document.getElementById('attendance-history-list');
-    if (!container) return;
-    const records = getAttendanceRecords();
-
-    if (records.length === 0) {
-      container.innerHTML = '<p style="color: var(--text-secondary); font-size: 0.9rem; text-align: center; padding: 1rem;">No hay registros aún. ¡Registra tu primer Shabat!</p>';
-      return;
+  function clearColoringCanvas(resetDrawnState = true) {
+    if (!coloringCtx || !coloringCanvas) return;
+    coloringCtx.clearRect(0, 0, coloringCanvas.width, coloringCanvas.height);
+    
+    // Rellenar fondo blanco
+    coloringCtx.fillStyle = '#ffffff';
+    coloringCtx.fillRect(0, 0, coloringCanvas.width, coloringCanvas.height);
+    
+    // Dibujar la imagen de contorno centrada
+    if (outlineImage.complete && outlineImage.naturalWidth > 0) {
+      // Ajustar la escala de la imagen para que quepa en el canvas de 500x500
+      const scale = Math.min(coloringCanvas.width / outlineImage.width, coloringCanvas.height / outlineImage.height) * 0.95;
+      const w = outlineImage.width * scale;
+      const h = outlineImage.height * scale;
+      const x = (coloringCanvas.width - w) / 2;
+      const y = (coloringCanvas.height - h) / 2;
+      coloringCtx.drawImage(outlineImage, x, y, w, h);
     }
-
-    container.innerHTML = records.slice().reverse().map(r => {
-      const dateStr = new Date(r.date + 'T00:00:00').toLocaleDateString('es-CL', { month: 'short', day: 'numeric' });
-      return `<div class="attendance-history-item">
-        <span class="att-date">${dateStr} - ${r.parasha || 'Shabat'}</span>
-        <span class="att-count">${r.count} niños</span>
-        <span class="att-notes">${r.notes || '—'}</span>
-      </div>`;
-    }).join('');
+    
+    if (resetDrawnState) {
+      hasDrawnSomething = false;
+      const xpBtn = document.getElementById('btn-coloring-xp');
+      if (xpBtn) xpBtn.disabled = true;
+    }
   }
 
-  function drawAttendanceChart() {
-    const canvas = document.getElementById('attendance-chart-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const records = getAttendanceRecords();
+  function startDrawing(e) {
+    isColoring = true;
+    const rect = coloringCanvas.getBoundingClientRect();
+    // Calcular escala en caso de que el canvas esté redimensionado por CSS responsive
+    const scaleX = coloringCanvas.width / rect.width;
+    const scaleY = coloringCanvas.height / rect.height;
+    lastColorX = (e.clientX - rect.left) * scaleX;
+    lastColorY = (e.clientY - rect.top) * scaleY;
+  }
 
-    // Set canvas size
-    canvas.width = canvas.parentElement.clientWidth - 48;
-    canvas.height = 250;
-    const W = canvas.width;
-    const H = canvas.height;
+  function startDrawingTouch(e) {
+    e.preventDefault();
+    if (e.touches.length === 0) return;
+    isColoring = true;
+    const touch = e.touches[0];
+    const rect = coloringCanvas.getBoundingClientRect();
+    const scaleX = coloringCanvas.width / rect.width;
+    const scaleY = coloringCanvas.height / rect.height;
+    lastColorX = (touch.clientX - rect.left) * scaleX;
+    lastColorY = (touch.clientY - rect.top) * scaleY;
+  }
 
-    ctx.clearRect(0, 0, W, H);
+  function draw(e) {
+    if (!isColoring || !coloringCtx) return;
+    const rect = coloringCanvas.getBoundingClientRect();
+    const scaleX = coloringCanvas.width / rect.width;
+    const scaleY = coloringCanvas.height / rect.height;
+    const x = (e.clientX - rect.left) * scaleX;
+    const y = (e.clientY - rect.top) * scaleY;
 
-    if (records.length === 0) {
-      ctx.fillStyle = '#94a3b8';
-      ctx.font = '14px Inter, sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('Sin datos aún', W / 2, H / 2);
-      return;
+    drawSegment(lastColorX, lastColorY, x, y);
+    lastColorX = x;
+    lastColorY = y;
+  }
+
+  function drawTouch(e) {
+    e.preventDefault();
+    if (!isColoring || !coloringCtx || e.touches.length === 0) return;
+    const touch = e.touches[0];
+    const rect = coloringCanvas.getBoundingClientRect();
+    const scaleX = coloringCanvas.width / rect.width;
+    const scaleY = coloringCanvas.height / rect.height;
+    const x = (touch.clientX - rect.left) * scaleX;
+    const y = (touch.clientY - rect.top) * scaleY;
+
+    drawSegment(lastColorX, lastColorY, x, y);
+    lastColorX = x;
+    lastColorY = y;
+  }
+
+  function drawSegment(x1, y1, x2, y2) {
+    coloringCtx.beginPath();
+    coloringCtx.moveTo(x1, y1);
+    coloringCtx.lineTo(x2, y2);
+    coloringCtx.strokeStyle = currentColor;
+    coloringCtx.lineWidth = currentBrushSize;
+    coloringCtx.lineCap = 'round';
+    coloringCtx.lineJoin = 'round';
+    coloringCtx.stroke();
+    
+    if (!hasDrawnSomething) {
+      hasDrawnSomething = true;
+      const xpBtn = document.getElementById('btn-coloring-xp');
+      if (xpBtn) xpBtn.disabled = false;
     }
+  }
 
-    const maxCount = Math.max(...records.map(r => r.count), 10);
-    const barWidth = Math.min(40, (W - 60) / records.length - 8);
-    const startX = 50;
-    const chartH = H - 50;
+  function stopDrawing() {
+    isColoring = false;
+  }
 
-    // Grid lines
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
-    ctx.lineWidth = 1;
-    for (let i = 0; i <= 4; i++) {
-      const y = 10 + (chartH / 4) * i;
-      ctx.beginPath();
-      ctx.moveTo(startX, y);
-      ctx.lineTo(W - 10, y);
-      ctx.stroke();
+  function downloadDrawing() {
+    if (!coloringCanvas) return;
+    const imageSelect = document.getElementById('select-coloring-image');
+    const key = imageSelect ? imageSelect.value : 'dibujo';
+    
+    // Crear un enlace temporal para descargar la imagen
+    const link = document.createElement('a');
+    link.download = `shabateinu_${key}_coloreado.png`;
+    link.href = coloringCanvas.toDataURL('image/png');
+    link.click();
+    showToast('💾 ¡Dibujo guardado en tus descargas!');
+  }
 
-      ctx.fillStyle = '#64748b';
-      ctx.font = '10px Inter';
-      ctx.textAlign = 'right';
-      ctx.fillText(Math.round(maxCount - (maxCount / 4) * i), startX - 8, y + 4);
+  function claimColoringXP() {
+    const xpBtn = document.getElementById('btn-coloring-xp');
+    if (xpBtn && !xpBtn.disabled) {
+      awardXP(20, '¡Pintar parashá de la semana! 🎨');
+      triggerCelebration('🎨 ¡Hermoso Dibujo!');
+      xpBtn.disabled = true;
     }
-
-    // Bars
-    records.forEach((r, i) => {
-      const barH = (r.count / maxCount) * chartH;
-      const x = startX + i * ((W - startX - 10) / records.length) + 4;
-      const y = 10 + chartH - barH;
-
-      // Gradient bar
-      const grad = ctx.createLinearGradient(x, y, x, y + barH);
-      grad.addColorStop(0, '#38bdf8');
-      grad.addColorStop(1, '#1e3a8a');
-      ctx.fillStyle = grad;
-      ctx.beginPath();
-      ctx.roundRect(x, y, barWidth, barH, [4, 4, 0, 0]);
-      ctx.fill();
-
-      // Count label
-      ctx.fillStyle = '#f8fafc';
-      ctx.font = 'bold 11px Outfit';
-      ctx.textAlign = 'center';
-      ctx.fillText(r.count, x + barWidth / 2, y - 6);
-
-      // Date label
-      const dateLabel = new Date(r.date + 'T00:00:00').toLocaleDateString('es-CL', { month: 'short', day: 'numeric' });
-      ctx.fillStyle = '#94a3b8';
-      ctx.font = '9px Inter';
-      ctx.fillText(dateLabel, x + barWidth / 2, H - 5);
-    });
   }
 
   // ==========================================================================

@@ -61,9 +61,6 @@
           <li class="nav-item" data-tab="actividades">
             <button id="btn-nav-actividades"><i class="fa-solid fa-masks-theater"></i> Actividades</button>
           </li>
-          <li class="nav-item" data-tab="asistencia">
-            <button id="btn-nav-asistencia"><i class="fa-solid fa-chart-bar"></i> Asistencia</button>
-          </li>
           <li class="nav-item" data-tab="pasaporte">
             <button id="btn-nav-pasaporte"><i class="fa-solid fa-passport"></i> Pasaporte</button>
           </li>
@@ -101,6 +98,9 @@
           </li>
           <li class="nav-item" data-tab="manualidades">
             <button id="btn-nav-manualidades"><i class="fa-solid fa-scissors"></i> Manualidades</button>
+          </li>
+          <li class="nav-item" data-tab="colorear">
+            <button id="btn-nav-colorear"><i class="fa-solid fa-palette"></i> Pinta Parashot</button>
           </li>
           <li class="nav-item" data-tab="jardin">
             <button id="btn-nav-jardin"><i class="fa-solid fa-spa"></i> Jardín de Paz</button>
@@ -876,50 +876,78 @@
       </section>
 
       <!-- ==========================================================================
-           SECCIÓN: DASHBOARD DE ASISTENCIA
+           SECCIÓN: PINTA LAS PARASHOT (INTERACTIVE COLORING BOOK)
            ========================================================================== -->
-      <section id="section-asistencia" class="app-section">
+      <section id="section-colorear" class="app-section">
         <div class="section-header">
-          <h2>Dashboard de Asistencia</h2>
-          <p>Registro semanal de asistencia al Shabateinu NBI para animadores y coordinadores.</p>
+          <h2>Pinta las Parashot 🎨</h2>
+          <p>Elige tu ilustración favorita de la Torá y píntala con tus colores preferidos.</p>
         </div>
 
-        <div class="attendance-layout">
-          <div class="glass-card attendance-form-card">
-            <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 0.5rem;"><i class="fa-solid fa-user-plus" style="color: var(--nbi-cyan);"></i> Registrar Asistencia</h3>
-            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Registra cuántos niños asistieron este Shabat.</p>
-
-            <div class="form-group">
-              <label for="att-date">Fecha del Shabat</label>
-              <input type="date" id="att-date" class="form-input">
+        <div class="glass-card" style="padding: 2rem;">
+          <div style="display: grid; grid-template-columns: 1fr 280px; gap: 2rem; align-items: start;">
+            
+            <!-- Lienzo de Dibujo -->
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+              <div class="canvas-container" style="position: relative; background: white; border-radius: var(--radius-md); box-shadow: var(--shadow-md); border: 2px solid var(--border-glass); overflow: hidden; max-width: 100%; width: 500px; height: 500px;">
+                <canvas id="coloring-canvas" width="500" height="500" style="display: block; width: 500px; height: 500px; cursor: crosshair; touch-action: none; background: white;"></canvas>
+              </div>
+              <div style="display: flex; gap: 1rem; width: 100%; justify-content: center; margin-top: 0.5rem;">
+                <button id="btn-coloring-clear" class="btn-outline" style="min-width: 130px;"><i class="fa-solid fa-trash-can"></i> Borrar Todo</button>
+                <button id="btn-coloring-download" class="btn-primary" style="min-width: 150px;"><i class="fa-solid fa-download"></i> Guardar Obra</button>
+                <button id="btn-coloring-xp" class="btn-gold" style="min-width: 150px;" disabled><i class="fa-solid fa-star"></i> Reclamar XP (+20)</button>
+              </div>
             </div>
 
-            <label style="color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; font-weight: 600;">Cantidad de Niños</label>
-            <div class="attendance-counter">
-              <button class="counter-btn" id="att-minus" aria-label="Restar un niño">−</button>
-              <span class="counter-value" id="att-count-display">0</span>
-              <button class="counter-btn" id="att-plus" aria-label="Sumar un niño">+</button>
+            <!-- Panel de Herramientas y Paleta -->
+            <div class="glass-card" style="background: rgba(11, 26, 48, 0.4); border: 1px solid var(--border-glass); padding: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem;">
+              
+              <!-- Selector de Dibujo -->
+              <div class="form-group">
+                <label for="select-coloring-image" style="color: var(--nbi-cyan); font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; display: block; margin-bottom: 0.5rem;"><i class="fa-solid fa-image"></i> Elegir Ilustración</label>
+                <select id="select-coloring-image" class="form-input" style="width: 100%; background: #0b1a30; color: white; border: 1px solid var(--border-glass);">
+                  <option value="bereshit">Día 7: Shabat (Bereshit)</option>
+                  <option value="noaj">El Arcoíris (Noach)</option>
+                  <option value="shemot">Moisés en el Nilo (Shemot)</option>
+                  <option value="beshalaj">El Cruce del Mar (Beshalach)</option>
+                  <option value="yitro">Tablas de la Ley (Yitro)</option>
+                  <option value="nasso">Bendición Sacerdotal (Nasso)</option>
+                  <option value="challah">Jalá de Shabat</option>
+                  <option value="torah">Libro de la Torá</option>
+                  <option value="shabbat">Velas de Shabat</option>
+                </select>
+              </div>
+
+              <!-- Paleta de Colores -->
+              <div>
+                <label style="color: var(--nbi-gold); font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; display: block; margin-bottom: 0.8rem;"><i class="fa-solid fa-palette"></i> Paleta de Colores</label>
+                <div class="coloring-palette" id="coloring-palette" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem;">
+                  <button class="color-swatch active" data-color="#000000" style="background: #000000; width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; cursor: pointer; transition: transform 0.2s;" title="Negro"></button>
+                  <button class="color-swatch" data-color="#0284c7" style="background: #0284c7; width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s;" title="Azul Israel"></button>
+                  <button class="color-swatch" data-color="#f59e0b" style="background: #f59e0b; width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s;" title="Oro Shabat"></button>
+                  <button class="color-swatch" data-color="#10b981" style="background: #10b981; width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s;" title="Verde Olivo"></button>
+                  <button class="color-swatch" data-color="#ef4444" style="background: #ef4444; width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s;" title="Rojo Granada"></button>
+                  <button class="color-swatch" data-color="#a855f7" style="background: #a855f7; width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s;" title="Púrpura Tabernáculo"></button>
+                  <button class="color-swatch" data-color="#fb7185" style="background: #fb7185; width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s;" title="Rosa Flor"></button>
+                  <button class="color-swatch" data-color="#f43f5e" style="background: #f43f5e; width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s;" title="Cereza"></button>
+                  <button class="color-swatch" data-color="#eab308" style="background: #eab308; width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s;" title="Amarillo Sol"></button>
+                  <button class="color-swatch" data-color="#38bdf8" style="background: #38bdf8; width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s;" title="Cielo claro"></button>
+                  <button class="color-swatch" data-color="#84cc16" style="background: #84cc16; width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s;" title="Lima"></button>
+                  <button class="color-swatch" data-color="#ffffff" style="background: #ffffff; width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s; box-shadow: 0 0 5px rgba(255,255,255,0.2);" title="Borrar (Blanco)"></button>
+                </div>
+              </div>
+
+              <!-- Tamaño del Pincel -->
+              <div class="form-group">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span style="color: var(--nbi-cyan); font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px;"><i class="fa-solid fa-paintbrush"></i> Grosor Pincel</span>
+                  <span id="brush-size-text" style="font-size: 0.85rem; color: var(--nbi-cyan); font-weight: bold;">6px</span>
+                </div>
+                <input type="range" id="input-brush-size" min="2" max="24" value="6" style="width: 100%; accent-color: var(--nbi-cyan); cursor: pointer;">
+              </div>
+
             </div>
 
-            <div class="form-group">
-              <label for="att-notes">Notas del Animador</label>
-              <textarea id="att-notes" class="form-textarea" placeholder="Actividades realizadas, observaciones..."></textarea>
-            </div>
-
-            <button id="btn-save-attendance" class="btn-gold" style="width: 100%; justify-content: center;">
-              <i class="fa-solid fa-floppy-disk"></i> Guardar Registro
-            </button>
-          </div>
-
-          <div class="glass-card">
-            <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 1rem;"><i class="fa-solid fa-chart-column" style="color: var(--nbi-gold);"></i> Tendencia de Asistencia</h3>
-            <div class="attendance-chart-container">
-              <canvas id="attendance-chart-canvas"></canvas>
-            </div>
-            <h4 style="font-family: var(--font-title); font-size: 1.1rem; color: white; margin-top: 1.5rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-clock-rotate-left" style="color: var(--nbi-cyan);"></i> Historial Reciente</h4>
-            <div class="attendance-history-list" id="attendance-history-list">
-              <p style="color: var(--text-secondary); font-size: 0.9rem; text-align: center; padding: 1rem;">No hay registros aún. ¡Registra tu primer Shabat!</p>
-            </div>
           </div>
         </div>
       </section>

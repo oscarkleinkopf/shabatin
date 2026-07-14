@@ -2226,108 +2226,57 @@ body.tv-mode .mobile-menu-toggle {
 }
 
 /* ==========================================================================
-   DASHBOARD DE ASISTENCIA
+   LIBRO DE COLOREAR INTERACTIVO (PINTA PARASHOT)
    ========================================================================== */
-.attendance-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 2rem;
-}
-
-.attendance-form-card {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.attendance-counter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin: 1rem 0;
-}
-
-.attendance-counter .counter-btn {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(56, 189, 248, 0.1);
-  border: 2px solid var(--nbi-cyan);
-  color: var(--nbi-cyan);
-  font-size: 1.5rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: var(--transition-smooth);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.attendance-counter .counter-btn:hover {
-  background: rgba(56, 189, 248, 0.25);
-  transform: scale(1.1);
-}
-
-.attendance-counter .counter-value {
-  font-family: var(--font-title);
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: var(--nbi-gold);
-  min-width: 80px;
-  text-align: center;
-  text-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
-}
-
-.attendance-chart-container {
-  background: rgba(5, 11, 20, 0.4);
-  border: 1px solid var(--border-glass);
+.canvas-container {
+  position: relative;
+  background: white;
   border-radius: var(--radius-md);
-  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), var(--shadow-glow);
+  transition: var(--transition-smooth);
 }
 
-.attendance-chart-container canvas {
-  width: 100% !important;
-  height: 250px !important;
+.canvas-container:hover {
+  transform: scale(1.01);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.15);
 }
 
-.attendance-history-list {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  max-height: 200px;
-  overflow-y: auto;
+.coloring-palette .color-swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s;
+  display: inline-block;
 }
 
-.attendance-history-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.6rem 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: var(--radius-sm);
-  font-size: 0.85rem;
+.coloring-palette .color-swatch:hover {
+  transform: scale(1.15) rotate(15deg);
 }
 
-.attendance-history-item .att-date {
-  color: var(--text-secondary);
+.coloring-palette .color-swatch.active {
+  transform: scale(1.1);
+  border: 3px solid #ffffff !important;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-.attendance-history-item .att-count {
-  font-weight: 700;
-  color: var(--nbi-cyan);
+@media (max-width: 768px) {
+  #section-colorear .glass-card > div {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  .canvas-container {
+    width: 320px !important;
+    height: 320px !important;
+  }
+  
+  #coloring-canvas {
+    width: 320px !important;
+    height: 320px !important;
+  }
 }
 
-.attendance-history-item .att-notes {
-  color: #94a3b8;
-  font-size: 0.8rem;
-  max-width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 
 /* Responsive for new sections */
 @media (max-width: 768px) {
@@ -2360,9 +2309,7 @@ body.tv-mode .mobile-menu-toggle {
     grid-template-columns: repeat(2, 1fr);
   }
   
-  .attendance-layout {
-    grid-template-columns: 1fr;
-  }
+
   
   .storybook-container {
     padding: 1.5rem;
