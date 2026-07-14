@@ -1,0 +1,3137 @@
+/* ==========================================================================
+   Estilos Premium - Shabateinu NBI (Santiago de Chile)
+   ========================================================================== */
+
+/* --- Importación de Fuentes --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+/* --- Variables de Diseño --- */
+:root {
+  /* Paleta Corporativa NBI & Shabat */
+  --nbi-dark-blue: #0b1a30;     /* Deep navy (azul del cielo de Shabat) */
+  --nbi-royal-blue: #1e3a8a;    /* Azul real de vitral */
+  --nbi-cyan: #38bdf8;          /* Celeste vidrio soplado */
+  --nbi-gold: #f59e0b;          /* Oro/Ámbar de las velas */
+  --nbi-gold-light: #fef3c7;    /* Oro pálido */
+  
+  /* Colores de Interfaz */
+  --bg-primary: #050b14;
+  --bg-card: rgba(15, 23, 42, 0.65);
+  --border-glass: rgba(56, 189, 248, 0.15);
+  --border-focus: rgba(56, 189, 248, 0.4);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-accent: #38bdf8;
+  
+  /* Fuentes */
+  --font-title: 'Outfit', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+  
+  /* Utilidades */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.25);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Reseteo y Configuraciones Globales --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(15, 23, 42, 0.8) 0%, rgba(5, 11, 20, 0.95) 90%),
+    radial-gradient(circle at 80% 80%, rgba(30, 58, 138, 0.15) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Ocultar scrollbars sin perder funcionalidad */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.2);
+  border-radius: var(--radius-sm);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.4);
+}
+
+/* --- Estructura Layout SPA --- */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* --- Barra Lateral de Navegación (Sidebar) --- */
+.sidebar {
+  width: 280px;
+  background: rgba(11, 26, 48, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid var(--border-glass);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  z-index: 100;
+  transition: var(--transition-smooth);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.2) transparent;
+}
+
+/* Scrollbar premium para la barra lateral */
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.2);
+  border-radius: 4px;
+}
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.4);
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.logo-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--nbi-royal-blue), var(--nbi-cyan));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-glow);
+  border: 2px solid var(--nbi-cyan);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.logo-icon i {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.logo-text h1 {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  background: linear-gradient(to right, #ffffff, var(--nbi-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-text span {
+  font-size: 0.8rem;
+  color: var(--nbi-cyan);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-item button {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-family: var(--font-title);
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition-smooth);
+}
+
+.nav-item button i {
+  font-size: 1.2rem;
+  transition: var(--transition-smooth);
+}
+
+.nav-item button:hover {
+  background: rgba(56, 189, 248, 0.08);
+  color: white;
+}
+
+.nav-item button:hover i {
+  color: var(--nbi-cyan);
+  transform: translateX(3px);
+}
+
+.nav-item.active button {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.4), rgba(56, 189, 248, 0.15));
+  color: white;
+  border-left: 4px solid var(--nbi-cyan);
+  box-shadow: inset 0 0 12px rgba(56, 189, 248, 0.05);
+}
+
+.nav-item.active button i {
+  color: var(--nbi-cyan);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1.5rem;
+}
+
+/* --- Contenedor Principal (Main) --- */
+.main-content {
+  flex: 1;
+  margin-left: 280px;
+  padding: 2.5rem;
+  min-height: 100vh;
+  transition: var(--transition-smooth);
+}
+
+/* --- Secciones SPA --- */
+.app-section {
+  display: none;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.app-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+  50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(56, 189, 248, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.5), 0 0 40px rgba(245, 158, 11, 0.2); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* --- Encabezados de Sección --- */
+.section-header {
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.section-header p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+/* --- Estilo Glass Card --- */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 2rem;
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: var(--border-focus);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 0 15px rgba(56, 189, 248, 0.08);
+}
+
+/* ==========================================================================
+   VISTA: INICIO (Dashboard)
+   ========================================================================== */
+.hero-banner {
+  height: 320px;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5, 11, 20, 0.9) 20%, rgba(5, 11, 20, 0.4) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem;
+}
+
+.hero-tag {
+  background: linear-gradient(135deg, var(--nbi-gold), #d97706);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  width: fit-content;
+  margin-bottom: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+.hero-overlay h2 {
+  font-family: var(--font-title);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-overlay p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+/* Grid del Dashboard */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+/* Caja de Parashá Activa */
+.active-parasha-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.active-parasha-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.badge-hebrew {
+  font-size: 2.2rem;
+  color: var(--nbi-cyan);
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  float: right;
+  margin-left: 1.5rem;
+  margin-top: -0.5rem;
+  text-shadow: var(--shadow-glow);
+}
+
+.parasha-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-title);
+}
+
+.parasha-book {
+  color: var(--nbi-gold);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.2rem;
+}
+
+.parasha-description {
+  font-size: 1.05rem;
+  color: #e2e8f0;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Horarios de Shabat (Sidebar del Dashboard) */
+.shabbat-times-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.shabbat-time-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.time-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.time-icon.candles {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--nbi-gold);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.time-icon.activity {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--nbi-cyan);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.time-icon.havdalah {
+  background: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.time-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.time-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.time-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: white;
+}
+
+/* Buscador de Parashá en Dashboard */
+.search-date-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.input-date {
+  background: rgba(5, 11, 20, 0.6);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.input-date:focus {
+  border-color: var(--nbi-cyan);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Botones Premium */
+.btn-primary {
+  background: linear-gradient(135deg, var(--nbi-royal-blue), #2563eb);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+  background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--nbi-gold), #d97706);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.2);
+  transition: var(--transition-smooth);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--nbi-cyan);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-smooth);
+}
+
+.btn-outline:hover {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: var(--nbi-cyan);
+}
+
+/* ==========================================================================
+   VISTA: GENERADOR DE INVITACIONES
+   ========================================================================== */
+.invitation-creator-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  background: rgba(5, 11, 20, 0.5);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  color: white;
+  font-family: var(--font-body);
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.form-input:focus, .form-textarea:focus {
+  border-color: var(--nbi-cyan);
+  box-shadow: var(--shadow-glow);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Temas de Invitación */
+.themes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.theme-option {
+  position: relative;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 2px solid transparent;
+  aspect-ratio: 16/10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+}
+
+.theme-option:hover {
+  transform: scale(1.05);
+}
+
+.theme-option.active {
+  border-color: var(--nbi-cyan);
+  box-shadow: var(--shadow-glow);
+}
+
+.theme-option.stars {
+  background: linear-gradient(135deg, #0b1528, #1e3a8a);
+  color: #fef3c7;
+}
+
+.theme-option.nature {
+  background: linear-gradient(135deg, #064e3b, #047857);
+  color: white;
+}
+
+.theme-option.party {
+  background: linear-gradient(135deg, #78350f, #d97706);
+  color: white;
+}
+
+.theme-option.modern {
+  background: linear-gradient(135deg, #0f172a, #334155);
+  color: var(--nbi-cyan);
+}
+
+/* Área de Previsualización Card */
+.preview-sticky-container {
+  position: sticky;
+  top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Contenedor Invitación en Pantalla */
+.invitation-card-preview {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-color: var(--nbi-dark-blue);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.2rem;
+  color: white;
+  transition: var(--transition-smooth);
+}
+
+/* Temas dinámicos visuales (CSS de preview) */
+.invitation-card-preview.theme-stars {
+  background: linear-gradient(135deg, #081121 0%, #1e293b 100%);
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 150px 70px, #f59e0b, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 80px 220px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 300px 140px, #f59e0b, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 250px 380px, #fff, rgba(0,0,0,0));
+}
+
+.invitation-card-preview.theme-nature {
+  background: linear-gradient(135deg, #022c22 0%, #065f46 100%);
+}
+
+.invitation-card-preview.theme-party {
+  background: linear-gradient(135deg, #451a03 0%, #9a3412 100%);
+}
+
+.invitation-card-preview.theme-modern {
+  background: linear-gradient(135deg, #0b1329 0%, #172554 100%);
+  border: 4px solid var(--nbi-cyan);
+}
+
+/* Elementos de la tarjeta */
+.card-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-logo-placeholder {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  color: var(--nbi-cyan);
+  text-transform: uppercase;
+}
+
+.theme-stars .card-logo-placeholder { color: #f59e0b; }
+.theme-nature .card-logo-placeholder { color: #34d399; }
+.theme-party .card-logo-placeholder { color: #fde047; }
+
+.card-tag {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.7rem;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.card-body-center {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.card-title {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+  line-height: 1;
+}
+
+.card-parasha-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--nbi-cyan);
+  background: rgba(56, 189, 248, 0.1);
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 1.2rem;
+}
+
+.theme-stars .card-parasha-title { color: #f59e0b; background: rgba(245,158,11,0.1); }
+.theme-nature .card-parasha-title { color: #34d399; background: rgba(52,211,153,0.1); }
+.theme-party .card-parasha-title { color: #fde047; background: rgba(253,224,71,0.1); }
+
+.card-description {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.4;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.card-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1rem;
+  font-size: 0.85rem;
+}
+
+.card-info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.card-info-row span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.card-info-row i {
+  color: var(--nbi-cyan);
+}
+.theme-stars .card-info-row i { color: var(--nbi-gold); }
+.theme-nature .card-info-row i { color: #34d399; }
+.theme-party .card-info-row i { color: #fde047; }
+
+/* Plantilla de Email Copiable */
+.email-copy-box {
+  background: rgba(5, 11, 20, 0.4);
+  border: 1px dashed var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  color: #cbd5e1;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+/* Canvas invisible para exportación */
+#invitation-canvas {
+  display: none;
+}
+
+/* ==========================================================================
+   VISTA: KIT DE JUEGOS Y ACTIVIDADES
+   ========================================================================== */
+.games-tab-navigation {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-glass);
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.game-tab-btn {
+  background: transparent;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  color: var(--text-secondary);
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: var(--transition-smooth);
+}
+
+.game-tab-btn i {
+  font-size: 1.1rem;
+}
+
+.game-tab-btn:hover {
+  color: white;
+  background: rgba(255,255,255,0.03);
+}
+
+.game-tab-btn.active {
+  color: var(--nbi-cyan);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.game-view {
+  display: none;
+}
+
+.game-view.active {
+  display: block;
+}
+
+/* 1. SOPA DE LETRAS */
+.wordsearch-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.grid-outer-container {
+  display: flex;
+  justify-content: center;
+}
+
+.wordsearch-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 42px);
+  grid-template-rows: repeat(10, 42px);
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.45);
+  padding: 14px;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border-glass);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(56, 189, 248, 0.05);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.grid-cell {
+  background: rgba(30, 41, 59, 0.4);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #f8fafc;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.01);
+}
+
+.grid-cell:hover {
+  background: rgba(56, 189, 248, 0.18);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+}
+
+.grid-cell.selected {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.45), rgba(30, 58, 138, 0.4));
+  border-color: var(--nbi-cyan);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.6), inset 0 0 8px rgba(255, 255, 255, 0.2);
+  transform: scale(1.08);
+}
+
+@keyframes cell-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.22); }
+  100% { transform: scale(1); }
+}
+
+.grid-cell.found {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.4), rgba(5, 150, 105, 0.2));
+  border-color: #10b981;
+  color: #34d399;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.45);
+  animation: cell-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.words-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.words-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  list-style: none;
+}
+
+.word-tag {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.55rem 1.1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: var(--transition-smooth);
+}
+
+.word-tag:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.15);
+  color: white;
+}
+
+.word-tag.found {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  text-decoration: line-through;
+  box-shadow: inset 0 0 10px rgba(16, 185, 129, 0.05);
+}
+
+/* 2. TRIVIA */
+.trivia-container {
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.trivia-progress-bar {
+  height: 8px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50px;
+  margin-bottom: 1.8rem;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.trivia-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--nbi-cyan), #2563eb);
+  width: 0%;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+  transition: var(--transition-smooth);
+}
+
+.trivia-question {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 1.8rem;
+  line-height: 1.35;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.trivia-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.option-btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-left: 4px solid rgba(56, 189, 248, 0.3);
+  padding: 1.15rem 1.6rem;
+  border-radius: var(--radius-md);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+.option-btn:hover {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.15);
+  border-left-color: var(--nbi-cyan);
+  transform: translateX(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(56, 189, 248, 0.1);
+}
+
+.option-btn.correct {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(5, 150, 105, 0.1));
+  border-color: #10b981;
+  border-left-color: #10b981;
+  color: #34d399;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+  transform: translateX(4px);
+}
+
+.option-btn.incorrect {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(185, 28, 28, 0.1));
+  border-color: #ef4444;
+  border-left-color: #ef4444;
+  color: #fca5a5;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+  transform: translateX(4px);
+}
+
+.score-screen {
+  text-align: center;
+  animation: scaleIn 0.4s ease-out;
+}
+
+.score-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.4), rgba(56, 189, 248, 0.2));
+  border: 4px solid var(--nbi-cyan);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.4), inset 0 0 15px rgba(255,255,255,0.1);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.score-num {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 0.85rem;
+  color: var(--nbi-cyan);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* 3. LIENZO PARA COLOREAR Y DIBUJAR */
+.canvas-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.canvas-controls-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.control-block h4 {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.5px;
+}
+
+.colors-palette-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.color-palette-item {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-sm);
+}
+
+.color-palette-item:hover {
+  transform: scale(1.15);
+}
+
+.color-palette-item.active {
+  border-color: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(255,255,255,0.8);
+}
+
+.brush-sizes {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.brush-size-btn {
+  background: rgba(255,255,255,0.05);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: var(--transition-smooth);
+}
+
+.brush-size-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.brush-size-btn.active {
+  background: var(--nbi-cyan);
+}
+
+.templates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.template-card-btn {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 0.75rem 0.95rem;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-align: left;
+  transition: var(--transition-smooth);
+}
+
+.template-card-btn:hover {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+.template-card-btn.active {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: var(--nbi-cyan);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
+}
+
+.template-thumb {
+  width: 32px;
+  height: 32px;
+  background: white;
+  border-radius: 6px;
+  padding: 2px;
+  object-fit: contain;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.drawing-board-wrapper {
+  background: #f8fafc;
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  border: 6px solid #e2e8f0;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.45), inset 0 0 20px rgba(0,0,0,0.05);
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+#paint-canvas {
+  width: 100%;
+  height: 100%;
+  background: white;
+  cursor: crosshair;
+  border-radius: 12px;
+}
+
+/* ==========================================================================
+   VISTA: EL RINCON DE LAS BRAJOT
+   ========================================================================== */
+.brajot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.braja-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.braja-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.braja-badge {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--nbi-cyan);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.braja-hebrew-title {
+  font-size: 1.5rem;
+  color: var(--nbi-gold);
+  font-weight: bold;
+}
+
+.braja-spanish-title {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.8rem;
+}
+
+.braja-phonetics {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  margin-bottom: 0.8rem;
+}
+
+.braja-hebrew-text {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  text-align: right;
+  direction: rtl;
+  margin-bottom: 0.8rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.braja-translation {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.braja-checkbox {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  user-select: none;
+}
+
+.braja-checkbox input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--nbi-cyan);
+}
+
+/* ==========================================================================
+   DISEÑO RESPONSIVO (MOBILE FIRST & MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .invitation-creator-layout {
+    grid-template-columns: 1fr;
+  }
+  .wordsearch-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .canvas-layout {
+    grid-template-columns: 1fr;
+  }
+  .brajot-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px; /* Oculto a la izquierda por defecto */
+    width: 280px;
+    height: 100vh;
+    z-index: 500;
+    border-right: 1px solid var(--border-glass);
+    border-bottom: none;
+    padding: 2rem 1.5rem;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    background: rgba(11, 26, 48, 0.95); /* Más opaco en móvil */
+  }
+  
+  .sidebar.open {
+    left: 0; /* Deslizar hacia adentro */
+  }
+  
+  /* Overlay oscuro detrás del menú */
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 11, 20, 0.75);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 450;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .sidebar-overlay.visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .logo-container {
+    margin-bottom: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .logo-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .logo-icon i {
+    font-size: 1.8rem;
+  }
+  
+  .logo-text h1 {
+    font-size: 1.5rem;
+  }
+  
+  .logo-text span {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+  
+  .nav-menu {
+    flex-direction: column !important;
+    overflow-x: visible !important;
+    gap: 0.2rem !important;
+    padding-bottom: 0 !important;
+  }
+  
+  .nav-item button {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.88rem;
+    white-space: normal;
+  }
+  
+  .nav-item button i {
+    font-size: 1rem;
+  }
+  
+  .nav-item.active button {
+    border-left: 3px solid var(--nbi-cyan);
+    border-bottom: none !important;
+  }
+  
+  .nav-section-title {
+    display: block !important; /* Mostrar títulos de categorías */
+    font-size: 0.75rem;
+    color: var(--nbi-cyan);
+    margin-top: 0.6rem;
+    margin-bottom: 0.2rem;
+    opacity: 0.8;
+  }
+  
+  .sidebar-footer {
+    display: none;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    padding: 1.5rem 1rem;
+    width: 100%;
+  }
+  
+  .hero-banner {
+    height: 200px;
+  }
+  
+  .hero-overlay h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Mobile hamburger toggle */
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--nbi-royal-blue), var(--nbi-cyan));
+  border: 2px solid var(--nbi-cyan);
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 200;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+  transition: var(--transition-smooth);
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu-toggle:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+}
+
+/* Active parasha badge animation */
+.active-parasha-card .badge-hebrew {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Staggered activity card animations */
+#section-actividades .glass-card .glass-card:nth-child(1) {
+  animation: slideInRight 0.5s ease-out forwards;
+}
+#section-actividades .glass-card .glass-card:nth-child(2) {
+  animation: slideInRight 0.5s ease-out 0.15s forwards;
+}
+#section-actividades .glass-card .glass-card:nth-child(3) {
+  animation: slideInRight 0.5s ease-out 0.3s forwards;
+}
+
+/* Toast notification */
+.toast-notification {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.95), rgba(5, 150, 105, 0.95));
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.toast-notification.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Skeleton loading animation */
+.skeleton-loading {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: var(--radius-sm);
+  color: transparent !important;
+}
+
+/* ==========================================================================
+   VISTA: ESTACIÓN MÚSICA K-POP
+   ========================================================================== */
+@keyframes rotate-vinyl {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.vinyl-disc.playing {
+  animation: rotate-vinyl 8s linear infinite;
+}
+
+.lyric-line {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.5;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-sm);
+  line-height: 1.4;
+  border: 1px solid transparent;
+}
+
+.lyric-line.active {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+.lyric-line.chorus {
+  color: #fef3c7; /* Oro suave */
+}
+
+.lyric-line.chorus.active {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(245, 158, 11, 0.7);
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+@keyframes pulse-v-bar {
+  0%, 100% { height: 4px; }
+  50% { height: 28px; }
+}
+
+.v-bar.active {
+  animation: pulse-v-bar 1.2s ease-in-out infinite alternate;
+}
+
+.v-bar.active:nth-child(2n) { animation-delay: 0.15s; animation-duration: 0.8s; }
+.v-bar.active:nth-child(3n) { animation-delay: 0.35s; animation-duration: 1.3s; }
+.v-bar.active:nth-child(4n) { animation-delay: 0.08s; animation-duration: 1.0s; }
+.v-bar.active:nth-child(5n) { animation-delay: 0.5s; animation-duration: 0.7s; }
+
+.track-select-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: var(--transition-smooth);
+}
+
+.track-select-card:hover {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.3);
+  transform: translateY(-2px);
+}
+
+.track-select-card.active {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: var(--nbi-cyan);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+.track-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--border-glass);
+  background: #050b14;
+  overflow: hidden;
+}
+
+.track-info-mini {
+  display: flex;
+  flex-direction: column;
+}
+
+.track-title-mini {
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.1rem;
+}
+
+.track-parasha-mini {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Custom Toggle Switch for Vocal Guide */
+.switch-container input:checked + .slider-round {
+  background-color: var(--nbi-cyan);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+.slider-round::before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+.switch-container input:checked + .slider-round::before {
+  transform: translateX(20px);
+}
+
+@media (max-width: 1024px) {
+  .musica-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ==========================================================================
+   GAMIFICACIÓN: SHABAT QUEST (XP BAR, BADGES, PROGRESS)
+   ========================================================================== */
+.xp-bar-container {
+  position: fixed;
+  top: 0;
+  left: 280px;
+  right: 0;
+  height: 4px;
+  background: rgba(5, 11, 20, 0.8);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--nbi-cyan), var(--nbi-gold), #10b981);
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 0 4px 4px 0;
+}
+
+.xp-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--nbi-gold);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.xp-display:hover {
+  background: rgba(245, 158, 11, 0.15);
+  transform: scale(1.05);
+}
+
+.xp-display i {
+  font-size: 0.85rem;
+}
+
+.badges-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 11, 20, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.badges-modal-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.badges-modal {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 58, 138, 0.6));
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), var(--shadow-glow);
+  transform: scale(0.9);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.badges-modal-overlay.visible .badges-modal {
+  transform: scale(1);
+}
+
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.badge-item {
+  text-align: center;
+  padding: 1.2rem 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  transition: var(--transition-smooth);
+  opacity: 0.4;
+  filter: grayscale(1);
+}
+
+.badge-item.unlocked {
+  opacity: 1;
+  filter: none;
+  background: rgba(245, 158, 11, 0.06);
+  border-color: rgba(245, 158, 11, 0.3);
+  animation: scaleIn 0.5s ease-out;
+}
+
+.badge-item .badge-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.badge-item .badge-name {
+  font-family: var(--font-title);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: white;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.badge-item .badge-desc {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+/* Level Up Animation */
+.level-up-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 11, 20, 0.7);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.level-up-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.level-up-text {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--nbi-gold);
+  text-shadow: 0 0 40px rgba(245, 158, 11, 0.6), 0 0 80px rgba(245, 158, 11, 0.3);
+  animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ==========================================================================
+   CUENTO INTERACTIVO (STORYBOOK)
+   ========================================================================== */
+.storybook-container {
+  position: relative;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 58, 138, 0.3));
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.storybook-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--border-glass), transparent);
+  opacity: 0.3;
+}
+
+.story-page {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  min-height: 320px;
+}
+
+.story-illustration {
+  flex: 0 0 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  background: rgba(56, 189, 248, 0.04);
+  border: 1px dashed var(--border-glass);
+  border-radius: var(--radius-lg);
+  animation: float 5s ease-in-out infinite;
+}
+
+.story-text-area {
+  flex: 1;
+}
+
+.story-text-area h3 {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: var(--nbi-gold);
+  margin-bottom: 1rem;
+}
+
+.story-text-area p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #e2e8f0;
+}
+
+.story-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-glass);
+}
+
+.story-dots {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.story-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--border-glass);
+  transition: var(--transition-smooth);
+}
+
+.story-dot.active {
+  background: var(--nbi-gold);
+  border-color: var(--nbi-gold);
+  transform: scale(1.3);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+}
+
+.story-page-transition {
+  animation: fadeSlideIn 0.5s ease-out;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ==========================================================================
+   ALEF-BET FLASHCARDS
+   ========================================================================== */
+.flashcards-section {
+  perspective: 1000px;
+}
+
+.flashcard-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 320px;
+  margin-bottom: 2rem;
+}
+
+.flashcard {
+  width: 260px;
+  height: 340px;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border: 2px solid var(--border-glass);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.flashcard-front {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.8), rgba(15, 23, 42, 0.9));
+}
+
+.flashcard-front .hebrew-letter {
+  font-size: 7rem;
+  font-weight: 800;
+  color: var(--nbi-gold);
+  text-shadow: 0 0 30px rgba(245, 158, 11, 0.4);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.flashcard-front .letter-name {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  color: white;
+  font-weight: 700;
+}
+
+.flashcard-front .letter-sound {
+  font-size: 0.9rem;
+  color: var(--nbi-cyan);
+  margin-top: 0.3rem;
+  font-weight: 600;
+}
+
+.flashcard-back {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(15, 23, 42, 0.95));
+  transform: rotateY(180deg);
+}
+
+.flashcard-back .word-hebrew {
+  font-size: 3.5rem;
+  color: var(--nbi-gold);
+  margin-bottom: 0.5rem;
+  direction: rtl;
+}
+
+.flashcard-back .word-meaning {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.flashcard-back .tap-hint {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+}
+
+.flashcard-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+
+.flashcard-counter {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  min-width: 80px;
+  text-align: center;
+}
+
+.flashcard-btn {
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid var(--border-glass);
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.flashcard-btn:hover {
+  background: rgba(56, 189, 248, 0.2);
+  transform: scale(1.1);
+}
+
+.flashcard-btn-speak {
+  background: linear-gradient(135deg, var(--nbi-gold), #d97706);
+  border: none;
+  color: white;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  transition: var(--transition-smooth);
+}
+
+.flashcard-btn-speak:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+}
+
+/* ==========================================================================
+   CONFETTI Y CELEBRACIONES
+   ========================================================================== */
+#confetti-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 700;
+}
+
+.celebration-text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-family: var(--font-title);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--nbi-gold);
+  text-shadow: 0 0 40px rgba(245, 158, 11, 0.6), 0 4px 8px rgba(0, 0, 0, 0.5);
+  z-index: 710;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+}
+
+.celebration-text.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ==========================================================================
+   MODO TV (PANTALLA COMPLETA PARA SINAGOGA)
+   ========================================================================== */
+.btn-tv-mode {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-glass);
+  color: var(--text-secondary);
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.btn-tv-mode:hover {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--nbi-cyan);
+  transform: scale(1.1);
+}
+
+body.tv-mode .sidebar {
+  display: none !important;
+}
+
+body.tv-mode .main-content {
+  margin-left: 0 !important;
+  padding: 2rem 3rem;
+}
+
+body.tv-mode .xp-bar-container {
+  left: 0;
+}
+
+body.tv-mode .section-header h2 {
+  font-size: 3rem;
+}
+
+body.tv-mode .section-header p {
+  font-size: 1.3rem;
+}
+
+body.tv-mode .glass-card {
+  font-size: 1.1rem;
+}
+
+body.tv-mode .wordsearch-grid .cell {
+  font-size: 1.6rem;
+  width: 52px;
+  height: 52px;
+}
+
+body.tv-mode .trivia-option {
+  font-size: 1.2rem;
+  padding: 1.2rem;
+}
+
+body.tv-mode .lyric-line {
+  font-size: 1.5rem !important;
+}
+
+body.tv-mode .lyric-line.active {
+  font-size: 2rem !important;
+}
+
+body.tv-mode .btn-tv-mode {
+  background: rgba(239, 68, 68, 0.8);
+  color: white;
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+body.tv-mode .mobile-menu-toggle {
+  display: none !important;
+}
+
+/* ==========================================================================
+   DASHBOARD DE ASISTENCIA
+   ========================================================================== */
+.attendance-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+}
+
+.attendance-form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.attendance-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.attendance-counter .counter-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.1);
+  border: 2px solid var(--nbi-cyan);
+  color: var(--nbi-cyan);
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attendance-counter .counter-btn:hover {
+  background: rgba(56, 189, 248, 0.25);
+  transform: scale(1.1);
+}
+
+.attendance-counter .counter-value {
+  font-family: var(--font-title);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--nbi-gold);
+  min-width: 80px;
+  text-align: center;
+  text-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+}
+
+.attendance-chart-container {
+  background: rgba(5, 11, 20, 0.4);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.attendance-chart-container canvas {
+  width: 100% !important;
+  height: 250px !important;
+}
+
+.attendance-history-list {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.attendance-history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+}
+
+.attendance-history-item .att-date {
+  color: var(--text-secondary);
+}
+
+.attendance-history-item .att-count {
+  font-weight: 700;
+  color: var(--nbi-cyan);
+}
+
+.attendance-history-item .att-notes {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Responsive for new sections */
+@media (max-width: 768px) {
+  .xp-bar-container {
+    left: 0;
+  }
+  
+  .story-page {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .story-illustration {
+    flex: 0 0 auto;
+    width: 120px;
+    height: 120px;
+    font-size: 3.5rem;
+  }
+  
+  .flashcard {
+    width: 220px;
+    height: 290px;
+  }
+  
+  .flashcard-front .hebrew-letter {
+    font-size: 5rem;
+  }
+  
+  .badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .attendance-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .storybook-container {
+    padding: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   MEJORA NAV CATEGORIZADO DE LA BARRA LATERAL
+   ========================================================================== */
+.nav-section-title {
+  font-family: var(--font-title);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--nbi-cyan);
+  padding: 0.8rem 1.2rem 0.3rem;
+  letter-spacing: 1.2px;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.08);
+  margin-top: 0.4rem;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.sidebar-nav .nav-menu {
+  margin-bottom: 0.6rem;
+  gap: 0.15rem;
+}
+
+.sidebar-nav .nav-item button {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.88rem;
+}
+
+/* ==========================================================================
+   MÓDULO: EL ÁRBOL DE LAS MITZVOT
+   ========================================================================== */
+#mitzvot-tree-canvas {
+  background: radial-gradient(circle, rgba(15, 23, 42, 0.6) 0%, rgba(5, 11, 20, 0.8) 100%);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+
+.mitzvah-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  transition: var(--transition-smooth);
+}
+
+.mitzvah-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(56, 189, 248, 0.15);
+}
+
+.mitzvah-item .m-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.mitzvah-item .m-content {
+  flex-grow: 1;
+}
+
+.mitzvah-item .m-desc {
+  color: #e2e8f0;
+  line-height: 1.4;
+}
+
+.mitzvah-item .m-meta {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  margin-top: 0.3rem;
+  text-transform: uppercase;
+}
+
+/* Colores de Categorías de Mitzvot */
+.mitzvah-item.cat-familia { border-left: 3px solid #10b981; }
+.mitzvah-item.cat-comunidad { border-left: 3px solid var(--nbi-cyan); }
+.mitzvah-item.cat-naturaleza { border-left: 3px solid #ec4899; }
+.mitzvah-item.cat-general { border-left: 3px solid var(--nbi-gold); }
+
+/* ==========================================================================
+   MÓDULO: COFRE DE PREGUNTAS DE SHABAT
+   ========================================================================== */
+#cofre-badge {
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+}
+
+/* ==========================================================================
+   MÓDULO: TZEDAKÓMETRO
+   ========================================================================== */
+.coin-btn {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid #f59e0b;
+  background: linear-gradient(135deg, #fbbf24, #d97706);
+  color: #0b1a30;
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3), inset 0 2px 4px rgba(255,255,255,0.4);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coin-btn:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.5), inset 0 2px 4px rgba(255,255,255,0.5);
+  border-color: #fbbf24;
+}
+
+.coin-btn:active {
+  transform: scale(0.95);
+}
+
+.coin-1 { transform: rotate(-5deg); }
+.coin-2 { transform: rotate(5deg); }
+.coin-5 { transform: rotate(-3deg); }
+.coin-10 { transform: rotate(8deg); }
+
+#tzedaka-canvas {
+  background: radial-gradient(circle, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.7) 100%);
+  display: block;
+}
+
+/* ==========================================================================
+   MÓDULO: JUEGO DE MEMORIA
+   ========================================================================== */
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.9rem;
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 4 / 3;
+}
+
+.memory-card {
+  perspective: 1000px;
+  cursor: pointer;
+  aspect-ratio: 1;
+}
+
+.memory-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+.memory-card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.3s ease;
+}
+
+.memory-card-front {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 58, 138, 0.6));
+  color: var(--nbi-cyan);
+  font-size: 2rem;
+}
+
+.memory-card:hover .memory-card-front {
+  border-color: var(--nbi-cyan);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 58, 138, 0.8));
+}
+
+.memory-card-back {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.85), rgba(15, 23, 42, 0.95));
+  color: var(--nbi-gold);
+  font-size: 2.5rem;
+  transform: rotateY(180deg);
+}
+
+.memory-card.matched .memory-card-back {
+  border-color: rgba(16, 185, 129, 0.5);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(15, 23, 42, 0.95));
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+
+/* ==========================================================================
+   MÓDULO: LA COCINA DE SHABAT
+   ========================================================================== */
+#challah-canvas {
+  background: radial-gradient(circle, rgba(15, 23, 42, 0.6) 0%, rgba(5, 11, 20, 0.8) 100%);
+  border-radius: var(--radius-sm);
+}
+
+@keyframes ovenGlow {
+  0%, 100% { box-shadow: inset 0 0 30px rgba(239, 68, 68, 0.4), 0 0 20px rgba(239, 68, 68, 0.2); }
+  50% { box-shadow: inset 0 0 60px rgba(239, 68, 68, 0.8), 0 0 40px rgba(245, 158, 11, 0.5); }
+}
+
+#oven-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(239, 68, 68, 0.2);
+  backdrop-filter: blur(4px);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: var(--radius-md);
+  animation: ovenGlow 2s ease-in-out infinite;
+}
+
+#oven-timer {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Receta Modal Styles */
+#recipe-modal-body h4 {
+  font-family: var(--font-title);
+  color: var(--nbi-cyan);
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+#recipe-modal-body ul, #recipe-modal-body ol {
+  margin-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#recipe-modal-body li {
+  margin-bottom: 0.4rem;
+}
+
+@media (max-width: 768px) {
+  /* En móviles, permitimos scroll horizontal para las secciones del menú agrupado */
+  .sidebar-nav {
+    gap: 0;
+  }
+  .nav-section-title {
+    display: none; /* Ocultamos los títulos de categorías en móvil para ahorrar espacio */
+  }
+  .sidebar-nav .nav-menu {
+    margin-bottom: 0.2rem;
+    padding-bottom: 0;
+  }
+  .memory-grid {
+    max-width: 320px;
+    gap: 0.6rem;
+  }
+}
+
+/* ==========================================================================
+   RUEDA DE LAS FESTIVIDADES (HAGIM WHEEL)
+   ========================================================================== */
+#wheel-canvas {
+  background: rgba(5, 11, 20, 0.4);
+  border: 4px solid var(--border-glass);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), var(--shadow-glow);
+  transition: transform 0.5s ease-out;
+}
+
+#btn-spin-wheel {
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  transition: var(--transition-smooth);
+}
+
+#btn-spin-wheel:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+}
+
+/* ==========================================================================
+   CONEXIÓN ISRAEL & CALENDARIO SIONISTA
+   ========================================================================== */
+.zionist-timeline-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.zionist-timeline-item:hover {
+  background: rgba(56, 189, 248, 0.05);
+  border-color: rgba(56, 189, 248, 0.3);
+  transform: translateX(4px);
+}
+
+.zionist-timeline-item.active {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: var(--nbi-cyan);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+}
+
+.zionist-timeline-item.read {
+  opacity: 0.75;
+}
+
+.zionist-timeline-item.read .zionist-marker {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  border-color: #10b981 !important;
+}
+
+.zionist-marker {
+  flex: 0 0 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--nbi-royal-blue), var(--nbi-cyan));
+  border: 2px solid var(--nbi-cyan);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: var(--transition-smooth);
+}
+
+.zionist-timeline-content {
+  flex: 1;
+}
+
+.zionist-timeline-content h4 {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  color: white;
+  margin: 0 0 0.2rem 0;
+  font-weight: 700;
+}
+
+.zionist-timeline-content span {
+  font-size: 0.8rem;
+  color: var(--nbi-cyan);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   PASAPORTE DE SHABAT
+   ========================================================================== */
+.passport-container {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+.passport-book {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  max-width: 900px;
+  background: linear-gradient(135deg, #131c31, #0f1626);
+  border: 2px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), var(--shadow-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+.passport-book::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+
+.passport-page {
+  padding: 2.5rem;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at center, rgba(15, 23, 42, 0.4), rgba(5, 11, 20, 0.2));
+}
+
+.page-left {
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.passport-stamps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+  flex: 1;
+}
+
+.passport-stamp-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  transition: var(--transition-smooth);
+  opacity: 0.3;
+  filter: grayscale(100%);
+  position: relative;
+  text-align: center;
+}
+
+.passport-stamp-slot .stamp-graphic {
+  font-size: 2.2rem;
+  margin-bottom: 0.3rem;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.passport-stamp-slot .stamp-label {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.passport-stamp-slot.unlocked {
+  opacity: 1;
+  filter: none;
+  background: rgba(245, 158, 11, 0.04);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  box-shadow: inset 0 0 15px rgba(245, 158, 11, 0.05);
+  animation: stampPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.passport-stamp-slot.unlocked .stamp-graphic {
+  transform: scale(1.15) rotate(-5deg);
+  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.5));
+}
+
+.passport-stamp-slot.unlocked .stamp-label {
+  color: var(--nbi-gold);
+}
+
+@keyframes stampPop {
+  0% { transform: scale(3); opacity: 0; filter: blur(5px); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; filter: none; }
+}
+
+/* ==========================================================================
+   TALLER DE MANUALIDADES & PAPIROFLEXIA
+   ========================================================================== */
+.craft-select-btn {
+  transition: var(--transition-smooth);
+}
+
+.craft-select-btn.active {
+  background: rgba(56, 189, 248, 0.12) !important;
+  border-color: var(--nbi-cyan) !important;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+}
+
+#craft-step-illustration {
+  border-color: rgba(56, 189, 248, 0.2);
+  transition: var(--transition-smooth);
+}
+
+/* ==========================================================================
+   JARDÍN DE PAZ (SOUNDSCAPE BUILDER)
+   ========================================================================== */
+.jardin-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: rgba(5, 11, 20, 0.6);
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid var(--border-glass);
+}
+
+.jardin-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--nbi-cyan), var(--nbi-royal-blue));
+  border: 2px solid white;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+  transition: transform 0.1s ease;
+}
+
+.jardin-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+}
+
+/* ==========================================================================
+   HAVDALÁ SENSORIAL
+   ========================================================================== */
+#havdala-canvas {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), var(--shadow-glow);
+}
+
+/* ==========================================================================
+   ESTILOS DE IMPRESIÓN EXCLUSIVOS (@media print)
+   ========================================================================== */
+@media print {
+  /* Ocultar elementos innecesarios para la hoja */
+  body, html {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  
+  .sidebar,
+  .section-header p,
+  .games-tab-navigation,
+  .canvas-controls-sidebar,
+  .btn-primary,
+  .btn-gold,
+  .btn-outline,
+  .search-date-container,
+  .trivia-progress-bar,
+  .sidebar-footer,
+  .form-group,
+  .email-copy-box,
+  .dashboard-grid > div:last-child,
+  .activity-illustration-glow-box,
+  #section-musica {
+    display: none !important;
+  }
+  
+  .main-content {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .activities-hero-layout {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 1cm !important;
+  }
+  
+  .glass-card {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    margin-bottom: 0 !important;
+  }
+  
+  /* Formato Sopa de Letras para Imprimir */
+  .wordsearch-layout {
+    display: block !important;
+    width: 100% !important;
+  }
+  
+  .wordsearch-grid {
+    background: white !important;
+    border: 2px solid black !important;
+    grid-template-columns: repeat(10, 1.2cm) !important;
+    grid-template-rows: repeat(10, 1.2cm) !important;
+    gap: 2px !important;
+    margin: 1.5cm auto !important;
+    width: fit-content !important;
+  }
+  
+  .grid-cell {
+    background: white !important;
+    border: 1px solid #7f7f7f !important;
+    color: black !important;
+    font-size: 14pt !important;
+    height: 1.2cm !important;
+    width: 1.2cm !important;
+  }
+  
+  .grid-cell.found {
+    background: #e2e8f0 !important;
+    border: 1.5px solid black !important;
+  }
+  
+  .words-panel h3 {
+    text-align: center !important;
+    font-size: 16pt !important;
+    margin-bottom: 0.5cm !important;
+    color: black !important;
+  }
+  
+  .words-list {
+    justify-content: center !important;
+    gap: 0.5cm !important;
+  }
+  
+  .word-tag {
+    background: white !important;
+    border: 1px solid black !important;
+    color: black !important;
+    font-size: 11pt !important;
+    padding: 0.2cm 0.5cm !important;
+  }
+  
+  /* Formato Trivia para Imprimir */
+  .trivia-container {
+    display: block !important;
+    max-width: 100% !important;
+  }
+  
+  .trivia-question {
+    color: black !important;
+    font-size: 14pt !important;
+    margin-top: 1cm !important;
+    margin-bottom: 0.5cm !important;
+    page-break-inside: avoid;
+  }
+  
+  .option-btn {
+    background: white !important;
+    border: 1px solid black !important;
+    color: black !important;
+    padding: 0.3cm 0.5cm !important;
+    margin-bottom: 0.2cm !important;
+    display: block !important;
+    font-size: 11pt !important;
+  }
+  
+  /* Dibujo para Colorear Impreso */
+  .drawing-board-wrapper {
+    border: 2px solid black !important;
+    box-shadow: none !important;
+    background: white !important;
+    width: 19cm !important;
+    height: 14cm !important;
+    margin: 1cm auto !important;
+    padding: 0 !important;
+    page-break-inside: avoid;
+  }
+  
+  #paint-canvas {
+    border: none !important;
+    background: white !important;
+  }
+  
+  /* Imprimir las Brajot como fichas de estudio */
+  .brajot-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5cm !important;
+  }
+  
+  .braja-card {
+    border: 1px dashed black !important;
+    padding: 1.5cm !important;
+    background: white !important;
+    page-break-inside: avoid;
+  }
+  
+  .braja-hebrew-title,
+  .braja-hebrew-text {
+    color: black !important;
+    font-size: 22pt !important;
+  }
+  
+  .braja-spanish-title {
+    color: black !important;
+    font-size: 16pt !important;
+  }
+  
+  .braja-phonetics {
+    background: white !important;
+    border: none !important;
+    border-left: 3px solid black !important;
+    color: black !important;
+  }
+  
+  .braja-translation {
+    color: #333333 !important;
+    font-size: 10pt !important;
+  }
+  
+  .braja-checkbox {
+    display: none !important;
+  }
+
+  /* Ocultar secciones extras al imprimir pasaporte */
+  body.printing-passport .sidebar,
+  body.printing-passport .no-print,
+  body.printing-passport .xp-bar-container,
+  body.printing-passport .btn-tv-mode,
+  body.printing-passport .app-section:not(#section-pasaporte) {
+    display: none !important;
+  }
+
+  body.printing-passport .main-content {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+
+  body.printing-passport #section-pasaporte {
+    display: block !important;
+  }
+
+  body.printing-passport .passport-container {
+    padding: 0 !important;
+  }
+
+  body.printing-passport .passport-book {
+    border: 3px double #000 !important;
+    border-radius: 0 !important;
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    page-break-inside: avoid;
+  }
+
+  body.printing-passport .passport-book::after {
+    background: #ccc !important;
+    width: 2px !important;
+  }
+
+  body.printing-passport .passport-page {
+    background: white !important;
+    color: black !important;
+    padding: 1.5cm !important;
+    border: none !important;
+  }
+
+  body.printing-passport .passport-stamp-slot {
+    border: 1px dashed #666 !important;
+    background: transparent !important;
+    opacity: 0.8 !important;
+    filter: none !important;
+  }
+
+  body.printing-passport .passport-stamp-slot.unlocked {
+    border: 2px solid #000 !important;
+    background: #f3f4f6 !important;
+  }
+
+  body.printing-passport .stamp-label {
+    color: black !important;
+  }
+}

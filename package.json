@@ -1,0 +1,9 @@
+{
+  "name": "shabateinu-nbi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portal interactivo del Shabat Infantil - Comunidad Israelita Nueva Bnei Israel",
+  "dependencies": {
+    "@netlify/database": "^1.0.0"
+  }
+}

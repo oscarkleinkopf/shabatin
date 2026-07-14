@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shabateinu NBI - Gestión e Interactividad del Shabat Infantil</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Aplicación web interactiva para la gestión y recursos del Shabat Infantil (Shabateinu) de la Comunidad Israelita Nueva Bnei Israel (NBI) en Santiago de Chile.">
+  <meta name="author" content="Comunidad NBI Santiago">
+  <meta name="theme-color" content="#0b1a30">
+  
+  <!-- Open Graph (WhatsApp / Redes Sociales) -->
+  <meta property="og:title" content="Shabateinu NBI - Shabat Infantil 🕯️">
+  <meta property="og:description" content="¡Únete al Shabat Infantil más divertido de Santiago! Juegos, títeres, canciones y mucho más en la Comunidad NBI.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CL">
+  
+  <!-- Preconnect para carga rápida de fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Estilos y Tipografía -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Favicon Simbólico (Estrella de David) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⭐</text></svg>">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- ==========================================================================
+         BARRA LATERAL - SIDEBAR (NAVEGACIÓN)
+         ========================================================================== -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <div class="logo-icon">
+          <i class="fa-solid fa-star-of-david"></i>
+        </div>
+        <div class="logo-text">
+          <h1>Shabateinu</h1>
+          <span>NBI Santiago</span>
+        </div>
+        <div class="xp-display" id="xp-display" title="Tus estrellas de Shabat Quest">
+          <i class="fa-solid fa-star"></i>
+          <span id="xp-points-text">0 ⭐</span>
+        </div>
+      </div>
+      
+      <nav class="sidebar-nav" aria-label="Navegación principal">
+        <div class="nav-section-title"><i class="fa-solid fa-star"></i> Principal</div>
+        <ul class="nav-menu">
+          <li class="nav-item active" data-tab="inicio">
+            <button id="btn-nav-inicio"><i class="fa-solid fa-house"></i> Inicio</button>
+          </li>
+          <li class="nav-item" data-tab="invitaciones">
+            <button id="btn-nav-invitaciones"><i class="fa-solid fa-paper-plane"></i> Invitaciones</button>
+          </li>
+          <li class="nav-item" data-tab="actividades">
+            <button id="btn-nav-actividades"><i class="fa-solid fa-masks-theater"></i> Actividades</button>
+          </li>
+          <li class="nav-item" data-tab="asistencia">
+            <button id="btn-nav-asistencia"><i class="fa-solid fa-chart-bar"></i> Asistencia</button>
+          </li>
+          <li class="nav-item" data-tab="pasaporte">
+            <button id="btn-nav-pasaporte"><i class="fa-solid fa-passport"></i> Pasaporte</button>
+          </li>
+        </ul>
+
+        <div class="nav-section-title"><i class="fa-solid fa-book"></i> Aprendizaje</div>
+        <ul class="nav-menu">
+          <li class="nav-item" data-tab="cuento">
+            <button id="btn-nav-cuento"><i class="fa-solid fa-book-open"></i> Cuento</button>
+          </li>
+          <li class="nav-item" data-tab="alefbet">
+            <button id="btn-nav-alefbet"><i class="fa-solid fa-language"></i> Alef-Bet</button>
+          </li>
+          <li class="nav-item" data-tab="brajot">
+            <button id="btn-nav-brajot"><i class="fa-solid fa-hands-praying"></i> Rincón Brajot</button>
+          </li>
+          <li class="nav-item" data-tab="festividades">
+            <button id="btn-nav-festividades"><i class="fa-solid fa-circle-nodes"></i> Rueda Hagim</button>
+          </li>
+          <li class="nav-item" data-tab="sionista">
+            <button id="btn-nav-sionista"><i class="fa-solid fa-map-location-dot"></i> Conexión Israel</button>
+          </li>
+        </ul>
+
+        <div class="nav-section-title"><i class="fa-solid fa-gamepad"></i> Diversión</div>
+        <ul class="nav-menu">
+          <li class="nav-item" data-tab="juegos">
+            <button id="btn-nav-juegos"><i class="fa-solid fa-puzzle-piece"></i> Kit de Juegos</button>
+          </li>
+          <li class="nav-item" data-tab="musica">
+            <button id="btn-nav-musica"><i class="fa-solid fa-music"></i> K-POP Estación</button>
+          </li>
+          <li class="nav-item" data-tab="memoria">
+            <button id="btn-nav-memoria"><i class="fa-solid fa-brain"></i> Juego Memoria</button>
+          </li>
+          <li class="nav-item" data-tab="manualidades">
+            <button id="btn-nav-manualidades"><i class="fa-solid fa-scissors"></i> Manualidades</button>
+          </li>
+          <li class="nav-item" data-tab="jardin">
+            <button id="btn-nav-jardin"><i class="fa-solid fa-spa"></i> Jardín de Paz</button>
+          </li>
+        </ul>
+
+        <div class="nav-section-title"><i class="fa-solid fa-people-roof"></i> En Familia</div>
+        <ul class="nav-menu">
+          <li class="nav-item" data-tab="mitzvot">
+            <button id="btn-nav-mitzvot"><i class="fa-solid fa-tree"></i> Árbol Mitzvot</button>
+          </li>
+          <li class="nav-item" data-tab="cofre">
+            <button id="btn-nav-cofre"><i class="fa-solid fa-comments"></i> Cofre Shabat</button>
+          </li>
+          <li class="nav-item" data-tab="tzedaka">
+            <button id="btn-nav-tzedaka"><i class="fa-solid fa-coins"></i> Tzedakómetro</button>
+          </li>
+          <li class="nav-item" data-tab="cocina">
+            <button id="btn-nav-cocina"><i class="fa-solid fa-kitchen-set"></i> Cocina Jalá</button>
+          </li>
+          <li class="nav-item" data-tab="havdala">
+            <button id="btn-nav-havdala"><i class="fa-solid fa-sun"></i> Havdalá Sensorial</button>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <p>© 2026 Shabateinu NBI</p>
+        <p>Santiago de Chile</p>
+      </div>
+    </aside>
+
+    <!-- ==========================================================================
+         CONTENEDOR DE CONTENIDO PRINCIPAL (MAIN)
+         ========================================================================== -->
+    <main class="main-content">
+
+      <!-- ==========================================================================
+           SECCIÓN: INICIO (DASHBOARD GENERAL)
+           ========================================================================== -->
+      <section id="section-inicio" class="app-section active">
+        <!-- Banner de Bienvenida -->
+        <div class="hero-banner" style="background-image: url('assets/shabateinu_banner.png');">
+          <div class="hero-overlay">
+            <div class="hero-tag">Comunidad NBI</div>
+            <h2>¡Bienvenidos a Shabateinu!</h2>
+            <p>El portal oficial de recursos interactivos, juegos y gestión gráfica del Shabat Infantil en Vitacura.</p>
+          </div>
+        </div>
+
+        <!-- Dedicatoria Destacada: Héroes de Tzahal -->
+        <div class="glass-card" style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.4), rgba(56, 189, 248, 0.15)); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: var(--radius-md); padding: 1.5rem; display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 15px rgba(56, 189, 248, 0.2);">
+          <div style="font-size: 3.5rem; animation: float 3s ease-in-out infinite;">🇮🇱</div>
+          <div style="flex: 1;">
+            <h4 style="font-family: var(--font-title); font-size: 1.25rem; color: var(--nbi-gold); font-weight: 800; margin: 0 0 0.4rem 0; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 0.5rem;">
+              Dedicación Especial
+            </h4>
+            <p style="color: #ffffff; font-family: var(--font-title); font-size: 1rem; font-weight: 600; line-height: 1.5; margin: 0;">
+              Este proyecto está dedicado con profundo respeto y admiración a los valientes **Héroes de Tzahal** (Fuerzas de Defensa de Israel) que protegen cada día al pueblo de Israel y defienden el hogar del pueblo judío.
+            </p>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          
+          <!-- Lado Izquierdo: Parashá y Actividades de la Semana -->
+          <div class="dashboard-main-column">
+            <div class="glass-card active-parasha-card">
+              <span class="badge-hebrew parasha-hebrew-dyn">ברาשִׁית</span>
+              <p class="parasha-book parasha-book-dyn">Génesis</p>
+              <h3 class="parasha-title">Parashat <span class="parasha-title-dyn">Bereshit</span></h3>
+              <p class="parasha-description parasha-summary-dyn">
+                Cargando el resumen de la Torá para los niños...
+              </p>
+              
+              <div class="dashboard-actions">
+                <button class="btn-primary" onclick="navigateTo('juegos')">
+                  <i class="fa-solid fa-puzzle-piece"></i> Ir a Juegos
+                </button>
+                <button class="btn-outline" onclick="navigateTo('actividades')">
+                  <i class="fa-solid fa-theater-masks"></i> Actividades en Vivo
+                </button>
+              </div>
+            </div>
+
+            <!-- Selector de Fecha / Buscador manual -->
+            <div class="glass-card">
+              <h3 style="font-family: var(--font-title); font-size: 1.4rem; margin-bottom: 0.8rem;">Buscar por Fecha o Parashá</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 1.2rem; font-size: 0.95rem;">
+                Selecciona una fecha para consultar el calendario de Shabat de Santiago o elige una Parashá directamente del selector.
+              </p>
+              <div class="search-date-container" style="margin-bottom: 1.5rem;">
+                <input type="date" id="search-date" class="input-date">
+                <button id="btn-search-date" class="btn-primary">
+                  <i class="fa-solid fa-search"></i> Buscar Fecha
+                </button>
+              </div>
+
+              <div style="border-top: 1px solid var(--border-glass); padding-top: 1.2rem;">
+                <label for="parasha-manual-select" style="display: block; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; text-transform: uppercase; font-weight: 600;">Selección Manual de Parashá</label>
+                <select id="parasha-manual-select" class="form-input" style="background-color: var(--bg-primary);">
+                  <!-- Cargado dinámicamente desde parashot-db.js -->
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lado Derecho: Horarios de Shabat (Santiago) -->
+          <div class="dashboard-sidebar-column">
+            <div class="glass-card">
+              <h3 style="font-family: var(--font-title); font-size: 1.4rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.6rem;">
+                <i class="fa-solid fa-clock" style="color: var(--nbi-gold);"></i> Horarios Shabat
+              </h3>
+              <p id="shabbat-display-date" style="color: var(--nbi-cyan); font-size: 0.85rem; font-weight: 600; margin-bottom: 1.5rem; text-transform: uppercase;">
+                --
+              </p>
+
+              <div class="shabbat-times-list">
+                <div class="shabbat-time-item">
+                  <div class="time-icon candles">
+                    <i class="fa-solid fa-fire"></i>
+                  </div>
+                  <div class="time-info">
+                    <span class="time-label">Encendido Velas</span>
+                    <span id="candles-time-val" class="time-value">--:--</span>
+                  </div>
+                </div>
+
+                <div class="shabbat-time-item">
+                  <div class="time-icon activity">
+                    <i class="fa-solid fa-users"></i>
+                  </div>
+                  <div class="time-info">
+                    <span class="time-label">Actividad Shabateinu</span>
+                    <span class="time-value">17:15 hrs</span>
+                  </div>
+                </div>
+
+                <div class="shabbat-time-item">
+                  <div class="time-icon havdalah">
+                    <i class="fa-solid fa-moon"></i>
+                  </div>
+                  <div class="time-info">
+                    <span class="time-label">Havdalá (Sábado)</span>
+                    <span id="havdalah-time-val" class="time-value">--:--</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top: 1.8rem; background: rgba(56, 189, 248, 0.04); border: 1px solid rgba(56, 189, 248, 0.1); border-radius: var(--radius-md); padding: 1rem; text-align: center;">
+                <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
+                  📍 Actividades realizadas en la Sinagoga NBI: <br><strong>Mar Jónico 8880, Vitacura</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: INVITACIONES (GENERADOR DUAL WHATSAPP/EMAIL)
+           ========================================================================== -->
+      <section id="section-invitaciones" class="app-section">
+        <div class="section-header">
+          <h2>Generador de Invitaciones</h2>
+          <p>Diseña la tarjeta para WhatsApp y copia la plantilla para el correo electrónico en segundos.</p>
+        </div>
+
+        <div class="invitation-creator-layout">
+          
+          <!-- Lado Izquierdo: Formulario de Configuración -->
+          <div class="glass-card">
+            <h3 style="font-family: var(--font-title); font-size: 1.4rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.5rem;">Configurar Invitación</h3>
+            
+            <form id="invitation-form" onsubmit="event.preventDefault();">
+              <div class="form-group">
+                <label for="inv-title">Título de la Invitación</label>
+                <input type="text" id="inv-title" class="form-input" value="Shabateinu NBI">
+              </div>
+
+              <div class="form-group">
+                <label for="inv-parasha">Parashá de la Semana</label>
+                <input type="text" id="inv-parasha" class="form-input" readonly>
+              </div>
+
+              <div class="form-group">
+                <label for="inv-date">Fecha de Actividad (Viernes)</label>
+                <input type="date" id="inv-date" class="form-input">
+              </div>
+
+              <div class="form-group">
+                <label for="inv-time">Hora de Encuentro</label>
+                <input type="text" id="inv-time" class="form-input" value="17:15">
+              </div>
+
+              <div class="form-group">
+                <label for="inv-activities">Mensaje / Actividades Principales</label>
+                <textarea id="inv-activities" class="form-textarea">¡Títeres, juegos, cantos, jalá y muchas sorpresas con tus amigos!</textarea>
+              </div>
+
+              <!-- Selector de Plantilla Estética -->
+              <div class="form-group">
+                <label>Tema Gráfico de la Tarjeta</label>
+                <div class="themes-grid">
+                  <div class="theme-option stars active" data-theme="stars">Estrellas</div>
+                  <div class="theme-option nature" data-theme="nature">Naturaleza</div>
+                  <div class="theme-option party" data-theme="party">Fiesta</div>
+                  <div class="theme-option modern" data-theme="modern">NBI Glass</div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Lado Derecho: Previsualización en Tiempo Real -->
+          <div class="preview-sticky-container">
+            
+            <!-- Preview en Pantalla -->
+            <div class="glass-card" style="padding: 1.5rem;">
+              <h3 style="font-family: var(--font-title); font-size: 1.2rem; margin-bottom: 1rem; color: var(--nbi-cyan);">Previsualización Tarjeta</h3>
+              
+              <div id="invitation-preview-card" class="invitation-card-preview theme-stars">
+                <div class="card-header-top">
+                  <span class="card-logo-placeholder">NBI Comunidad</span>
+                  <span class="card-tag">SHABATEINU</span>
+                </div>
+                
+                <div class="card-body-center">
+                  <h4 id="card-title-val" class="card-title">Shabateinu NBI</h4>
+                  <span id="card-parasha-val" class="card-parasha-title">Parashá Bereshit</span>
+                  <!-- Previsualización dinámica de la ilustración Nano Banana -->
+                  <div class="preview-illustration-container" style="margin: 10px 0; border: 1px dashed rgba(255, 255, 255, 0.12); border-radius: 8px; background: rgba(0, 0, 0, 0.12); padding: 5px;">
+                    <canvas id="invitation-preview-canvas" width="300" height="200" style="display: block; margin: 0 auto; width: 100%; max-height: 120px; pointer-events: none;"></canvas>
+                  </div>
+                  <p id="card-description-val" class="card-description">Cargando...</p>
+                </div>
+                
+                <div class="card-footer-bottom">
+                  <div class="card-info-row">
+                    <span><i class="fa-solid fa-calendar"></i> Fecha:</span>
+                    <span id="card-date-val" style="font-weight: 600;">--</span>
+                  </div>
+                  <div class="card-info-row">
+                    <span><i class="fa-solid fa-clock"></i> Shabateinu:</span>
+                    <span id="card-time-val" style="font-weight: 600;">17:15 hrs</span>
+                  </div>
+                  <div class="card-info-row">
+                    <span><i class="fa-solid fa-fire"></i> Velas:</span>
+                    <span id="card-candles-val" style="font-weight: 600;">--:-- hrs</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div style="margin-top: 1.2rem; display: flex; gap: 1rem;">
+                <button id="btn-download-invitation" class="btn-gold" style="flex: 1; justify-content: center;">
+                  <i class="fa-solid fa-download"></i> Descargar para WhatsApp
+                </button>
+              </div>
+            </div>
+
+            <!-- Email Text Template Copiable -->
+            <div class="glass-card" style="padding: 1.5rem;">
+              <h3 style="font-family: var(--font-title); font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--nbi-gold);">Redacción para E-mail</h3>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1rem;">Copia el texto adaptado con emojis para enviar por correo a los padres.</p>
+              
+              <div id="email-template-text" class="email-copy-box">Cargando plantilla...</div>
+              
+              <button id="btn-copy-email" class="btn-primary" style="margin-top: 1rem; width: 100%; justify-content: center;">
+                <i class="fa-solid fa-copy"></i> Copiar Texto de E-mail
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Canvas oculto para procesamiento de imagen HD -->
+        <canvas id="invitation-canvas"></canvas>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: KIT DE JUEGOS Y MINIJUEGOS (DIGITAL E IMPRIMIBLE)
+           ========================================================================== -->
+      <section id="section-juegos" class="app-section">
+        <div class="section-header">
+          <h2>Kit de Juegos Shabateinu</h2>
+          <p>Actividades educativas en pantalla y listas para imprimir en la mesa de niños de la sinagoga.</p>
+        </div>
+
+        <!-- Menú de pestañas internas para juegos -->
+        <div class="games-tab-navigation">
+          <button class="game-tab-btn active" data-game="wordsearch">
+            <i class="fa-solid fa-border-all"></i> Sopa de Letras
+          </button>
+          <button class="game-tab-btn" data-game="trivia">
+            <i class="fa-solid fa-circle-question"></i> Trivia Interactiva
+          </button>
+          <button class="game-tab-btn" data-game="paint">
+            <i class="fa-solid fa-palette"></i> Pintar e Imprimir
+          </button>
+        </div>
+
+        <!-- Botón flotante para imprimir la sección activa del juego -->
+        <div style="text-align: right; margin-bottom: 1.5rem;">
+          <button id="btn-print-game" class="btn-outline">
+            <i class="fa-solid fa-print"></i> Imprimir Actividad Física
+          </button>
+        </div>
+
+        <!-- A. JUEGO 1: SOPA DE LETRAS -->
+        <div id="game-view-wordsearch" class="game-view active">
+          <div class="glass-card">
+            <div class="wordsearch-layout">
+              
+              <!-- Tablero del Sopa de letras -->
+              <div class="grid-outer-container">
+                <div id="ws-grid" class="wordsearch-grid">
+                  <!-- Generado en app.js -->
+                </div>
+              </div>
+
+              <!-- Lista de palabras a buscar -->
+              <div class="words-panel">
+                <h3 style="font-family: var(--font-title); font-size: 1.6rem; color: white;">Busca en la Sopa de Letras</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                  Arrastra el mouse o desliza tu dedo para encontrar los conceptos claves de la Parashá <strong><span class="parasha-title-dyn">Bereshit</span></strong> en la grilla. ¡O imprime esta hoja para la mesa infantil!
+                </p>
+                <ul id="ws-words-list" class="words-list">
+                  <!-- Cargado en app.js -->
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- B. JUEGO 2: TRIVIA INTERACTIVA -->
+        <div id="game-view-trivia" class="game-view">
+          <div class="glass-card">
+            <div id="trivia-game-card">
+              <!-- Cargado en app.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- C. JUEGO 3: LIENZO PARA PINTAR E IMPRIMIR DIBUJO -->
+        <div id="game-view-paint" class="game-view">
+          <div class="glass-card">
+            <div class="canvas-layout">
+              
+              <!-- Herramientas de pintura -->
+              <div class="canvas-controls-sidebar">
+                
+                <!-- Colores -->
+                <div class="control-block">
+                  <h4>Colores</h4>
+                  <div class="colors-palette-grid">
+                    <div class="color-palette-item active" style="background-color: #0b1a30;" data-color="#0b1a30"></div> <!-- Azul NBI -->
+                    <div class="color-palette-item" style="background-color: #38bdf8;" data-color="#38bdf8"></div> <!-- Celeste -->
+                    <div class="color-palette-item" style="background-color: #f59e0b;" data-color="#f59e0b"></div> <!-- Oro -->
+                    <div class="color-palette-item" style="background-color: #10b981;" data-color="#10b981"></div> <!-- Verde -->
+                    <div class="color-palette-item" style="background-color: #ef4444;" data-color="#ef4444"></div> <!-- Rojo -->
+                    <div class="color-palette-item" style="background-color: #8b5cf6;" data-color="#8b5cf6"></div> <!-- Púrpura -->
+                    <div class="color-palette-item" style="background-color: #000000;" data-color="#000000"></div> <!-- Negro -->
+                    <div class="color-palette-item" style="background-color: #ffffff; border: 1px solid rgba(255,255,255,0.2);" data-color="#ffffff"></div> <!-- Blanco / Goma -->
+                  </div>
+                </div>
+
+                <!-- Grosor Pincel -->
+                <div class="control-block">
+                  <h4>Pincel</h4>
+                  <div class="brush-sizes">
+                    <button class="brush-size-btn active" data-size="4" style="width: 24px; height: 24px; font-size: 0.6rem;">F</button>
+                    <button class="brush-size-btn" data-size="8" style="width: 32px; height: 32px; font-size: 0.8rem;">M</button>
+                    <button class="brush-size-btn" data-size="14" style="width: 40px; height: 40px; font-size: 1rem;">G</button>
+                  </div>
+                </div>
+
+                <!-- Plantillas a colorear -->
+                <div class="control-block">
+                  <h4>Dibujo Base</h4>
+                  <div class="templates-list">
+                    <button class="template-card-btn" data-template="velas">
+                      <img src="assets/shabbat_outline.png" class="template-thumb" alt="Velas">
+                      <span>Velas Shabat</span>
+                    </button>
+                    <button class="template-card-btn" data-template="challa">
+                      <img src="assets/challah_outline.png" class="template-thumb" alt="Jalá">
+                      <span>Trenza Jalá</span>
+                    </button>
+                    <button class="template-card-btn" data-template="torah">
+                      <img src="assets/torah_outline.png" class="template-thumb" alt="Torá">
+                      <span>Torá Sagrada</span>
+                    </button>
+                    <button class="template-card-btn active" data-template="parasha">
+                      <i class="fa-solid fa-wand-magic-sparkles" style="font-size: 1.5rem; color: var(--nbi-cyan);"></i>
+                      <span>Pintar <span class="parasha-title-dyn">...</span></span>
+                    </button>
+                    <button class="template-card-btn" data-template="blank">
+                      <i class="fa-regular fa-square" style="font-size: 1.5rem;"></i>
+                      <span>Lienzo Blanco</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Limpiar / Descargar -->
+                <div class="control-block" style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem;">
+                  <button id="btn-clear-paint" class="btn-outline" style="justify-content: center; font-size: 0.85rem; padding: 0.6rem;">
+                    <i class="fa-solid fa-trash"></i> Limpiar Pizarra
+                  </button>
+                  <button id="btn-download-paint" class="btn-gold" style="justify-content: center; font-size: 0.85rem; padding: 0.6rem;">
+                    <i class="fa-solid fa-download"></i> Guardar Dibujo
+                  </button>
+                </div>
+
+              </div>
+
+              <!-- Pizarra de dibujo física Canvas -->
+              <div class="drawing-board-wrapper">
+                <canvas id="paint-canvas"></canvas>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: ACTIVIDADES EN VIVO (TÍTERES, DISFRACES, CANCIONES)
+           ========================================================================== -->
+      <section id="section-actividades" class="app-section">
+        <div class="section-header">
+          <h2>Guía de Actividades Shabateinu</h2>
+          <p>Estrategias presenciales en vivo para animadores y niños durante el Shabat en la sinagoga.</p>
+        </div>
+
+        <div class="glass-card">
+          <div class="activities-hero-layout" style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 2.2rem; align-items: center;">
+            <div>
+              <h3 style="font-family: var(--font-title); font-size: 1.8rem; color: var(--nbi-gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.7rem;">
+                <i class="fa-solid fa-masks-theater"></i> Actividades del Shabat: Parashat <span class="parasha-title-dyn">Bereshit</span>
+              </h3>
+              <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 1.2rem;">
+                Aprovecha estos recursos didácticos y guiones temáticos para que los niños de la comunidad NBI se involucren de forma lúdica con las enseñanzas de la Torá.
+              </p>
+              <div style="background: rgba(56, 189, 248, 0.04); border: 1px dashed rgba(56, 189, 248, 0.2); border-radius: var(--radius-md); padding: 1.2rem; box-shadow: inset 0 0 10px rgba(56, 189, 248, 0.02);">
+                <h5 style="color: white; font-size: 1rem; font-family: var(--font-title); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem;">
+                  <i class="fa-solid fa-graduation-cap" style="color: var(--nbi-cyan);"></i> Enseñanza Principal de la Semana
+                </h5>
+                <p class="parasha-summary-dyn" style="font-size: 0.95rem; color: #cbd5e1; line-height: 1.5; margin-bottom: 0;">
+                  Cargando la enseñanza de la semana...
+                </p>
+              </div>
+            </div>
+            <div style="text-align: center; display: flex; justify-content: center; align-items: center;">
+              <div class="activity-illustration-glow-box" style="position: relative; display: inline-block; border-radius: var(--radius-lg); padding: 6px; background: linear-gradient(135deg, var(--nbi-gold), var(--nbi-cyan)); box-shadow: var(--shadow-glow); transition: var(--transition-smooth);">
+                <canvas id="activities-illustration-canvas" width="220" height="220" style="display: block; width: 220px; height: 220px; border-radius: calc(var(--radius-lg) - 4px); background: #050b14;"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+            
+            <!-- Teatro de Títeres -->
+            <div class="glass-card" style="background: rgba(255, 255, 255, 0.02); margin-bottom: 0; padding: 1.5rem;">
+              <h4 style="font-family: var(--font-title); color: white; font-size: 1.25rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+                🎭 Teatro de Títeres
+              </h4>
+              <p id="act-titeres-content" style="font-size: 0.9rem; line-height: 1.5; color: #e2e8f0;">
+                Cargando guión de títeres...
+              </p>
+            </div>
+
+            <!-- Taller de Disfraces -->
+            <div class="glass-card" style="background: rgba(255, 255, 255, 0.02); margin-bottom: 0; padding: 1.5rem;">
+              <h4 style="font-family: var(--font-title); color: white; font-size: 1.25rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+                👑 Disfraces y Juego
+              </h4>
+              <p id="act-disfraces-content" style="font-size: 0.9rem; line-height: 1.5; color: #e2e8f0;">
+                Cargando ideas de representación...
+              </p>
+            </div>
+
+            <!-- Cancionero -->
+            <div class="glass-card" style="background: rgba(255, 255, 255, 0.02); margin-bottom: 0; padding: 1.5rem;">
+              <h4 style="font-family: var(--font-title); color: white; font-size: 1.25rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+                🎵 Cancionero de Shabat
+              </h4>
+              <p id="act-canciones-content" style="font-size: 0.9rem; line-height: 1.5; color: #e2e8f0;">
+                Cargando canciones adaptadas...
+              </p>
+            </div>
+
+          </div>
+
+          <div style="text-align: center; margin-top: 2rem; border-top: 1px solid var(--border-glass); padding-top: 1.5rem;">
+            <button class="btn-primary" onclick="window.print()">
+              <i class="fa-solid fa-print"></i> Imprimir Guiones de Actividades
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: EL RINCÓN DE LAS BRAJOT
+           ========================================================================== -->
+      <section id="section-brajot" class="app-section">
+        <div class="section-header">
+          <h2>El Rincón de las Brajot (Bendiciones)</h2>
+          <p>Aprende, canta y registra el progreso de tus bendiciones especiales de Shabat de forma divertida.</p>
+        </div>
+
+        <div class="brajot-grid">
+          
+          <!-- Vela Shabat -->
+          <div class="glass-card braja-card">
+            <div class="braja-header-row">
+              <span class="braja-badge">Velas Shabat</span>
+              <span class="braja-hebrew-title">הדלקת נרות</span>
+            </div>
+            <h3 class="braja-spanish-title">Encendido de Velas</h3>
+            <div class="braja-phonetics">Baruj Ata Adonai, Eloheinu Melej Haolam, asher kidshanu bemitzvotav vetzivanu lehadlik ner shel Shabat.</div>
+            <div class="braja-hebrew-text">בָּרוּךְ אַתָּה יְיָ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, אֲשֶׁר קִדְּשָׁנוּ בְּמִצְוֹתָיו וְצִוָּנוּ לְהַדְלִיק נֵר שֶׁל שַׁבָּת:</div>
+            <p class="braja-translation">"Bendito eres Tú, Adonai Dios nuestro, Rey del Universo, que nos santificó con sus preceptos y nos ordenó encender las velas de Shabat."</p>
+            <label class="braja-checkbox">
+              <input type="checkbox" id="velas" class="braja-check">
+              <span>¡Me la aprendí y la canté con amor! ⭐</span>
+            </label>
+          </div>
+
+          <!-- Netilat Yadaim (Manos) -->
+          <div class="glass-card braja-card">
+            <div class="braja-header-row">
+              <span class="braja-badge">Lavado Manos</span>
+              <span class="braja-hebrew-title">נטילת ידיים</span>
+            </div>
+            <h3 class="braja-spanish-title">Netilat Yadayim</h3>
+            <div class="braja-phonetics">Baruj Ata Adonai, Eloheinu Melej Haolam, asher kidshanu bemitzvotav vetzivanu al netilat yadayim.</div>
+            <div class="braja-hebrew-text">בָּרוּךְ אַתָּה יְיָ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, אֲשֶׁר קִדְּשָׁנוּ בְּמִצְוֹתָיו וְצִוָּנוּ עַל נְטִילַת יָדָיִם:</div>
+            <p class="braja-translation">"Bendito eres Tú, Adonai Dios nuestro, Rey del Universo, que nos santificó con sus preceptos y nos ordenó el lavado de las manos."</p>
+            <label class="braja-checkbox">
+              <input type="checkbox" id="yadayim" class="braja-check">
+              <span>¡Lavé mis manos y sé la bendición! ⭐</span>
+            </label>
+          </div>
+
+          <!-- Copa del vino -->
+          <div class="glass-card braja-card">
+            <div class="braja-header-row">
+              <span class="braja-badge">Kidush del Jugo / Vino</span>
+              <span class="braja-hebrew-title">בורא פרי הגפן</span>
+            </div>
+            <h3 class="braja-spanish-title">Borei Pri Hagefen</h3>
+            <div class="braja-phonetics">Baruj Ata Adonai, Eloheinu Melej Haolam, borei pri hagefen.</div>
+            <div class="braja-hebrew-text">בָּרוּךְ אַתָּה יְיָ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, בּוֹרֵא פְּרִי הַגָּפֶן:</div>
+            <p class="braja-translation">"Bendito eres Tú, Adonai Dios nuestro, Rey del Universo, Creador del fruto de la vid."</p>
+            <label class="braja-checkbox">
+              <input type="checkbox" id="vino" class="braja-check">
+              <span>¡Bendije mi copa de Shabat! ⭐</span>
+            </label>
+          </div>
+
+          <!-- Jalá del Pan -->
+          <div class="glass-card braja-card">
+            <div class="braja-header-row">
+              <span class="braja-badge">Hamotzí del Pan</span>
+              <span class="braja-hebrew-title">המוציא לחם</span>
+            </div>
+            <h3 class="braja-spanish-title">Hamotzí Lejem</h3>
+            <div class="braja-phonetics">Baruj Ata Adonai, Eloheinu Melej Haolam, hamotzi lejem min haaretz.</div>
+            <div class="braja-hebrew-text">בָּרוּךְ אַתָּה יְיָ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, הַמּוֹצִיא לֶחֶם מִן הָאָרֶץ:</div>
+            <p class="braja-translation">"Bendito eres Tú, Adonai Dios nuestro, Rey del Universo, que extrae el pan de la tierra."</p>
+            <label class="braja-checkbox">
+              <input type="checkbox" id="pan" class="braja-check">
+              <span>¡Sé bendecir el pan trenzado Jalá! ⭐</span>
+            </label>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: ESTACIÓN K-POP DE SHABATEINU (MÚSICA INTERACTIVA)
+           ========================================================================== -->
+      <section id="section-musica" class="app-section">
+        <div class="section-header">
+          <h2>Estación K-POP Shabateinu</h2>
+          <p>Escucha, canta y baila los temas pegadizos de cada Parashá en estilo K-POP bailable.</p>
+        </div>
+
+        <div class="glass-card" style="padding: 2.2rem;">
+          <div class="musica-grid" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: start;">
+            
+            <!-- REPRODUCTOR K-POP INTERACTIVO -->
+            <div class="player-panel-card" style="background: rgba(11, 26, 48, 0.45); border: 2px solid var(--border-glass); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-md); text-align: center;">
+              
+              <!-- Album / Vinyl Art Rotating -->
+              <div class="album-art-container" style="position: relative; width: 200px; height: 200px; margin: 0 auto 1.5rem; display: flex; justify-content: center; align-items: center;">
+                <!-- Glowing Aura -->
+                <div class="vinyl-glow" style="position: absolute; inset: -10px; border-radius: 50%; background: radial-gradient(circle, var(--nbi-cyan) 0%, var(--nbi-gold) 50%, transparent 100%); opacity: 0.15; filter: blur(8px); animation: pulse-glow 3s ease-in-out infinite;"></div>
+                
+                <!-- Vinyl Disc Outer -->
+                <div id="music-vinyl-disc" class="vinyl-disc" style="position: absolute; width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(circle, #2d3748 10%, #1a202c 40%, #000000 80%); box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.05); transition: transform 0.5s ease; transform: rotate(0deg); display: flex; align-items: center; justify-content: center;">
+                  <!-- Vinyl Grooves -->
+                  <div style="position: absolute; inset: 15px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.04);"></div>
+                  <div style="position: absolute; inset: 30px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.03);"></div>
+                  <div style="position: absolute; inset: 45px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.025);"></div>
+                  <div style="position: absolute; inset: 60px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.02);"></div>
+                  
+                  <!-- Center Album Art (Active Parasha Color Image) -->
+                  <div id="music-album-art" style="position: absolute; inset: 50px; border-radius: 50%; background: #050b14; border: 4px solid #1a202c; overflow: hidden; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center;">
+                    <canvas id="music-album-canvas" width="100" height="100" style="display: block; width: 100%; height: 100%; border-radius: 50%;"></canvas>
+                  </div>
+                  <!-- Center Spindle Hole -->
+                  <div style="position: absolute; width: 14px; height: 14px; background: var(--bg-primary); border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); z-index: 5;"></div>
+                </div>
+              </div>
+
+              <!-- Track info -->
+              <h3 id="music-track-title" style="font-family: var(--font-title); font-size: 1.6rem; color: white; margin-bottom: 0.3rem;">¡Bara, Bara! (Creación K-POP)</h3>
+              <p id="music-track-subtitle" style="font-size: 0.95rem; color: var(--nbi-cyan); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;">Parashat Bereshit</p>
+              
+              <!-- Dynamic Visualizer Bar Animation -->
+              <div class="visualizer-container" style="display: flex; justify-content: center; align-items: flex-end; gap: 4px; height: 32px; margin-bottom: 1.8rem; padding: 0 10px;">
+                <div class="v-bar" style="width: 6px; height: 4px; background: var(--nbi-cyan); border-radius: 3px; transition: height 0.1s ease;"></div>
+                <div class="v-bar" style="width: 6px; height: 4px; background: var(--nbi-cyan); border-radius: 3px; transition: height 0.1s ease;"></div>
+                <div class="v-bar" style="width: 6px; height: 4px; background: var(--nbi-gold); border-radius: 3px; transition: height 0.1s ease;"></div>
+                <div class="v-bar" style="width: 6px; height: 4px; background: var(--nbi-cyan); border-radius: 3px; transition: height 0.1s ease;"></div>
+                <div class="v-bar" style="width: 6px; height: 4px; background: var(--nbi-gold); border-radius: 3px; transition: height 0.1s ease;"></div>
+                <div class="v-bar" style="width: 6px; height: 4px; background: var(--nbi-cyan); border-radius: 3px; transition: height 0.1s ease;"></div>
+                <div class="v-bar" style="width: 6px; height: 4px; background: var(--nbi-cyan); border-radius: 3px; transition: height 0.1s ease;"></div>
+                <div class="v-bar" style="width: 6px; height: 4px; background: var(--nbi-gold); border-radius: 3px; transition: height 0.1s ease;"></div>
+                <div class="v-bar" style="width: 6px; height: 4px; background: var(--nbi-cyan); border-radius: 3px; transition: height 0.1s ease;"></div>
+                <div class="v-bar" style="width: 6px; height: 4px; background: var(--nbi-cyan); border-radius: 3px; transition: height 0.1s ease;"></div>
+              </div>
+
+              <!-- Controls -->
+              <div class="controls-row" style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin-bottom: 1.8rem;">
+                <button id="btn-music-prev" class="btn-outline" aria-label="Canción anterior" style="border-radius: 50%; width: 46px; height: 46px; padding: 0; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;"><i class="fa-solid fa-backward-step" aria-hidden="true"></i></button>
+                
+                <button id="btn-music-play" class="btn-gold" aria-label="Reproducir o pausar" style="border-radius: 50%; width: 68px; height: 68px; padding: 0; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);"><i class="fa-solid fa-play" aria-hidden="true"></i></button>
+                
+                <button id="btn-music-next" class="btn-outline" aria-label="Canción siguiente" style="border-radius: 50%; width: 46px; height: 46px; padding: 0; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;"><i class="fa-solid fa-forward-step" aria-hidden="true"></i></button>
+              </div>
+
+              <!-- Extra sliders (Tempo / Speed) -->
+              <div class="tempo-slider-block" style="text-align: left; background: rgba(5, 11, 20, 0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--radius-md); padding: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 600;"><i class="fa-solid fa-gauge-high"></i> Velocidad Ritmo K-POP</span>
+                  <span id="tempo-val-text" style="font-size: 0.85rem; color: var(--nbi-cyan); font-weight: bold;">Normal (125 BPM)</span>
+                </div>
+                <input type="range" id="input-music-tempo" min="95" max="175" value="125" style="width: 100%; accent-color: var(--nbi-cyan); cursor: pointer;">
+                
+                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.3rem;">
+                  <span>Chill Pop (95)</span>
+                  <span>Super Dance (175)</span>
+                </div>
+              </div>
+
+              <!-- Vocal Guide Toggle Switch -->
+              <div class="vocal-toggle-block" style="text-align: left; background: rgba(5, 11, 20, 0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: var(--radius-md); padding: 1rem; margin-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
+                  <i class="fa-solid fa-microphone-lines" style="color: var(--nbi-gold);"></i> Voz Cantada (Guía Vocal Gemini)
+                </span>
+                <label class="switch-container" style="position: relative; display: inline-block; width: 44px; height: 24px;">
+                  <input type="checkbox" id="check-vocal-guide" checked style="opacity: 0; width: 0; height: 0;">
+                  <span class="slider-round" style="position: absolute; cursor: pointer; inset: 0; background-color: rgba(255,255,255,0.1); border-radius: 24px; transition: .4s; border: 1px solid var(--border-glass);"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- LETRAS / KARAOKE DIVERTO -->
+            <div class="lyrics-panel-card" style="display: flex; flex-direction: column; gap: 1.2rem;">
+              <div style="background: rgba(15, 23, 42, 0.45); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-md); min-height: 430px; display: flex; flex-direction: column;">
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.8rem; margin-bottom: 1.2rem;">
+                  <h4 style="font-family: var(--font-title); font-size: 1.2rem; color: white; display: flex; align-items: center; gap: 0.5rem;"><i class="fa-solid fa-microphone" style="color: var(--nbi-gold);"></i> Letra y Coro de Shabat</h4>
+                  <span style="background: rgba(245, 158, 11, 0.1); color: var(--nbi-gold); font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px;">Estilo K-Pop Pegajoso</span>
+                </div>
+
+                <!-- Scrolling Lyrics Area -->
+                <div id="lyrics-scroller" style="flex: 1; overflow-y: auto; max-height: 280px; display: flex; flex-direction: column; gap: 1rem; padding-right: 5px; scroll-behavior: smooth;">
+                  <!-- Lyric lines dynamically rendered in app.js -->
+                  <div class="lyric-line active" style="font-size: 1.25rem; font-weight: 800; color: white; text-align: center; opacity: 1; transition: all 0.3s ease;">Cargando la música...</div>
+                </div>
+
+                <!-- Catchy translation help -->
+                <div id="lyrics-phonetics-card" style="margin-top: 1.5rem; background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.15); border-radius: var(--radius-md); padding: 1rem;">
+                  <h5 style="color: white; font-size: 0.85rem; font-family: var(--font-title); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.4rem;"><i class="fa-solid fa-language" style="color: var(--nbi-cyan);"></i> ¿Qué significa el Coro?</h5>
+                  <p id="lyrics-translation-text" style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.4; margin-bottom: 0;">Cargando traducción...</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TRACK SELECTOR GRID -->
+        <div class="glass-card" style="margin-top: 2rem;">
+          <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 1.2rem;"><i class="fa-solid fa-list-ul" style="color: var(--nbi-cyan);"></i> Selección de Canciones K-POP</h3>
+          
+          <div id="musica-tracks-list" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+            <!-- Rendered dynamically in app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: CUENTO INTERACTIVO DE LA PARASHÁ
+           ========================================================================== -->
+      <section id="section-cuento" class="app-section">
+        <div class="section-header">
+          <h2>Cuento Interactivo de la Parashá</h2>
+          <p>Descubre la historia de la Torá de esta semana, página por página, como un libro mágico.</p>
+        </div>
+
+        <div class="glass-card">
+          <div class="storybook-container">
+            <div class="story-page" id="story-page-content">
+              <div class="story-illustration" id="story-emoji">📖</div>
+              <div class="story-text-area">
+                <h3 id="story-page-title">Cargando historia...</h3>
+                <p id="story-page-text">Preparando el cuento mágico de la Parashá...</p>
+              </div>
+            </div>
+            <div class="story-nav">
+              <button id="btn-story-prev" class="btn-outline" style="min-width: 120px;"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+              <div class="story-dots" id="story-dots"></div>
+              <button id="btn-story-next" class="btn-primary" style="min-width: 120px;">Siguiente <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: ALEF-BET FLASHCARDS
+           ========================================================================== -->
+      <section id="section-alefbet" class="app-section">
+        <div class="section-header">
+          <h2>Alef-Bet de la Parashá</h2>
+          <p>Aprende las letras hebreas más importantes de la porción de la Torá de esta semana.</p>
+        </div>
+
+        <div class="glass-card flashcards-section">
+          <div style="text-align: center; margin-bottom: 1.5rem;">
+            <h3 style="font-family: var(--font-title); font-size: 1.6rem; color: var(--nbi-gold); margin-bottom: 0.4rem;"><i class="fa-solid fa-graduation-cap"></i> Letras de Parashat <span class="parasha-title-dyn">Bereshit</span></h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Toca la tarjeta para voltearla y descubrir la palabra</p>
+          </div>
+
+          <div class="flashcard-display" id="flashcard-display">
+            <div class="flashcard" id="flashcard-main">
+              <div class="flashcard-face flashcard-front">
+                <span class="hebrew-letter" id="fc-letter">ב</span>
+                <span class="letter-name" id="fc-name">Bet</span>
+                <span class="letter-sound" id="fc-sound">Sonido: B</span>
+              </div>
+              <div class="flashcard-face flashcard-back">
+                <span class="word-hebrew" id="fc-word">בראשית</span>
+                <span class="word-meaning" id="fc-meaning">En el principio</span>
+                <span class="tap-hint">Toca para volver ↩️</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flashcard-nav">
+            <button class="flashcard-btn" id="btn-fc-prev" aria-label="Letra anterior"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+            <button class="flashcard-btn-speak" id="btn-fc-speak" title="Escuchar pronunciación"><i class="fa-solid fa-volume-high"></i></button>
+            <span class="flashcard-counter" id="fc-counter">1 / 3</span>
+            <button class="flashcard-btn" id="btn-fc-next" aria-label="Letra siguiente"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: DASHBOARD DE ASISTENCIA
+           ========================================================================== -->
+      <section id="section-asistencia" class="app-section">
+        <div class="section-header">
+          <h2>Dashboard de Asistencia</h2>
+          <p>Registro semanal de asistencia al Shabateinu NBI para animadores y coordinadores.</p>
+        </div>
+
+        <div class="attendance-layout">
+          <div class="glass-card attendance-form-card">
+            <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 0.5rem;"><i class="fa-solid fa-user-plus" style="color: var(--nbi-cyan);"></i> Registrar Asistencia</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Registra cuántos niños asistieron este Shabat.</p>
+
+            <div class="form-group">
+              <label for="att-date">Fecha del Shabat</label>
+              <input type="date" id="att-date" class="form-input">
+            </div>
+
+            <label style="color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; font-weight: 600;">Cantidad de Niños</label>
+            <div class="attendance-counter">
+              <button class="counter-btn" id="att-minus" aria-label="Restar un niño">−</button>
+              <span class="counter-value" id="att-count-display">0</span>
+              <button class="counter-btn" id="att-plus" aria-label="Sumar un niño">+</button>
+            </div>
+
+            <div class="form-group">
+              <label for="att-notes">Notas del Animador</label>
+              <textarea id="att-notes" class="form-textarea" placeholder="Actividades realizadas, observaciones..."></textarea>
+            </div>
+
+            <button id="btn-save-attendance" class="btn-gold" style="width: 100%; justify-content: center;">
+              <i class="fa-solid fa-floppy-disk"></i> Guardar Registro
+            </button>
+          </div>
+
+          <div class="glass-card">
+            <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 1rem;"><i class="fa-solid fa-chart-column" style="color: var(--nbi-gold);"></i> Tendencia de Asistencia</h3>
+            <div class="attendance-chart-container">
+              <canvas id="attendance-chart-canvas"></canvas>
+            </div>
+            <h4 style="font-family: var(--font-title); font-size: 1.1rem; color: white; margin-top: 1.5rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-clock-rotate-left" style="color: var(--nbi-cyan);"></i> Historial Reciente</h4>
+            <div class="attendance-history-list" id="attendance-history-list">
+              <p style="color: var(--text-secondary); font-size: 0.9rem; text-align: center; padding: 1rem;">No hay registros aún. ¡Registra tu primer Shabat!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: EL ÁRBOL DE LAS MITZVOT (MITZVOT TREE TRACKER)
+           ========================================================================== -->
+      <section id="section-mitzvot" class="app-section">
+        <div class="section-header">
+          <h2>El Árbol de las Mitzvot</h2>
+          <p>Registra tus buenas acciones (Mitzvot) y haz que florezca un hermoso árbol familiar en Shabat.</p>
+        </div>
+
+        <div class="attendance-layout">
+          <!-- Formulario de Registro -->
+          <div class="glass-card">
+            <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 0.5rem;"><i class="fa-solid fa-seedling" style="color: #10b981;"></i> Registrar Mitzvá</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Escribe una buena acción que hayas hecho esta semana.</p>
+
+            <form id="mitzvot-form" onsubmit="event.preventDefault();">
+              <div class="form-group">
+                <label for="mitzvah-category">Categoría de la Mitzvá</label>
+                <select id="mitzvah-category" class="form-input">
+                  <option value="familia">🏠 Familia (Ayudar en casa, honrar padres)</option>
+                  <option value="comunidad">🤝 Amigos y Comunidad (Compartir, ser amable)</option>
+                  <option value="naturaleza">🌿 Entorno y Naturaleza (Cuidar plantas/animales)</option>
+                  <option value="general">✨ Mitzvot Generales (Tzedaká, rezos, estudio)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="mitzvah-desc">¿Qué buena acción hiciste?</label>
+                <textarea id="mitzvah-desc" class="form-textarea" placeholder="Ej. Ayudé a mamá a poner la mesa de Shabat, compartí mis juguetes con mi hermano..." required></textarea>
+              </div>
+
+              <button id="btn-save-mitzvah" class="btn-gold" style="width: 100%; justify-content: center; margin-top: 1rem;">
+                <i class="fa-solid fa-circle-check"></i> ¡Hacer Crecer el Árbol!
+              </button>
+            </form>
+
+            <h4 style="font-family: var(--font-title); font-size: 1.1rem; color: white; margin-top: 2rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-list-check" style="color: var(--nbi-cyan);"></i> Últimas Mitzvot</h4>
+            <div class="attendance-history-list" id="mitzvot-history-list" style="max-height: 150px;">
+              <!-- Cargado dinámicamente -->
+            </div>
+          </div>
+
+          <!-- Árbol Canvas -->
+          <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 450px;">
+            <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 1rem; align-self: flex-start; display: flex; align-items: center; gap: 0.6rem;">
+              <i class="fa-solid fa-tree" style="color: #10b981;"></i> Tu Árbol Familiar de Mitzvot
+            </h3>
+            <div style="background: rgba(5, 11, 20, 0.4); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 0.5rem; width: 100%; display: flex; justify-content: center; align-items: center;">
+              <canvas id="mitzvot-tree-canvas" width="500" height="420" style="max-width: 100%; display: block;"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: EL COFRE DE PREGUNTAS (SHABBAT CONVERSATIONS)
+           ========================================================================== -->
+      <section id="section-cofre" class="app-section">
+        <div class="section-header">
+          <h2>El Cofre de Preguntas de Shabat</h2>
+          <p>Preguntas creativas para platicar, sonreír y reflexionar en familia en la mesa de Shabat.</p>
+        </div>
+
+        <div style="max-width: 600px; margin: 0 auto;">
+          <div class="glass-card" style="text-align: center; padding: 2.5rem 1.5rem;">
+            
+            <div class="flashcard-display" style="perspective: 1500px; margin-bottom: 2rem;">
+              <!-- Carta 3D Cofre -->
+              <div class="flashcard" id="cofre-card" style="width: 300px; height: 380px;">
+                <div class="flashcard-face flashcard-front" style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(15, 23, 42, 0.95)); border-color: rgba(56, 189, 248, 0.3);">
+                  <div style="font-size: 4.5rem; margin-bottom: 1rem; animation: float 6s ease-in-out infinite;">📦</div>
+                  <h3 style="font-family: var(--font-title); font-size: 1.8rem; color: var(--nbi-gold); font-weight: 700;">El Cofre de Shabat</h3>
+                  <p style="color: var(--nbi-cyan); font-size: 0.9rem; font-weight: 600; margin-top: 1rem; text-transform: uppercase;" id="cofre-card-category">Pregunta Semanal</p>
+                  <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 2rem;">Toca la carta para abrir el cofre 🔑</p>
+                </div>
+                <div class="flashcard-face flashcard-back" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 58, 138, 0.85)); border-color: var(--nbi-gold);">
+                  <span id="cofre-badge" style="background: var(--nbi-gold); color: #0b1a30; font-family: var(--font-title); font-weight: 700; font-size: 0.75rem; padding: 0.3rem 0.8rem; border-radius: 50px; text-transform: uppercase;">Parashá Bereshit</span>
+                  <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 1rem;">
+                    <p id="cofre-question-text" style="font-family: var(--font-title); font-size: 1.35rem; line-height: 1.6; color: white; font-weight: 600;">¿Cargando pregunta?</p>
+                  </div>
+                  <p style="color: var(--text-secondary); font-size: 0.75rem;">Conversa esta pregunta con tu familia en la cena 🍽️</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flashcard-nav">
+              <button class="flashcard-btn" id="btn-cofre-prev" aria-label="Tarjeta anterior"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+              <button class="btn-primary" id="btn-cofre-shuffle" style="border-radius: 50px; padding: 0.6rem 1.5rem;"><i class="fa-solid fa-shuffle"></i> Mezclar</button>
+              <button class="flashcard-btn" id="btn-cofre-next" aria-label="Tarjeta siguiente"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: EL TZEDAKÓMETRO INTERACTIVO (TZEDAKAH BOX)
+           ========================================================================== -->
+      <section id="section-tzedaka" class="app-section">
+        <div class="section-header">
+          <h2>El Tzedakómetro</h2>
+          <p>Aprende el valor de dar y compartir. Deposita monedas en la alcancía virtual y ponte una meta real.</p>
+        </div>
+
+        <div class="attendance-layout">
+          <!-- Alcancía Interactiva -->
+          <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; min-height: 450px;">
+            <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 1rem; align-self: flex-start; display: flex; align-items: center; gap: 0.6rem;">
+              <i class="fa-solid fa-box-archive" style="color: var(--nbi-gold);"></i> Alcancía de Tzedaká
+            </h3>
+            
+            <div id="tzedaka-box-container" style="position: relative; width: 320px; height: 350px; background: rgba(15, 23, 42, 0.4); border: 2px solid var(--border-glass); border-radius: var(--radius-lg); overflow: hidden;">
+              <canvas id="tzedaka-canvas" width="320" height="350" style="display: block;"></canvas>
+              <div style="position: absolute; top: 10px; left: 0; right: 0; text-align: center; pointer-events: none;">
+                <span style="background: rgba(5, 11, 20, 0.8); border: 1px solid var(--border-glass); color: var(--nbi-cyan); font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 10px; font-weight: 700; text-transform: uppercase;">Ranura de Monedas</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controles y Meta -->
+          <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 0.5rem;"><i class="fa-solid fa-hand-holding-dollar" style="color: var(--nbi-cyan);"></i> Tu Meta de Tzedaká</h3>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Selecciona una causa y deposita haciendo clic en las monedas.</p>
+
+              <div class="form-group">
+                <label for="tzedaka-cause">¿A quién ayudaremos esta semana?</label>
+                <select id="tzedaka-cause" class="form-input">
+                  <option value="arboles">🌳 Plantar árboles en Israel (KKL)</option>
+                  <option value="alimentos">🍎 Alimentos para familias necesitadas</option>
+                  <option value="animales">🐶 Refugio y cuidado de perritos</option>
+                  <option value="libros">📚 Libros de cuentos para niños</option>
+                </select>
+              </div>
+
+              <!-- Monedas para clickear -->
+              <label style="color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 0.8rem;">Haz clic para depositar</label>
+              <div style="display: flex; justify-content: space-around; gap: 1rem; margin-bottom: 2rem;">
+                <button class="coin-btn coin-1" id="coin-val-1" title="Depositar 1 Shekel">1₪</button>
+                <button class="coin-btn coin-2" id="coin-val-2" title="Depositar 2 Shekels">2₪</button>
+                <button class="coin-btn coin-5" id="coin-val-5" title="Depositar 5 Shekels">5₪</button>
+                <button class="coin-btn coin-10" id="coin-val-10" title="Depositar 10 Shekels">10₪</button>
+              </div>
+
+              <!-- Progreso de Ahorro -->
+              <div style="margin-top: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                  <span style="color: white;">Acumulado: <span id="tzedaka-total">0</span> ₪</span>
+                  <span style="color: var(--nbi-gold);">Meta: <span id="tzedaka-goal-val">150</span> ₪</span>
+                </div>
+                <div style="height: 12px; background: rgba(5, 11, 20, 0.8); border: 1px solid var(--border-glass); border-radius: 10px; overflow: hidden;">
+                  <div id="tzedaka-progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, var(--nbi-gold), #fbbf24); transition: width 0.4s ease;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 2rem; border-top: 1px solid var(--border-glass); padding-top: 1.2rem; display: flex; gap: 1rem;">
+              <button id="btn-reset-tzedaka" class="btn-outline" style="flex: 1; justify-content: center;"><i class="fa-solid fa-arrows-rotate"></i> Reiniciar Caja</button>
+              <button id="btn-real-tzedaka" class="btn-gold" style="flex: 1; justify-content: center;"><i class="fa-solid fa-gift"></i> Meta Cumplida</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: JUEGO DE MEMORIA DE SÍMBOLOS JUDÍOS (MEMORY MATCH)
+           ========================================================================== -->
+      <section id="section-memoria" class="app-section">
+        <div class="section-header">
+          <h2>Memoria de Símbolos Judíos</h2>
+          <p>Encuentra las parejas de símbolos sagrados y aprende sus hermosos significados.</p>
+        </div>
+
+        <div class="attendance-layout">
+          <!-- Tablero de Juego -->
+          <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 480px;">
+            <div class="memory-grid" id="memory-grid">
+              <!-- Cargado dinámicamente con JS (12 cartas) -->
+            </div>
+          </div>
+
+          <!-- Estado y Datos Educativos -->
+          <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 0.5rem;"><i class="fa-solid fa-trophy" style="color: var(--nbi-gold);"></i> Tu Estado de Juego</h3>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Encuentra las 6 parejas de símbolos sagrados.</p>
+
+              <div style="display: flex; justify-content: space-around; background: rgba(5, 11, 20, 0.4); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 1.2rem; margin-bottom: 1.5rem; text-align: center;">
+                <div>
+                  <span style="display: block; font-size: 0.75rem; text-transform: uppercase; color: var(--text-secondary); font-weight: 600;">Parejas</span>
+                  <span id="mem-pairs-found" style="font-family: var(--font-title); font-size: 2rem; font-weight: 800; color: var(--nbi-cyan);">0 / 6</span>
+                </div>
+                <div style="border-left: 1px solid var(--border-glass); height: 40px; margin: auto 0;"></div>
+                <div>
+                  <span style="display: block; font-size: 0.75rem; text-transform: uppercase; color: var(--text-secondary); font-weight: 600;">Intentos</span>
+                  <span id="mem-tries" style="font-family: var(--font-title); font-size: 2rem; font-weight: 800; color: var(--nbi-gold);">0</span>
+                </div>
+              </div>
+
+              <!-- Caja de Aprendizaje del Símbolo -->
+              <div id="mem-learning-box" style="background: rgba(56, 189, 248, 0.04); border: 1px dashed rgba(56, 189, 248, 0.25); border-radius: var(--radius-md); padding: 1.2rem; min-height: 180px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: var(--transition-smooth);">
+                <div id="mem-learning-empty">
+                  <div style="font-size: 3rem; margin-bottom: 0.8rem; opacity: 0.6;">🧠</div>
+                  <p style="font-family: var(--font-title); font-size: 1.05rem; font-weight: 600; color: white;">¡Haz un Match!</p>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.4rem; max-width: 250px;">Encuentra una pareja y aquí aparecerá su hermoso significado espiritual.</p>
+                </div>
+                <div id="mem-learning-content" style="display: none;">
+                  <span id="mem-symbol-emoji" style="font-size: 3.5rem; display: block; margin-bottom: 0.5rem; animation: float 4s ease-in-out infinite;">🕯️</span>
+                  <h4 id="mem-symbol-title" style="font-family: var(--font-title); font-size: 1.3rem; color: var(--nbi-gold); font-weight: 700; margin-bottom: 0.4rem;">Velas de Shabat</h4>
+                  <p id="mem-symbol-desc" style="font-size: 0.95rem; color: #cbd5e1; line-height: 1.5; padding: 0 0.5rem;">Las encendemos los viernes por la noche para iluminar el hogar con calidez, armonía y paz familiar.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem; display: flex; gap: 1rem; border-top: 1px solid var(--border-glass); padding-top: 1.2rem;">
+              <button id="btn-mem-voice-toggle" class="btn-outline" style="flex: 0 0 50px; justify-content: center; padding: 0;" title="Silenciar / Activar Voz"><i class="fa-solid fa-volume-high" id="mem-voice-icon"></i></button>
+              <button id="btn-reset-memory" class="btn-gold" style="flex: 1; justify-content: center;"><i class="fa-solid fa-arrow-rotate-right"></i> Reiniciar Juego</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: LA COCINA DE SHABAT (KITCHEN & CHALLAH BRAIDING)
+           ========================================================================== -->
+      <section id="section-cocina" class="app-section">
+        <div class="section-header">
+          <h2>La Cocina de Shabat</h2>
+          <p>Descubre deliciosas recetas para preparar en familia y aprende a trenzar tu propia Jalá paso a paso.</p>
+        </div>
+
+        <!-- Pestañas de Cocina -->
+        <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+          <button class="theme-option active" id="tab-kitchen-recipes" style="border-radius: 50px; padding: 0.6rem 2rem; font-family: var(--font-title); font-weight: 700;"><i class="fa-solid fa-utensils"></i> Recetas Infantiles</button>
+          <button class="theme-option" id="tab-kitchen-braid" style="border-radius: 50px; padding: 0.6rem 2rem; font-family: var(--font-title); font-weight: 700;"><i class="fa-solid fa-bread-slice"></i> Simulador Jalá</button>
+        </div>
+
+        <!-- Subsección 1: Recetas -->
+        <div id="kitchen-recipes-content" class="glass-card" style="padding: 2.5rem 1.5rem;">
+          <h3 style="font-family: var(--font-title); font-size: 1.6rem; color: var(--nbi-gold); margin-bottom: 1.5rem; text-align: center;"><i class="fa-solid fa-cookie-bite"></i> Recetas Fáciles para Manitos Pequeñas</h3>
+          
+          <div class="dashboard-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            <!-- Receta 1: Jalá Trenzada -->
+            <div style="background: rgba(5, 11, 20, 0.4); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <span style="font-size: 3rem; display: block; margin-bottom: 0.5rem;">🥖</span>
+                <h4 style="font-family: var(--font-title); font-size: 1.25rem; color: white; font-weight: 700; margin-bottom: 0.5rem;">Jalá Tradicional de Shabat</h4>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.4; margin-bottom: 1rem;">El pan dulce trenzado más rico para la cena familiar. ¡Ideal para amasar juntos!</p>
+                <div style="font-size: 0.8rem; color: var(--nbi-cyan); margin-bottom: 1rem;"><strong>Ingredientes clave:</strong> Harina, levadura, agua, huevos, miel y semillas de sésamo.</div>
+              </div>
+              <button class="btn-primary" id="btn-recipe-challah" style="width: 100%; justify-content: center; font-size: 0.85rem;">Ver Receta Paso a Paso</button>
+            </div>
+
+            <!-- Receta 2: Galletitas Estrella -->
+            <div style="background: rgba(5, 11, 20, 0.4); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <span style="font-size: 3rem; display: block; margin-bottom: 0.5rem;">⭐</span>
+                <h4 style="font-family: var(--font-title); font-size: 1.25rem; color: white; font-weight: 700; margin-bottom: 0.5rem;">Galletas de la Estrella de David</h4>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.4; margin-bottom: 1rem;">Divertidas galletas de mantequilla cortadas con forma de Maguén David. ¡Decóralas de celeste!</p>
+                <div style="font-size: 0.8rem; color: var(--nbi-cyan); margin-bottom: 1rem;"><strong>Ingredientes clave:</strong> Mantequilla, azúcar, harina, vainilla y glaseado celeste y blanco.</div>
+              </div>
+              <button class="btn-primary" id="btn-recipe-cookies" style="width: 100%; justify-content: center; font-size: 0.85rem;">Ver Receta Paso a Paso</button>
+            </div>
+
+            <!-- Receta 3: Hummus de Shabat -->
+            <div style="background: rgba(5, 11, 20, 0.4); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <span style="font-size: 3rem; display: block; margin-bottom: 0.5rem;">🧆</span>
+                <h4 style="font-family: var(--font-title); font-size: 1.25rem; color: white; font-weight: 700; margin-bottom: 0.5rem;">Hummus Super Rápido</h4>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.4; margin-bottom: 1rem;">Una pasta de garbanzos deliciosa y muy saludable para untar con Jalá o pancitos.</p>
+                <div style="font-size: 0.8rem; color: var(--nbi-cyan); margin-bottom: 1rem;"><strong>Ingredientes clave:</strong> Garbanzos cocidos, tahini (sésamo), jugo de limón, aceite de oliva y sal.</div>
+              </div>
+              <button class="btn-primary" id="btn-recipe-hummus" style="width: 100%; justify-content: center; font-size: 0.85rem;">Ver Receta Paso a Paso</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subsección 2: Simulador de Jalá -->
+        <div id="kitchen-braid-content" class="attendance-layout" style="display: none;">
+          <!-- Simulador Interactivo Canvas -->
+          <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 480px; position: relative;">
+            <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 1rem; align-self: flex-start; display: flex; align-items: center; gap: 0.6rem;">
+              <i class="fa-solid fa-bread-slice" style="color: var(--nbi-gold);"></i> Trenzador de Jalá
+            </h3>
+            
+            <div id="challah-simulation-box" style="position: relative; width: 100%; max-width: 440px; height: 320px; background: rgba(5, 11, 20, 0.4); border: 2px solid var(--border-glass); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+              <canvas id="challah-canvas" width="440" height="320" style="display: block; max-width: 100%;"></canvas>
+              
+              <!-- Animación del Horno Overlay -->
+              <div id="oven-overlay" style="position: absolute; inset: 0; background: rgba(239, 68, 68, 0.2); backdrop-filter: blur(4px); display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 10; border-radius: var(--radius-md);">
+                <div style="font-size: 4rem; animation: float 2s ease-in-out infinite;">🔥</div>
+                <h4 style="font-family: var(--font-title); font-size: 1.5rem; color: white; font-weight: 700; margin-top: 0.5rem; text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);">Horneando Jalá...</h4>
+                <div style="font-size: 1.8rem; font-weight: 800; color: var(--nbi-gold); margin-top: 0.5rem; font-family: monospace;" id="oven-timer">5s</div>
+                <div style="width: 200px; height: 8px; background: rgba(0, 0, 0, 0.5); border-radius: 10px; margin-top: 1rem; overflow: hidden; border: 1px solid var(--border-glass);">
+                  <div id="oven-progress" style="width: 0%; height: 100%; background: linear-gradient(90deg, #f59e0b, #ef4444); transition: width 0.2s linear;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Instrucciones de Trenzado -->
+          <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 0.5rem;"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--nbi-cyan);"></i> Instrucciones del Panadero</h3>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Sigue las indicaciones para hacer una trenza perfecta de 3 cabos.</p>
+
+              <div id="braid-guide-box" style="background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.15); border-radius: var(--radius-md); padding: 1.5rem; text-align: center; margin-bottom: 1.5rem;">
+                <span id="braid-step-indicator" style="background: var(--nbi-cyan); color: #0b1a30; font-family: var(--font-title); font-weight: 700; font-size: 0.8rem; padding: 0.25rem 0.75rem; border-radius: 50px; text-transform: uppercase;">Paso 1</span>
+                <p id="braid-instruction-text" style="font-family: var(--font-title); font-size: 1.2rem; color: white; font-weight: 600; margin-top: 1rem; line-height: 1.4;">Cruza el cabo Izquierdo (1) sobre el del Centro (2)</p>
+              </div>
+
+              <!-- Botones del simulador -->
+              <label style="color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 0.8rem; text-align: center;">¿Qué movimiento hacemos ahora?</label>
+              <div style="display: flex; flex-direction: column; gap: 0.8rem;" id="braid-actions-container">
+                <button class="btn-primary" id="btn-braid-left" style="justify-content: center; padding: 0.8rem;"><i class="fa-solid fa-arrow-turn-down" style="transform: scaleX(-1);"></i> Mover Izquierda (1) al Centro (2)</button>
+                <button class="btn-primary" id="btn-braid-right" style="justify-content: center; padding: 0.8rem;"><i class="fa-solid fa-arrow-turn-down"></i> Mover Derecha (3) al Centro (2)</button>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem; display: flex; gap: 1rem; border-top: 1px solid var(--border-glass); padding-top: 1.2rem;">
+              <button id="btn-reset-braid" class="btn-outline" style="flex: 1; justify-content: center;"><i class="fa-solid fa-arrow-rotate-left"></i> Deshacer Todo</button>
+              <button id="btn-bake-challah" class="btn-gold" style="flex: 1; justify-content: center; display: none;" disabled><i class="fa-solid fa-fire"></i> ¡Hornear Jalá! ♨️</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: RUEDA DE LAS FESTIVIDADES (HAGIM WHEEL)
+           ========================================================================== -->
+      <section id="section-festividades" class="app-section">
+        <div class="section-header">
+          <h2>La Rueda de las Festividades 🎡</h2>
+          <p>¡Gira la rueda mágica y viaja por el año judío para aprender sobre las festividades!</p>
+        </div>
+
+        <div class="attendance-layout">
+          <!-- Canvas de la Rueda -->
+          <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 480px; position: relative;">
+            <div style="position: relative; width: 320px; height: 320px; margin-bottom: 2rem;">
+              <canvas id="wheel-canvas" width="320" height="320" style="display: block; border-radius: 50%;"></canvas>
+              <!-- Flecha selectora superior -->
+              <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; border-top: 25px solid var(--nbi-gold); z-index: 10; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));"></div>
+            </div>
+            <button id="btn-spin-wheel" class="btn-gold" style="font-size: 1.15rem; padding: 0.8rem 2.5rem; justify-content: center; min-width: 200px;"><i class="fa-solid fa-arrows-spin"></i> ¡Girar Rueda! 🎢</button>
+          </div>
+
+          <!-- Detalles de la Festividad -->
+          <div class="glass-card" id="wheel-detail-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                <span id="wheel-detail-emoji" style="font-size: 3.5rem; animation: float 3s ease-in-out infinite;">🎡</span>
+                <div>
+                  <h3 id="wheel-detail-title" style="font-family: var(--font-title); font-size: 1.8rem; color: var(--nbi-gold); margin: 0;">¡Gira la Rueda!</h3>
+                  <span id="wheel-detail-hebrew" style="color: var(--nbi-cyan); font-weight: 600; font-size: 0.95rem;">Pulsa el botón para comenzar</span>
+                </div>
+              </div>
+
+              <div id="wheel-detail-body" style="color: #e2e8f0; font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                Cada sección de la rueda representa una celebración judía importante. Gírala para conocer sus costumbres, alimentos tradicionales y sus valores familiares.
+              </div>
+
+              <div id="wheel-detail-info" style="display: none; flex-direction: column; gap: 0.8rem; background: rgba(255, 255, 255, 0.02); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-glass);">
+                <div><strong style="color: var(--nbi-cyan);">🥖 Símbolos y Comidas:</strong> <span id="wheel-detail-symbols">-</span></div>
+                <div><strong style="color: var(--nbi-gold);">💎 Valor Shabat Quest:</strong> <span id="wheel-detail-values">-</span></div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-glass); padding-top: 1rem; display: flex; gap: 1rem;">
+              <button id="btn-speak-holiday" class="btn-primary" style="flex: 1; justify-content: center; display: none;"><i class="fa-solid fa-volume-high"></i> Escuchar en Voz Alta</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: CONEXIÓN ISRAEL & CALENDARIO SIONISTA
+           ========================================================================== -->
+      <section id="section-sionista" class="app-section">
+        <div class="section-header">
+          <h2>Conexión Israel & Calendario Sionista 🇮🇱</h2>
+          <p>Explora la historia del Estado de Israel, del hebreo moderno y los pioneros del sionismo.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem;">
+          <!-- Lista de Hitos (Línea de Tiempo) -->
+          <div class="glass-card" style="padding: 2rem;">
+            <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 1.5rem;"><i class="fa-solid fa-map-location-dot" style="color: var(--nbi-cyan);"></i> Hitos del Calendario Sionista</h3>
+            
+            <div id="zionist-timeline" style="display: flex; flex-direction: column; gap: 1.2rem;">
+              <!-- Se cargará dinámicamente con JS -->
+            </div>
+          </div>
+
+          <!-- Detalles e Interacción Familiar -->
+          <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;" id="zionist-detail-card">
+            <div>
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-glass); padding-bottom: 1rem;">
+                <span id="zionist-emoji" style="font-size: 3rem;">🇮🇱</span>
+                <div>
+                  <h3 id="zionist-title" style="font-family: var(--font-title); font-size: 1.5rem; color: var(--nbi-gold); margin: 0;">Selecciona un Hito</h3>
+                  <span id="zionist-date" style="color: var(--text-secondary); font-size: 0.85rem;">Descubre la historia</span>
+                </div>
+              </div>
+
+              <div id="zionist-story-box" style="display: block;">
+                <p id="zionist-story-text" style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                  Haz clic en cualquiera de las tarjetas de hitos para leer el cuento adaptado para niños y activar la guía para padres.
+                </p>
+
+                <div id="zionist-parent-guide" style="display: none; background: rgba(56, 189, 248, 0.04); border: 1px dashed var(--nbi-cyan); border-radius: var(--radius-md); padding: 1.2rem; margin-top: 1.5rem;">
+                  <h4 style="font-family: var(--font-title); font-size: 0.95rem; color: var(--nbi-cyan); font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fa-solid fa-comments"></i> Pregunta para la Mesa de Shabat:
+                  </h4>
+                  <p id="zionist-question" style="color: #e2e8f0; font-size: 0.85rem; line-height: 1.4; font-style: italic; margin: 0;"></p>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-glass); padding-top: 1.2rem; display: flex; flex-direction: column; gap: 0.8rem;">
+              <button id="btn-speak-zionist" class="btn-primary" style="justify-content: center; display: none;"><i class="fa-solid fa-volume-high"></i> Escuchar Cuento</button>
+              <button id="btn-complete-zionist" class="btn-gold" style="justify-content: center; display: none;"><i class="fa-solid fa-check"></i> ¡Leído en Familia! (+10 XP)</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: HAVDALÁ SENSORIAL
+           ========================================================================== -->
+      <section id="section-havdala" class="app-section">
+        <div class="section-header">
+          <h2>Ceremonia de Havdalá Sensorial 🕯️🍇🌿</h2>
+          <p>Enciende la vela trenzada, huele los aromas y apaga el fuego para despedir el Shabat con música.</p>
+        </div>
+
+        <div class="attendance-layout">
+          <!-- Canvas de Interacción de Físicas y Luz -->
+          <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 440px; position: relative;">
+            <canvas id="havdala-canvas" width="440" height="320" style="background: rgba(5, 11, 20, 0.6); border: 2px solid var(--border-glass); border-radius: var(--radius-md); max-width: 100%; display: block;"></canvas>
+            
+            <!-- Pantalla de Shavua Tov Overlay -->
+            <div id="havdala-shavua-tov" style="position: absolute; inset: 2rem; background: rgba(15, 23, 42, 0.95); border: 1px solid var(--nbi-cyan); border-radius: var(--radius-md); display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 10; padding: 2rem; text-align: center; animation: scaleIn 0.5s ease-out;">
+              <span style="font-size: 4.5rem; animation: float 3s ease-in-out infinite;">🌈</span>
+              <h3 style="font-family: var(--font-title); font-size: 2.5rem; color: var(--nbi-gold); font-weight: 800; text-shadow: 0 0 20px rgba(245,158,11,0.5);">¡Shavua Tov!</h3>
+              <p style="color: #e2e8f0; font-size: 1rem; line-height: 1.5; max-width: 320px; margin-top: 0.5rem; margin-bottom: 1.5rem;">¡Que tengas una hermosa y dulce semana llena de alegría, paz y buenas acciones!</p>
+              <button class="btn-primary" id="btn-reset-havdala" style="justify-content: center;"><i class="fa-solid fa-arrow-rotate-left"></i> Volver a Empezar</button>
+            </div>
+          </div>
+
+          <!-- Panel de Instrucciones y Elementos Táctiles/Arrastrables -->
+          <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 0.5rem;"><i class="fa-solid fa-circle-info" style="color: var(--nbi-cyan);"></i> Guía del Ritual</h3>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.5rem;" id="havdala-hint">Toca la vela trenzada para encender el fuego de Havdalá.</p>
+
+              <!-- Elementos Interactivos -->
+              <div style="display: flex; justify-content: space-around; align-items: center; background: rgba(5, 11, 20, 0.4); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 1.5rem; min-height: 140px;">
+                <!-- Copa de Vino -->
+                <div id="havdala-item-cup" class="badge-item unlocked" style="width: 80px; padding: 0.8rem; cursor: pointer; border-radius: var(--radius-sm); border: 1px solid transparent; text-align: center;" title="Copa de Vino/Jugo">
+                  <span style="font-size: 2.2rem; display: block; margin-bottom: 0.25rem;">🍷</span>
+                  <span style="font-size: 0.75rem; color: white; font-weight: 600;">Copa</span>
+                </div>
+                <!-- Especias (Besamim) -->
+                <div id="havdala-item-spices" class="badge-item unlocked" style="width: 80px; padding: 0.8rem; cursor: pointer; border-radius: var(--radius-sm); border: 1px solid transparent; text-align: center;" title="Caja de Especias (Huele con un clic)">
+                  <span style="font-size: 2.2rem; display: block; margin-bottom: 0.25rem;">🌿</span>
+                  <span style="font-size: 0.75rem; color: white; font-weight: 600;">Especias</span>
+                </div>
+                <!-- Vela Trenzada -->
+                <div id="havdala-item-candle" class="badge-item unlocked" style="width: 80px; padding: 0.8rem; cursor: pointer; border-radius: var(--radius-sm); border: 1px solid transparent; text-align: center;" title="Vela Trenzada (Toca para prender)">
+                  <span style="font-size: 2.2rem; display: block; margin-bottom: 0.25rem;">🕯️</span>
+                  <span style="font-size: 0.75rem; color: white; font-weight: 600;">Vela</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-glass); padding-top: 1.2rem; display: flex; flex-direction: column; gap: 0.8rem;">
+              <button id="btn-extinguish-candle" class="btn-gold" style="justify-content: center; display: none;"><i class="fa-solid fa-glass-water-droplet"></i> Apagar Vela en Copa 🍇</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: PASAPORTE DE SHABAT (LOGROS IMPRIMIBLES)
+           ========================================================================== -->
+      <section id="section-pasaporte" class="app-section">
+        <div class="section-header no-print">
+          <h2>Tu Pasaporte de Shabat 🎫</h2>
+          <p>¡Colecciona sellos dorados por tus actividades y mitzvot! Puedes imprimirlo para colorear.</p>
+        </div>
+
+        <div class="glass-card passport-container">
+          <!-- Vista de Pasaporte Virtual (Dos páginas) -->
+          <div class="passport-book" id="passport-book">
+            <!-- Página Izquierda (Datos del Niño) -->
+            <div class="passport-page page-left">
+              <h3 style="font-family: var(--font-title); font-size: 1.5rem; color: var(--nbi-gold); font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fa-solid fa-passport"></i> PASAPORTE SHABAT</h3>
+              
+              <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                <!-- Foto de Avatar Genérico -->
+                <div style="width: 100px; height: 110px; border: 2px solid var(--border-glass); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; background: rgba(5, 11, 20, 0.5); font-size: 3.5rem;">
+                  🧒
+                </div>
+                <!-- Datos del explorador -->
+                <div style="flex: 1; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem;">
+                  <div><strong style="color: var(--nbi-cyan);">Explorador:</strong> <span id="pass-kid-name" style="color: white; font-weight: 600;">Javer de Shabat</span></div>
+                  <div><strong style="color: var(--nbi-cyan);">Nivel Quest:</strong> <span id="pass-kid-level" style="color: var(--nbi-gold); font-weight: 700;">Nivel 1</span></div>
+                  <div><strong style="color: var(--nbi-cyan);">Puntaje XP:</strong> <span id="pass-kid-xp" style="color: white;">0 ⭐</span></div>
+                  <div><strong style="color: var(--nbi-cyan);">Emisión:</strong> <span style="color: #cbd5e1;">NBI Santiago</span></div>
+                </div>
+              </div>
+              
+              <div style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; border-top: 1px dashed var(--border-glass); padding-top: 1rem;">
+                *"El mundo se sostiene sobre tres pilares: la Torá, el servicio espiritual y las buenas acciones (Mitzvot)."* — Pirkei Avot.
+              </div>
+            </div>
+
+            <!-- Página Derecha (Colección de Sellos) -->
+            <div class="passport-page page-right">
+              <h3 style="font-family: var(--font-title); font-size: 1.3rem; color: white; font-weight: 700; margin-bottom: 1rem; text-align: center; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.5rem;">Sellos de Actividad</h3>
+              
+              <!-- Cuadrícula de Sellos (6 slots) -->
+              <div class="passport-stamps-grid">
+                <!-- Sello 1: Chef Jalá -->
+                <div class="passport-stamp-slot" id="stamp-chef">
+                  <div class="stamp-graphic">🥖</div>
+                  <div class="stamp-label">Chef de Jalá</div>
+                </div>
+                <!-- Sello 2: Mitzvot -->
+                <div class="passport-stamp-slot" id="stamp-mitzvot">
+                  <div class="stamp-graphic">🌳</div>
+                  <div class="stamp-label">Árbol Mitzvot</div>
+                </div>
+                <!-- Sello 3: Torá (Cuento) -->
+                <div class="passport-stamp-slot" id="stamp-cuentos">
+                  <div class="stamp-graphic">📜</div>
+                  <div class="stamp-label">Sabio de Torá</div>
+                </div>
+                <!-- Sello 4: Hagim (Rueda) -->
+                <div class="passport-stamp-slot" id="stamp-hagim">
+                  <div class="stamp-graphic">🎡</div>
+                  <div class="stamp-label">Explorador Hagim</div>
+                </div>
+                <!-- Sello 5: Havdalá -->
+                <div class="passport-stamp-slot" id="stamp-havdala">
+                  <div class="stamp-graphic">🕯️</div>
+                  <div class="stamp-label">Ritual Havdalá</div>
+                </div>
+                <!-- Sello 6: Israel (Sionista) -->
+                <div class="passport-stamp-slot" id="stamp-israel">
+                  <div class="stamp-graphic">🇮🇱</div>
+                  <div class="stamp-label">Javer Israel</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;" class="no-print">
+          <button id="btn-print-passport" class="btn-gold" style="font-size: 1.1rem; padding: 0.8rem 2.5rem;"><i class="fa-solid fa-print"></i> ¡Imprimir Pasaporte Físico! 🖨️</button>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: TALLER DE MANUALIDADES & PAPIROFLEXIA
+           ========================================================================== -->
+      <section id="section-manualidades" class="app-section">
+        <div class="section-header">
+          <h2>Taller de Manualidades & Papiroflexia ✂️</h2>
+          <p>Desconéctate de la pantalla. Sigue la guía paso a paso y crea manualidades de Shabat reales en casa.</p>
+        </div>
+
+        <div class="attendance-layout">
+          <!-- Selector de Proyectos -->
+          <div class="glass-card" style="display: flex; flex-direction: column; gap: 1rem;">
+            <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 0.5rem;"><i class="fa-solid fa-scissors" style="color: var(--nbi-cyan);"></i> Elige un Proyecto</h3>
+            
+            <div style="display: flex; flex-direction: column; gap: 0.8rem;" id="crafts-project-selector">
+              <button class="btn-primary craft-select-btn active" data-project="velas" style="justify-content: flex-start; padding: 1rem;"><span style="font-size: 1.4rem; margin-right: 0.5rem;">🕯️</span> Velas de Shabat de Papel (Fácil)</button>
+              <button class="btn-primary craft-select-btn" data-project="copa" style="justify-content: flex-start; padding: 1rem;"><span style="font-size: 1.4rem; margin-right: 0.5rem;">🍷</span> Copa de Kidush de Origami (Medio)</button>
+              <button class="btn-primary craft-select-btn" data-project="corona" style="justify-content: flex-start; padding: 1rem;"><span style="font-size: 1.4rem; margin-right: 0.5rem;">👑</span> Corona de Torá de Cartulina (Fácil)</button>
+              <button class="btn-primary craft-select-btn" data-project="tzedaka" style="justify-content: flex-start; padding: 1rem;"><span style="font-size: 1.4rem; margin-right: 0.5rem;">🪙</span> Caja de Tzedaká Casera (Medio)</button>
+            </div>
+          </div>
+
+          <!-- Guía Interactiva Pasos -->
+          <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between; min-height: 420px;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-glass); padding-bottom: 0.8rem; margin-bottom: 1.5rem;">
+                <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: var(--nbi-gold);" id="craft-title">Proyecto</h3>
+                <span id="craft-step-counter" style="background: rgba(56, 189, 248, 0.15); color: var(--nbi-cyan); padding: 0.25rem 0.75rem; border-radius: 50px; font-weight: 700; font-size: 0.85rem;">Paso 1 / 4</span>
+              </div>
+
+              <!-- Contenedor del Dibujo y la Instrucción -->
+              <div style="display: flex; gap: 2rem; align-items: center; min-height: 200px;">
+                <!-- Ilustración Vectorial / Dibujo Paso -->
+                <div id="craft-step-illustration" style="width: 130px; height: 130px; background: rgba(5,11,20,0.5); border: 2px dashed var(--border-glass); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 4.5rem; animation: float 4s ease-in-out infinite;">
+                  ✂️
+                </div>
+                <!-- Texto descriptivo -->
+                <div style="flex: 1;">
+                  <p id="craft-step-text" style="color: white; font-family: var(--font-title); font-size: 1.25rem; font-weight: 600; line-height: 1.5; margin: 0 0 0.5rem 0;">Cargando paso...</p>
+                  <p id="craft-step-tip" style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.4; margin: 0;">Detalle didáctico...</p>
+                </div>
+              </div>
+
+              <!-- Barra de progreso -->
+              <div style="width: 100%; height: 6px; background: rgba(5,11,20,0.5); border-radius: 10px; margin-top: 2rem; overflow: hidden; border: 1px solid var(--border-glass);">
+                <div id="craft-progress-bar" style="width: 25%; height: 100%; background: linear-gradient(90deg, var(--nbi-cyan), var(--nbi-gold)); transition: width 0.3s ease;"></div>
+              </div>
+            </div>
+
+            <!-- Botones de Navegación del Carrusel -->
+            <div style="display: flex; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--border-glass); padding-top: 1.2rem;">
+              <button id="btn-craft-prev" class="btn-outline" style="flex: 1; justify-content: center;"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+              <button id="btn-craft-next" class="btn-primary" style="flex: 1; justify-content: center;">Siguiente <i class="fa-solid fa-arrow-right"></i></button>
+              <button id="btn-craft-finish" class="btn-gold" style="flex: 2; justify-content: center; display: none;"><i class="fa-solid fa-star"></i> ¡Hecho en Casa! (+30 XP)</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SECCIÓN: JARDÍN DE PAZ (SHABBAT SOUNDSCAPE BUILDER)
+           ========================================================================== -->
+      <section id="section-jardin" class="app-section">
+        <div class="section-header">
+          <h2>Jardín de Paz (Shabbat Soundscape) 🧘</h2>
+          <p>Compón un paisaje sonoro de tranquilidad natural y música relajante para recibir el Shabat en calma.</p>
+        </div>
+
+        <div class="attendance-layout">
+          <!-- Canvas Visual del Paisaje -->
+          <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; position: relative;">
+            <canvas id="jardin-canvas" width="440" height="280" style="background: linear-gradient(to bottom, #050b14, #081223); border: 2px solid var(--border-glass); border-radius: var(--radius-md); max-width: 100%; display: block;"></canvas>
+            
+            <!-- Botón Central de Play/Pausa -->
+            <button id="btn-jardin-toggle" class="btn-gold" style="position: absolute; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; z-index: 10; box-shadow: 0 0 25px rgba(245,158,11,0.4);"><i class="fa-solid fa-play"></i></button>
+          </div>
+
+          <!-- Panel de Controles de Audio -->
+          <div class="glass-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: white; margin-bottom: 0.5rem;"><i class="fa-solid fa-sliders" style="color: var(--nbi-cyan);"></i> Mezclador de Sonido</h3>
+              <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1.5rem;">Activa los canales e incrementa el volumen para diseñar tu paz.</p>
+
+              <!-- Lista de Mezcla -->
+              <div style="display: flex; flex-direction: column; gap: 1rem;" id="jardin-mixers-container">
+                <!-- Canal 1: Pajaritos -->
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 1.6rem; width: 30px;">🐦</span>
+                  <div style="flex: 1;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 600; color: white; margin-bottom: 0.2rem;">
+                      <span>Trinos de Shabat</span>
+                      <span id="vol-txt-birds">0%</span>
+                    </div>
+                    <input type="range" class="jardin-slider" id="slider-birds" min="0" max="100" value="0" style="width:100%;">
+                  </div>
+                </div>
+
+                <!-- Canal 2: Viento -->
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 1.6rem; width: 30px;">🌳</span>
+                  <div style="flex: 1;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 600; color: white; margin-bottom: 0.2rem;">
+                      <span>Viento en los Olivos</span>
+                      <span id="vol-txt-wind">0%</span>
+                    </div>
+                    <input type="range" class="jardin-slider" id="slider-wind" min="0" max="100" value="0" style="width:100%;">
+                  </div>
+                </div>
+
+                <!-- Canal 3: Río -->
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 1.6rem; width: 30px;">🌊</span>
+                  <div style="flex: 1;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 600; color: white; margin-bottom: 0.2rem;">
+                      <span>Río del Jordán</span>
+                      <span id="vol-txt-river">0%</span>
+                    </div>
+                    <input type="range" class="jardin-slider" id="slider-river" min="0" max="100" value="0" style="width:100%;">
+                  </div>
+                </div>
+
+                <!-- Canal 4: Fuego/Velas -->
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 1.6rem; width: 30px;">🕯️</span>
+                  <div style="flex: 1;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 600; color: white; margin-bottom: 0.2rem;">
+                      <span>Calidez de Velas</span>
+                      <span id="vol-txt-glow">0%</span>
+                    </div>
+                    <input type="range" class="jardin-slider" id="slider-glow" min="0" max="100" value="0" style="width:100%;">
+                  </div>
+                </div>
+
+                <!-- Canal 5: Melodía -->
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                  <span style="font-size: 1.6rem; width: 30px;">🎸</span>
+                  <div style="flex: 1;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 600; color: white; margin-bottom: 0.2rem;">
+                      <span>Acordes de Guitarra</span>
+                      <span id="vol-txt-music">0%</span>
+                    </div>
+                    <input type="range" class="jardin-slider" id="slider-music" min="0" max="100" value="0" style="width:100%;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Receta Modal flotante -->
+      <div class="badges-modal-overlay" id="recipe-modal" style="z-index: 550;">
+        <div class="badges-modal" style="max-width: 500px; padding: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 style="font-family: var(--font-title); font-size: 1.5rem; color: var(--nbi-gold);" id="recipe-modal-title">Receta</h3>
+            <button id="btn-close-recipe" class="btn-outline" style="border-radius: 50%; width: 36px; height: 36px; padding: 0; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div id="recipe-modal-body" style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; max-height: 350px; overflow-y: auto; padding-right: 0.5rem;">
+            <!-- Rellenado dinámicamente -->
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- XP Bar -->
+  <div class="xp-bar-container"><div class="xp-bar-fill" id="xp-bar-fill" style="width: 0%;"></div></div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- TV Mode Button -->
+  <button class="btn-tv-mode" id="btn-tv-mode" title="Modo Presentación TV"><i class="fa-solid fa-tv"></i></button>
+
+  <!-- Badges Modal -->
+  <div class="badges-modal-overlay" id="badges-modal">
+    <div class="badges-modal">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3 style="font-family: var(--font-title); font-size: 1.8rem; color: var(--nbi-gold);"><i class="fa-solid fa-trophy"></i> Shabat Quest - Insignias</h3>
+        <button id="btn-close-badges" class="btn-outline" style="border-radius: 50%; width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">Completa actividades para desbloquear insignias ⭐</p>
+      <div id="xp-level-text" style="color: var(--nbi-cyan); font-weight: 700; font-size: 0.9rem; margin-bottom: 1rem;">Nivel 1 — Principiante de Shabat</div>
+      <div class="badges-grid" id="badges-grid"></div>
+    </div>
+  </div>
+
+  <!-- Mobile Overlay & Toggle -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menú de navegación">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <!-- Carga de Base de Datos y Lógica de Negocio -->
+  <script src="parashot-db.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
