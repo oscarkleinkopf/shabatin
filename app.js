@@ -7,6 +7,10 @@
 
 // Exponer navigateTo globalmente para los onclick en HTML
 let navigateTo;
+let openShabateinuYoutube;
+let openYogaShabatYoutube;
+let openSongYoutube;
+
 
 // Función para obtener una voz en español neutro (Latinoamericano) en lugar de España
 function getNeutralSpanishVoice(voices) {
@@ -253,6 +257,26 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   const navButtons = document.querySelectorAll('.nav-item button');
   const sections = document.querySelectorAll('.app-section');
+
+  openShabateinuYoutube = function() {
+    const pName = state.selectedParasha || "Bereshit";
+    const query = encodeURIComponent(`Comunidad NBI Shabateinu ${pName}`);
+    window.open(`https://www.youtube.com/results?search_query=${query}`, '_blank');
+  };
+
+  openYogaShabatYoutube = function() {
+    window.open('https://www.youtube.com/results?search_query=Comunidad+NBI+Shabateinu+Yoga+Shabat', '_blank');
+  };
+
+  openSongYoutube = function(type) {
+    let query = 'Comunidad NBI Shabateinu';
+    if (type === 'israel') {
+      query += ' Le cantamos a Israel';
+    } else if (type === 'yoga') {
+      query += ' Yoga Shabat';
+    }
+    window.open(`https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`, '_blank');
+  };
 
   navigateTo = function(tabId) {
     state.activeTab = tabId;

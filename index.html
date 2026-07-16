@@ -176,12 +176,15 @@
                 Cargando el resumen de la Torá para los niños...
               </p>
               
-              <div class="dashboard-actions">
+              <div class="dashboard-actions" style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
                 <button class="btn-primary" onclick="navigateTo('juegos')">
                   <i class="fa-solid fa-puzzle-piece"></i> Ir a Juegos
                 </button>
                 <button class="btn-outline" onclick="navigateTo('actividades')">
                   <i class="fa-solid fa-theater-masks"></i> Actividades en Vivo
+                </button>
+                <button class="btn-danger" style="background: linear-gradient(135deg, #ef4444, #dc2626); border-color: #ef4444; color: white;" onclick="openShabateinuYoutube()">
+                  <i class="fa-brands fa-youtube"></i> Ver Video de la Parashá
                 </button>
               </div>
             </div>
@@ -544,9 +547,14 @@
               <h3 style="font-family: var(--font-title); font-size: 1.8rem; color: var(--nbi-gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.7rem;">
                 <i class="fa-solid fa-masks-theater"></i> Actividades del Shabat: Parashat <span class="parasha-title-dyn">Bereshit</span>
               </h3>
-              <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 1.2rem;">
+              <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;">
                 Aprovecha estos recursos didácticos y guiones temáticos para que los niños de la comunidad NBI se involucren de forma lúdica con las enseñanzas de la Torá.
               </p>
+              <div style="display: flex; gap: 1rem; margin-bottom: 1.2rem;">
+                <button class="btn-primary" onclick="openShabateinuYoutube()" style="background: linear-gradient(135deg, #ef4444, #dc2626); border-color: #ef4444; font-size: 0.9rem; padding: 0.5rem 1rem;">
+                  <i class="fa-brands fa-youtube"></i> Ver Video de la Parashá en YouTube
+                </button>
+              </div>
               <div style="background: rgba(56, 189, 248, 0.04); border: 1px dashed rgba(56, 189, 248, 0.2); border-radius: var(--radius-md); padding: 1.2rem; box-shadow: inset 0 0 10px rgba(56, 189, 248, 0.02);">
                 <h5 style="color: white; font-size: 1rem; font-family: var(--font-title); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem;">
                   <i class="fa-solid fa-graduation-cap" style="color: var(--nbi-cyan);"></i> Enseñanza Principal de la Semana
@@ -805,6 +813,36 @@
           
           <div id="musica-tracks-list" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
             <!-- Rendered dynamically in app.js -->
+          </div>
+        </div>
+
+        <!-- SECCIÓN CANCIONES DE LA COMUNIDAD (REAL-LIFE) -->
+        <div class="glass-card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(5, 11, 20, 0.6)); border: 1px solid rgba(245, 158, 11, 0.3);">
+          <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: var(--nbi-gold); margin-bottom: 0.5rem;"><i class="fa-solid fa-guitar" style="color: var(--nbi-gold);"></i> Canciones Oficiales de la Comunidad NBI</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">Canta y baila con los videos musicales originales de Shabateinu en YouTube.</p>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <div class="glass-card" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 0; padding: 1.2rem; display: flex; align-items: center; gap: 1.2rem;">
+              <span style="font-size: 2.2rem;">🎶</span>
+              <div style="flex: 1;">
+                <h4 style="font-family: var(--font-title); color: white; font-size: 1.1rem; margin: 0 0 0.2rem 0;">Le cantamos a Israel</h4>
+                <p style="color: var(--text-secondary); font-size: 0.8rem; margin: 0 0 0.8rem 0;">Una hermosa tonada dedicada a Israel liderada por Diego.</p>
+                <button class="btn-primary" onclick="openSongYoutube('israel')" style="background: linear-gradient(135deg, #ef4444, #dc2626); border-color: #ef4444; font-size: 0.8rem; padding: 0.4rem 0.8rem;">
+                  <i class="fa-brands fa-youtube"></i> Ver en YouTube
+                </button>
+              </div>
+            </div>
+            
+            <div class="glass-card" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 0; padding: 1.2rem; display: flex; align-items: center; gap: 1.2rem;">
+              <span style="font-size: 2.2rem;">🧘‍♀️</span>
+              <div style="flex: 1;">
+                <h4 style="font-family: var(--font-title); color: white; font-size: 1.1rem; margin: 0 0 0.2rem 0;">Yoga Shabat</h4>
+                <p style="color: var(--text-secondary); font-size: 0.8rem; margin: 0 0 0.8rem 0;">Encuentra calma y paz con la Morá Dana en su clase especial.</p>
+                <button class="btn-primary" onclick="openSongYoutube('yoga')" style="background: linear-gradient(135deg, #ef4444, #dc2626); border-color: #ef4444; font-size: 0.8rem; padding: 0.4rem 0.8rem;">
+                  <i class="fa-brands fa-youtube"></i> Ver en YouTube
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1663,6 +1701,22 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta especial: Yoga Shabat con Morá Dana -->
+        <div class="glass-card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(56, 189, 248, 0.08)); border: 1px solid rgba(16, 185, 129, 0.3); display: flex; align-items: center; gap: 2rem; padding: 1.8rem; box-shadow: 0 8px 32px rgba(0,0,0,0.25);">
+          <div style="font-size: 3.5rem; animation: float 4s ease-in-out infinite;">🧘‍♀️</div>
+          <div style="flex: 1;">
+            <h3 style="font-family: var(--font-title); font-size: 1.4rem; color: #10b981; margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.6rem;">
+              Yoga Shabat con la Morá Dana
+            </h3>
+            <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; margin: 0 0 1rem 0;">
+              Encuentra tu paz y estira tu cuerpo con los ejercicios de respiración y posturas inspiradas en los valores de la Torá y el descanso de Shabat. ¡Ideal para practicar junto a tu familia!
+            </p>
+            <button class="btn-primary" onclick="openYogaShabatYoutube()" style="background: linear-gradient(135deg, #10b981, #059669); border-color: #10b981;">
+              <i class="fa-brands fa-youtube"></i> Ver Video de Yoga Shabat
+            </button>
           </div>
         </div>
       </section>
