@@ -148,14 +148,326 @@ const PARASHOT_DB = {
       song: "**Canción - Tienda Abierta (Melodía de bienvenida):**\n*Letra:*\nCuatro lados abiertos tiene mi hogar,\npara que el viajero pueda descansar.\nPan con cariño, agua y amor,\n¡bienvenidos todos, es un día mejor!\n*Coro:*\nAjnasat Orjim, valor celestial,\nrecibir con sonrisas a todos en Shabat."
     }
   },
-  "ChayeiSara": { name: "Jayei Sara", hebrew: "חיי שרה", book: "Bereshit (Génesis)" },
-  "Toldot": { name: "Toledot", hebrew: "תולדות", book: "Bereshit (Génesis)" },
-  "Vayetzei": { name: "Vayetze", hebrew: "ויצא", book: "Bereshit (Génesis)" },
-  "Vayishlach": { name: "Vayishlaj", hebrew: "וישלח", book: "Bereshit (Génesis)" },
-  "Vayeshev": { name: "Vayeshev", hebrew: "וישב", book: "Bereshit (Génesis)" },
-  "Miketz": { name: "Miketz", hebrew: "מקץ", book: "Bereshit (Génesis)" },
-  "Vayigash": { name: "Vayigash", hebrew: "ויגש", book: "Bereshit (Génesis)" },
-  "Vayechi": { name: "Vayeji", hebrew: "ויחי", book: "Bereshit (Génesis)" },
+  "ChayeiSara": {
+    name: "Jayei Sara",
+    hebrew: "חיי שרה",
+    book: "Bereshit (Génesis)",
+    summary: "Esta parashá relata la búsqueda de una esposa con buen corazón para Isaac. Eliezer, el servidor de Abraham, encuentra a Rebeca junto al pozo porque ella muestra una gran bondad al ofrecerle agua a él y a todos sus camellos.",
+    words: ["SARA", "REBECA", "ISAAC", "ELIEZER", "POZO", "CAMELLOS", "BONDAD", "AMOR"],
+    trivia: [
+      {
+        question: "¿Quién fue a buscar una esposa para Isaac?",
+        options: ["Eliezer", "Abraham", "Jacob"],
+        answer: 0
+      },
+      {
+        question: "¿Por qué destacó Rebeca junto al pozo?",
+        options: ["Porque fue muy bondadosa y dio de beber a Eliezer y a sus camellos", "Porque cantaba muy fuerte", "Porque corría rápido"],
+        answer: 0
+      },
+      {
+        question: "¿De quién fue esposa Rebeca al final?",
+        options: ["Esposa de Isaac", "Esposa de Abraham", "Esposa de Noaj"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - El Pozo de la Bondad:**\n*Personajes:* Eliezer (viajero cansado), Rebeca (joven alegre) y Camello tierno.\n- *Eliezer:* ¡Uf, qué viaje tan largo por el desierto! Tengo mucha sed y mis camellos también.\n- *Rebeca:* ¡Hola, viajero! No te preocupes, yo sacaré agua fresca del pozo para ti.\n- *Camello:* ¡Glup, glup! ¡Gracias, Rebeca! ¡Qué amable eres!\n- *Eliezer:* Tu gran corazón demuestra que eres la persona especial que estábamos buscando. ¡Qué hermosa mitzvá!",
+      costumes: "**Taller de Manualidades:**\nConstruir un pequeño pozo con un vaso de plástico decorado con piedras dibujadas. Los niños usan hilos de lana azul para simular el agua y actúan ofreciendo 'agua de la bondad' a sus compañeros.",
+      song: "**Canción - El Pozo de Rebeca:**\n*Letra:*\nJunto al pozo de agua clara Rebeca sonrió,\na los camellos cansados agua les ofreció.\nCon paciencia y cariño a todos ayudó,\n¡y con su bondad el corazón nos alegró!\n*Coro:*\n¡Bondad y alegría, compartir en Shabat!\nEn Shabateinu NBI cantamos en paz."
+    },
+    storyPages: [
+      { title: "El Recuerdo de Sara", text: "Sara, la mamá de Isaac, vivió una vida llena de buenas acciones y amor. Abraham quería que Isaac continuara con este hermoso legado familiar.", emoji: "👵" },
+      { title: "El Viaje de Eliezer", text: "Abraham envió a su servidor Eliezer con diez camellos a buscar una esposa especial para Isaac. Eliezer rezó para encontrar a alguien con un corazón generoso.", emoji: "🐪" },
+      { title: "Rebeca y los Camellos", text: "Al llegar a un pozo, Eliezer vio a Rebeca. Ella no solo le dio agua a él, sino que con una gran sonrisa sacó agua para todos sus camellos hambrientos.", emoji: "💧" },
+      { title: "Una Nueva Familia", text: "Eliezer supo que Rebeca era la indicada por su gran bondad. Rebeca viajó para casarse con Isaac, trayendo nuevamente alegría y paz a su tienda.", emoji: "👰" }
+    ],
+    alefBetLetters: [
+      { letter: "ב", name: "Bet", sound: "B", word: "באר", wordMeaning: "Pozo" },
+      { letter: "ג", name: "Gimel", sound: "G", word: "גמל", wordMeaning: "Camello" },
+      { letter: "ח", name: "Jet", sound: "J", word: "חסد", wordMeaning: "Bondad" }
+    ]
+  },
+  "Toldot": {
+    name: "Toledot",
+    hebrew: "תולדות",
+    book: "Bereshit (Génesis)",
+    summary: "Isaac y Rebeca tienen dos hijos mellizos muy diferentes: Esaú, a quien le gusta el campo, y Jacob, quien prefiere estudiar en la tienda. Nos enseña a valorar y querer a cada hijo y amigo por lo que es, apreciando sus talentos únicos.",
+    words: ["MELLIZOS", "JACOB", "ESAU", "TIENDA", "TALENTOS", "BENDICION", "PADRES", "HERMANOS"],
+    trivia: [
+      {
+        question: "¿Cómo se llamaban los dos hijos mellizos de Isaac y Rebeca?",
+        options: ["Jacob y Esaú", "Isaac e Ismael", "Efraín y Menashé"],
+        answer: 0
+      },
+      {
+        question: "¿Qué le gustaba hacer a Jacob?",
+        options: ["Estudiar y estar tranquilo en la tienda", "Cazar animales en el bosque", "Navegar en barcos"],
+        answer: 0
+      },
+      {
+        question: "¿Qué nos enseña esta parashá sobre los talentos de las personas?",
+        options: ["Que todos somos diferentes y valiosos con nuestros propios dones", "Que todos debemos ser iguales", "Que solo uno es mejor"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - Dos Hermanos Diferentes:**\n*Personajes:* Títere de Jacob (tranquilo con un libro de papel), Títere de Esaú (alegre con un arco de juguete) y Títere de Mamá Rebeca.\n- *Esaú:* ¡Hola! Me encanta correr por el bosque y jugar bajo el sol.\n- *Jacob:* A mí me gusta estar en la tienda, leer y conversar en familia.\n- *Rebeca:* Mis queridos hijos, los dos son muy diferentes, ¡pero los amo con todo mi corazón por igual!\n- *Esaú y Jacob:* ¡Sí! Cada uno tiene su propio talento para hacer el bien en Shabateinu NBI.",
+      costumes: "**Taller de Clasificación Dinámica:**\n'El árbol de mis talentos'. Los niños dibujan en una manzana de papel su actividad favorita (dibujar, cantar, ayudar, estudiar) y la pegan en un gran árbol dibujado en la pared.",
+      song: "**Canción - Somos Diferentes:**\n*Letra:*\nJacob en la tienda prefiere estudiar,\nEsaú por el campo prefiere jugar.\nAunque somos diferentes, nos queremos igual,\n¡cada uno con su don alegra este Shabat!\n*Coro:*\n¡Diferentes y unidos, qué hermoso es convivir!\nEn Shabateinu NBI cantamos al vivir."
+    },
+    storyPages: [
+      { title: "Dos Bebés Especiales", text: "Isaac y Rebeca rezaron mucho y Dios les regaló dos hijos mellizos: Esaú y Jacob. Desde pequeños demostraron tener gustos y personalidades muy distintas.", emoji: "👶" },
+      { title: "Esaú, el Explorador", text: "Esaú creció siendo un joven fuerte y activo a quien le encantaba explorar los campos, correr bajo el sol y cazar en el bosque.", emoji: "🏹" },
+      { title: "Jacob, el Estudiante", text: "Jacob era un joven tranquilo y reflexivo. Le gustaba quedarse en las tiendas para estudiar, ayudar a sus padres y conversar sobre las enseñanzas de Dios.", emoji: "📚" },
+      { title: "El Regalo de la Bendición", text: "A pesar de sus diferencias y algunos desacuerdos, aprendemos que Dios tiene un plan especial para cada uno y que las bendiciones familiares son muy valiosas.", emoji: "✨" }
+    ],
+    alefBetLetters: [
+      { letter: "א", name: "Alef", sound: "(silencio)", word: "אח", wordMeaning: "Hermano" },
+      { letter: "ב", name: "Bet", sound: "B", word: "ברכה", wordMeaning: "Bendición" },
+      { letter: "ת", name: "Tav", sound: "T", word: "תולדות", wordMeaning: "Generaciones" }
+    ]
+  },
+  "Vayetzei": {
+    name: "Vayetze",
+    hebrew: "ויצא",
+    book: "Bereshit (Génesis)",
+    summary: "Jacob emprende un viaje y se queda a dormir en el desierto usando una piedra como almohada. Sueña con una escalera gigante que llega al cielo por la que suben y bajan ángeles, recordándonos que Dios nos cuida dondequiera que vayamos.",
+    words: ["ESCALERA", "ANGELES", "SUEÑO", "PIEDRA", "VIAJE", "CUIDADO", "CIELO", "JACOB"],
+    trivia: [
+      {
+        question: "¿Con qué soñó Jacob mientras dormía en el desierto?",
+        options: ["Con una escalera gigante que llegaba al cielo con ángeles", "Con un gran barco en el mar", "Con un banquete de dulces"],
+        answer: 0
+      },
+      {
+        question: "¿Qué usó Jacob como almohada para descansar esa noche?",
+        options: ["Una piedra lisa del suelo", "Un almohadón de plumas", "Su mochila de viaje"],
+        answer: 0
+      },
+      {
+        question: "¿Qué le prometió Dios a Jacob en el sueño?",
+        options: ["Que lo cuidaría y lo acompañaría en cualquier lugar a donde fuera", "Que le daría una espada de oro", "Que ganaría una carrera"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - El Sueño de la Escalera:**\n*Personajes:* Títere de Jacob (con una almohada de cartón), Títere de Ángel 1 y Títere de Ángel 2.\n- *Jacob:* Qué cansado estoy. Usaré esta piedra como almohada... ¡Buenas noches! (Se duerme).\n- *Ángel 1:* ¡Miren! Subamos por esta escalera mágica hacia el cielo.\n- *Ángel 2:* ¡Y bajemos para cuidar el sueño de Jacob! Dios está aquí con él.\n- *Jacob:* (Se despierta). ¡Wow! ¡Qué lugar tan especial! Dios realmente me cuida en todo momento.",
+      costumes: "**Taller de Manualidades:**\n'La Escalera de los Ángeles'. Usando palitos de helado, los niños construyen una pequeña escalera y le pegan nubes de algodón y angelitos de papel en los peldaños.",
+      song: "**Canción - La Escalera de Jacob:**\n*Letra:*\nUna gran escalera en el sueño apareció,\npor donde suben ángeles con la luz del sol.\nAunque duermas en la piedra o en tu cómodo hogar,\n¡el amor de Dios siempre te va a acompañar!\n*Coro:*\n¡Ángeles de paz, cuidado celestial!\nEn Shabateinu NBI cantamos en Shabat."
+    },
+    storyPages: [
+      { title: "El Viaje de Jacob", text: "Jacob tuvo que viajar a una tierra lejana para visitar a su familia. Al caer la noche en el desierto, tomó una piedra del suelo como almohada y se durmió.", emoji: "🚶" },
+      { title: "La Escalera Celestial", text: "En su sueño, Jacob vio una escalera enorme apoyada en la tierra que tocaba el cielo. Ángeles de Dios subían y bajaban por ella con alas brillantes.", emoji: "🪜" },
+      { title: "La Promesa de Dios", text: "Desde lo alto, Dios le habló con dulzura: 'Yo soy el Dios de Abraham e Isaac. Estaré contigo, te cuidaré dondequiera que vayas y te traeré de vuelta a casa.'", emoji: "💭" },
+      { title: "Un Lugar Asombroso", text: "Al despertar, Jacob exclamó: '¡Qué asombroso es este lugar! Dios está aquí y yo no lo sabía.' Confiado en la promesa, continuó su viaje con gran alegría.", emoji: "⛰️" }
+    ],
+    alefBetLetters: [
+      { letter: "ס", name: "Samej", sound: "S", word: "סולם", wordMeaning: "Escalera" },
+      { letter: "א", name: "Alef", sound: "(silencio)", word: "אבן", wordMeaning: "Piedra" },
+      { letter: "מ", name: "Mem", sound: "M", word: "מלאך", wordMeaning: "Ángel" }
+    ]
+  },
+  "Vayishlach": {
+    name: "Vayishlaj",
+    hebrew: "וישלח",
+    book: "Bereshit (Génesis)",
+    summary: "Después de muchos años, Jacob regresa a casa y se prepara para reencontrarse con su hermano Esaú. En lugar de pelear, los dos hermanos corren a abrazarse y llorar de alegría, enseñándonos el valor de la reconciliación y la paz familiar.",
+    words: ["ABRAZO", "RECONCILIACION", "PAZ", "HERMANOS", "REGRESO", "REGALOS", "ENCUENTRO", "PERDON"],
+    trivia: [
+      {
+        question: "¿Cómo reaccionaron Jacob y Esaú al reencontrarse después de tantos años?",
+        options: ["Corrieron a abrazarse, besarse y llorar de alegría", "Se enojaron y gritaron", "Se ignoraron por completo"],
+        answer: 0
+      },
+      {
+        question: "¿Qué envió Jacob por delante para demostrarle cariño y respeto a su hermano Esaú?",
+        options: ["Muchos regalos y animales del campo", "Una carta de reclamo", "Nada"],
+        answer: 0
+      },
+      {
+        question: "¿Qué gran valor nos enseña este reencuentro familiar?",
+        options: ["Que el perdón y el amor familiar son más fuertes que cualquier enojo pasado", "A guardar rencor", "A pelear por los juguetes"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - El Abrazo de la Paz:**\n*Personajes:* Títere de Jacob (nervioso), Títere de Esaú (emocionado) y Títere de Ovejita mediadora.\n- *Jacob:* Ay, tengo miedo. ¿Estará enojado mi hermano Esaú después de tanto tiempo?\n- *Ovejita:* ¡No te preocupes, Jacob! Los hermanos siempre se quieren en el fondo.\n- *Esaú:* ¡Jacob! ¡Hermano mío! (Corre hacia él).\n- *Jacob:* ¡Esaú! ¡Qué alegría verle! ¡Perdóname por el pasado!\n- *Esaú:* ¡Te perdono con todo mi corazón! ¡Démonos un fuerte abrazo de Shabat!",
+      costumes: "**Taller de Manualidades / Juego Dinámico:**\n'El círculo del abrazo'. Los niños forman un círculo y se pasan un peluche de ovejita. Al recibirlo, deben decir una palabra bonita o un deseo de paz para el compañero de al lado.",
+      song: "**Canción - El Abrazo de Hermanos:**\n*Letra:*\nJacob y Esaú se volvieron a encontrar,\nel miedo y el enojo decidieron olvidar.\nCorrieron a abrazarse con fuerza y con amor,\n¡el perdón es el camino que alegra al Creador!\n*Coro:*\n¡Paz y perdón en este Shabat!\nEn Shabateinu NBI cantamos en hermandad."
+    },
+    storyPages: [
+      { title: "El Temor al Encuentro", text: "Jacob volvía a su hogar con su esposa e hijos. Sabía que se encontraría con Esaú y se sentía nervioso por los viejos problemas del pasado.", emoji: "🚶" },
+      { title: "Regalos de Amistad", text: "Para demostrarle a Esaú que venía en paz, Jacob le envió hermosos regalos de ovejas, camellos y vacas, queriendo ablandar el corazón de su hermano.", emoji: "🎁" },
+      { title: "El Gran Abrazo", text: "Cuando Esaú vio a Jacob, corrió hacia él con los brazos abiertos. En lugar de discutir, ¡lo abrazó fuerte, lo besó y ambos lloraron de felicidad!", emoji: "🫂" },
+      { title: "Hacer las Paces", text: "Esaú y Jacob caminaron juntos en paz. Esta historia nos enseña que el perdón y el amor familiar pueden curar cualquier distancia y traer gran Shalom.", emoji: "🕊️" }
+    ],
+    alefBetLetters: [
+      { letter: "מ", name: "Mem", sound: "M", word: "מתנה", wordMeaning: "Regalo" },
+      { letter: "ע", name: "Ayin", sound: "(silencio)", word: "עשו", wordMeaning: "Esaú" },
+      { letter: "י", name: "Yod", sound: "Y", word: "יעקב", wordMeaning: "Jacob" }
+    ]
+  },
+  "Vayeshev": {
+    name: "Vayeshev",
+    hebrew: "וישב",
+    book: "Bereshit (Génesis)",
+    summary: "José recibe de su papá una hermosa túnica de muchos colores. Aunque sus hermanos sienten celos de sus sueños y de su túnica, la historia nos enseña que Dios siempre acompaña a José y tiene un plan especial lleno de bondad para él.",
+    words: ["TUNICA", "COLORES", "JOSE", "SUEÑOS", "HERMANOS", "ESTRELLAS", "CELES", "PLAN"],
+    trivia: [
+      {
+        question: "¿Qué regalo especial le dio Jacob a su hijo favorito José?",
+        options: ["Una hermosa túnica de muchos colores", "Un escudo de plata", "Un libro de cuentos"],
+        answer: 0
+      },
+      {
+        question: "¿Con qué soñó José en esta parashá?",
+        options: ["Con el sol, la luna y once estrellas que se inclinaban ante él", "Con un gran árbol de manzanas", "Con un viaje en alfombra mágica"],
+        answer: 0
+      },
+      {
+        question: "¿Qué valor debemos cuidar cuando sentimos celos de los logros de un amigo?",
+        options: ["Aprender a alegrarnos por los éxitos de los demás y cooperar con amor", "Enojarnos más", "No jugar con ellos"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - La Túnica de Colores:**\n*Personajes:* Títere de José (con una túnica de papel de muchos colores), Títere de Hermano celoso y Títere de Ovejita sabia.\n- *José:* ¡Miren qué linda túnica me regaló mi papá! Tiene rojo, azul, verde y amarillo.\n- *Hermano:* ¡Bah! ¿Por qué José tiene una túnica tan colorida y nosotros no?\n- *Ovejita:* ¡Beeee! Los celos no hacen bien al corazón. Cada hermano es especial a su manera.\n- *José:* Sí, hermanos, yo los quiero mucho. Mis sueños significan que todos nos ayudaremos en el futuro.\n- *Hermano:* Tienes razón. Aprendemos a alegrarnos por ti en Shabateinu NBI.",
+      costumes: "**Taller de Manualidades:**\n'La túnica de José'. Los niños decoran una silueta de túnica en una cartulina blanca usando papeles de colores rasgados, pegatinas y purpurina para hacerla brillar.",
+      song: "**Canción - La Túnica de José:**\n*Letra:*\nRojo, verde, azul y amarillo también,\nes la túnica hermosa que le queda muy bien.\nJosé sueña con estrellas brillando en el edén,\n¡y con la ayuda de Dios todo saldrá muy bien!\n*Coro:*\n¡Muchos colores de amor y amistad!\nEn Shabateinu NBI cantamos en Shabat."
+    },
+    storyPages: [
+      { title: "El Regalo de Jacob", text: "Jacob quería mucho a su hijo José y le regaló una preciosa túnica tejida con hilos de muchos colores. José la usaba con mucha alegría y orgullo.", emoji: "🧥" },
+      { title: "Los Sueños de José", text: "José tuvo sueños muy especiales. En uno de ellos, el sol, la luna y once estrellas brillaban y se inclinaban ante él, representando a su familia.", emoji: "⭐" },
+      { title: "Los Celos de los Hermanos", text: "Sus hermanos mayores sintieron celos de sus sueños y de su túnica de colores. Los celos son un sentimiento difícil que debemos aprender a calmar con amor.", emoji: "😢" },
+      { title: "Dios Acompaña a José", text: "Aunque José tuvo que viajar lejos a Egipto debido a los problemas con sus hermanos, Dios siempre estuvo a su lado protegiéndolo y dándole gran sabiduría.", emoji: "✨" }
+    ],
+    alefBetLetters: [
+      { letter: "כ", name: "Jaf", sound: "J", word: "כתונת", wordMeaning: "Túnica" },
+      { letter: "צ", name: "Tzadi", sound: "Tz", word: "צבע", wordMeaning: "Color" },
+      { letter: "י", name: "Yod", sound: "Y", word: "יוסף", wordMeaning: "José" }
+    ]
+  },
+  "Miketz": {
+    name: "Miketz",
+    hebrew: "מקץ",
+    book: "Bereshit (Génesis)",
+    summary: "José interpreta los extraños sueños del Faraón sobre vacas gordas y vacas flacas. Gracias a su sabiduría, ayuda a Egipto a guardar suficiente trigo durante los años buenos para que nadie pase hambre en los años difíciles.",
+    words: ["SUEÑOS", "SABIDURIA", "TRIGO", "VACAS", "EGIPTO", "FARAON", "ALMACEN", "PLANIFICACION"],
+    trivia: [
+      {
+        question: "¿Con qué soñó el Faraón en esta parashá?",
+        options: ["Con siete vacas gordas y siete vacas flacas", "Con estrellas de colores", "Con un gran león parlante"],
+        answer: 0
+      },
+      {
+        question: "¿Qué solución propuso José para evitar el hambre en Egipto?",
+        options: ["Guardar una parte del trigo en almacenes durante los años de abundancia", "Comprar dulces", "Ir a buscar agua al mar"],
+        answer: 0
+      },
+      {
+        question: "¿Qué gran talento demostró José ante el Faraón?",
+        options: ["La sabiduría para planificar el futuro y ayudar a las personas", "Saber correr muy rápido", "Cantar ópera"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - Las Vacas del Faraón:**\n*Personajes:* Faraón confundido (con corona), Títere de José sabio y Títere de Vaquita (graciosa).\n- *Faraón:* ¡Ay! Soñé con siete vacas flacas que se comían a siete vacas gordas. ¿Qué significa?\n- *Vaquita:* ¡Muuu! ¡Yo soy una vaquita gorda y no quiero que me coman!\n- *José:* No te preocupes. Significa que vendrán años con mucho trigo y luego años con poco. Debemos guardar comida.\n- *Faraón:* ¡Qué gran idea! Eres el hombre más sabio de Egipto. Te nombro gobernador.\n- *José:* ¡Gracias! Cuidar el alimento es cuidar la vida en Shabateinu NBI.",
+      costumes: "**Taller de Manualidades:**\n'El saquito de trigo de José'. Los niños decoran un saquito de papel craft con dibujos de espigas de trigo y colocan semillas o porotos adentro como símbolo de la previsión.",
+      song: "**Canción - El Plan de José:**\n*Letra:*\nSiete vacas gordas y siete flacas vio,\nel Faraón asustado a José le preguntó.\nCon mucha sabiduría un plan organizó,\n¡guardando el trigo el hambre nos salvó!\n*Coro:*\n¡Sabiduría y ayuda en este Shabat!\nEn Shabateinu NBI cantamos en paz."
+    },
+    storyPages: [
+      { title: "El Sueño del Faraón", text: "El Faraón de Egipto tuvo un sueño extraño: vio siete vacas gordas saliendo del río Nilo, y luego siete vacas muy flacas que se comían a las gordas.", emoji: "👑" },
+      { title: "José es Convocado", text: "Nadie en el palacio entendía el sueño. Recordaron que José en la prisión sabía interpretar sueños y lo llamaron ante el Faraón con urgencia.", emoji: "🏃" },
+      { title: "La Interpretación de José", text: "José explicó: 'Las vacas representan años. Vendrán siete años de abundantes cosechas y luego siete años de sequía. Debemos almacenar trigo ahora.'", emoji: "🌾" },
+      { title: "Gobernador de Egipto", text: "El Faraón vio la gran sabiduría de José y lo nombró gobernador de todo Egipto. José organizó los almacenes con éxito y salvó a miles de personas.", emoji: "✨" }
+    ],
+    alefBetLetters: [
+      { letter: "ח", name: "Jet", sound: "J", word: "חלום", wordMeaning: "Sueño" },
+      { letter: "פ", name: "Pe", sound: "P", word: "פרה", wordMeaning: "Vaca" },
+      { letter: "ח", name: "Jet", sound: "J", word: "חכמה", wordMeaning: "Sabiduría" }
+    ]
+  },
+  "Vayigash": {
+    name: "Vayigash",
+    hebrew: "ויגש",
+    book: "Bereshit (Génesis)",
+    summary: "¡El reencuentro más emocionante! José se revela ante sus hermanos, los perdona con todo su amor y les pide traer a su querido papá Jacob a Egipto para vivir todos unidos y felices.",
+    words: ["HERMANOS", "PERDON", "REENCUENTRO", "EMOCION", "FAMILIA", "JACOB", "EGIPTO", "UNION"],
+    trivia: [
+      {
+        question: "¿Cómo reaccionó José cuando sus hermanos no sabían quién era él?",
+        options: ["Se reveló con lágrimas de emoción y les dio un gran abrazo", "Se enojó y los castigó", "Huyó corriendo"],
+        answer: 0
+      },
+      {
+        question: "¿Qué gran valor demostró José al perdonar a sus hermanos?",
+        options: ["El perdón sincero y el amor familiar por encima de los errores pasados", "El orgullo", "El olvido"],
+        answer: 0
+      },
+      {
+        question: "¿A quién mandaron a buscar con carros reales para traer a Egipto?",
+        options: ["Al abuelo Jacob", "Al rey Balak", "A Abraham"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - ¡Soy José su Hermano!:**\n*Personajes:* José (con ropa de gobernador), Títere de Judá (hermano arrepentido) y Títere de Ovejita feliz.\n- *José:* Acérquense, por favor. ¡Yo soy José, su hermano pequeño!\n- *Judá:* ¡Oh, no! ¡José! ¿Nos vas a castigar por lo que te hicimos en el pasado?\n- *José:* ¡Claro que no! Dios me mandó aquí para ayudarlos. Los perdono con todo mi amor.\n- *Ovejita:* ¡Qué hermoso es el perdón! ¡La familia vuelve a estar unida!\n- *Judá:* ¡Gracias, hermano! Corramos a contarle a nuestro papá Jacob que estás vivo.",
+      costumes: "**Taller de Manualidades:**\n'El marco del reencuentro'. Los niños hacen un portarretratos con palitos de helado decorados y dibujan adentro a su familia abrazada y feliz.",
+      song: "**Canción - La Familia Unida:**\n*Letra:*\n'¡Yo soy José!' el gobernador exclamó,\na sus hermanos con lágrimas perdonó.\nYa no hay rencores, el pasado se fue,\n¡la familia de Jacob muy unida ha de crecer!\n*Coro:*\n¡Perdón y alegría en este Shabat!\nEn Shabateinu NBI cantamos en paz."
+    },
+    storyPages: [
+      { title: "Judá Defiende a su Hermano", text: "Judá habló ante el gobernador de Egipto (José) con gran valentía, ofreciéndose a quedarse como prisionero en lugar de su hermano menor Benjamín.", emoji: "🗣️" },
+      { title: "José se Revela", text: "Al ver el gran amor y cambio en sus hermanos, José no pudo contener las lágrimas y exclamó: '¡Yo soy José! ¿Mi papá todavía vive?'", emoji: "😢" },
+      { title: "El Perdón Sincero", text: "Sus hermanos tenían miedo, pero José les dijo: 'No se sientan tristes ni enojados. Dios me envió aquí antes para guardar comida y salvar vidas.'", emoji: "🫂" },
+      { title: "La Gran Noticia para Jacob", text: "José les dio carros llenos de regalos y comida para traer a su papá Jacob a Egipto. ¡La noticia de que José estaba vivo llenó de luz el corazón de Jacob!", emoji: "🛒" }
+    ],
+    alefBetLetters: [
+      { letter: "ס", name: "Samej", sound: "S", word: "סליחה", wordMeaning: "Perdón" },
+      { letter: "א", name: "Alef", sound: "(silencio)", word: "אח", wordMeaning: "Hermano" },
+      { letter: "ע", name: "Ayin", sound: "(silencio)", word: "עגלה", wordMeaning: "Carreta" }
+    ]
+  },
+  "Vayechi": {
+    name: "Vayeji",
+    hebrew: "ויחי",
+    book: "Bereshit (Génesis)",
+    summary: "Jacob bendice a sus nietos Efraín y Menashé cruzando las manos con amor. Nos enseña la hermosa costumbre familiar de bendecir a nuestros niños en la mesa de Shabat para que crezcan felices y con buenos valores.",
+    words: ["BENDICION", "NIETOS", "JACOB", "EFRAIN", "MENASHE", "SHABAT", "FAMILIA", "JAZAK"],
+    trivia: [
+      {
+        question: "¿A quiénes bendijo Jacob cruzando sus manos de forma especial?",
+        options: ["A sus nietos Efraín y Menashé", "A las ovejas del desierto", "A los soldados del palacio"],
+        answer: 0
+      },
+      {
+        question: "¿Qué hermosa tradición familiar en Shabat nace de esta bendición de Jacob?",
+        options: ["Bendecir a los hijos los viernes por la noche deseándoles que sean como Efraín y Menashé", "Comer manzanas", "Cantando canciones de fútbol"],
+        answer: 0
+      },
+      {
+        question: "¿Qué frase de aliento y fuerza decimos juntos al terminar de leer todo el libro de Bereshit?",
+        options: ["¡Jazak, Jazak, V'nitjazek!", "¡Feliz cumpleaños!", "¡Shalom!"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - Las Manos Cruzadas:**\n*Personajes:* Jacob abuelito (con barba y ojos tiernos), José (papá) y los títeres de Efraín y Menashé.\n- *José:* Papá, has puesto tu mano derecha sobre el menor. ¿Estás confundido?\n- *Jacob:* No, José. Dios guía mis manos. Los dos niños serán muy especiales y benditos.\n- *Efraín:* ¡Gracias, abuelito! Cuidaremos la Torá con amor.\n- *Menashé:* ¡Sí! Y seremos buenos hermanos siempre.\n- *Jacob:* Que Dios los bendiga siempre en sus caminos. ¡Shabat Shalom para toda la familia!",
+      costumes: "**Taller de Manualidades:**\n'La cajita de las bendiciones'. Los niños decoran una cajita con dibujos de su familia y colocan adentro papelitos con lindos deseos y bendiciones para sus papás y hermanos.",
+      song: "**Canción - De Generación en Generación:**\n*Letra:*\nEl abuelito Jacob sus manos cruzó,\na Efraín y Menashé con amor bendijo.\nQue crezcan sanos, que vivan en paz,\n¡y que hagan mitzvot en este Shabat!\n*Coro:*\n¡L'dor Vador, amor sin final!\nEn Shabateinu NBI cantamos en Shabat."
+    },
+    storyPages: [
+      { title: "El Abuelo Jacob en Egipto", text: "Jacob vivió los últimos diecisiete años de su vida en Egipto, rodeado del amor de sus doce hijos y de muchos nietos que lo alegraban cada día.", emoji: "👴" },
+      { title: "La Bendición a los Nietos", text: "José trajo a sus hijos Efraín y Menashé para que Jacob los bendijera. Jacob, cruzando sus manos con cariño, los bendijo deseando que fueran un gran ejemplo.", emoji: "👦" },
+      { title: "Una Costumbre Hermosa", text: "Hoy en día, cada viernes por la noche en la mesa de Shabat, los padres bendicen a sus hijos usando las mismas dulces palabras que Jacob usó con sus nietos.", emoji: "🕯️" },
+      { title: "¡Jazak, Jazak, V'nitjazek!", text: "Con Vayechi terminamos el primer libro de la Torá, Bereshit. Todo el pueblo se alegra y grita: '¡Sé fuerte, sé fuerte, y nos fortaleceremos!' para seguir estudiando.", emoji: "💪" }
+    ],
+    alefBetLetters: [
+      { letter: "ז", name: "Zayin", sound: "Z", word: "זקן", wordMeaning: "Abuelo" },
+      { letter: "ב", name: "Bet", sound: "B", word: "ברכה", wordMeaning: "Bendición" },
+      { letter: "ח", name: "Jet", sound: "J", word: "חזק", wordMeaning: "Fuerte" }
+    ]
+  },
 
   // ==========================================================================
   // LIBRO 2: SHEMOT (ÉXODO)
@@ -200,8 +512,86 @@ const PARASHOT_DB = {
       { letter: "פ", name: "Pe", sound: "P", word: "פרעה", wordMeaning: "Faraón" }
     ]
   },
-  "Vaera": { name: "Vaera", hebrew: "וארא", book: "Shemot (Éxodo)" },
-  "Bo": { name: "Bo", hebrew: "בא", book: "Shemot (Éxodo)" },
+  "Vaera": {
+    name: "Vaera",
+    hebrew: "וארא",
+    book: "Shemot (Éxodo)",
+    summary: "Moisés y Aarón van ante el Faraón para pedir la libertad del pueblo de Israel. Dios realiza grandes milagros y maravillas para demostrar que siempre protege a quienes confían en Él.",
+    words: ["MILAGROS", "MOISES", "AARON", "FARAON", "EGIPTO", "LIBERTAD", "AGUA", "BASTON"],
+    trivia: [
+      {
+        question: "¿Quién acompañó a Moisés ante el Faraón?",
+        options: ["Su hermano Aarón", "Su abuelo Abraham", "Nadie, fue solo"],
+        answer: 0
+      },
+      {
+        question: "¿Qué se convirtió en serpiente cuando Aarón lo arrojó al suelo?",
+        options: ["Su bastón", "Una cuerda", "Un pedazo de pan"],
+        answer: 0
+      },
+      {
+        question: "¿Qué buscaban obtener Moisés y Aarón para el pueblo?",
+        options: ["La libertad para servir a Dios", "Monedas de oro", "Un palacio nuevo"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - El Bastón de Aarón:**\n*Personajes:* Moisés, Aarón (con bastón) y Faraón terco.\n- *Moisés:* Faraón, venimos en nombre de Dios. ¡Deja ir a mi pueblo!\n- *Faraón:* ¿Quién es Dios? No los dejaré ir. ¡Demuéstrenme su poder!\n- *Aarón:* ¡Mira esto, Faraón! (Lanza su bastón al suelo). ¡Se convirtió en una serpiente!\n- *Faraón:* ¡Ah! ¡Qué susto! Pero sigo siendo muy terco.\n- *Moisés:* Dios es muy fuerte y nos dará la libertad. ¡Confiamos en Él!",
+      costumes: "**Taller de Manualidades:**\n'El bastón milagroso'. Decorar un tubo de cartón largo con papel crepé y dibujar una pequeña serpiente de papel que se pueda enrollar alrededor del tubo.",
+      song: "**Canción - Confiando en Dios:**\n*Letra:*\nMoisés y Aarón al palacio llegaron,\nla palabra de Dios al Faraón le hablaron.\nAunque el rey es terco y no quiere escuchar,\n¡con fe y milagros la libertad va a llegar!\n*Coro:*\n¡Fuerza y milagros, confianza en Dios!\nEn Shabateinu NBI cantamos a una voz."
+    },
+    storyPages: [
+      { title: "Moisés y Aarón Unidos", text: "Dios le pidió a Aarón que ayudara a su hermano Moisés a hablar ante el Faraón. Juntos demostraron que cuando trabajamos en equipo somos más fuertes.", emoji: "🤝" },
+      { title: "El Bastón de la Promesa", text: "Aarón arrojó su bastón al suelo y, por un milagro de Dios, ¡se convirtió en una serpiente! Fue una señal para que el Faraón supiera que Dios es fuerte.", emoji: "🐍" },
+      { title: "Las Primeras Señales", text: "El agua del río Nilo se transformó para mostrar el poder de Dios, pero el Faraón seguía con el corazón duro y no quería dejar ir a los israelitas.", emoji: "💧" },
+      { title: "Tener Fe en lo Difícil", text: "Moisés y el pueblo aprendieron que cuando las cosas se ponen difíciles, debemos tener mucha paciencia y confiar en que Dios nos ayudará a salir adelante.", emoji: "✨" }
+    ],
+    alefBetLetters: [
+      { letter: "מ", name: "Mem", sound: "M", word: "מטה", wordMeaning: "Bastón" },
+      { letter: "א", name: "Alef", sound: "(silencio)", word: "אות", wordMeaning: "Milagro" },
+      { letter: "י", name: "Yod", sound: "Y", word: "יאור", wordMeaning: "Río Nilo" }
+    ]
+  },
+  "Bo": {
+    name: "Bo",
+    hebrew: "בא",
+    book: "Shemot (Éxodo)",
+    summary: "¡Por fin llega la libertad! Dios envía las últimas plagas y el Faraón decide dejar ir al pueblo. Salen de prisa y cocinan pan sin levadura (Matzá), dando inicio a la hermosa fiesta de Pésaj.",
+    words: ["LIBERTAD", "MATZA", "PRISA", "PROMESA", "NOCHE", "SALIDA", "EGIPTO", "PUEBLO"],
+    trivia: [
+      {
+        question: "¿Qué pan especial comemos en Pésaj para recordar que salimos de prisa?",
+        options: ["La Matzá (pan sin levadura)", "La Jalá", "El pan de molde"],
+        answer: 0
+      },
+      {
+        question: "¿Qué significa la palabra 'Bo'?",
+        options: ["Ven", "Corre", "Canta"],
+        answer: 0
+      },
+      {
+        question: "¿Qué fiesta tan importante del calendario judío celebra nuestra libertad de Egipto?",
+        options: ["Pésaj", "Rosh Hashaná", "Janucá"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - ¡De Prisa, la Matzá!:**\n*Personajes:* Títere de Panadero con gorro, Títere de Niño con mochila y Títere de Ovejita mochilera.\n- *Panadero:* ¡El Faraón por fin dijo que sí! ¡Podemos salir de Egipto!\n- *Niño:* ¡Rápido, empaquemos la masa de pan! ¡No hay tiempo para que crezca!\n- *Ovejita:* ¡Beeee! ¡Entonces comeremos un pan plano y crujiente!\n- *Panadero:* Sí, lo llamaremos Matzá. ¡Será nuestro pan de la libertad!\n- *Niño:* ¡Qué emoción! ¡Vamos cantando por el desierto en Shabateinu NBI!",
+      costumes: "**Taller de Manualidades:**\n'Mi propia Matzá'. Usando masa de sal (agua, sal y harina), los niños amasan círculos planos, les hacen agujeros con un tenedor y los hornean (o secan) simulando el pan de Pésaj.",
+      song: "**Canción - Crujiente Matzá:**\n*Letra:*\nLa Matzá crujiente vamos a comer,\nsalimos de prisa sin tiempo a crecer.\nPan de la libertad, dulce tradición,\n¡cantamos felices con el corazón!\n*Coro:*\n¡Pésaj de alegría, cantar de Shabat!\nEn Shabateinu NBI festejamos en paz."
+    },
+    storyPages: [
+      { title: "El Faraón Dice Sí", text: "Después de muchas plagas, el Faraón finalmente entendió que debía dejar ir a los israelitas. Les dijo: '¡Váyanse de mi tierra ahora!'", emoji: "👑" },
+      { title: "Salida Apresurada", text: "El pueblo empacó sus cosas muy rápido. La masa del pan no alcanzó a leudar (inflarse), por lo que la hornearon plana. Así nació la Matzá.", emoji: "🎒" },
+      { title: "La Fiesta de Pésaj", text: "Dios les pidió recordar este gran momento cada año celebrando la fiesta de Pésaj, comiendo Matzá y contando la historia de la libertad a los niños.", emoji: "🍷" },
+      { title: "Un Camino de Libertad", text: "El pueblo de Israel cruzó los límites de Egipto, felices de ser libres. Aprendemos que la libertad es el regalo más hermoso para todos los seres humanos.", emoji: "🕊️" }
+    ],
+    alefBetLetters: [
+      { letter: "מ", name: "Mem", sound: "M", word: "מצה", wordMeaning: "Matzá" },
+      { letter: "ח", name: "Jet", sound: "J", word: "חירות", wordMeaning: "Libertad" },
+      { letter: "א", name: "Alef", sound: "(silencio)", word: "אפייה", wordMeaning: "Hornear" }
+    ]
+  },
   "Beshalach": {
     name: "Beshalaj",
     hebrew: "בשלח",
@@ -282,7 +672,46 @@ const PARASHOT_DB = {
       { letter: "ה", name: "He", sound: "H", word: "הר", wordMeaning: "Montaña" }
     ]
   },
-  "Mishpatim": { name: "Mishpatim", hebrew: "משפטים", book: "Shemot (Éxodo)" },
+  "Mishpatim": {
+    name: "Mishpatim",
+    hebrew: "משפטים",
+    book: "Shemot (Éxodo)",
+    summary: "Esta parashá nos enseña leyes muy sabias para convivir en paz y armonía. Aprendemos a cuidar la propiedad ajena, ayudar a devolver objetos perdidos y tratar a los animales y extranjeros con mucho cariño y respeto.",
+    words: ["LEYES", "CONVIVIR", "PAZ", "ARMONIA", "RESPETO", "ANIMALES", "PROPIEDAD", "AYUDA"],
+    trivia: [
+      {
+        question: "¿Qué nos enseñan las leyes de Mishpatim?",
+        options: ["A convivir con respeto, paz y honestidad en el día a día", "A pelear en el patio", "A esconder los juguetes"],
+        answer: 0
+      },
+      {
+        question: "¿Qué debemos hacer si encontramos algo que no es nuestro (Hashavat Avedá)?",
+        options: ["Buscar a su dueño y devolvérselo con una sonrisa", "Quedárnoslo sin decir nada", "Tirarlo a la basura"],
+        answer: 0
+      },
+      {
+        question: "¿Cómo nos pide la Torá que tratemos a los extranjeros y nuevos amigos?",
+        options: ["Con cariño y empatía, recordando que todos somos valiosos", "Ignorándolos", "Gritándoles"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - La Caja de Objetos Perdidos:**\n*Personajes:* Títere de Conejito preocupado, Títere de Ovejita alegre y Títere de Niño honesto.\n- *Conejito:* ¡Ay, no! Perdí mi lápiz de colores brillante. Estoy muy triste.\n- *Niño:* Hola Conejito, ¡mira lo que encontré tirado en la sala! ¿Es este tu lápiz?\n- *Conejito:* ¡Sí! ¡Es mío! ¡Muchas gracias por devolverlo!\n- *Ovejita:* ¡Qué hermosa mitzvá! La parashá Mishpatim nos enseña a devolver lo perdido.\n- *Niño:* Sí, cuidar las cosas de los demás nos ayuda a ser una comunidad muy unida en Shabateinu NBI.",
+      costumes: "**Taller de Manualidades:**\n'La alcancía del cuidado'. Los niños decoran una cajita para colocar lápices o juguetes perdidos en el salón, escribiendo en el frente: 'Hashavat Avedá - Devolver lo perdido con amor'.",
+      song: "**Canción - Reglas de Amistad:**\n*Letra:*\nSi ves a un amigo que perdió su juguete,\nbúscalo y devuélvelo con un gran billete (¡de amor!).\nAyuda al necesitado, cuida al animal,\n¡reglas hermosas de paz celestial!\n*Coro:*\n¡Mishpatim de justicia, amor sin igual!\nEn Shabateinu NBI cantamos en Shabat."
+    },
+    storyPages: [
+      { title: "Leyes para Convivir", text: "Después de recibir los Diez Mandamientos, Dios le dio al pueblo reglas muy prácticas para el día a día. Estas leyes nos enseñan a ser justos y amables con todos.", emoji: "⚖️" },
+      { title: "Devolver lo Perdido", text: "Una ley muy linda es 'Hashavat Avedá': si encuentras un objeto perdido, debes esforzarte por encontrar a su dueño. Así creamos un ambiente de confianza.", emoji: "🔍" },
+      { title: "Cuidado de los Animales", text: "La Torá nos enseña a cuidar a los animales. Si ves al burrito de tu enemigo sufriendo bajo una carga pesada, ¡debes ayudarlo a descansar!", emoji: "🐴" },
+      { title: "Amor al Extranjero", text: "Dios nos recuerda: 'Traten con cariño a las personas nuevas o de otros lugares, porque ustedes también fueron extranjeros en Egipto.' ¡El amor es para todos!", emoji: "🤝" }
+    ],
+    alefBetLetters: [
+      { letter: "מ", name: "Mem", sound: "M", word: "משפט", wordMeaning: "Regla" },
+      { letter: "צ", name: "Tzadi", sound: "Tz", word: "צדק", wordMeaning: "Justicia" },
+      { letter: "ח", name: "Jet", sound: "J", word: "חבר", wordMeaning: "Amigo" }
+    ]
+  },
   "Terumah": {
     name: "Terumah",
     hebrew: "תרומה",
@@ -312,10 +741,166 @@ const PARASHOT_DB = {
       song: "**Canción - Terumah de Amor:**\n*Letra:*\nUn poquito de oro, un trozo de madera,\nponemos las manos todos de primera.\nEl Mishkán construimos con mucho fervor,\n¡ofrendas felices de puro amor!\n*Coro:*\nQue Dios habite en el corazón,\nen Shabateinu NBI cantamos la canción."
     }
   },
-  "Tetzaveh": { name: "Tetzaveh", hebrew: "תצוה", book: "Shemot (Éxodo)" },
-  "KiTisa": { name: "Ki Tisa", hebrew: "כי תשא", book: "Shemot (Éxodo)" },
-  "Vayakhel": { name: "Vayakhel", hebrew: "ויקהל", book: "Shemot (Éxodo)" },
-  "Pekudei": { name: "Pekudei", hebrew: "פקודי", book: "Shemot (Éxodo)" },
+  "Tetzaveh": {
+    name: "Tetzaveh",
+    hebrew: "תצוה",
+    book: "Shemot (Éxodo)",
+    summary: "Moisés recibe instrucciones para hacer las ropas especiales del Sumo Sacerdote y mantener encendido el aceite de la Menorá. Nos enseña a ser portadores de luz y a brillar con alegría para guiar a los demás.",
+    words: ["ACEITE", "MENORA", "LUCES", "SACERDOTE", "ROPA", "SABIDURIA", "ENTUSIASMO", "BRILLAR"],
+    trivia: [
+      {
+        question: "¿Qué debían mantener encendido continuamente los sacerdotes?",
+        options: ["La Menorá con aceite de oliva puro", "Una hoguera de campamento", "Una lámpara eléctrica"],
+        answer: 0
+      },
+      {
+        question: "¿Cómo debían ser las ropas de Aarón, el Sumo Sacerdote?",
+        options: ["Hermosas y coloridas, hechas con hilos de oro, azul y púrpura", "Ropas comunes de lana gris", "No llevaba ropa especial"],
+        answer: 0
+      },
+      {
+        question: "¿Qué representa la luz de la Menorá para nosotros?",
+        options: ["Que nuestras buenas acciones y palabras amables deben brillar y dar luz a los demás", "Que hace mucho frío", "Que es hora de ir a dormir"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - El Aceite de la Menorá:**\n*Personajes:* Títere de Aarón (con sombrero sacerdotal), Títere de Niño colaborador y Títere de Ovejita.\n- *Aarón:* ¡Hola amigos! Hoy me toca exprimir las aceitunas para obtener el aceite más puro para la Menorá.\n- *Niño:* Aarón, ¿por qué es tan importante que el aceite sea puro?\n- *Aarón:* Porque la llama de la Menorá debe brillar fuerte y limpia, sin humo, para llenar de luz todo el Mishkán.\n- *Ovejita:* ¡Beeee! ¡Entonces yo seré una ovejita brillante y mantendré encendido mi entusiasmo en Shabateinu NBI!\n- *Niño:* ¡Sí! Ayudemos a los demás con alegría para que nuestra llama brille fuerte.",
+      costumes: "**Taller de Manualidades:**\n'La Menorá brillante'. Los niños enrollan una cartulina negra para hacer la base y pegan papeles celofán de colores rojo, naranja y amarillo en la punta simulando la llama que nunca se apaga.",
+      song: "**Canción - Mi Llama de Bondad:**\n*Letra:*\nEn el altar del Mishkán un fuego brilló,\nque de día y de noche nunca se apagó.\nAsí en mi alma yo quiero llevar,\nla llama encendida de amor y paz.\n*Coro:*\n¡Siempre brillando, haciendo el bien!\nEn Shabateinu NBI cantamos también."
+    },
+    storyPages: [
+      { title: "El Aceite Puro", text: "Dios le pidió a Moisés recolectar aceite de oliva puro de primera calidad para mantener encendidas las luces de la Menorá del Mishkán de forma permanente.", emoji: "🫒" },
+      { title: "Las Ropas del Sumo Sacerdote", text: "Aarón y sus hijos recibieron ropas especiales muy hermosas de color azul, púrpura y escarlata con hilos de oro, diseñadas para traer alegría y esplendor.", emoji: "👑" },
+      { title: "El Pectoral de Piedras Preciosas", text: "Aarón llevaba en el pecho el Pectoral del Juicio con doce piedras preciosas brillantes, cada una representando a una de las doce tribus del pueblo de Israel.", emoji: "💎" },
+      { title: "Ser Luz para el Mundo", text: "La Menorá encendida nos enseña que cada uno de nosotros debe ser como una pequeña luz en el mundo, haciendo mitzvot y siendo bondadosos con los demás.", emoji: "✨" }
+    ],
+    alefBetLetters: [
+      { letter: "ש", name: "Shin", sound: "Sh", word: "שמן", wordMeaning: "Aceite" },
+      { letter: "מ", name: "Mem", sound: "M", word: "מנורה", wordMeaning: "Menorá" },
+      { letter: "א", name: "Alef", sound: "(silencio)", word: "אור", wordMeaning: "Luz" }
+    ]
+  },
+  "KiTisa": {
+    name: "Ki Tisa",
+    hebrew: "כי תשא",
+    book: "Shemot (Éxodo)",
+    summary: "El pueblo comete un error al hacer un becerro de oro, pero Moisés reza con mucho amor para pedir el perdón de Dios. Nos enseña el valor de perdonar, aprender de los errores y volver a empezar con el corazón limpio.",
+    words: ["PERDON", "ERRORES", "MOISES", "REZO", "CORAZON", "COMPASION", "NUEVO", "SINAÍ"],
+    trivia: [
+      {
+        question: "¿Qué error cometió el pueblo mientras Moisés estaba en la montaña?",
+        options: ["Hicieron un becerro de oro", "Se fueron a dormir", "Pintaron las tiendas de azul"],
+        answer: 0
+      },
+      {
+        question: "¿Qué hizo Moisés al ver que el pueblo estaba arrepentido?",
+        options: ["Rezó con mucho amor para pedirle a Dios que los perdonara", "Se fue solo al desierto", "No hizo nada"],
+        answer: 0
+      },
+      {
+        question: "¿Qué recibió Moisés de Dios en su segundo viaje a la montaña?",
+        options: ["Un segundo juego de Tablas de la Ley, representando el perdón y una nueva oportunidad", "Un mapa de oro", "Una corona de plata"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - Aprender del Error:**\n*Personajes:* Títere de Niño arrepentido, Títere de Moisés y Títere de Conejito pacificador.\n- *Niño:* Moisés, nos asustamos cuando tardaste en bajar de la montaña y cometimos un gran error al hacer ese becerro de oro. Estamos muy tristes.\n- *Moisés:* Sé que cometieron un error, pero lo importante es que su arrepentimiento sea sincero.\n- *Conejito:* ¡Sí! He aprendido que cuando nos equivocamos, podemos pedir perdón y prometer esforzarnos por hacerlo mejor.\n- *Moisés:* Así es. Dios nos ama y nos da segundas oportunidades. ¡Trabajemos unidos con el corazón limpio!\n- *Niño:* ¡Qué alegría es sentir el perdón en la comunidad de Shabateinu NBI!",
+      costumes: "**Taller de Manualidades:**\n'El espejo del perdón'. Los niños decoran un cartón con forma de espejo y escriben alrededor: 'Puedo aprender de mis errores y mejorar cada día'.",
+      song: "**Canción - Volver a Empezar:**\n*Letra:*\nSi cometí un error, lo puedo enmendar,\npidiendo disculpas y volviendo a empezar.\nDios es compasivo y nos da su perdón,\n¡trayendo alegría a nuestro corazón!\n*Coro:*\n¡Segundas oportunidades en este Shabat!\nEn Shabateinu NBI brillamos en paz."
+    },
+    storyPages: [
+      { title: "La Espera en la Montaña", text: "Moisés subió al Monte Sinaí por 40 días para hablar con Dios. El pueblo se impacientó al ver que tardaba tanto en bajar.", emoji: "⛰️" },
+      { title: "El Becerro de Oro", text: "Por miedo a quedarse solos, algunos hicieron una estatua en forma de becerro de oro. Fue un gran error porque olvidaron confiar en Dios.", emoji: "🐂" },
+      { title: "El Rezo de Moisés", text: "Moisés defendió con amor al pueblo arrepentido, rezando con fuerza para pedirle a Dios que los perdonara. Dios aceptó su oración con compasión.", emoji: "🙏" },
+      { title: "Nuevas Tablas de la Ley", text: "Moisés bajó de nuevo de la montaña con unas segundas Tablas de la Ley. Fue el símbolo del perdón de Dios y de una hermosa y nueva oportunidad.", emoji: "📜" }
+    ],
+    alefBetLetters: [
+      { letter: "ל", name: "Lamed", sound: "L", word: "לוח", wordMeaning: "Tabla" },
+      { letter: "ס", name: "Samej", sound: "S", word: "סליחה", wordMeaning: "Perdón" },
+      { letter: "ר", name: "Resh", sound: "R", word: "רחמים", wordMeaning: "Compasión" }
+    ]
+  },
+  "Vayakhel": {
+    name: "Vayakhel",
+    hebrew: "ויקהל",
+    book: "Shemot (Éxodo)",
+    summary: "Moisés reúne a toda la comunidad de Israel para trabajar unida en la construcción del Mishkán. Nos enseña la importancia de colaborar en equipo, compartir nuestros talentos y celebrar el Shabat como el día sagrado de descanso familiar.",
+    words: ["UNIDAD", "COMUNIDAD", "TRABAJO", "EQUIPO", "SHABAT", "SANTUARIO", "TALENTOS", "CONGREGACION"],
+    trivia: [
+      {
+        question: "¿Qué significa la palabra 'Vayakhel'?",
+        options: ["Reunió o congregó al pueblo", "Salió corriendo", "Escribió una carta"],
+        answer: 0
+      },
+      {
+        question: "¿Qué valor tan importante aprendemos cuando todo el pueblo ayuda a construir el Mishkán?",
+        options: ["El valor de la cooperación, el trabajo en equipo y la unión", "Que es mejor trabajar solo", "Que es aburrido ayudar"],
+        answer: 0
+      },
+      {
+        question: "¿Qué día especial de descanso familiar les recuerda Moisés respetar antes de construir?",
+        options: ["El Shabat", "El día lunes", "El día de cumpleaños"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - El Mosaico de la Unidad:**\n*Personajes:* Títere de Carpintero (con regla), Títere de Tejedora (con lanas de colores) y Títere de Niño colaborador.\n- *Carpintero:* Yo tengo maderas para las columnas, pero necesito ayuda para levantarlas.\n- *Tejedora:* Yo tejí las hermosas cortinas de colores azul y púrpura para decorar.\n- *Niño:* ¡Y yo puedo ayudar a sostener los clavos y las sogas!\n- *Carpintero:* ¡Excelente! Si cada uno aporta su granito de arena, ¡construiremos un santuario maravilloso!\n- *Tejedora:* La unión hace la fuerza en la comunidad de Shabateinu NBI.",
+      costumes: "**Taller de Manualidades:**\n'El bloque del Mishkán'. Los niños decoran una caja de zapatos vacía pintándola de dorado y dibujando símbolos de mitzvot. Luego, apilan todas las cajas juntas en el salón para simular el santuario construido en equipo.",
+      song: "**Canción - Unidos en Comunidad:**\n*Letra:*\nCon maderas y telas vamos a construir,\nun hermoso Mishkán donde Dios pueda vivir.\nCada uno aporta su talento especial,\n¡y descansamos unidos en este Shabat!\n*Coro:*\n¡Vayakhel de unión, fuerza comunal!\nEn Shabateinu NBI cantamos en Shabat."
+    },
+    storyPages: [
+      { title: "Moisés Reúne al Pueblo", text: "Moisés convocó a todos los israelitas ('Vayakhel'). Les recordó primero la importancia de respetar y descansar en Shabat antes de comenzar su labor.", emoji: "👥" },
+      { title: "Constructores Entusiastas", text: "Hombres y mujeres con corazones generosos trajeron ofrendas: oro, plata, cobre y lanas de colores azul, púrpura y carmesí de primera calidad.", emoji: "🧶" },
+      { title: "Artesanos con Sabiduría", text: "Dios eligió a Betzalel y Oholiab como directores del proyecto por su gran talento artístico, su creatividad y su habilidad para enseñar a otros.", emoji: "🎨" },
+      { title: "La Unión Hace la Fuerza", text: "Todos trabajaron codo a codo en perfecta armonía. La construcción nos enseña que cuando la comunidad se une con un mismo propósito, ¡logra cosas asombrosas!", emoji: "🏘️" }
+    ],
+    alefBetLetters: [
+      { letter: "ק", name: "Kuf", sound: "K", word: "קהילה", wordMeaning: "Comunidad" },
+      { letter: "ש", name: "Shin", sound: "Sh", word: "שבת", wordMeaning: "Shabat" },
+      { letter: "ח", name: "Jet", sound: "J", word: "חיבור", wordMeaning: "Unión" }
+    ]
+  },
+  "Pekudei": {
+    name: "Pekudei",
+    hebrew: "פקודי",
+    book: "Shemot (Éxodo)",
+    summary: "¡El Mishkán está terminado! Moisés presenta una rendición de cuentas muy clara y transparente sobre el oro y la plata utilizados, y la nube de la presencia de Dios llena el santuario, bendiciendo el esfuerzo del pueblo.",
+    words: ["TRANSPARENCIA", "CONTABILIDAD", "MISHKAN", "COMPLETO", "NUBE", "BENDICION", "HONESTIDAD", "TRABAJO"],
+    trivia: [
+      {
+        question: "¿Qué hizo Moisés al terminar la construcción para ser transparente con el pueblo?",
+        options: ["Una rendición de cuentas de todos los materiales utilizados", "Un dibujo en la arena", "Escondió los materiales sobrantes"],
+        answer: 0
+      },
+      {
+        question: "¿Qué señal hermosa del cielo cubrió el Mishkán cuando estuvo terminado?",
+        options: ["Una nube brillante que representaba la presencia de Dios", "Una lluvia de estrellas", "Un rayo de sol"],
+        answer: 0
+      },
+      {
+        question: "¿Qué frase de aliento y fuerza decimos juntos al terminar de leer todo el libro de Shemot?",
+        options: ["¡Jazak, Jazak, V'nitjazek!", "¡Feliz cumpleaños!", "¡Shalom!"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - Las Cuentas Claras:**\n*Personajes:* Títere de Moisés (con un pergamino de cuentas), Títere de Niño curioso y Títere de Ovejita mochilera.\n- *Niño:* Moisés, ¿qué es ese gran pergamino que tienes en tus manos?\n- *Moisés:* Es la cuenta exacta de todo el oro y la plata que nos donaron para el Mishkán. La honestidad es fundamental.\n- *Ovejita:* ¡Beeee! ¡Qué bueno es ser transparentes y honestos con las cosas que compartimos!\n- *Moisés:* Así es. Y al ver nuestro esfuerzo, la nube de Dios ha cubierto el Mishkán para bendecirnos.\n- *Niño:* ¡Qué emoción! ¡Sé fuerte, sé fuerte y nos fortaleceremos!",
+      costumes: "**Taller de Manualidades:**\n'El cartel de la honestidad'. Los niños dibujan una gran nube brillante en una cartulina y le pegan estrellas plateadas donde escriben acciones honestas (ej. 'Decir la verdad', 'Devolver lo prestado').",
+      song: "**Canción - El Santuario del Amor:**\n*Letra:*\nEl Mishkán está listo, hermoso y real,\ncon cuentas muy claras de honestidad total.\nLa nube en el cielo nos viene a guiar,\n¡con mucha alegría en este Shabat!\n*Coro:*\n¡Jazak, Jazak, V'nitjazek, sí!\nTerminamos Shemot en la NBI feliz."
+    },
+    storyPages: [
+      { title: "Cuentas Claras", text: "En la parashá Pekudei, Moisés presenta una lista de todo el oro, plata y bronce donados por el pueblo. Nos enseña el valor de la honestidad y la transparencia.", emoji: "📊" },
+      { title: "Las Ropas Listas", text: "Los sastres terminaron de tejer los trajes de los sacerdotes. Cuando Moisés los inspeccionó, vio que estaban hechos exactamente como Dios había ordenado.", emoji: "🎽" },
+      { title: "¡Se levanta el Santuario!", text: "En el primer día del primer mes, Moisés armó las paredes del Mishkán. Colocó las cortinas, el altar y la mesa de panes, quedando todo listo y ordenado.", emoji: "🏛️" },
+      { title: "La Nube del Viaje", text: "Una gran nube cubrió el Mishkán y la gloria de Dios lo llenó. Al terminar Shemot, todo el pueblo exclamó: '¡Jazak, Jazak, V'nitjazek!' (¡Sé fuerte, sé fuerte y nos fortaleceremos!)", emoji: "💪" }
+    ],
+    alefBetLetters: [
+      { letter: "ע", name: "Ayin", sound: "(silencio)", word: "ענן", wordMeaning: "Nube" },
+      { letter: "פ", name: "Pe", sound: "P", word: "פקודי", wordMeaning: "Cuentas" },
+      { letter: "ח", name: "Jet", sound: "J", word: "חזק", wordMeaning: "Fuerte" }
+    ]
+  },
 
   // ==========================================================================
   // LIBRO 3: VAYIKRA (LEVÍTICO)
