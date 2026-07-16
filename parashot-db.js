@@ -934,15 +934,366 @@ const PARASHOT_DB = {
       song: "**Canción - Veahavtá Lereajá:**\n*Letra:*\nSi a tu amigo tratas con amor,\nel mundo entero se llena de color.\nComparte tus juguetes, habla con la verdad,\n'Ama a tu prójimo', ¡ley de santidad!\n*Coro:*\n¡Veahavtá Lereajá Kamoja, sí!\nVivimos la Torá en la NBI aquí."
     }
   },
-  "Tzav": { name: "Tzav", hebrew: "צו", book: "Vayikra (Levítico)" },
-  "Shemini": { name: "Shemini", hebrew: "שמיני", book: "Vayikra (Levítico)" },
-  "Tazria": { name: "Tazria", hebrew: "תזריע", book: "Vayikra (Levítico)" },
-  "Metzora": { name: "Metzora", hebrew: "מצורע", book: "Vayikra (Levítico)" },
-  "AchreiMot": { name: "Ajarei Mot", hebrew: "אחרי מות", book: "Vayikra (Levítico)" },
-  "Kedoshim": { name: "Kedoshim", hebrew: "קדושים", book: "Vayikra (Levítico)" },
-  "Emor": { name: "Emor", hebrew: "אמור", book: "Vayikra (Levítico)" },
-  "Behar": { name: "Behar", hebrew: "בהר", book: "Vayikra (Levítico)" },
-  "Bechukotai": { name: "Bechukotai", hebrew: "בחוקתי", book: "Vayikra (Levítico)" },
+  "Tzav": {
+    name: "Tzav",
+    hebrew: "צו",
+    book: "Vayikra (Levítico)",
+    summary: "Esta parashá nos habla del fuego en el altar que debía mantenerse encendido continuamente. Nos enseña que la llama de la bondad, el entusiasmo y el amor en nuestro corazón por hacer mitzvot nunca debe apagarse.",
+    words: ["FUEGO", "ALTAR", "LLAMA", "BONDAD", "ENTUSIASMO", "AMOR", "CORAZON", "SIEMPRE"],
+    trivia: [
+      {
+        question: "¿Qué debía permanecer encendido continuamente en el altar del Mishkán?",
+        options: ["Una llama o fuego constante", "Una pequeña fogata de campamento", "Nada, debía apagarse de noche"],
+        answer: 0
+      },
+      {
+        question: "¿Qué representa esa llama constante para nosotros?",
+        options: ["Que el entusiasmo por ayudar y hacer buenas acciones siempre debe estar encendido en nuestro corazón", "Que debemos tener cuidado con el fuego", "Que hace frío en invierno"],
+        answer: 0
+      },
+      {
+        question: "¿Qué significa la palabra 'Tzav'?",
+        options: ["Ordenar o pedir con cariño", "Correr", "Cantar una canción"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - La Llama de la Mitzvá:**\n*Personajes:* Títere de Kohén (con una antorcha de papel), Títere de Niño entusiasta y Títere de Ovejita.\n- *Kohén:* ¡Miren! Mi tarea hoy es cuidar que el fuego del altar no se apague nunca.\n- *Niño:* ¿Por qué, Aarón? ¿Hace mucho frío?\n- *Kohén:* No, es para recordar que el amor y la bondad en nuestro corazón deben brillar siempre, día y noche.\n- *Ovejita:* ¡Beeee! ¡Entonces yo seré una ovejita bondadosa y mantendré encendido mi entusiasmo en Shabateinu NBI!\n- *Niño:* ¡Sí! Ayudemos a los demás con alegría para que nuestra llama brille fuerte.",
+      costumes: "**Taller de Manualidades:**\n'La antorcha del entusiasmo'. Los niños enrollan una cartulina negra para hacer la base and pegan papeles celofán de colores rojo, naranja y amarillo en la punta simulando la llama que nunca se apaga.",
+      song: "**Canción - Mi Llama de Bondad:**\n*Letra:*\nEn el altar del Mishkán un fuego brilló,\nque de día y de noche nunca se apagó.\nAsí en mi alma yo quiero llevar,\nla llama encendida de amor y paz.\n*Coro:*\n¡Siempre brillando, haciendo el bien!\nEn Shabateinu NBI cantamos también."
+    },
+    storyPages: [
+      { title: "El Fuego Sagrado", text: "Dios le dio instrucciones a Aarón para mantener un fuego encendido permanentemente en el altar. Cuidar esta llama era una misión muy especial y sagrada.", emoji: "🔥" },
+      { title: "Entusiasmo en el Corazón", text: "Este fuego nos enseña que el entusiasmo y la alegría por ayudar a los demás nunca deben apagarse. Cada buena acción es como poner leña al fuego del amor.", emoji: "❤️" },
+      { title: "Agradecer por los Alimentos", text: "En Tzav también aprendemos sobre las ofrendas de agradecimiento (Torá). Nos recuerda la importancia de decir '¡gracias!' por la comida y las cosas lindas que tenemos.", emoji: "🙏" },
+      { title: "Unidos en la Misión", text: "Toda la familia de sacerdotes trabajaba unida para cuidar el santuario. Cuando cooperamos y nos apoyamos en familia, todo funciona en perfecta armonía.", emoji: "🤝" }
+    ],
+    alefBetLetters: [
+      { letter: "א", name: "Alef", sound: "(silencio)", word: "אש", wordMeaning: "Fuego" },
+      { letter: "צ", name: "Tzadi", sound: "Tz", word: "צו", wordMeaning: "Ordenar" },
+      { letter: "ת", name: "Tav", sound: "T", word: "תמיד", wordMeaning: "Siempre" }
+    ]
+  },
+  "Shemini": {
+    name: "Shemini",
+    hebrew: "שמיני",
+    book: "Vayikra (Levítico)",
+    summary: "¡El octavo día es de gran celebración en el Mishkán! En esta parashá también aprendemos sobre las leyes de Cashrut, que nos enseñan a comer alimentos saludables y limpios para cuidar nuestro cuerpo como el templo sagrado que es.",
+    words: ["CELEBRACION", "OCTAVO", "SALUDABLE", "ALIMENTOS", "CASHRUT", "CUERPO", "TEMPLO", "SABIDURIA"],
+    trivia: [
+      {
+        question: "¿Qué significa la palabra 'Shemini'?",
+        options: ["El octavo", "El primero", "El último"],
+        answer: 0
+      },
+      {
+        question: "¿Qué nos enseñan las leyes de Cashrut (alimentos kosher)?",
+        options: ["A elegir alimentos saludables, limpios y respetuosos con la vida", "A comer solo dulces", "A no comer nada"],
+        answer: 0
+      },
+      {
+        question: "¿Por qué es importante cuidar lo que comemos según la Torá?",
+        options: ["Para crecer fuertes y tratar a nuestro cuerpo con el respeto que merece", "Para ganar carreras", "Para dormir más"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - El Menú Saludable:**\n*Personajes:* Títere de Vaquita kosher (tierna), Títere de Pececito con escamas and Títere de Niño curioso.\n- *Niño:* Hola amigos, hoy aprenderemos sobre los alimentos que nos hacen bien.\n- *Vaquita:* ¡Muuu! Yo soy un animalito kosher, soy herbívora y tranquila.\n- *Pececito:* ¡Y yo tengo aletas y escamas para nadar feliz en el agua! También soy kosher.\n- *Niño:* La Torá nos enseña a elegir comida buena y limpia para cuidar el cuerpo que Dios nos regaló.\n- *Vaquita y Pececito:* ¡Sí! A cuidar la salud en Shabateinu NBI.",
+      costumes: "**Taller de Clasificación Dinámica:**\n'El supermercado kosher'. Los niños usan dibujos de frutas, verduras, peces con escamas y otros alimentos para clasificarlos en una pizarra bajo la etiqueta: 'Saludable y Kosher'.",
+      song: "**Canción - Cuidando mi Cuerpo:**\n*Letra:*\nMi cuerpo es un templo que debo cuidar,\ncon comida sana y agua del mar.\nLeyes de Cashrut nos vienen a guiar,\npara con fuerza y salud estudiar.\n*Coro:*\n¡Kosher y sano, un camino mejor!\nEn Shabateinu NBI cantamos con amor."
+    },
+    storyPages: [
+      { title: "El Octavo Día", text: "Después de siete días de preparación, llegó el octavo día ('Shemini'). Aarón y sus hijos inauguraron oficialmente el Mishkán con una gran alegría del pueblo.", emoji: "🎉" },
+      { title: "Cuidar Nuestro Templo", text: "Dios nos dio leyes sobre la comida llamadas Cashrut. Nos enseñan que nuestro cuerpo es sagrado y que debemos elegir alimentos que nos hagan bien y nos den energía.", emoji: "🍏" },
+      { title: "Peces y Animales", text: "Aprendemos que los peces kosher tienen aletas y escamas, y que los animales kosher son pacíficos. Esto nos enseña a ser cuidadosos y respetuosos con la naturaleza.", emoji: "🐟" },
+      { title: "Salud y Santidad", text: "Comer sano nos ayuda a pensar mejor, jugar con alegría y tener fuerzas para realizar muchas mitzvot. ¡La salud es parte de nuestra santidad!", emoji: "💪" }
+    ],
+    alefBetLetters: [
+      { letter: "ש", name: "Shin", sound: "Sh", word: "שמיני", wordMeaning: "Octavo" },
+      { letter: "כ", name: "Kaf", sound: "K", word: "כשר", wordMeaning: "Kosher" },
+      { letter: "ד", name: "Dalet", sound: "D", word: "דג", wordMeaning: "Pez" }
+    ]
+  },
+  "Tazria": {
+    name: "Tazria",
+    hebrew: "תזריע",
+    book: "Vayikra (Levítico)",
+    summary: "Esta parashá nos habla del milagro del nacimiento de un bebé y cómo la comunidad se alegra junta. Nos enseña a valorar la vida desde su inicio y a dar gracias por el hermoso regalo del crecimiento.",
+    words: ["MILAGRO", "NACIMIENTO", "BEBE", "VIDA", "CRECIMIENTO", "FAMILIA", "AGRADECIMIENTO", "COMUNIDAD"],
+    trivia: [
+      {
+        question: "¿Qué hermoso milagro celebramos en la parashá Tazria?",
+        options: ["El nacimiento de un nuevo bebé y el inicio de la vida", "La caída de la lluvia", "Un viaje en barco"],
+        answer: 0
+      },
+      {
+        question: "¿Cómo debe reaccionar la comunidad ante el nacimiento de un bebé en Shabateinu?",
+        options: ["Compartiendo la alegría y apoyando a la familia con amor", "Enojándose", "Ignorándolos"],
+        answer: 0
+      },
+      {
+        question: "¿Qué nos enseña el crecimiento de las plantas y los niños?",
+        options: ["Que Dios cuida la vida y la ayuda a florecer", "Que todo cambia muy rápido", "Que debemos dormir más"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - ¡Bienvenido al Mundo!:**\n*Personajes:* Mamá ovejita (con un bebé ovejita de juguete) y Títere de Niño alegre.\n- *Mamá:* ¡Miren! Ha nacido mi pequeño corderito. Es tan suave y pequeñito.\n- *Niño:* ¡Oh, qué ternura! ¡Bienvenido a la comunidad de Shabateinu NBI!\n- *Mamá:* Gracias. Es un milagro hermoso de la vida.\n- *Niño:* Haremos una Brajá de agradecimiento por su salud y cantaremos un 'Mazal Tov'.\n- *Mamá:* ¡Qué lindo es sentir el apoyo y el cariño de todos los amigos de Shabat!",
+      costumes: "**Taller de Manualidades:**\n'La tarjeta de Mazal Tov'. Los niños diseñan una colorida tarjeta de felicitación para un bebé recién nacido en la comunidad, decorándola con cochecitos de papel y globos.",
+      song: "**Canción - El Milagro de la Vida:**\n*Letra:*\nUn pequeño bebé al mundo llegó,\nla familia contenta a Dios agradeció.\nLa vida es un regalo que debemos cuidar,\n¡con cantos de alegría en este Shabat!\n*Coro:*\n¡Mazal Tov, Mazal Tov, cantamos aquí!\nUnidos en familia en la NBI feliz."
+    },
+    storyPages: [
+      { title: "El Nacimiento de un Bebé", text: "Tazria nos habla del milagro de la vida cuando nace un bebé. Es un momento de pura magia que llena de luz y esperanza a toda la familia.", emoji: "👶" },
+      { title: "El Cuidado de la Mamá", text: "La Torá nos enseña que debemos mimar y cuidar mucho a la mamá que acaba de tener un bebé, ayudándola a descansar y dándole mucho amor.", emoji: "🌸" },
+      { title: "Crecer en Comunidad", text: "Cada niño que nace es parte de nuestro pueblo. La comunidad los recibe con los brazos abiertos y promete enseñarles las hermosas historias de la Torá.", emoji: "🏘️" },
+      { title: "Agradecer por Crecer", text: "Damos gracias a Dios por la salud de los más pequeñitos y por verlos crecer día a día con valores de bondad, respeto y amor.", emoji: "✨" }
+    ],
+    alefBetLetters: [
+      { letter: "י", name: "Yod", sound: "Y", word: "ילד", wordMeaning: "Niño" },
+      { letter: "ז", name: "Zayin", sound: "Z", word: "זרע", wordMeaning: "Semilla" },
+      { letter: "ח", name: "Jet", sound: "J", word: "חיים", wordMeaning: "Vida" }
+    ]
+  },
+  "Metzora": {
+    name: "Metzora",
+    hebrew: "מצורע",
+    book: "Vayikra (Levítico)",
+    summary: "Esta parashá nos enseña sobre la importancia del habla limpia (Shmirat Halashón). Evitando hablar mal de los demás (Lashón Hará), mantenemos nuestra comunidad unida, fuerte y llena de paz.",
+    words: ["HABLA", "PALABRAS", "CUIDADO", "BONDAD", "AMISTAD", "PAZ", "LASHONHARA", "RESPETO"],
+    trivia: [
+      {
+        question: "¿Qué valor tan importante aprendemos en Metzora con respecto a nuestras palabras?",
+        options: ["A cuidar nuestro vocabulario y no hablar mal de los demás (Lashón Hará)", "A gritar muy fuerte", "A guardar secretos"],
+        answer: 0
+      },
+      {
+        question: "¿Como son las palabras buenas según esta enseñanza?",
+        options: ["Como hermosas flores que traen paz y alegría", "Como piedras pesadas", "Como el viento"],
+        answer: 0
+      },
+      {
+        question: "¿Qué debemos hacer si escuchamos a alguien hablar mal de un amigo?",
+        options: ["Cambiar de tema amablemente y defender a nuestro amigo", "Unirnos a la conversación", "Enojarnos"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - Palabras de Algodón:**\n*Personajes:* Títere de Pajarito (con plumas suaves) and Títere de Niño travieso.\n- *Niño:* Pajarito, ¿sabías que a Juan no le gusta jugar al fútbol?\n- *Pajarito:* ¡Cuidado, amigo! Las palabras son como mis plumas: si las dejas caer al viento, ¡es muy difícil recogerlas! Es Lashón Hará.\n- *Niño:* Oh, no pensé en eso. Solo quiero decir cosas lindas de mis amigos.\n- *Pajarito:* ¡Excelente! Usemos palabras dulces como el algodón para animar y dar felicidad en Shabateinu NBI.\n- *Niño:* ¡Sí, a cuidar nuestra boca para sembrar amistad!",
+      costumes: "**Taller de Manualidades:**\n'La alcancía de las buenas palabras'. Decorar una cajita con caritas sonrientes. Cada vez que un niño dice un cumplido o palabra de aliento a otro, coloca un 'token' de cartón dorado en la cajita.",
+      song: "**Canción - Palabras Hermosas:**\n*Letra:*\nMis palabras son flores que voy a sembrar,\nen el corazón de mi amigo van a brotar.\nNo diré mentiras, no haré sentir mal,\n¡palabras de bondad en este Shabat!\n*Coro:*\n¡Shmirat Halashón, ley de amistad!\nEn Shabateinu NBI cantamos en paz."
+    },
+    storyPages: [
+      { title: "El Poder de la Palabra", text: "En Metzora aprendemos que nuestras palabras tienen mucho poder. Pueden ser como caricias que hacen feliz a la gente, o como flechas que lastiman.", emoji: "🗣️" },
+      { title: "Lashón Hará: Hablar Limpio", text: "La Torá nos pide evitar el Lashón Hará, que significa hablar mal de otras personas a sus espaldas. Es mejor hablar de las cosas lindas y buenas de cada uno.", emoji: "🤫" },
+      { title: "La Metáfora de las Plumas", text: "Hablar mal de alguien es como soltar plumas al viento: se esparcen rápido y no se pueden juntar. Por eso, pensamos bien antes de hablar.", emoji: "🪶" },
+      { title: "Constructores de Paz", text: "Cuando cuidamos lo que decimos, creamos un ambiente seguro y feliz donde todos en la NBI quieren jugar, compartir y cantar juntos en Shabat.", emoji: "🕊️" }
+    ],
+    alefBetLetters: [
+      { letter: "ל", name: "Lamed", sound: "L", word: "לשון", wordMeaning: "Lengua" },
+      { letter: "ד", name: "Dalet", sound: "D", word: "דיבור", wordMeaning: "Palabra" },
+      { letter: "ש", name: "Shin", sound: "Sh", word: "שלום", wordMeaning: "Paz" }
+    ]
+  },
+  "AchreiMot": {
+    name: "Ajarei Mot",
+    hebrew: "אחri מות",
+    book: "Vayikra (Levítico)",
+    summary: "Aprendemos sobre Yom Kipur, el día más sagrado del año, donde reflexionamos sobre nuestras acciones. Nos enseña el valor de pedir disculpas sinceras, perdonar de corazón y comenzar de nuevo con amor.",
+    words: ["KIPUR", "SAGRADO", "PERDON", "RECOLECCION", "DISCULPAS", "AMOR", "CORAZON", "NUEVO"],
+    trivia: [
+      {
+        question: "¿De qué día sagrado nos habla principalmente esta parashá?",
+        options: ["De Yom Kipur (Día del Perdón)", "De Pésaj", "De Purim"],
+        answer: 0
+      },
+      {
+        question: "¿Qué hacemos en Yom Kipur para mejorar nuestro corazón?",
+        options: ["Pedir disculpas a quienes pudimos lastimar y perdonar con cariño", "Comer muchos dulces", "Escondernos"],
+        answer: 0
+      },
+      {
+        question: "¿Cómo nos sentimos después de perdonar y ser perdonados?",
+        options: ["Ligeros, felices y listos para un año lleno de bondad", "Tristes", "Cansados"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - Limpiar el Espejo:**\n*Personajes:* Títere de Conejito arrepentido and Títere de Sabio cariñoso.\n- *Conejito:* Profesor, a veces hago cosas sin pensar y mi corazón se siente pesado, como un espejo sucio.\n- *Sabio:* No te preocupes, conejito. Dios nos dio Yom Kipur. Podemos limpiar el espejo pidiendo perdón.\n- *Conejito:* ¡Sí! Le diré a mi amigo que lamento haberle quitado su lápiz. ¡Y le daré un abrazo!\n- *Sabio:* ¡Excelente! El perdón sincero hace que tu corazón vuelva a brillar con toda su luz.\n- *Conejito:* ¡Qué alegría! ¡Hagamos las paces en Shabateinu!",
+      costumes: "**Taller de Manualidades:**\n'El mural del perdón'. Los niños escriben en trozos de papel en forma de corazones una disculpa o un deseo de paz, y los pegan en un mural titulado: 'Corazones limpios, manos unidas'.",
+      song: "**Canción - El Día del Perdón:**\n*Letra:*\nYom Kipur llegó, día de reflexionar,\nlas cosas del pasado vamos a perdonar.\nLo siento, mi amigo, si te hice llorar,\n¡con un fuerte abrazo volvemos a jugar!\n*Coro:*\n¡Perdón y Shalom, luz en el hogar!\nEn Shabateinu NBI cantamos en Shabat."
+    },
+    storyPages: [
+      { title: "El Día del Perdón", text: "Achrei Mot nos enseña sobre Yom Kipur, el día en que nos detenemos a pensar en cómo nos portamos durante el año para pedir disculpas con el corazón.", emoji: "🕯️" },
+      { title: "El Sumo Sacerdote", text: "En el Mishkán, el Sumo Sacerdote entraba al lugar más sagrado una vez al año para rezar por la paz, la salud y la felicidad de todo el pueblo.", emoji: "🏛️" },
+      { title: "Pedir Disculpas", text: "Aprendemos que antes de pedirle perdón a Dios, primero debemos pedirle perdón a nuestros amigos y familiares si los tratamos mal o si fuimos egoístas.", emoji: "🫂" },
+      { title: "Un Corazón Limpio", text: "Al perdonar y pedir perdón, nuestro corazón se limpia y se llena de luz. ¡Es una hermosa oportunidad para comenzar de nuevo con más alegría!", emoji: "💖" }
+    ],
+    alefBetLetters: [
+      { letter: "כ", name: "Kaf", sound: "K", word: "כפור", wordMeaning: "Kipur" },
+      { letter: "ס", name: "Samej", sound: "S", word: "סליחה", wordMeaning: "Perdón" },
+      { letter: "ק", name: "Kuf", sound: "K", word: "קדוش", wordMeaning: "Sagrado" }
+    ]
+  },
+  "Kedoshim": {
+    name: "Kedoshim",
+    hebrew: "קדושים",
+    book: "Vayikra (Levítico)",
+    summary: "¡Sean santos y especiales! Dios nos da la regla de oro: 'Amarás a tu prójimo como a ti mismo'. Nos enseña a compartir las cosechas, respetar a los mayores y tratar a cada persona con justicia y dulzura.",
+    words: ["SANTIDAD", "PROJIMO", "RESPETO", "MAYORES", "COMPARTIR", "JUSTICIA", "AMOR", "ORO"],
+    trivia: [
+      {
+        question: "¿Cuál es la regla de oro que se encuentra en la parashá Kedoshim?",
+        options: ["Amarás a tu prójimo como a ti mismo", "Correr rápido", "Comer manzanas"],
+        answer: 0
+      },
+      {
+        question: "¿Cómo nos pide la Torá que tratemos a las personas mayores y abuelitos?",
+        options: ["Con mucho respeto, escuchando su sabiduría y ayudándolos", "Ignorándolos", "Gritándoles"],
+        answer: 0
+      },
+      {
+        question: "¿Qué significa dejar las esquinas de los campos sin cosechar (Peá)?",
+        options: ["Compartir comida con quienes lo necesitan de forma digna", "Que somos olvidadizos", "Dejar que los pájaros coman todo"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - Compartir los Campos:**\n*Personajes:* Títere de Granjero generoso, Títere de Niño colaborador y Títere de Abuelito.\n- *Granjero:* ¡Qué buena cosecha de uvas! Pero no cosecharé las esquinas del campo.\n- *Niño:* ¿Por qué, papá? ¡Perderemos uvas deliciosas!\n- *Granjero:* La Torá nos enseña el valor de Peá: dejamos comida para que los abuelitos y necesitados puedan recogerla gratis.\n- *Abuelito:* ¡Muchas gracias! Su generosidad me alegra el día y llena mi hogar de paz.\n- *Niño:* ¡Es una mitzvá hermosa! En Shabateinu NBI nos gusta compartir.",
+      costumes: "**Taller de Disfraces:**\nLos niños actúan como 'mensajeros del respeto'. Fabrican flores de papel and visitan a los adultos o abuelos presentes para regalarles la flor y decirles: 'Gracias por su sabiduría'.",
+      song: "**Canción - Amarás a tu Prójimo:**\n*Letra:*\n'Ama a tu prójimo como a ti mismo',\nes el mandamiento de más optimismo.\nRespeta a los ancianos, comparte tu pan,\n¡y con la justicia el mundo brillará!\n*Coro:*\n¡Veahavtá Lereajá, cantamos en Shabat!\nEn Shabateinu NBI crecemos en bondad."
+    },
+    storyPages: [
+      { title: "Ser Especiales: Kedoshim", text: "Dios nos dice: '¡Sean Kedoshim (santos / especiales) porque Yo soy Santo!' Nos pide brillar a través de buenas acciones en nuestra rutina diaria.", emoji: "⭐" },
+      { title: "La Regla de Oro", text: "Aquí leemos: 'Veahavtá Lereajá Kamoja'. Tratar a tu amigo con el mismo cariño, cuidado y respeto con el que te gusta que te traten a ti.", emoji: "❤️" },
+      { title: "Compartir la Cosecha", text: "La Torá nos pide dejar las esquinas de los campos (Peá) y las frutas caídas para los pobres y extranjeros. ¡Compartir lo que tenemos es una mitzvá!", emoji: "🌾" },
+      { title: "Respetar la Experiencia", text: "También nos enseña a ponernos de pie ante los ancianos y respetar a nuestros padres. Los abuelitos tienen mucha sabiduría para enseñarnos.", emoji: "👵" }
+    ],
+    alefBetLetters: [
+      { letter: "ק", name: "Kuf", sound: "K", word: "קדוش", wordMeaning: "Santo" },
+      { letter: "ר", name: "Resh", sound: "R", word: "רע", wordMeaning: "Prójimo" },
+      { letter: "א", name: "Alef", sound: "(silencio)", word: "אהבה", wordMeaning: "Amor" }
+    ]
+  },
+  "Emor": {
+    name: "Emor",
+    hebrew: "אמור",
+    book: "Vayikra (Levítico)",
+    summary: "¡Celebramos las festividades del año! Esta parashá nos presenta el calendario judío con Shabat, Pésaj, Shavuot, Rosh Hashaná, Yom Kipur y Sucot, enseñándonos a santificar el tiempo y celebrar en comunidad con alegría.",
+    words: ["FIESTAS", "CALENDARIO", "SHABAT", "PESAJ", "SUCOT", "ALEGRIA", "TIEMPO", "COMUNIDAD"],
+    trivia: [
+      {
+        question: "1. ¿Cuál es la primera y más importante fiesta que se menciona en Emor que ocurre todas las semanas?",
+        options: ["El Shabat", "Rosh Hashaná", "Janucá"],
+        answer: 0
+      },
+      {
+        question: "¿Qué hacemos durante las festividades judías según la Torá?",
+        options: ["Celebrar en comunidad con alegría, gratitud y mitzvot", "Estar tristes", "Trabajar más duro"],
+        answer: 0
+      },
+      {
+        question: "¿Qué fiesta nos invita a vivir en cabañas decoradas bajo las estrellas?",
+        options: ["Sucot", "Pésaj", "Shavuot"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - El Carrusel de las Fiestas:**\n*Personajes:* Títere de Matzá (Pésaj), Títere de Shofár alegre (Rosh Hashaná) y Títere de Lulav (Sucot).\n- *Matzá:* ¡Hola! Yo traigo libertad en primavera.\n- *Shofár:* ¡Y yo sueno fuerte en otoño para despertarnos a ser mejores! ¡Toot!\n- *Lulav:* ¡Y yo de Sucot agradeciendo por la lluvia!\n- *Matzá:* ¡Qué lindo es el calendario judío! Todas las fiestas nos reunieron en familia.\n- *Shofár:* Sí, y la más dulce de todas es... ¡el Shabat de cada viernes en Shabateinu NBI!",
+      costumes: "**Taller de Manualidades:**\n'El reloj de las fiestas'. Los niños hacen un círculo de cartulina dividido en 6 partes correspondientes a las festividades. Le colocan una flecha móvil para marcar la fiesta del momento.",
+      song: "**Canción - El Tiempo Especial:**\n*Letra:*\nShabat cada semana nos viene a visitar,\nPésaj nos da la libertad,\nShavuot la Torá, Sucot para cantar...\n¡lindas fiestas que Dios nos vino a dar!\n*Coro:*\n¡Tiempo de alegría, festejar en Shabat!\nEn Shabateinu NBI cantamos en hermandad."
+    },
+    storyPages: [
+      { title: "El Regalo del Tiempo", text: "En Emor, Dios nos enseña que el tiempo es un regalo y que podemos hacerlo especial (Kadosh) celebrando los días de fiesta con nuestra familia.", emoji: "📅" },
+      { title: "El Shabat Semanal", text: "La primera fiesta es el Shabat. Cada seis días de trabajo, nos detenemos un día entero para descansar, cantar, comer cosas ricas y agradecer en familia.", emoji: "🕯️" },
+      { title: "Las Fiestas del Año", text: "Aprendemos sobre Pésaj (libertad), Shavuot (Torá), Rosh Hashaná (año nuevo), Yom Kipur (perdón) and Sucot (cabañas de gratitud). ¡Qué hermoso calendario!", emoji: "🍋" },
+      { title: "La Menorá del Templo", text: "Dios nos recuerda mantener las luces encendidas y traer panes frescos cada Shabat al santuario. Así dejamos viva la calidez de nuestro hogar espiritual.", emoji: "🕯️" }
+    ],
+    alefBetLetters: [
+      { letter: "א", name: "Alef", sound: "(silencio)", word: "אמור", wordMeaning: "Habla" },
+      { letter: "ח", name: "Jet", sound: "J", word: "חג", wordMeaning: "Fiesta" },
+      { letter: "מ", name: "Mem", sound: "M", word: "מועד", wordMeaning: "Festividad" }
+    ]
+  },
+  "Behar": {
+    name: "Behar",
+    hebrew: "בהר",
+    book: "Vayikra (Levítico)",
+    summary: "En el Monte Sinaí, Dios nos enseña sobre la Shmitá: un año de descanso para la tierra cada siete años. Nos enseña a cuidar la naturaleza, confiar en Dios y compartir todo lo que crece con generosidad.",
+    words: ["TIERRA", "DESCANSO", "SHMITA", "NATURALEZA", "CONFIANZA", "COMPARTIR", "CUIDADO", "SINAI"],
+    trivia: [
+      {
+        question: "¿Cómo se llama el año especial de descanso para la tierra que ocurre cada siete años?",
+        options: ["Shmitá", "Shabatón", "Pésaj"],
+        answer: 0
+      },
+      {
+        question: "¿Qué debemos hacer con los frutos que crecen solos en la tierra durante la Shmitá?",
+        options: ["Compartirlos libremente con todas las personas y animales", "Venderlos todos", "Tirarlos"],
+        answer: 0
+      },
+      {
+        question: "¿Qué nos enseña la Shmitá sobre la naturaleza?",
+        options: ["Que la tierra también necesita descansar y que todo lo que existe le pertenece a Dios", "Que debemos destruirla", "Que no sirve"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - La Tierra Descansa:**\n*Personajes:* Títere de Árbol frutal (feliz), Títere de Conejito hambriento y Títere de Granjero.\n- *Árbol:* ¡Ah, por fin es el año de Shmitá! Mis raíces descansarán de dar tantas manzanas.\n- *Granjero:* Sí, querido árbol. Este año no te podaré ni venderé tus frutos.\n- *Conejito:* Tengo hambre, ¿puedo comer de tus manzanas tiradas en el pasto?\n- *Granjero:* ¡Claro, Conejito! En Shmitá todo lo que crece es libre para todos.\n- *Árbol:* ¡Qué alegría! Compartir con los animales nos hace muy felices a todos en Shabat.",
+      costumes: "**Taller de Manualidades:**\n'El huerto de Shabat'. Los niños plantan una semillita en un vaso con algodón húmedo, decorando el vasito con dibujos de árboles y la palabra 'Shmitá' (Descanso de la Tierra).",
+      song: "**Canción - El Descanso de la Tierra:**\n*Letra:*\nCada siete años la tierra descansará,\nningún agricultor la va a cosechar.\nLos frutos son libres para compartir,\n¡confiamos en Dios para bien vivir!\n*Coro:*\n¡Shmitá de cuidado, amor forestal!\nEn Shabateinu NBI cantamos en Shabat."
+    },
+    storyPages: [
+      { title: "En la Montaña de Sinaí", text: "Dios le habló a Moisés en el Monte Sinaí ('Behar') y le dio leyes hermosas para cuidar la tierra y los campos que recibirían en el futuro.", emoji: "⛰️" },
+      { title: "El Shabat de la Tierra", text: "Así como nosotros descansamos en Shabat, la tierra también necesita un descanso. Cada siete años (Shmitá), no se siembra el campo para que la tierra recupere su fuerza.", emoji: "🌱" },
+      { title: "Comida Libre para Todos", text: "Durante este año, cualquier fruto que crezca de forma natural es libre. Los pobres, los viajeros y los animalitos del campo pueden comer de ellos gratis.", emoji: "🍎" },
+      { title: "Confiar y Compartir", text: "La Shmitá nos enseña que el mundo le pertenece a Dios y que debemos confiar en que Dios nos proveerá, aprendiendo a compartir nuestros recursos con generosidad.", emoji: "🤝" }
+    ],
+    alefBetLetters: [
+      { letter: "ה", name: "He", sound: "H", word: "הר", wordMeaning: "Montaña" },
+      { letter: "ש", name: "Shin", sound: "Sh", word: "שמיטה", wordMeaning: "Shmitá" },
+      { letter: "א", name: "Alef", sound: "(silencio)", word: "אדמה", wordMeaning: "Tierra" }
+    ]
+  },
+  "Bechukotai": {
+    name: "Bechukotai",
+    hebrew: "בחוקתי",
+    book: "Vayikra (Levítico)",
+    summary: "Esta parashá nos promete hermosas lluvias y paz si seguimos los caminos de la Torá. Nos enseña que nuestras buenas acciones (mitzvot) traen bendiciones y alegría a todo nuestro hermoso mundo.",
+    words: ["PROMESAS", "LLUVIAS", "PAZ", "BENDICION", "CAMINOS", "MITZVOT", "MUNDO", "ALEGRIA"],
+    trivia: [
+      {
+        question: "¿Qué nos promete Dios en Bechukotai si seguimos los caminos de la Torá?",
+        options: ["Lluvias a su tiempo, cosechas abundantes y Shalom (paz)", "Piedras en el camino", "Nubes negras"],
+        answer: 0
+      },
+      {
+        question: "¿Qué representa la lluvia en nuestra tradición?",
+        options: ["Una hermosa bendición que hace crecer las plantas y nos da vida", "Un día aburrido", "Frío molesto"],
+        answer: 0
+      },
+      {
+        question: "¿Qué frase de fortaleza decimos al terminar esta parashá y el libro de Vayikra?",
+        options: ["¡Jazak, Jazak, V'nitjazek! (¡Sé fuerte, sé fuerte, y nos fortaleceremos!)", "¡Feliz cumpleaños!", "¡A dormir!"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - Gotas de Bendición:**\n*Personajes:* Títere de Flor marchita, Títere de Nube alegre y Títere de Niño agradecido.\n- *Flor:* Oh, tengo mucha sed... Mis pétalos están tristes.\n- *Nube:* ¡No te preocupes, florecita! Aquí vengo con gotas de agua fresca. ¡Plin, plin!\n- *Niño:* ¡Está lloviendo! Haremos una Brajá agradeciendo por la lluvia.\n- *Flor:* ¡Wow! ¡Qué agua tan dulce! Mis colores vuelven a brillar. ¡Gracias Dios!\n- *Niño:* La Torá dice que cuando hacemos Mitzvot, ¡el mundo se llena de lluvia de bendiciones!" ,
+      costumes: "**Taller de Manualidades:**\n'El móvil de las bendiciones'. Los niños dibujan una gran nube de cartulina y cuelgan de ella gotitas de papel celeste donde escriben las bendiciones de su vida (familia, amigos, comida, Torá).",
+      song: "**Canción - Gotas de Amor:**\n*Letra:*\nSi seguimos las leyes de amor y bondad,\nlas lluvias del cielo a tiempo vendrán.\nLos árboles del campo su fruto darán,\n¡y en toda la tierra reinará la paz!\n*Coro:*\n¡Jazak, Jazak, V'nitjazek, sí!\nTerminamos Vayikra en la NBI feliz."
+    },
+    storyPages: [
+      { title: "Caminar en la Torá", text: "En Bechukotai, Dios nos promete que si caminamos en el sendero de la Torá y hacemos mitzvot, nuestro mundo se llenará de hermosas bendiciones.", emoji: "👣" },
+      { title: "Lluvia a su Tiempo", text: "Dios promete enviar lluvia en el moment justo para que los cultivos crezcan verdes y fuertes. La lluvia es una de las bendiciones más lindas de la naturaleza.", emoji: "🌧️" },
+      { title: "Paz en la Tierra", text: "También nos promete: 'Pondré paz en la tierra. Se acostarán a dormir sin miedo.' ¡Qué regalo tan hermoso es la paz (Shalom) en nuestro hogar!", emoji: "🕊️" },
+      { title: "¡Jazak, Jazak, V'nitjazek!", text: "Con esta parashá completamos el tercer libro de la Torá, Vayikra. Todo el pueblo se alegra y grita: '¡Sé fuerte, sé fuerte, y nos fortaleceremos!' para seguir aprendiendo.", emoji: "💪" }
+    ],
+    alefBetLetters: [
+      { letter: "ג", name: "Gimel", sound: "G", word: "גשם", wordMeaning: "Lluvia" },
+      { letter: "ש", name: "Shin", sound: "Sh", word: "שלום", wordMeaning: "Paz" },
+      { letter: "ח", name: "Jet", sound: "J", word: "חוק", wordMeaning: "Ley" }
+    ]
+  },
 
   // ==========================================================================
   // LIBRO 4: BAMIDBAR (NÚMEROS)
@@ -1016,14 +1367,326 @@ const PARASHOT_DB = {
       { letter: "ש", name: "Shin", sound: "Sh", word: "שלום", wordMeaning: "Paz" }
     ]
   },
-  "Beha'alotcha": { name: "Beha'alotja", hebrew: "בהעלותך", book: "Bamidbar (Números)" },
-  "Sh'lach": { name: "Sh'lach", hebrew: "שלח־לך", book: "Bamidbar (Números)" },
-  "Korach": { name: "Koraj", hebrew: "קרח", book: "Bamidbar (Números)" },
-  "Chukat": { name: "Jukat", hebrew: "חקת", book: "Bamidbar (Números)" },
-  "Balak": { name: "Balak", hebrew: "בלק", book: "Bamidbar (Números)" },
-  "Pinchas": { name: "Pinjas", hebrew: "פנחס", book: "Bamidbar (Números)" },
-  "Matot": { name: "Matot", hebrew: "מטות", book: "Bamidbar (Números)" },
-  "Masei": { name: "Masei", hebrew: "מסעי", book: "Bamidbar (Números)" },
+  "Beha'alotcha": {
+    name: "Beha'alotja",
+    hebrew: "בהעלותך",
+    book: "Bamidbar (Números)",
+    summary: "Moisés enciende la hermosa Menorá para que sus luces brillen hacia el centro. Nos enseña que cada uno de nosotros puede brillar con sus buenas acciones y ayudar a iluminar el camino de los demás con alegría.",
+    words: ["LUCES", "MENORA", "ENCENDER", "MOISES", "ORO", "NUBE", "VIAJE", "CAMINO"],
+    trivia: [
+      {
+        question: "¿Qué objeto de oro puro enciende Aarón en esta parashá?",
+        options: ["La Menorá de siete brazos", "Una corona", "Un cofre"],
+        answer: 0
+      },
+      {
+        question: "¿Qué señal celestial indicaba al pueblo cuándo acampar y cuándo viajar?",
+        options: ["La nube sobre el Mishkán de día y el fuego de noche", "Una estrella fugaz", "El viento fuerte"],
+        answer: 0
+      },
+      {
+        question: "¿Cómo debían sonar las trompetas de plata que hizo Moisés?",
+        options: ["Con sonidos claros para reunir y guiar al pueblo", "Con música de violín", "Con truenos"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - Las Luces de la Menorá:**\n*Personajes:* Títere de Aarón (con una Menorá de papel), Títere de Niño alegre y Títere de Ovejita.\n- *Aarón:* ¡Miren! Estoy encendiendo las luces de la Menorá. Cada llama apunta hacia el centro.\n- *Niño:* ¡Qué hermoso brilla Aarón! ¿Nosotros también podemos encender luces?\n- *Aarón:* ¡Claro! Cada vez que ayudas a un amigo o dices palabras dulces, enciendes una luz en el mundo.\n- *Ovejita:* ¡Beeee! ¡Entonces yo seré una ovejita brillante y mantendré encendido mi entusiasmo en Shabateinu NBI!\n- *Niño:* ¡Qué lindo es brillar todos juntos!",
+      costumes: "**Taller de Manualidades:**\n'La trompeta de la guía'. Los niños decoran un tubo de cartón con papel aluminio y cintas de colores, simulando las trompetas de plata que guiaban al pueblo.",
+      song: "**Canción - Brillando como la Menorá:**\n*Letra:*\nLa Menorá de oro brilla en el santuario,\ncon luces hermosas que alumbran a diario.\nAsí mis mitzvot el camino iluminan,\n¡y con mucha alegría los niños caminan!\n*Coro:*\n¡Brilla, brilla, pequeña luz de amor!\nEn Shabateinu NBI cantamos con fervor."
+    },
+    storyPages: [
+      { title: "Encendiendo la Menorá", text: "Dios le pidió a Aarón que encendiera las siete lámparas de la Menorá de oro, de modo que sus luces iluminaran hacia el centro del Mishkán.", emoji: "🪔" },
+      { title: "La Nube Guía", text: "Cuando la nube de Dios se elevaba sobre el Mishkán, el pueblo sabía que era momento de marchar. Si la nube se detenía, ellos acampaban con confianza.", emoji: "☁️" },
+      { title: "Trompetas de Plata", text: "Moisés hizo dos trompetas de plata para reunir a los líderes y avisar al pueblo cuándo empezar el viaje. Su sonido traía orden y tranquilidad.", emoji: "🎺" },
+      { title: "Compartir la Carga", text: "Moisés sintió que guiar a tanta gente era muy difícil solo. Dios le pidió elegir a 70 sabios para ayudarlo, recordándonos el valor del trabajo en equipo.", emoji: "🤝" }
+    ],
+    alefBetLetters: [
+      { letter: "מ", name: "Mem", sound: "M", word: "מנורה", wordMeaning: "Menorá" },
+      { letter: "ע", name: "Ayin", sound: "(silencio)", word: "ענן", wordMeaning: "Nube" },
+      { letter: "ח", name: "Jet", sound: "J", word: "חצוצרה", wordMeaning: "Trompeta" }
+    ]
+  },
+  "Sh'lach": {
+    name: "Sh'lach",
+    hebrew: "שלח־לך",
+    book: "Bamidbar (Números)",
+    summary: "Moisés envía doce exploradores a la Tierra Prometida. Josué y Caleb nos enseñan a ser valientes y optimistas, confiando en las promesas de Dios y viendo el lado bueno de las cosas.",
+    words: ["EXPLORADORES", "VALIENTES", "TORTA", "UVAS", "CONFIANZA", "FRUTOS", "OPTIMISMO", "PROMESA"],
+    trivia: [
+      {
+        question: "¿Cuántos exploradores envió Moisés a recorrer la tierra de Israel?",
+        options: ["Doce exploradores", "Tres exploradores", "Cincuenta exploradores"],
+        answer: 0
+      },
+      {
+        question: "¿Qué fruto gigante trajeron de regreso entre dos personas?",
+        options: ["Un gran racimo de uvas de Israel", "Una sandía", "Una manzana"],
+        answer: 0
+      },
+      {
+        question: "¿Quiénes fueron los dos exploradores valientes que dijeron '¡Con la ayuda de Dios lo lograremos!'?",
+        options: ["Josué y Caleb", "Moisés y Aarón", "Abraham e Isaac"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - El Racimo de Uvas Gigante:**\n*Personajes:* Títere de Josué (valiente), Títere de Caleb (entusiasta) y Títere de Niño curioso.\n- *Niño:* ¡Miren! ¿Qué es ese fruto gigante que traen?\n- *Caleb:* ¡Es un racimo de uvas de la Tierra Prometida! ¡Es una tierra maravillosa y dulce!\n- *Josué:* Algunos tienen miedo de ir, pero nosotros confiamos en que Dios nos ayudará. ¡Es hermosa la tierra!\n- *Caleb:* Sí, con optimismo y fe en Dios, ¡podemos superar cualquier desafío!\n- *Niño:* ¡Yo también quiero ser valiente como ustedes en Shabateinu NBI!",
+      costumes: "**Taller de Manualidades:**\n'El racimo de la alegría'. Los niños inflan pequeños globos morados y los pegan juntos sobre una cartulina verde para formar un gran racimo de uvas en 3D.",
+      song: "**Canción - Seremos Valientes:**\n*Letra:*\nDoce exploradores a Israel viajaron,\ny uvas gigantes del campo trajeron.\nJosué y Caleb dijeron con valor:\n'¡Lograremos entrar con la ayuda del Creador!'\n*Coro:*\n¡Sé valiente, confía en el bien!\nEn Shabateinu NBI cantamos también."
+    },
+    storyPages: [
+      { title: "Doce Exploradores", text: "Moisés eligió a doce hombres representantes del pueblo para explorar la Tierra Prometida y ver qué tan hermosos eran sus campos y ciudades.", emoji: "🏃" },
+      { title: "Frutos Gigantes", text: "Los exploradores regresaron con higos, granadas y un racimo de uvas tan grande que tuvieron que cargarlo entre dos personas sobre un palo.", emoji: "🍇" },
+      { title: "El Reporte de la Fe", text: "Aunque diez exploradores tenían miedo y dudaban, Josué y Caleb hablaron con fe: '¡La tierra es sumamente buena, Dios está con nosotros y nos cuidará!'", emoji: "🗣️" },
+      { title: "El Regalo de los Tzitzit", text: "Dios nos dio el precepto de colocar flecos (Tzitzit) en los bordes de la ropa para recordarnos siempre seguir los mandamientos con amor y no perder el rumbo.", emoji: "🧵" }
+    ],
+    alefBetLetters: [
+      { letter: "ע", name: "Ayin", sound: "(silencio)", word: "ענב", wordMeaning: "Uva" },
+      { letter: "צ", name: "Tzadi", sound: "Tz", word: "ציצית", wordMeaning: "Tzitzit" },
+      { letter: "א", name: "Alef", sound: "(silencio)", word: "ארץ", wordMeaning: "Tierra" }
+    ]
+  },
+  "Korach": {
+    name: "Koraj",
+    hebrew: "קרח",
+    book: "Bamidbar (Números)",
+    summary: "Esta parashá nos enseña el valor de la humildad y la resolución pacífica de conflictos. Aprendemos a buscar el diálogo con amor y a evitar discusiones que dañen a nuestra comunidad.",
+    words: ["HUMILDAD", "DIALOGO", "PAZ", "AMABILIDAD", "CONVIVENCIA", "PUEBLO", "ARMONIA", "BASTON"],
+    trivia: [
+      {
+        question: "¿Qué brotó milagrosamente del bastón de Aarón para confirmar su liderazgo pacífico?",
+        options: ["Flores y almendras dulces", "Monedas", "Hojas de papel"],
+        answer: 0
+      },
+      {
+        question: "¿Cuál es la mejor manera de resolver un conflicto según la Torá?",
+        options: ["Conversando con respeto y amabilidad", "Gritando muy fuerte", "Ignorando al otro"],
+        answer: 0
+      },
+      {
+        question: "¿Qué valor nos enseña la historia de Korach al pedirnos evitar las discusiones egoístas?",
+        options: ["El valor de la paz, la cooperación y la humildad", "A ganar siempre", "A tener la razón a la fuerza"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - El Bastón que Florece:**\n*Personajes:* Títere de Aarón, Títere de Niño dialogante y Títere de Ovejita pacífica.\n- *Niño:* Aarón, tu bastón de madera seca... ¡ha florecido de repente!\n- *Aarón:* Sí, Dios hizo florecer mi bastón con almendras para recordarnos que la paz y el amor florecen cuando somos humildes.\n- *Ovejita:* ¡Beeee! ¡A mí me encanta la paz! No me gusta cuando la gente discute de mala manera.\n- *Niño:* Es verdad, conversar con respeto nos ayuda a solucionar los problemas en Shabateinu NBI.\n- *Aarón:* ¡Exacto! Busquemos siempre el Shalom.",
+      costumes: "**Taller de Manualidades:**\n'La vara de Aarón'. Los niños decoran una vara de cartón pegándole flores y hojitas de papel verde junto con almendras de plastilina o cartulina.",
+      song: "**Canción - El Camino de la Paz:**\n*Letra:*\nEl bastón de Aarón con flores brotó,\ny un mensaje de paz a todos nos dio.\nEvita las peleas, conversa con amor,\n¡que la humildad agrada al Creador!\n*Coro:*\n¡Shalom en mi aula, Shalom en mi hogar!\nEn Shabateinu NBI cantamos en paz."
+    },
+    storyPages: [
+      { title: "Una Discusión Triste", text: "Koraj discutió con Moisés y Aarón sobre quién debía liderar. Fue un momento triste porque no buscó dialogar con respeto ni humildad.", emoji: "🗣️" },
+      { title: "El Bastón que Floreció", text: "Dios le pidió a Moisés colocar bastones secos de cada tribu en el Mishkán. Al día siguiente, ¡el bastón de Aarón floreció y dio almendras dulces!", emoji: "🌱" },
+      { title: "El Regalo de la Paz", text: "Las almendras en el bastón demostraron que el liderazgo pacífico trae frutos hermosos. Aprendemos a resolver diferencias hablando con dulzura.", emoji: "🌸" },
+      { title: "Cuidar a la Comunidad", text: "Dios nos pide apoyar a los sacerdotes (Cohanim) y levitas que trabajaban cuidando el santuario. Todos debemos valorar el esfuerzo de quienes nos guían.", emoji: "🤝" }
+    ],
+    alefBetLetters: [
+      { letter: "שלום", name: "Shin", sound: "Sh", word: "שלום", wordMeaning: "Paz" },
+      { letter: "ע", name: "Ayin", sound: "(silencio)", word: "ענווה", wordMeaning: "Humildad" },
+      { letter: "שקד", name: "Shin", sound: "Sh", word: "שקד", wordMeaning: "Almendra" }
+    ]
+  },
+  "Chukat": {
+    name: "Jukat",
+    hebrew: "חקת",
+    book: "Bamidbar (Números)",
+    summary: "Moisés y el pueblo necesitan agua en el desierto. Aunque hay momentos difíciles, Dios les provee agua de una roca, recordándonos que siempre debemos hablar con dulzura y tener paciencia.",
+    words: ["AGUA", "PACIENCIA", "DULZURA", "HABLAR", "ROCA", "POZO", "CUIDADO", "MILAGRO"],
+    trivia: [
+      {
+        question: "¿Qué le pidió Dios a Moisés que hiciera para obtener agua de la roca?",
+        options: ["Que le hablara a la roca con dulzura", "Que la golpeara", "Que cantara"],
+        answer: 0
+      },
+      {
+        question: "¿Qué brotó en abundancia para calmar la sed del pueblo?",
+        options: ["Agua fresca y cristalina", "Jugo de frutas", "Leche"],
+        answer: 0
+      },
+      {
+        question: "¿Qué hermosa lección aprendemos sobre cómo pedir las cosas?",
+        options: ["Que debemos usar palabras amables y tener mucha paciencia", "Que hay que apurarse", "Que gritar funciona"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - El Agua Dulce de la Roca:**\n*Personajes:* Títere de Moisés, Títere de Niño sediento y Títere de Ovejita alegre.\n- *Niño:* Moisés, el desierto está muy seco y tenemos sed.\n- *Moisés:* Dios nos proveerá de esta roca. Pero debo recordar hablarle con paciencia.\n- *Ovejita:* ¡Miren, miren! ¡El agua fresca está brotando de la roca! ¡Qué refrescante!\n- *Niño:* ¡Gracias Dios por el agua! Aprendimos que con paciencia y buenas palabras se logran cosas milagrosas.\n- *Moisés:* Sí, el habla dulce abre caminos y corazones en Shabateinu NBI.",
+      costumes: "**Taller de Manualidades:**\n'La gota de la paciencia'. Los niños recortan una gran gota de agua de papel celofán celeste y escriben en ella palabras amables que usan para pedir cosas (ej: 'Por favor', 'Gracias').",
+      song: "**Canción - Habla con Dulzura:**\n*Letra:*\nEl agua de la roca brotó con amor,\npara calmar la sed y darnos frescor.\nHabla con dulzura, no uses la fuerza,\n¡y verás qué linda la vida comienza!\n*Coro:*\n¡Paciencia y amor en este Shabat!\nEn Shabateinu NBI cantamos en paz."
+    },
+    storyPages: [
+      { title: "Sed en el Desierto", text: "El pueblo caminaba bajo el sol y no encontraba agua. Empezaron a preocuparse y a perder la paciencia, olvidando que Dios los cuidaba.", emoji: "☀️" },
+      { title: "La Roca del Milagro", text: "Dios le dijo a Moisés: 'Toma tu bastón, reúne al pueblo y háblale a la roca.' Moisés estaba enojado y en lugar de hablarle, la golpeó.", emoji: "🪨" },
+      { title: "Agua en Abundancia", text: "A pesar del error de Moisés, Dios tuvo compasión del pueblo y del ganado, haciendo brotar agua fresca y limpia en gran cantidad para todos.", emoji: "💧" },
+      { title: "El Canto al Pozo", text: "Al encontrar una fuente de agua más adelante, el pueblo cantó de alegría para agradecer a Dios por el agua. Agradecer nos llena de optimismo.", emoji: "🎵" }
+    ],
+    alefBetLetters: [
+      { letter: "מ", name: "Mem", sound: "M", word: "מים", wordMeaning: "Agua" },
+      { letter: "ס", name: "Samej", sound: "S", word: "סלע", wordMeaning: "Roca" },
+      { letter: "ס", name: "Samej", sound: "S", word: "סבלנות", wordMeaning: "Paciencia" }
+    ]
+  },
+  "Balak": {
+    name: "Balak",
+    hebrew: "בלק",
+    book: "Bamidbar (Números)",
+    summary: "El profeta Bilam intenta hablar mal del pueblo de Israel, pero Dios transforma sus palabras en hermosas bendiciones. Nos enseña que el amor de Dios siempre nos protege y que debemos usar nuestras palabras para bendecir y unir.",
+    words: ["BENDICION", "PROTECCION", "BILAM", "BURRITA", "MILAGRO", "PALABRAS", "TIENDAS", "SHALOM"],
+    trivia: [
+      {
+        question: "¿En qué se convirtieron los malos deseos que Bilam quería decir contra Israel?",
+        options: ["En hermosas bendiciones de amor", "En nubes de lluvia", "En silencio"],
+        answer: 0
+      },
+      {
+        question: "¿Qué animalito inteligente habló milagrosamente para guiar a Bilam en el camino?",
+        options: ["Su burrita", "Un pajarito", "Un león"],
+        answer: 0
+      },
+      {
+        question: "¿Qué famosa frase de elogio a los hogares judíos dijo Bilam al ver el campamento?",
+        options: ["¡Qué hermosas son tus tiendas, oh Jacob! (Ma Tovu)", "¡Qué desierto tan grande!", "¡Hola a todos!"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - La Burrita Sabia:**\n*Personajes:* Títere de Bilam, Títere de Burrita simpática y Títere de Niño de NBI.\n- *Bilam:* Voy camino a decir palabras feas de Israel porque el rey Balak me lo pidió.\n- *Burrita:* ¡Espera, Bilam! ¿No ves que un ángel de Dios nos está cuidando en el camino? ¡No digas cosas feas!\n- *Niño:* ¡Wow, la burrita habló! Bilam, la Torá nos enseña que solo debemos hablar bien de la gente.\n- *Bilam:* Tienen razón. Al ver el campamento tan ordenado y en paz, solo puedo decir: '¡Ma Tovu! ¡Qué hermosas tus tiendas!'\n- *Burrita:* ¡Siiii! ¡Bendiciones para todos en Shabateinu NBI!",
+      costumes: "**Taller de Manualidades:**\n'Mi tienda de Shabat'. Los niños doblan papel para hacer una casita o carpa ('tienda') y la decoran por dentro dibujando a su familia alrededor de la mesa de Shabat.",
+      song: "**Canción - Ma Tovu (Qué Bellas son tus Tiendas):**\n*Letra:*\nMa tovu ojaléja Ya'akov,\n¡qué hermosas tus tiendas, llenas de amor!\nPalabras de bendición yo quiero cantar,\npara bendecir a todos en este Shabat.\n*Coro:*\n¡Qué lindo es mi hogar, qué dulce es vivir!\nCantamos felices en la NBI."
+    },
+    storyPages: [
+      { title: "El Rey Balak", text: "Balak, el rey de Moab, tenía miedo del pueblo de Israel y contrató a un profeta llamado Bilam para que hablara mal de ellos.", emoji: "👑" },
+      { title: "La Burrita de Bilam", text: "En el camino, un ángel se interpuso. La burrita de Bilam vio al ángel y se detuvo. Al final, la burrita habló para pedirle a Bilam que fuera paciente.", emoji: "🐴" },
+      { title: "Palabras Transformadas", text: "Cuando Bilam subió a la montaña para maldecir al pueblo, Dios puso hermosas palabras de bendición en su boca. El amor de Dios nos protege siempre.", emoji: "✨" },
+      { title: "¡Ma Tovu!", text: "Al ver las tiendas de Israel acampadas en paz y armonía, Bilam exclamó admirado: '¡Qué hermosos son tus hogares, oh Jacob, tus moradas, Israel!'", emoji: "🏕️" }
+    ],
+    alefBetLetters: [
+      { letter: "ב", name: "Bet", sound: "B", word: "ברכה", wordMeaning: "Bendición" },
+      { letter: "א", name: "Alef", sound: "(silencio)", word: "אהל", wordMeaning: "Tienda" },
+      { letter: "א", name: "Alef", sound: "(silencio)", word: "אתון", wordMeaning: "Burrita" }
+    ]
+  },
+  "Pinchas": {
+    name: "Pinjas",
+    hebrew: "פנחס",
+    book: "Bamidbar (Números)",
+    summary: "Las cinco hijas de Tzlofjad nos enseñan sobre la valentía y la justicia al pedir su herencia con mucho respeto. Nos recuerda la importancia de escuchar a las niñas y valorar la igualdad de todos en la familia.",
+    words: ["HIJAS", "JUSTICIA", "VALENTIA", "RESPETO", "HERENCIA", "IGUALDAD", "PUEBLO", "ESCUCHAR"],
+    trivia: [
+      {
+        question: "¿Cuántas hijas valientes de Tzlofjad pidieron participar de la herencia de la tierra?",
+        options: ["Cinco hijas", "Diez hijas", "Ninguna"],
+        answer: 0
+      },
+      {
+        question: "¿Qué respondió Dios cuando las hijas de Tzlofjad presentaron su caso ante Moisés?",
+        options: ["Que tenían toda la razón y debían recibir su tierra", "Que no", "Que debían esperar cien años"],
+        answer: 0
+      },
+      {
+        question: "¿Qué valor tan importante aprendemos de la actitud de estas hermanas?",
+        options: ["El valor de la justicia, la igualdad y pedir las cosas con respeto", "Que hay que pelear", "Que el silencio es mejor"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - Las Cinco Hermanas:**\n*Personajes:* Títere de Majlá (hermana mayor), Títere de Noá (hermana menor), Títere de Moisés y Títere de Niño de NBI.\n- *Majlá:* Moisés, venimos con mucho respeto a pedir la porción de tierra de nuestro querido papá.\n- *Noá:* Creemos que es justo que las mujeres también tengamos un lugar en la hermosa tierra de Israel.\n- *Moisés:* Su petición es muy sabia. Preguntaré a Dios cuál es la ley justa.\n- *Niño:* ¡Dios les dijo que sí! ¡Qué alegría! La Torá nos enseña que todos somos iguales y valiosos ante Dios.\n- *Hermanas:* ¡Siiii! Gracias por escucharnos con tanto cariño en Shabateinu NBI.",
+      costumes: "**Taller de Manualidades:**\n'El mapa de la justicia'. Los niños dibujan un gran mapa de Israel dividido en parcelas de colores y pegan flores de papel con los nombres de las cinco hermanas como símbolo de igualdad.",
+      song: "**Canción - Con Respeto y Valor:**\n*Letra:*\nCinco hermanas valientes a Moisés le hablaron,\ncon respeto y justicia su tierra reclamaron.\nDios escuchó sus voces y les dio la razón,\n¡trayendo alegría a todo el corazón!\n*Coro:*\n¡Justicia e igualdad, cantamos en Shabat!\nEn Shabateinu NBI crecemos en bondad."
+    },
+    storyPages: [
+      { title: "Las Cinco Hermanas", text: "Majlá, Noá, Joglá, Milcá y Tirtzá eran cinco hermanas que querían mucho a la Tierra de Israel. Ellas querían conservar el legado de su padre.", emoji: "👭" },
+      { title: "Un Pedido con Respeto", text: "Se presentaron ante Moisés, los líderes y todo el pueblo en la entrada del Mishkán, explicando su situación de manera calmada, lógica y respetuosa.", emoji: "🏛️" },
+      { title: "La Respuesta de Dios", text: "Moisés consultó a Dios, y Dios le respondió: 'Las hijas de Tzlofjad tienen razón. Dales una herencia entre los hermanos de su padre.'", emoji: "⚖️" },
+      { title: "El Nuevo Líder Josué", text: "En esta parashá, Dios le pide a Moisés que bendiga a Josué como el nuevo líder del pueblo, asegurando que sigan su viaje con amor y guía.", emoji: "👑" }
+    ],
+    alefBetLetters: [
+      { letter: "ב", name: "Bet", sound: "B", word: "בת", wordMeaning: "Hija" },
+      { letter: "צ", name: "Tzadi", sound: "Tz", word: "צדק", wordMeaning: "Justicia" },
+      { letter: "נ", name: "Nun", sound: "N", word: "נחלה", wordMeaning: "Herencia" }
+    ]
+  },
+  "Matot": {
+    name: "Matot",
+    hebrew: "מטות",
+    book: "Bamidbar (Números)",
+    summary: "Esta parashá nos enseña la importancia de cumplir nuestras promesas y mantener nuestra palabra. Cuando decimos que vamos a hacer algo bueno, debemos esforzarnos al máximo por cumplirlo con honestidad.",
+    words: ["PROMESAS", "PALABRA", "HONESTIDAD", "CUMPLIR", "VALOR", "DEBER", "SINCERIDAD", "CONFIANZA"],
+    trivia: [
+      {
+        question: "¿Qué nos enseña la Torá sobre la palabra que sale de nuestra boca?",
+        options: ["Que debemos cumplir nuestras promesas y compromisos con honestidad", "Que podemos decir mentiras", "Que las palabras no importan"],
+        answer: 0
+      },
+      {
+        question: "¿Cómo se llama cuando prometemos hacer una mitzvá o una buena acción?",
+        options: ["Un compromiso o promesa (Neder)", "Un chiste", "Un juego"],
+        answer: 0
+      },
+      {
+        question: "¿Por qué es importante cumplir la palabra para mantener la amistad?",
+        options: ["Porque genera confianza y nos hace personas confiables", "Para recibir premios", "No es importante"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - La Promesa del Shabat:**\n*Personajes:* Títere de Ovejita comprometida, Títere de Conejito impaciente y Títere de Niño sincero.\n- *Ovejita:* Conejito, te prometí que hoy te ayudaría a armar tu rompecabezas de Shabat.\n- *Conejito:* Pero ahora tienes sueño, ¿todavía quieres ayudarme?\n- *Ovejita:* ¡Claro! Matot nos enseña que nuestra palabra es sagrada. Si prometí ayudar, ¡lo haré con alegría!\n- *Niño:* ¡Qué buena amiga eres, ovejita! Cumplir lo que decimos crea una comunidad muy unida en Shabateinu NBI.\n- *Conejito:* ¡Sí! Jugar juntos es hermoso cuando confiamos en la palabra del otro.",
+      costumes: "**Taller de Manualidades:**\n'La pulsera del compromiso'. Los niños hacen pulseras trenzadas de hilo de colores. Al terminar, prometen realizar una buena acción y no se quitan la pulsera hasta cumplirla.",
+      song: "**Canción - Mi Palabra Vale:**\n*Letra:*\nSi mi boca dice 'te voy a ayudar',\nmi mano trabaja hasta terminar.\nCumplir las promesas trae gran felicidad,\n¡y llena de confianza este lindo Shabat!\n*Coro:*\n¡Mi palabra es oro, sinceridad total!\nEn Shabateinu NBI cantamos en paz."
+    },
+    storyPages: [
+      { title: "El Valor de la Palabra", text: "Matot nos enseña que cuando prometemos hacer algo bueno (Neder), debemos cumplirlo exactamente como lo dijimos. Nuestra palabra tiene mucho valor.", emoji: "🗣️" },
+      { title: "Construir Confianza", text: "Cumplir lo que prometemos a nuestros amigos y familia crea confianza. La gente sabe que puede contar con nosotros porque somos honestos.", emoji: "🤝" },
+      { title: "Tribus del Desierto", text: "Dos tribus pidieron quedarse en tierras de pastos verdes para sus ovejas, pero prometieron ayudar primero a todo el pueblo a cruzar el río Jordán.", emoji: "🐑" },
+      { title: "Cumplir el Compromiso", text: "Moisés aceptó su pedido porque confiaba en su promesa. Al final, las tribus cumplieron con valentía su palabra de ayudar a sus hermanos.", emoji: "💪" }
+    ],
+    alefBetLetters: [
+      { letter: "ד", name: "Dalet", sound: "D", word: "דבר", wordMeaning: "Palabra" },
+      { letter: "נ", name: "Nun", sound: "N", word: "נדר", wordMeaning: "Promesa" },
+      { letter: "א", name: "Alef", sound: "(silencio)", word: "אמת", wordMeaning: "Verdad" }
+    ]
+  },
+  "Masei": {
+    name: "Masei",
+    hebrew: "מסעי",
+    book: "Bamidbar (Números)",
+    summary: "Moisés escribe un diario con las 42 paradas del viaje por el desierto. Nos enseña a valorar cada paso de nuestro crecimiento y a ver cómo Dios nos acompaña en todo momento de nuestro camino.",
+    words: ["VIAJE", "DIARIO", "PARADAS", "CRECIMIENTO", "CAMINAR", "COMPAÑIA", "FUTURO", "HISTORIA"],
+    trivia: [
+      {
+        question: "¿Qué escribió Moisés en esta parashá para recordar el camino?",
+        options: ["La lista de todas las paradas y viajes del pueblo por el desierto", "Una receta de maná", "Una carta al faraón"],
+        answer: 0
+      },
+      {
+        question: "¿Cuántas estaciones o paradas hicieron los israelitas en su viaje por el desierto?",
+        options: ["42 paradas", "5 paradas", "100 paradas"],
+        answer: 0
+      },
+      {
+        question: "¿Qué frase feliz decimos al terminar el libro de Bamidbar?",
+        options: ["¡Jazak, Jazak, V'nitjazek!", "¡Shalom Aleijem!", "¡Buenas noches!"],
+        answer: 0
+      }
+    ],
+    activities: {
+      puppets: "**Guión - El Mapa del Viaje:**\n*Personajes:* Títere de Mochilero con mapa, Títere de Ovejita viajera y Títere de Niño sonriente.\n- *Mochilero:* ¡Wow! Hemos recorrido un camino muy largo. ¡Miren este mapa con todas las paradas!\n- *Ovejita:* ¡Beeee! Recuerdo cuando acampamos junto al agua y cuando caminamos entre las rocas.\n- *Niño:* Cada parada nos ayudó a crecer y a ser más unidos. ¡Dios nos acompañó en todo momento!\n- *Mochilero:* Así es. Al terminar de leer Bamidbar decimos: '¡Jazak, Jazak, V'nitjazek!'\n- *Ovejita y Niño:* ¡A ser fuertes y seguir viajando juntos en Shabateinu NBI!",
+      costumes: "**Taller de Manualidades:**\n'Mi diario de viaje'. Los niños confeccionan un pequeño cuaderno con hojas dobladas y dibujan en la portada un camino que representa su propio crecimiento desde bebés hasta hoy.",
+      song: "**Canción - Caminando Juntos:**\n*Letra:*\nCuarenta y dos paradas en el desierto andamos,\ncon la nube de día y el fuego marchamos.\nCada paso del viaje nos hizo crecer,\n¡y nuevas historias vamos a aprender!\n*Coro:*\n¡Jazak, Jazak, V'nitjazek, sí!\nTerminamos Bamidbar en la NBI feliz."
+    },
+    storyPages: [
+      { title: "El Diario del Viaje", text: "Masei significa 'los viajes'. Moisés escribió un registro de todas las paradas del pueblo en el desierto para recordar cómo Dios los cuidó.", emoji: "📖" },
+      { title: "Ciudades de Refugio", text: "Dios ordenó establecer ciudades especiales para proteger a las personas en momentos difíciles, enseñándonos a crear espacios seguros de paz y justicia.", emoji: "🏡" },
+      { title: "El Valor de Recordar", text: "Recordar el camino recorrido nos ayuda a dar gracias por las personas que nos ayudaron y las lecciones que aprendimos en el camino de la vida.", emoji: "✨" },
+      { title: "¡Jazak, Jazak, V'nitjazek!", text: "Con esta parashá terminamos el cuarto libro de la Torá, Bamidbar. Todo el pueblo celebra unido, dándose fuerzas para comenzar el último libro.", emoji: "💪" }
+    ],
+    alefBetLetters: [
+      { letter: "מ", name: "Mem", sound: "M", word: "מסע", wordMeaning: "Viaje" },
+      { letter: "ד", name: "Dalet", sound: "D", word: "דרך", wordMeaning: "Camino" },
+      { letter: "ח", name: "Jet", sound: "J", word: "חזק", wordMeaning: "Fuerte" }
+    ]
+  },
 
   // ==========================================================================
   // LIBRO 5: DEVARIM (DEUTERONOMIO)
