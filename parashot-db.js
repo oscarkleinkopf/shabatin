@@ -470,7 +470,18 @@ const PARASHOT_DB = {
       puppets: "**Guión - Palabras del Corazón:**\n*Personajes:* Moisés anciano (con barba blanca muy tierna) y un Títere de Niño atento.\n- *Moisés:* Querido niño, he guiado al pueblo por 40 años... Ahora les toca a ustedes.\n- *Niño:* Moisés, ¿cómo recordaremos todo en la nueva tierra?\n- *Moisés:* Guarda estas palabras en tu corazón, enséñalas al levantarte y acostarte. ¡Escucha Israel, Dios es uno!\n- *Niño:* ¡El Shemá Israel! Lo cantaremos siempre con orgullo en Shabateinu.",
       costumes: "**Taller de Disfraces:**\nFabricar un 'Estuche de Mezuzá' de cartulina donde los niños escriban o dibujen su valor o bendición favorita en un minipergamino interior para colgar en la puerta de su habitación.",
       song: "**Canción - Shemá Infantil:**\n*Letra:*\nEscucha Israel, Dios es nuestro Dios,\nDios es Uno solo, nos da su bendición.\nEn el corazón guardo su Torá,\ncanto Shabateinu lleno de hermandad.\n*Coro:*\n¡Shemá Israel, cantamos con amor!\nUnidos en Santiago, un solo corazón."
-    }
+    },
+    storyPages: [
+      { title: "Las Últimas Palabras de Moshé", text: "Moisés reúne a todo el pueblo de Israel en el desierto para darles sus últimos y más cariñosos consejos. Les recuerda todas las aventuras y milagros que vivieron juntos durante su viaje hacia la Tierra Prometida.", emoji: "👴" },
+      { title: "El Shemá Israel: Dios es Uno", text: "Moisés les enseña la oración más importante: ¡Shemá Israel! Les pide que amen a Dios con todo su corazón y con toda su alma, y que recuerden que Dios siempre nos acompaña.", emoji: "❤️" },
+      { title: "Enseñar a los Más Pequeños", text: "Moisés les dice a los padres: 'Enseñen estas hermosas palabras e historias a sus niños cuando estén en casa, cuando caminen por el camino, al acostarse y al levantarse.' Así, las enseñanzas vivirán por siempre.", emoji: "🧒" },
+      { title: "Cuidar las Mezuzot en las Puertas", text: "También les pide escribir estas palabras en los marcos de las puertas de sus casas (Mezuzá) para recordar siempre actuar con bondad y amor en su hogar y con cada persona.", emoji: "🚪" }
+    ],
+    alefBetLetters: [
+      { letter: "ד", name: "Dalet", sound: "D", word: "דברים", wordMeaning: "Devarim (Palabras)" },
+      { letter: "ש", name: "Shin", sound: "Sh", word: "שמע", wordMeaning: "Shemá (Escucha)" },
+      { letter: "מ", name: "Mem", sound: "M", word: "מזוזה", wordMeaning: "Mezuzá" }
+    ]
   },
   "Vaetchanan": { name: "Vaetjanan", hebrew: "ואתחנן", book: "Devarim (Deuteronomio)" },
   "Eikev": { name: "Eikev", hebrew: "עקב", book: "Devarim (Deuteronomio)" },
