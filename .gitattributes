@@ -1,2 +1,2 @@
-# Force CRLF line endings for SQL migrations to match database checksums
-netlify/database/migrations/*.sql text eol=crlf
+# Treat database migrations as binary/raw files to prevent line-ending normalization
+netlify/database/migrations/*.sql -text
