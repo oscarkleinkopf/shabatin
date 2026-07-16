@@ -1,0 +1,2 @@
+# Force CRLF line endings for SQL migrations to match database checksums
+netlify/database/migrations/*.sql text eol=crlf
