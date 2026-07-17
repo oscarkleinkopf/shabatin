@@ -6222,28 +6222,187 @@ Equipo Shabateinu - Comunidad Israelita Nueva Bnei Israel (NBI)`;
   // ==========================================================================
   const CRAFTS_DATA = {
     velas: [
-      { text: 'Toma dos rectángulos de papel blanco o amarillo y enróllalos como dos tubitos.', tip: 'Representa las dos velas tradicionales de Shabat.', emoji: '📄' },
-      { text: 'Corta dos pedacitos de papel dorado con forma de gotita de fuego.', tip: '¡Será nuestro fuego seguro para jugar!', emoji: '🔥' },
-      { text: 'Pega las gotitas en la parte superior de cada rollito.', tip: 'Ya tienes tus velas listas para tu mesa de Shabat infantil.', emoji: '🕯️' },
-      { text: 'Decora los portavelas dibujando flores o estrellas de David.', tip: '¡Pídele a tus papás que las pongan en la mesa el viernes!', emoji: '🎨' }
+      { 
+        text: 'Toma dos rectángulos de papel blanco o amarillo y enróllalos como dos tubitos.', 
+        tip: 'Representa las dos velas tradicionales de Shabat.', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <rect x="25" y="20" width="20" height="60" rx="3" fill="#ffffff" stroke="#0f172a" stroke-width="2" />
+          <rect x="55" y="20" width="20" height="60" rx="3" fill="#fef08a" stroke="#0f172a" stroke-width="2" />
+          <path d="M15,40 C15,25 35,25 30,45" fill="none" stroke="#38bdf8" stroke-width="2" />
+          <path d="M30,45 l-5,-2 l5,-4 z" fill="#38bdf8" />
+        </svg>`
+      },
+      { 
+        text: 'Corta dos pedacitos de papel dorado con forma de gotita de fuego.', 
+        tip: '¡Será nuestro fuego seguro para jugar!', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <rect x="15" y="45" width="45" height="35" rx="2" fill="#fbbf24" stroke="#78350f" stroke-width="1.5" />
+          <path d="M70,30 C70,45 80,45 80,30 C80,15 70,15 70,30 Z" fill="#f59e0b" stroke="#78350f" stroke-width="2" />
+          <path d="M35,25 C35,35 42,35 42,25 C42,15 35,15 35,25 Z" fill="#f59e0b" stroke="#78350f" stroke-width="2" />
+          <circle cx="25" cy="25" r="5" fill="none" stroke="#475569" stroke-width="2" />
+          <circle cx="25" cy="37" r="5" fill="none" stroke="#475569" stroke-width="2" />
+          <line x1="30" y1="28" x2="55" y2="40" stroke="#94a3b8" stroke-width="3" />
+          <line x1="30" y1="34" x2="55" y2="22" stroke="#94a3b8" stroke-width="3" />
+        </svg>`
+      },
+      { 
+        text: 'Pega las gotitas en la parte superior de cada rollito.', 
+        tip: 'Ya tienes tus velas listas para tu mesa de Shabat infantil.', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <rect x="40" y="35" width="20" height="50" rx="3" fill="#ffffff" stroke="#0f172a" stroke-width="2" />
+          <path d="M50,25 C50,33 56,33 56,25 C56,17 50,17 50,25 Z" fill="#f59e0b" stroke="#78350f" stroke-width="2" />
+          <path d="M50,8 L50,16" fill="none" stroke="#22c55e" stroke-width="2" />
+          <path d="M50,16 l-3,-4 l6,0 z" fill="#22c55e" />
+        </svg>`
+      },
+      { 
+        text: 'Decora los portavelas dibujando flores o estrellas de David.', 
+        tip: '¡Pídele a tus papás que las pongan en la mesa el viernes!', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <rect x="25" y="35" width="16" height="45" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="1.5" />
+          <path d="M33,35 C33,41 38,41 38,35 C38,29 33,29 33,35 Z" fill="#f59e0b" stroke="#78350f" stroke-width="1.5" />
+          <rect x="55" y="35" width="16" height="45" rx="2" fill="#fef08a" stroke="#0f172a" stroke-width="1.5" />
+          <path d="M63,35 C63,41 68,41 68,35 C68,29 63,29 63,35 Z" fill="#f59e0b" stroke="#78350f" stroke-width="1.5" />
+          <polygon points="75,80 85,60 90,65" fill="#38bdf8" />
+          <polygon points="85,60 88,55 92,60 90,65" fill="#ea580c" />
+        </svg>`
+      }
     ],
     copa: [
-      { text: 'Toma un papel cuadrado y dóblalo por la mitad formando un triángulo.', tip: 'Usa papel brillante o de color azul si tienes.', emoji: '📐' },
-      { text: 'Dobla la punta derecha hacia el borde izquierdo, y la izquierda hacia el derecho.', tip: 'Formará un pequeño sobre abierto por arriba.', emoji: '✉️' },
-      { text: 'Dobla las pestañas superiores hacia abajo en lados opuestos.', tip: 'Esto abrirá la copa de papel.', emoji: '🍷' },
-      { text: 'Abre la copa y decórala con estrellas de David o lentejuelas.', tip: '¡Puedes usarla para llenarla de pasas o dulces para Kidush!', emoji: '🍇' }
+      { 
+        text: 'Toma un papel cuadrado y dóblalo por la mitad formando un triángulo.', 
+        tip: 'Usa papel brillante o de color azul si tienes.', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <rect x="20" y="20" width="60" height="60" rx="4" fill="#3b82f6" stroke="#1e3a8a" stroke-width="2" />
+          <line x1="20" y1="80" x2="80" y2="20" stroke="#ffffff" stroke-width="2" stroke-dasharray="4,4" />
+          <path d="M30,30 Q45,30 55,45" fill="none" stroke="#f59e0b" stroke-width="3" />
+          <path d="M55,45 l-8,2 l2,-8 z" fill="#f59e0b" />
+        </svg>`
+      },
+      { 
+        text: 'Dobla la punta derecha hacia el borde izquierdo, y la izquierda hacia el derecho.', 
+        tip: 'Formará un pequeño sobre abierto por arriba.', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <polygon points="20,80 80,80 50,20" fill="#2563eb" stroke="#1e3a8a" stroke-width="2" />
+          <line x1="20" y1="80" x2="65" y2="50" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3,3" />
+          <line x1="80" y1="80" x2="35" y2="50" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3,3" />
+          <path d="M25,75 Q40,60 55,55" fill="none" stroke="#f59e0b" stroke-width="2" />
+          <path d="M55,55 l-6,4 l1,-7 z" fill="#f59e0b" />
+        </svg>`
+      },
+      { 
+        text: 'Dobla las pestañas superiores hacia abajo en lados opuestos.', 
+        tip: 'Esto abrirá la copa de papel.', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <polygon points="30,80 70,80 80,50 50,30 20,50" fill="#1d4ed8" stroke="#1e3a8a" stroke-width="2" />
+          <polygon points="50,30 50,55 35,42.5" fill="#3b82f6" stroke="#1e3a8a" stroke-width="1.5" />
+          <polygon points="50,30 50,55 65,42.5" fill="#3b82f6" stroke="#1e3a8a" stroke-width="1.5" />
+          <path d="M50,22 L50,42" fill="none" stroke="#f59e0b" stroke-width="2" />
+          <path d="M50,42 l-3,-6 l6,0 z" fill="#f59e0b" />
+        </svg>`
+      },
+      { 
+        text: 'Abre la copa y decórala con estrellas de David o lentejuelas.', 
+        tip: '¡Puedes usarla para llenarla de pasas o dulces para Kidush!', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <ellipse cx="50" cy="80" rx="20" ry="6" fill="#f59e0b" stroke="#78350f" stroke-width="2" />
+          <path d="M45,80 L48,65 L52,65 L55,80 Z" fill="#d97706" stroke="#78350f" stroke-width="2" />
+          <path d="M30,35 C30,65 70,65 70,35 Z" fill="#fbbf24" stroke="#78350f" stroke-width="2" />
+          <ellipse cx="50" cy="35" rx="20" ry="6" fill="#f59e0b" stroke="#78350f" stroke-width="2" />
+          <polygon points="50,42 45,51 55,51" fill="none" stroke="#78350f" stroke-width="1" />
+          <polygon points="50,54 45,45 55,45" fill="none" stroke="#78350f" stroke-width="1" />
+        </svg>`
+      }
     ],
     corona: [
-      { text: 'Corta una tira larga de cartulina amarilla de unos 6 cm de ancho.', tip: 'Mide la cabeza del niño antes de cortar.', emoji: '✂️' },
-      { text: 'Dibuja y recorta picos en la parte superior.', tip: 'Para que parezca una corona de rey o reina de Shabat.', emoji: '👑' },
-      { text: 'Dibuja símbolos como una Menorá o Jalot y adórnala.', tip: 'Puedes pegar lentejuelas o pintar con purpurina dorada.', emoji: '✨' },
-      { text: 'Pega los extremos con cinta adhesiva para ajustar la corona.', tip: '¡Listo! Póntela el viernes al recibir el Shabat en familia.', emoji: '⭐' }
+      { 
+        text: 'Corta una tira larga de cartulina amarilla de unos 6 cm de ancho.', 
+        tip: 'Mide la cabeza del niño antes de cortar.', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <rect x="10" y="35" width="80" height="25" rx="2" fill="#fde047" stroke="#78350f" stroke-width="2" />
+          <line x1="10" y1="70" x2="90" y2="70" stroke="#94a3b8" stroke-width="1.5" />
+          <line x1="10" y1="65" x2="10" y2="75" stroke="#94a3b8" stroke-width="1.5" />
+          <line x1="90" y1="65" x2="90" y2="75" stroke="#94a3b8" stroke-width="1.5" />
+          <text x="50" y="85" font-size="10" font-family="Inter, sans-serif" font-weight="bold" fill="#64748b" text-anchor="middle">~ 55-60 cm</text>
+        </svg>`
+      },
+      { 
+        text: 'Dibuja y recorta picos en la parte superior.', 
+        tip: 'Para que parezca una corona de rey o reina de Shabat.', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <path d="M10,60 L10,35 L23,20 L36,35 L50,20 L63,35 L76,20 L90,35 L90,60 Z" fill="#fde047" stroke="#78350f" stroke-width="2" />
+          <circle cx="85" cy="15" r="4" fill="none" stroke="#475569" stroke-width="1.5" />
+          <circle cx="85" cy="23" r="4" fill="none" stroke="#475569" stroke-width="1.5" />
+          <line x1="81" y1="19" x2="68" y2="19" stroke="#94a3b8" stroke-width="2" />
+          <line x1="81" y1="19" x2="70" y2="14" stroke="#94a3b8" stroke-width="2" />
+        </svg>`
+      },
+      { 
+        text: 'Dibuja símbolos como una Menorá o Jalot y adórnala.', 
+        tip: 'Puedes pegar lentejuelas o pintar con purpurina dorada.', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <path d="M10,60 L10,35 L23,20 L36,35 L50,20 L63,35 L76,20 L90,35 L90,60 Z" fill="#fcd34d" stroke="#78350f" stroke-width="2" />
+          <circle cx="23" cy="45" r="4" fill="#ef4444" />
+          <circle cx="50" cy="45" r="5" fill="#3b82f6" />
+          <circle cx="76" cy="45" r="4" fill="#10b981" />
+          <path d="M45,12 L47,17 L52,17 L48,20 L50,25 L45,22 L40,25 L42,20 L38,17 L43,17 Z" fill="#f59e0b" />
+        </svg>`
+      },
+      { 
+        text: 'Pega los extremos con cinta adhesiva para ajustar la corona.', 
+        tip: '¡Listo! Póntela el viernes al recibir el Shabat en familia.', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <ellipse cx="50" cy="65" rx="35" ry="15" fill="none" stroke="#78350f" stroke-width="3" />
+          <path d="M15,50 C15,30 85,30 85,50 L85,65 C85,80 15,80 15,65 Z" fill="#fbbf24" stroke="#78350f" stroke-width="2" />
+          <path d="M15,50 L27,30 L40,50 L53,30 L66,50 L78,30 L85,50" fill="none" stroke="#78350f" stroke-width="2" />
+        </svg>`
+      }
     ],
     tzedaka: [
-      { text: 'Toma una caja de cartón pequeña vacía (como una de té o leche).', tip: 'Límpiala bien por dentro primero.', emoji: '📦' },
-      { text: 'Pide ayuda a tus papás para hacer una ranura en la tapa con tijeras.', tip: 'Debe ser lo suficientemente grande para meter monedas.', emoji: '🪙' },
-      { text: 'Fórrala con papel de regalo o pintala con témpera azul.', tip: 'Escribe la palabra "TZEDAKÁ" en letras grandes y decoradas.', emoji: '🖌️' },
-      { text: 'Colócala en un lugar visible de la casa.', tip: 'Pon una moneda real o de papel cada viernes antes de que empiece Shabat.', emoji: '❤️' }
+      { 
+        text: 'Toma una caja de cartón pequeña vacía (como una de té o leche).', 
+        tip: 'Límpiala bien por dentro primero.', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <polygon points="20,45 50,30 80,45 50,60" fill="#d97706" stroke="#78350f" stroke-width="2" />
+          <polygon points="20,45 50,60 50,85 20,70" fill="#b45309" stroke="#78350f" stroke-width="2" />
+          <polygon points="80,45 50,60 50,85 80,70" fill="#92400e" stroke="#78350f" stroke-width="2" />
+        </svg>`
+      },
+      { 
+        text: 'Pide ayuda a tus papás para hacer una ranura en la tapa con tijeras.', 
+        tip: 'Debe ser lo suficientemente grande para meter monedas.', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <polygon points="20,45 50,30 80,45 50,60" fill="#d97706" stroke="#78350f" stroke-width="2" />
+          <polygon points="20,45 50,60 50,85 20,70" fill="#b45309" stroke="#78350f" stroke-width="2" />
+          <polygon points="80,45 50,60 50,85 80,70" fill="#92400e" stroke="#78350f" stroke-width="2" />
+          <polygon points="40,43 60,47 58,49 38,45" fill="#000000" />
+        </svg>`
+      },
+      { 
+        text: 'Fórrala con papel de regalo o pintala con témpera azul.', 
+        tip: 'Escribe la palabra "TZEDAKÁ" en letras grandes y decoradas.', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <polygon points="20,45 50,30 80,45 50,60" fill="#0284c7" stroke="#1e3a8a" stroke-width="2" />
+          <polygon points="20,45 50,60 50,85 20,70" fill="#0369a1" stroke="#1e3a8a" stroke-width="2" />
+          <polygon points="80,45 50,60 50,85 80,70" fill="#075985" stroke="#1e3a8a" stroke-width="2" />
+          <polygon points="40,43 60,47 58,49 38,45" fill="#000000" />
+          <text x="45" y="73" font-size="7" font-family="Inter, sans-serif" font-weight="bold" fill="#f59e0b" text-anchor="middle" transform="rotate(-15 45 73)">צadká</text>
+        </svg>`
+      },
+      { 
+        text: 'Colócala en un lugar visible de la casa.', 
+        tip: 'Pon una moneda real o de papel cada viernes antes de que empiece Shabat.', 
+        svg: `<svg viewBox="0 0 100 100" width="90" height="90">
+          <polygon points="20,55 50,40 80,55 50,70" fill="#0284c7" stroke="#1e3a8a" stroke-width="2" />
+          <polygon points="20,55 50,70 50,95 20,80" fill="#0369a1" stroke="#1e3a8a" stroke-width="2" />
+          <polygon points="80,55 50,70 50,95 80,80" fill="#075985" stroke="#1e3a8a" stroke-width="2" />
+          <polygon points="40,53 60,57 58,59 38,55" fill="#000000" />
+          <circle cx="50" cy="25" r="7" fill="#fbbf24" stroke="#78350f" stroke-width="1.5" />
+          <text x="50" y="28" font-size="8" font-weight="bold" fill="#78350f" text-anchor="middle">$</text>
+          <path d="M50,10 L50,15" fill="none" stroke="#22c55e" stroke-width="2" />
+          <path d="M50,15 l-3,-4 l6,0 z" fill="#22c55e" />
+        </svg>`
+      }
     ]
   };
 
@@ -6326,7 +6485,7 @@ Equipo Shabateinu - Comunidad Israelita Nueva Bnei Israel (NBI)`;
 
     if (titleEl) titleEl.textContent = projectNames[craftState.project];
     if (stepCounterEl) stepCounterEl.textContent = `Paso ${craftState.step + 1} / ${steps.length}`;
-    if (illustrationEl) illustrationEl.textContent = step.emoji;
+    if (illustrationEl) illustrationEl.innerHTML = step.svg;
     if (textEl) textEl.textContent = step.text;
     if (tipEl) tipEl.textContent = step.tip;
     
