@@ -2110,6 +2110,22 @@ Equipo Shabateinu - Comunidad Israelita Nueva Bnei Israel (NBI)`;
       ctx.fill();
       if (isOutline) ctx.stroke();
     }
+
+    // Dibujar el título de la parashá en la parte inferior para colorear
+    if (isOutline) {
+      ctx.save();
+      ctx.font = 'bold 22px "Outfit", "Inter", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.strokeStyle = '#000000';
+      ctx.lineWidth = 1.5;
+      ctx.fillStyle = '#ffffff';
+      const pData = getParashaData(parashaName);
+      const text = `Parashat ${pData.name} (${pData.hebrew})`;
+      ctx.strokeText(text, 0, 215);
+      ctx.fillText(text, 0, 215);
+      ctx.restore();
+    }
+
     ctx.restore();
   }
 
