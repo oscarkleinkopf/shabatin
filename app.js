@@ -569,9 +569,10 @@ document.addEventListener('DOMContentLoaded', () => {
     updateInvitationPreview();
     drawActivitiesIllustration();
 
-    // Actualizar storybook, flashcards y cofre si los elementos existen
+    // Actualizar storybook, flashcards, colorear y cofre si los elementos existen
     if (document.getElementById('story-page-content')) initStorybook();
     if (document.getElementById('flashcard-main')) initFlashcards();
+    if (document.getElementById('coloring-canvas')) initColoringBook();
     if (document.getElementById('cofre-card')) initCofre();
 
     // Reiniciar juegos para la nueva Parashá si estamos en la pestaña
@@ -3445,15 +3446,67 @@ Equipo Shabateinu - Comunidad Israelita Nueva Bnei Israel (NBI)`;
     // Configurar selectores y botones
     const imageSelect = document.getElementById('select-coloring-image');
     if (imageSelect) {
+      // Limpiar opciones estáticas y reconstruir la lista completa con todas las parashot
+      imageSelect.innerHTML = '';
+      
+      // 1. Agregar las ilustraciones premium de la IA primero
+      const premiumOptions = [
+        { value: 'bereshit', text: 'Día 7: Shabat (Bereshit) 🌟' },
+        { value: 'noaj', text: 'El Arcoíris (Noach) 🌈' },
+        { value: 'shemot', text: 'Moisés en el Nilo (Shemot) 🧒' },
+        { value: 'beshalaj', text: 'El Cruce del Mar (Beshalach) 🌊' },
+        { value: 'yitro', text: 'Tablas de la Ley (Yitro) 📜' },
+        { value: 'nasso', text: 'Bendición Sacerdotal (Nasso) 🖖' },
+        { value: 'challah', text: 'Jalá de Shabat 🍞' },
+        { value: 'torah', text: 'Libro de la Torá 📖' },
+        { value: 'shabbat', text: 'Velas de Shabat 🕯️' }
+      ];
+      
+      premiumOptions.forEach(opt => {
+        const el = document.createElement('option');
+        el.value = opt.value;
+        el.textContent = opt.text;
+        imageSelect.appendChild(el);
+      });
+      
+      // 2. Agregar el resto de las 54 parashot dinámicamente como plantillas vectoriales
+      const premiumKeys = ['bereshit', 'noach', 'shemot', 'beshalach', 'yitro', 'nasso'];
+      Object.keys(PARASHOT_DB).forEach(key => {
+        const normKey = key.toLowerCase();
+        const isPremium = premiumKeys.some(pk => normKey.includes(pk));
+        if (!isPremium) {
+          const el = document.createElement('option');
+          el.value = `vector_${key}`;
+          const pData = getParashaData(key);
+          el.textContent = `Pintar Parashat ${pData.name} (${pData.hebrew}) 🎨`;
+          imageSelect.appendChild(el);
+        }
+      });
+
+      // Registrar listener de cambio
+      imageSelect.removeEventListener('change', loadColoringOutline); // Prevenir duplicados
       imageSelect.addEventListener('change', loadColoringOutline);
+      
       // Auto-seleccionar según la parashá activa
       const currentParashaKey = state.selectedParasha.toLowerCase();
-      // Buscar coincidencia en las opciones
+      let matched = false;
       for (let option of imageSelect.options) {
-        if (currentParashaKey.includes(option.value)) {
+        // Para coincidir premium
+        if (!option.value.startsWith('vector_') && currentParashaKey.includes(option.value)) {
           imageSelect.value = option.value;
+          matched = true;
           break;
         }
+        // Para coincidir vectoriales
+        if (option.value.startsWith('vector_') && option.value.toLowerCase().includes(currentParashaKey)) {
+          imageSelect.value = option.value;
+          matched = true;
+          break;
+        }
+      }
+      if (!matched) {
+        // Fallback por defecto si no coincide
+        imageSelect.value = 'shabbat';
       }
     }
 
@@ -3500,11 +3553,16 @@ Equipo Shabateinu - Comunidad Israelita Nueva Bnei Israel (NBI)`;
     if (!imageSelect || !coloringCtx || !coloringCanvas) return;
     
     const key = imageSelect.value;
-    outlineImage.src = `assets/${key}_outline.png`;
     
-    outlineImage.onload = () => {
-      clearColoringCanvas(false); // Limpiar canvas pero no vaciar si es una recarga
-    };
+    if (key.startsWith('vector_')) {
+      outlineImage.src = ''; // Vaciar la imagen física
+      clearColoringCanvas(false);
+    } else {
+      outlineImage.src = `assets/${key}_outline.png`;
+      outlineImage.onload = () => {
+        clearColoringCanvas(false); // Limpiar canvas pero no vaciar si es una recarga
+      };
+    }
     
     // Habilitar botón de XP de nuevo cuando cambie la ilustración
     const xpBtn = document.getElementById('btn-coloring-xp');
@@ -3522,15 +3580,26 @@ Equipo Shabateinu - Comunidad Israelita Nueva Bnei Israel (NBI)`;
     coloringCtx.fillStyle = '#ffffff';
     coloringCtx.fillRect(0, 0, coloringCanvas.width, coloringCanvas.height);
     
-    // Dibujar la imagen de contorno centrada
-    if (outlineImage.complete && outlineImage.naturalWidth > 0) {
-      // Ajustar la escala de la imagen para que quepa en el canvas de 500x500
-      const scale = Math.min(coloringCanvas.width / outlineImage.width, coloringCanvas.height / outlineImage.height) * 0.95;
-      const w = outlineImage.width * scale;
-      const h = outlineImage.height * scale;
-      const x = (coloringCanvas.width - w) / 2;
-      const y = (coloringCanvas.height - h) / 2;
-      coloringCtx.drawImage(outlineImage, x, y, w, h);
+    const imageSelect = document.getElementById('select-coloring-image');
+    const key = imageSelect ? imageSelect.value : '';
+    
+    if (key && key.startsWith('vector_')) {
+      // Dibujar la ilustración vectorial centrada y con tamaño apropiado (escala 2.0x)
+      const parashaKey = key.replace('vector_', '');
+      coloringCtx.save();
+      drawParashaIllustration(coloringCtx, parashaKey, 250, 250, true);
+      coloringCtx.restore();
+    } else {
+      // Dibujar la imagen de contorno centrada
+      if (outlineImage.complete && outlineImage.naturalWidth > 0) {
+        // Ajustar la escala de la imagen para que quepa en el canvas de 500x500
+        const scale = Math.min(coloringCanvas.width / outlineImage.width, coloringCanvas.height / outlineImage.height) * 0.95;
+        const w = outlineImage.width * scale;
+        const h = outlineImage.height * scale;
+        const x = (coloringCanvas.width - w) / 2;
+        const y = (coloringCanvas.height - h) / 2;
+        coloringCtx.drawImage(outlineImage, x, y, w, h);
+      }
     }
     
     if (resetDrawnState) {
