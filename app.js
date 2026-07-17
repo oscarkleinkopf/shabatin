@@ -1621,99 +1621,455 @@ Equipo Shabateinu - Comunidad Israelita Nueva Bnei Israel (NBI)`;
         }
       }
       
-    } else if (normalized.includes('beha') || normalized.includes('bamidbar') || normalized.includes('shelach') || normalized.includes('sh\'lach') || normalized.includes('korach') || normalized.includes('koraj') || normalized.includes('chukat') || normalized.includes('jukat')) {
-      // TEMA: Banderas de las Tribus en el desierto (Bamidbar / Otras de Números) - Premium Sofisticado
-      let earthGrad = ctx.createLinearGradient(0, 35, 0, 55);
-      earthGrad.addColorStop(0, '#fef08a');
-      earthGrad.addColorStop(1, '#d97706');
-      setColors(isOutline ? '#ffffff' : earthGrad, '#000000', 3);
-      ctx.beginPath();
-      ctx.ellipse(0, 45, 75, 12, 0, 0, Math.PI * 2);
-      ctx.fill();
-      if (isOutline) ctx.stroke();
-      
-      const drawFlag = (x, color, sym) => {
-        ctx.strokeStyle = '#78350f';
-        ctx.lineWidth = 3;
+    } else if (normalized.includes('chayei') || normalized.includes('toldot')) {
+      // TEMA: Pozo de Rebeca (Chayei Sara / Toldot) - Premium Sofisticado
+      // 1. Pozo de piedra
+      let stoneGrad = ctx.createLinearGradient(-30, 10, 30, 50);
+      stoneGrad.addColorStop(0, '#e2e8f0');
+      stoneGrad.addColorStop(1, '#64748b');
+      setColors(isOutline ? '#ffffff' : stoneGrad, '#000000', 3);
+      ctx.fillRect(-30, 15, 60, 35);
+      ctx.strokeRect(-30, 15, 60, 35);
+      if (!isOutline) {
+        ctx.strokeStyle = 'rgba(0,0,0,0.15)';
         ctx.beginPath();
-        ctx.moveTo(x, 45);
-        ctx.lineTo(x, -35);
+        ctx.moveTo(-30, 26); ctx.lineTo(30, 26);
+        ctx.moveTo(-30, 38); ctx.lineTo(30, 38);
         ctx.stroke();
-        
-        let flagGrad = ctx.createLinearGradient(x, -35, x + 45, -5);
-        flagGrad.addColorStop(0, color);
-        flagGrad.addColorStop(1, 'rgba(0,0,0,0.15)'); // Sombreado de pliegue
-        
-        setColors(isOutline ? '#ffffff' : flagGrad, '#000000', 2.5);
-        ctx.beginPath();
-        ctx.roundRect(x, -35, 45, 30, [0, 5, 5, 0]);
-        ctx.fill();
-        ctx.stroke();
-        
-        ctx.fillStyle = isOutline ? '#000000' : '#ffffff';
-        ctx.font = 'bold 12px Inter, sans-serif';
-        ctx.fillText(sym, x + 22, -15);
-      };
-      
-      ctx.textAlign = 'center';
-      drawFlag(-45, '#ef4444', '🦁'); 
-      drawFlag(-10, '#38bdf8', '⛵'); 
-      drawFlag(25, '#22c55e', '🦌'); 
-      
-    } else if (normalized.includes('devarim') || normalized.includes('eikev') || normalized.includes('shoftim')) {
-      // TEMA: Pergamino de Torá Abierto (Devarim) - Premium Sofisticado
-      let paperGrad = ctx.createLinearGradient(-60, -35, 60, 35);
-      paperGrad.addColorStop(0, '#ffedd5'); // Pergamino claro
-      paperGrad.addColorStop(0.5, '#fed7aa');
-      paperGrad.addColorStop(1, '#ffedd5');
-      setColors(isOutline ? '#ffffff' : paperGrad, '#78350f', 4);
+      }
+      // 2. Soporte y soga
+      ctx.strokeStyle = '#78350f';
+      ctx.lineWidth = 4;
       ctx.beginPath();
-      ctx.roundRect(-60, -35, 120, 70, 8);
-      ctx.fill();
+      ctx.moveTo(-25, 15); ctx.lineTo(-25, -20);
+      ctx.lineTo(25, -20); ctx.lineTo(25, 15);
       ctx.stroke();
-      
-      // Rodillos de madera con gradientes
-      let rollerGrad = ctx.createLinearGradient(-70, -45, -60, 45);
-      rollerGrad.addColorStop(0, '#f97316');
-      rollerGrad.addColorStop(1, '#7c2d12');
-      setColors(isOutline ? '#ffffff' : rollerGrad, '#78350f', 3);
-      ctx.fillRect(-70, -45, 10, 90);
-      ctx.fillRect(60, -45, 10, 90);
-      ctx.strokeRect(-70, -45, 10, 90);
-      ctx.strokeRect(60, -45, 10, 90);
-      
-      // Puntas de madera (pomos)
-      setColors(isOutline ? '#ffffff' : '#ea580c', '#78350f', 2.5);
-      ctx.beginPath();
-      ctx.arc(-65, -45, 7, 0, Math.PI * 2);
-      ctx.arc(-65, 45, 7, 0, Math.PI * 2);
-      ctx.arc(65, -45, 7, 0, Math.PI * 2);
-      ctx.arc(65, 45, 7, 0, Math.PI * 2);
-      ctx.fill(); ctx.stroke();
-      
-      // Estrella de David de oro en el centro
-      ctx.strokeStyle = isOutline ? '#000000' : '#ca8a04';
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(0, -18);
-      ctx.lineTo(-12, 6);
-      ctx.lineTo(12, 6);
-      ctx.closePath();
-      ctx.moveTo(0, 12);
-      ctx.lineTo(-12, -12);
-      ctx.lineTo(12, -12);
-      ctx.closePath();
-      ctx.stroke();
-      
-      // Líneas de texto falso simulando escrituras de Torá
-      ctx.strokeStyle = isOutline ? 'rgba(0,0,0,0.25)' : 'rgba(120, 53, 15, 0.45)';
+      // Soga y balde
+      ctx.strokeStyle = '#b45309';
       ctx.lineWidth = 2.5;
       ctx.beginPath();
-      ctx.moveTo(-45, -20); ctx.lineTo(-20, -20);
-      ctx.moveTo(-45, -10); ctx.lineTo(-25, -10);
-      ctx.moveTo(20, 15); ctx.lineTo(45, 15);
-      ctx.moveTo(25, 23); ctx.lineTo(45, 23);
+      ctx.moveTo(0, -20); ctx.lineTo(0, 10);
       ctx.stroke();
+      let bucketGrad = ctx.createLinearGradient(-12, 0, 12, 18);
+      bucketGrad.addColorStop(0, '#f97316');
+      bucketGrad.addColorStop(1, '#7c2d12');
+      setColors(isOutline ? '#ffffff' : bucketGrad, '#000000', 2);
+      ctx.beginPath();
+      ctx.moveTo(-10, 0); ctx.lineTo(10, 0);
+      ctx.lineTo(8, 18); ctx.lineTo(-8, 18);
+      ctx.closePath();
+      ctx.fill(); ctx.stroke();
+
+    } else if (normalized.includes('vayetzei')) {
+      // TEMA: Escalera al Cielo (Vayetzei) - Premium Sofisticado
+      if (!isOutline) {
+        let night = ctx.createRadialGradient(0, 0, 10, 0, 0, 85);
+        night.addColorStop(0, '#1e1b4b');
+        night.addColorStop(1, '#030712');
+        ctx.fillStyle = night;
+        ctx.beginPath(); ctx.arc(0, 0, 75, 0, Math.PI*2); ctx.fill();
+      }
+      setColors(isOutline ? '#ffffff' : '#f8fafc', '#000000', 2.5);
+      ctx.beginPath();
+      ctx.arc(-25, -45, 15, 0, Math.PI*2);
+      ctx.arc(0, -50, 20, 0, Math.PI*2);
+      ctx.arc(25, -45, 15, 0, Math.PI*2);
+      ctx.fill(); if (isOutline) ctx.stroke();
+      let gold = ctx.createLinearGradient(-15, 50, 15, -50);
+      gold.addColorStop(0, '#ea580c');
+      gold.addColorStop(1, '#fde047');
+      setColors(isOutline ? '#ffffff' : gold, '#000000', 3.5);
+      ctx.beginPath();
+      ctx.moveTo(-15, 50); ctx.lineTo(-5, -50);
+      ctx.moveTo(15, 50); ctx.lineTo(5, -50);
+      ctx.stroke();
+      ctx.lineWidth = 2.5;
+      for (let y = -35; y <= 35; y += 15) {
+        let ratio = (y + 50) / 100;
+        let x1 = -15 + (10 * ratio);
+        let x2 = 15 - (10 * ratio);
+        ctx.beginPath();
+        ctx.moveTo(x1, y); ctx.lineTo(x2, y);
+        ctx.stroke();
+      }
+      setColors('#f59e0b', '#000000', 1.5);
+      drawStar(ctx, -45, -15, 3, 7, 5); if (isOutline) ctx.stroke();
+      drawStar(ctx, 45, 20, 3, 7, 5); if (isOutline) ctx.stroke();
+
+    } else if (normalized.includes('vayishlah') || normalized.includes('vayeshev') || normalized.includes('miketz') || normalized.includes('vayigash') || normalized.includes('vayechi')) {
+      // TEMA: Túnica de Colores (Vayishlah / Vayeshev / Miketz / Vayigash / Vayechi) - Premium Sofisticado
+      let stripes = ['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6', '#a855f7'];
+      setColors(isOutline ? '#ffffff' : '#f8fafc', '#000000', 3);
+      ctx.beginPath();
+      ctx.moveTo(-12, -45);
+      ctx.lineTo(-45, -35); ctx.lineTo(-38, -15); ctx.lineTo(-20, -25);
+      ctx.lineTo(-25, 45);
+      ctx.lineTo(25, 45);
+      ctx.lineTo(20, -25);
+      ctx.lineTo(38, -15); ctx.lineTo(45, -35);
+      ctx.closePath();
+      ctx.fill();
+      if (!isOutline) {
+        ctx.save();
+        ctx.clip();
+        stripes.forEach((color, idx) => {
+          ctx.fillStyle = color;
+          let yStart = -45 + (idx * 15);
+          ctx.fillRect(-50, yStart, 100, 15);
+        });
+        ctx.restore();
+      }
+      ctx.stroke();
+
+    } else if (normalized.includes('vaera') || normalized.includes('bo')) {
+      // TEMA: Matzá y Vino de Pésaj (Vaera / Bo) - Premium Sofisticado
+      let matzaGrad = ctx.createRadialGradient(-15, 15, 5, -15, 15, 32);
+      matzaGrad.addColorStop(0, '#ffedd5');
+      matzaGrad.addColorStop(1, '#d97706');
+      setColors(isOutline ? '#ffffff' : matzaGrad, '#000000', 3);
+      ctx.beginPath();
+      ctx.arc(-18, 15, 30, 0, Math.PI * 2);
+      ctx.fill(); ctx.stroke();
+      if (!isOutline) {
+        ctx.fillStyle = '#78350f';
+        for (let i = -8; i <= 8; i += 5) {
+          ctx.fillRect(-28, 15 + i, 18, 1.5);
+          ctx.fillRect(-18, 5 + i, 18, 1.5);
+        }
+      }
+      let wineGrad = ctx.createLinearGradient(15, -15, 45, 40);
+      wineGrad.addColorStop(0, '#fde047');
+      wineGrad.addColorStop(1, '#ca8a04');
+      setColors(isOutline ? '#ffffff' : wineGrad, '#000000', 3);
+      ctx.beginPath();
+      ctx.ellipse(26, 42, 12, 3, 0, 0, Math.PI*2);
+      ctx.fill(); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(26, 42); ctx.lineTo(26, 24);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(14, -10);
+      ctx.lineTo(38, -10);
+      ctx.lineTo(34, 24);
+      ctx.lineTo(18, 24);
+      ctx.closePath();
+      ctx.fill(); ctx.stroke();
+      if (!isOutline) {
+        ctx.fillStyle = '#991b1b';
+        ctx.beginPath();
+        ctx.moveTo(16, -2);
+        ctx.lineTo(36, -2);
+        ctx.lineTo(32, 22);
+        ctx.lineTo(20, 22);
+        ctx.closePath();
+        ctx.fill();
+      }
+
+    } else if (normalized.includes('mishpatim')) {
+      // TEMA: Balanza de la Justicia (Mishpatim) - Premium Sofisticado
+      let wood = ctx.createLinearGradient(-5, 45, 5, -45);
+      wood.addColorStop(0, '#78350f');
+      wood.addColorStop(1, '#b45309');
+      setColors(isOutline ? '#ffffff' : wood, '#000000', 3);
+      ctx.fillRect(-25, 42, 50, 8);
+      ctx.strokeRect(-25, 42, 50, 8);
+      ctx.fillRect(-4, -40, 8, 82);
+      ctx.strokeRect(-4, -40, 8, 82);
+      ctx.fillRect(-55, -34, 110, 6);
+      ctx.strokeRect(-55, -34, 110, 6);
+      setColors(isOutline ? '#ffffff' : '#fbbf24', '#000000', 2);
+      ctx.beginPath();
+      ctx.moveTo(-50, -31); ctx.lineTo(-65, 10);
+      ctx.moveTo(-50, -31); ctx.lineTo(-35, 10);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.ellipse(-50, 10, 15, 4, 0, 0, Math.PI*2);
+      ctx.fill(); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(50, -31); ctx.lineTo(35, 10);
+      ctx.moveTo(50, -31); ctx.lineTo(65, 10);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.ellipse(50, 10, 15, 4, 0, 0, Math.PI*2);
+      ctx.fill(); ctx.stroke();
+
+    } else if (normalized.includes('tetzaveh') || normalized.includes('kitisa') || normalized.includes('vayakhel') || normalized.includes('pekudei')) {
+      // TEMA: Hoshen / Pectoral Sacerdotal (Tetzaveh / Ki Tisa / Vayakhel / Pekudei) - Premium Sofisticado
+      let goldGrad = ctx.createLinearGradient(-35, -40, 35, 35);
+      goldGrad.addColorStop(0, '#fef08a');
+      goldGrad.addColorStop(0.5, '#fbbf24');
+      goldGrad.addColorStop(1, '#ca8a04');
+      setColors(isOutline ? '#ffffff' : goldGrad, '#000000', 3.5);
+      ctx.beginPath();
+      ctx.roundRect(-35, -40, 70, 80, 8);
+      ctx.fill(); ctx.stroke();
+      ctx.strokeStyle = isOutline ? '#000000' : '#d97706';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(-28, -40); ctx.lineTo(-40, -52);
+      ctx.moveTo(28, -40); ctx.lineTo(40, -52);
+      ctx.stroke();
+      const gemColors = [
+        ['#ef4444', '#22c55e', '#3b82f6'],
+        ['#eab308', '#a855f7', '#ec4899'],
+        ['#06b6d4', '#f97316', '#10b981'],
+        ['#1e293b', '#fb7185', '#a7f3d0']
+      ];
+      for (let r = 0; r < 4; r++) {
+        for (let c = 0; c < 3; c++) {
+          let x = -24 + (c * 24);
+          let y = -28 + (r * 18);
+          setColors(isOutline ? '#ffffff' : gemColors[r][c], '#000000', 2);
+          ctx.beginPath();
+          ctx.roundRect(x - 8, y - 6, 16, 12, 2);
+          ctx.fill(); ctx.stroke();
+        }
+      }
+
+    } else if (normalized.includes('vayikra') || normalized.includes('tzav')) {
+      // TEMA: Altar y Fuego Sagrado (Vayikra / Tzav) - Premium Sofisticado
+      let copper = ctx.createLinearGradient(-40, 10, 40, 50);
+      copper.addColorStop(0, '#f97316');
+      copper.addColorStop(1, '#b45309');
+      setColors(isOutline ? '#ffffff' : copper, '#000000', 3);
+      ctx.fillRect(-35, 10, 70, 38);
+      ctx.strokeRect(-35, 10, 70, 38);
+      ctx.fillRect(-39, 2, 8, 8);
+      ctx.fillRect(31, 2, 8, 8);
+      ctx.strokeRect(-39, 2, 8, 8);
+      ctx.strokeRect(31, 2, 8, 8);
+      if (!isOutline) {
+        let fire = ctx.createRadialGradient(0, -6, 2, 0, -12, 25);
+        fire.addColorStop(0, '#ffffff');
+        fire.addColorStop(0.3, '#fde047');
+        fire.addColorStop(0.7, '#f97316');
+        fire.addColorStop(1, 'rgba(239,68,68,0)');
+        ctx.fillStyle = fire;
+        ctx.beginPath();
+        ctx.arc(0, -8, 25, 0, Math.PI*2);
+        ctx.fill();
+      }
+      let flame = ctx.createLinearGradient(-15, -20, 15, 10);
+      flame.addColorStop(0, '#fef08a');
+      flame.addColorStop(1, '#ef4444');
+      setColors(isOutline ? '#ffffff' : flame, '#000000', 2.5);
+      ctx.beginPath();
+      ctx.moveTo(-20, 10);
+      ctx.quadraticCurveTo(-15, -15, 0, -28);
+      ctx.quadraticCurveTo(5, -10, 10, -5);
+      ctx.quadraticCurveTo(15, -22, 20, 10);
+      ctx.closePath();
+      ctx.fill(); ctx.stroke();
+
+    } else if (normalized.includes('shemini') || normalized.includes('tazria') || normalized.includes('metzora')) {
+      // TEMA: Jarra de Agua de Pureza (Shemini / Tazria / Metzora) - Premium Sofisticado
+      let clay = ctx.createLinearGradient(-25, -20, 25, 45);
+      clay.addColorStop(0, '#fed7aa');
+      clay.addColorStop(1, '#ea580c');
+      setColors(isOutline ? '#ffffff' : clay, '#000000', 3);
+      ctx.beginPath();
+      ctx.arc(0, 15, 26, 0, Math.PI*2);
+      ctx.fill(); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(-10, -8);
+      ctx.lineTo(-12, -22);
+      ctx.lineTo(12, -22);
+      ctx.lineTo(10, -8);
+      ctx.closePath();
+      ctx.fill(); ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(-20, 5, 8, Math.PI * 0.5, Math.PI * 1.5);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(22, 5, 8, Math.PI * 1.5, Math.PI * 0.5);
+      ctx.stroke();
+      setColors('#38bdf8', '#000000', 2);
+      ctx.beginPath();
+      ctx.arc(-38, 25, 4, 0, Math.PI*2);
+      ctx.arc(38, 25, 4, 0, Math.PI*2);
+      ctx.fill(); ctx.stroke();
+
+    } else if (normalized.includes('acharei') || normalized.includes('kedoshim')) {
+      // TEMA: Corazones del Amor al Prójimo (Acharei Mot / Kedoshim) - Premium Sofisticado
+      let heartGrad1 = ctx.createLinearGradient(-35, -20, -5, 20);
+      heartGrad1.addColorStop(0, '#f87171');
+      heartGrad1.addColorStop(1, '#ef4444');
+      setColors(isOutline ? '#ffffff' : heartGrad1, '#000000', 3.5);
+      const drawHeart = (xOffset, yOffset, size) => {
+        ctx.beginPath();
+        ctx.moveTo(xOffset, yOffset + size/4);
+        ctx.bezierCurveTo(xOffset, yOffset - size/2, xOffset - size, yOffset - size/2, xOffset - size, yOffset + size/4);
+        ctx.bezierCurveTo(xOffset - size, yOffset + size, xOffset, yOffset + size*1.2, xOffset, yOffset + size*1.5);
+        ctx.bezierCurveTo(xOffset, yOffset + size*1.2, xOffset + size, yOffset + size, xOffset + size, yOffset + size/4);
+        ctx.bezierCurveTo(xOffset + size, yOffset - size/2, xOffset, yOffset - size/2, xOffset, yOffset + size/4);
+        ctx.closePath();
+        ctx.fill(); ctx.stroke();
+      };
+      drawHeart(-14, -10, 22);
+      let heartGrad2 = ctx.createLinearGradient(5, -20, 35, 20);
+      heartGrad2.addColorStop(0, '#fb7185');
+      heartGrad2.addColorStop(1, '#f43f5e');
+      setColors(isOutline ? '#ffffff' : heartGrad2, '#000000', 3.5);
+      drawHeart(14, 2, 20);
+
+    } else if (normalized.includes('emor') || normalized.includes('behar') || normalized.includes('bechukotai')) {
+      // TEMA: Shofar y Naturaleza (Emor / Behar / Bechukotai) - Premium Sofisticado
+      let horn = ctx.createLinearGradient(-40, 20, 30, -35);
+      horn.addColorStop(0, '#78350f');
+      horn.addColorStop(0.5, '#d97706');
+      horn.addColorStop(1, '#fef08a');
+      setColors(isOutline ? '#ffffff' : horn, '#000000', 3);
+      ctx.beginPath();
+      ctx.moveTo(-45, 28);
+      ctx.bezierCurveTo(-25, 35, 10, 15, 25, -25);
+      ctx.lineTo(35, -20);
+      ctx.bezierCurveTo(20, 25, -20, 45, -45, 36);
+      ctx.closePath();
+      ctx.fill(); ctx.stroke();
+      ctx.fillRect(-49, 30, 5, 5);
+      ctx.strokeRect(-49, 30, 5, 5);
+      if (!isOutline) {
+        ctx.strokeStyle = 'rgba(0,0,0,0.15)';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(-20, 30); ctx.lineTo(-15, 34);
+        ctx.moveTo(0, 20); ctx.lineTo(5, 24);
+        ctx.moveTo(15, 2); ctx.lineTo(22, 5);
+        ctx.stroke();
+      }
+
+    } else if (normalized.includes('beha') || normalized.includes('bamidbar') || normalized.includes('shelach') || normalized.includes('sh\'lach') || normalized.includes('korach') || normalized.includes('koraj') || normalized.includes('chukat') || normalized.includes('jukat') || normalized.includes('balak') || normalized.includes('pinchas') || normalized.includes('mattot') || normalized.includes('masei')) {
+      // TEMA: Uvas de los Espías (Bamidbar / Beha'alotcha / Shelach / Korach / Chukat / Balak / Pinchas / Mattot / Masei) - Premium Sofisticado
+      let pole = ctx.createLinearGradient(-75, -28, 75, -22);
+      pole.addColorStop(0, '#78350f');
+      pole.addColorStop(1, '#b45309');
+      setColors(isOutline ? '#ffffff' : pole, '#000000', 3.5);
+      ctx.fillRect(-70, -28, 140, 7);
+      ctx.strokeRect(-70, -28, 140, 7);
+      let grapeGrad = ctx.createRadialGradient(-5, 0, 2, 0, 10, 30);
+      grapeGrad.addColorStop(0, '#c084fc');
+      grapeGrad.addColorStop(1, '#6b21a8');
+      setColors(isOutline ? '#ffffff' : grapeGrad, '#000000', 2.5);
+      const grapes = [
+        {x: 0, y: 35}, {x: -10, y: 25}, {x: 10, y: 25},
+        {x: -20, y: 12}, {x: 0, y: 12}, {x: 20, y: 12},
+        {x: -30, y: -2}, {x: -10, y: -2}, {x: 10, y: -2}, {x: 30, y: -2}
+      ];
+      grapes.forEach(g => {
+        ctx.beginPath();
+        ctx.arc(g.x, g.y, 11, 0, Math.PI * 2);
+        ctx.fill(); ctx.stroke();
+      });
+      let leaf = ctx.createLinearGradient(-15, -22, 15, -15);
+      leaf.addColorStop(0, '#4ade80');
+      leaf.addColorStop(1, '#15803d');
+      setColors(isOutline ? '#ffffff' : leaf, '#000000', 2);
+      ctx.beginPath();
+      ctx.ellipse(-12, -20, 12, 6, -0.4, 0, Math.PI*2);
+      ctx.ellipse(12, -20, 12, 6, 0.4, 0, Math.PI*2);
+      ctx.fill(); ctx.stroke();
+
+    } else if (normalized.includes('vaetchanan')) {
+      // TEMA: Mezuzá (Vaetchanan) - Premium Sofisticado
+      setColors(isOutline ? '#ffffff' : '#cbd5e1', '#000000', 2);
+      ctx.beginPath();
+      ctx.moveTo(-18, -55); ctx.lineTo(-8, -55);
+      ctx.lineTo(-8, 55); ctx.lineTo(-18, 55);
+      ctx.closePath();
+      ctx.fill(); ctx.stroke();
+      ctx.save();
+      ctx.rotate(15 * Math.PI / 180);
+      let mezuza = ctx.createLinearGradient(-12, -40, 12, 40);
+      mezuza.addColorStop(0, '#fcd34d');
+      mezuza.addColorStop(0.5, '#fbbf24');
+      mezuza.addColorStop(1, '#ca8a04');
+      setColors(isOutline ? '#ffffff' : mezuza, '#78350f', 3);
+      ctx.beginPath();
+      ctx.roundRect(-10, -38, 20, 76, 5);
+      ctx.fill(); ctx.stroke();
+      ctx.fillStyle = isOutline ? '#000000' : '#78350f';
+      ctx.font = 'bold 22px Outfit, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText("ש", 0, -10);
+      ctx.fillStyle = isOutline ? '#ffffff' : '#b45309';
+      ctx.fillRect(-10, -38, 20, 6);
+      ctx.fillRect(-10, 32, 20, 6);
+      ctx.strokeRect(-10, -38, 20, 6);
+      ctx.strokeRect(-10, 32, 20, 6);
+      ctx.restore();
+
+    } else if (normalized.includes('eikev') || normalized.includes('reeh') || normalized.includes('shoftim') || normalized.includes('kiteitzei') || normalized.includes('kitavo')) {
+      // TEMA: Frutos de la Granada (Eikev / Re'eh / Shoftim / Ki Teitzei / Ki Tavo) - Premium Sofisticado
+      let pom = ctx.createRadialGradient(-10, -10, 5, 0, 0, 42);
+      pom.addColorStop(0, '#fca5a5');
+      pom.addColorStop(0.4, '#ef4444');
+      pom.addColorStop(1, '#991b1b');
+      setColors(isOutline ? '#ffffff' : pom, '#000000', 3.5);
+      ctx.beginPath();
+      ctx.arc(0, 8, 35, 0, Math.PI*2);
+      ctx.fill(); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(-12, -25);
+      ctx.lineTo(-20, -38);
+      ctx.lineTo(-4, -32);
+      ctx.lineTo(4, -32);
+      ctx.lineTo(20, -38);
+      ctx.lineTo(12, -25);
+      ctx.closePath();
+      ctx.fill(); ctx.stroke();
+      let leaf = ctx.createLinearGradient(-40, -30, -15, -20);
+      leaf.addColorStop(0, '#86efac');
+      leaf.addColorStop(1, '#166534');
+      setColors(isOutline ? '#ffffff' : leaf, '#000000', 2);
+      ctx.beginPath();
+      ctx.ellipse(-26, -20, 12, 6, -0.6, 0, Math.PI*2);
+      ctx.fill(); ctx.stroke();
+
+    } else if (normalized.includes('devarim') || normalized.includes('nitzavim') || normalized.includes('vayeilech') || normalized.includes('haazinu') || normalized.includes('vzothaberachah')) {
+      // TEMA: Simjat Torá / Danza con la Torá (Devarim / Nitzavim / Vayeilech / Ha'azinu / VZotHaBerachah) - Premium Sofisticado
+      let paper = ctx.createLinearGradient(-35, -25, 35, 25);
+      paper.addColorStop(0, '#ffedd5');
+      paper.addColorStop(1, '#fed7aa');
+      setColors(isOutline ? '#ffffff' : paper, '#78350f', 3);
+      ctx.save();
+      ctx.rotate(-12 * Math.PI / 180);
+      ctx.fillRect(-22, -35, 16, 70);
+      ctx.strokeRect(-22, -35, 16, 70);
+      ctx.fillStyle = isOutline ? '#ffffff' : '#ea580c';
+      ctx.fillRect(-24, -42, 20, 7);
+      ctx.fillRect(-24, 35, 20, 7);
+      ctx.strokeRect(-24, -42, 20, 7);
+      ctx.strokeRect(-24, 35, 20, 7);
+      ctx.restore();
+      ctx.save();
+      ctx.rotate(12 * Math.PI / 180);
+      setColors(isOutline ? '#ffffff' : paper, '#78350f', 3);
+      ctx.fillRect(6, -35, 16, 70);
+      ctx.strokeRect(6, -35, 16, 70);
+      ctx.fillStyle = isOutline ? '#ffffff' : '#ea580c';
+      ctx.fillRect(4, -42, 20, 7);
+      ctx.fillRect(4, 35, 20, 7);
+      ctx.strokeRect(4, -42, 20, 7);
+      ctx.strokeRect(4, 35, 20, 7);
+      ctx.restore();
+      setColors(isOutline ? '#ffffff' : '#ef4444', '#000000', 2);
+      ctx.beginPath();
+      ctx.roundRect(-24, -5, 48, 12, 3);
+      ctx.fill(); ctx.stroke();
+      let crown = ctx.createLinearGradient(-15, -55, 15, -35);
+      crown.addColorStop(0, '#fbbf24');
+      crown.addColorStop(1, '#d97706');
+      setColors(isOutline ? '#ffffff' : crown, '#000000', 2.5);
+      ctx.beginPath();
+      ctx.moveTo(-16, -38);
+      ctx.lineTo(-22, -50);
+      ctx.lineTo(-8, -44);
+      ctx.lineTo(0, -56);
+      ctx.lineTo(8, -44);
+      ctx.lineTo(22, -50);
+      ctx.lineTo(16, -38);
+      ctx.closePath();
+      ctx.fill(); ctx.stroke();
       
     } else {
       // DEFAULT FALLBACK: Velas de Shabat - Premium Sofisticado
