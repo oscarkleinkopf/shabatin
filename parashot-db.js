@@ -1731,16 +1731,286 @@ const PARASHOT_DB = {
       { letter: "מ", name: "Mem", sound: "M", word: "מזוזה", wordMeaning: "Mezuzá" }
     ]
   },
-  "Vaetchanan": { name: "Vaetjanan", hebrew: "ואתחנן", book: "Devarim (Deuteronomio)" },
-  "Eikev": { name: "Eikev", hebrew: "עקב", book: "Devarim (Deuteronomio)" },
-  "Re'eh": { name: "Re'eh", hebrew: "ראה", book: "Devarim (Deuteronomio)" },
-  "Shoftim": { name: "Shoftim", hebrew: "שופטים", book: "Devarim (Deuteronomio)" },
-  "KiTeitzei": { name: "Ki Teitzei", hebrew: "כי teitzei", book: "Devarim (Deuteronomio)" },
-  "KiTavo": { name: "Ki Tavo", hebrew: "כי תבוא", book: "Devarim (Deuteronomio)" },
-  "Nitzavim": { name: "Nitzavim", hebrew: "נצבים", book: "Devarim (Deuteronomio)" },
-  "Vayeilech": { name: "Vayeilej", hebrew: "וילך", book: "Devarim (Deuteronomio)" },
-  "Ha'azinu": { name: "Ha'azinu", hebrew: "האזינו", book: "Devarim (Deuteronomio)" },
-  "VZotHaBerachah": { name: "V'Zot HaBerajot", hebrew: "וזאת הברכה", book: "Devarim (Deuteronomio)" }
+  "Vaetchanan": {
+    name: "Vaetjanán",
+    hebrew: "ואתחנן",
+    book: "Devarim (Deuteronomio)",
+    summary: "Moisés le pide con mucho amor a Dios poder entrar a la Tierra Prometida. Nos enseña el Shemá Israel, recordándonos que Dios es Uno y que debemos amarlo con todo nuestro corazón, alma y fuerzas. También nos pide colocar la Mezuzá en nuestras puertas.",
+    words: ["SHEMA", "ESCUCHA", "REZO", "CORAZON", "DIOS", "AMOR", "SINAI", "MEZUZA"],
+    trivia: [
+      { question: "¿Qué oración tan importante nos enseña Moisés en Vaetchanan?", options: ["El Shemá Israel", "El Shabat Shalom", "El Adón Olam"], answer: 0 },
+      { question: "¿Qué significa la palabra 'Shemá'?", options: ["Escucha", "Canta", "Salta"], answer: 0 },
+      { question: "¿Dónde colocamos las palabras sagradas en nuestro hogar?", options: ["En la Mezuzá, en las jambas de las puertas", "En la ventana", "En el techo"], answer: 0 }
+    ],
+    activities: {
+      puppets: "**Guión - El Rezo del Shemá:**\n*Personajes:* Títere de Moisés, Títere de Ovejita dormilona y Títere de Niño agradecido.\n- *Moisés:* Escuchen con atención, pueblo de Israel: ¡Dios es Uno y único!\n- *Niño:* Sí, Moisés, y debemos amarlo con todo el corazón y toda nuestra alma.\n- *Ovejita:* ¡Beeee! A mí me gusta taparme los ojos y decir el Shemá antes de ir a dormir.\n- *Niño:* ¡Sí! El Shemá nos llena de paz y dulzura antes de soñar.\n- *Moisés:* Dios los escucha siempre. ¡Shabat Shalom!",
+      costumes: "**Taller de Manualidades:**\n'Mi propia Mezuzá'. Los niños decoran una cajita de cartón pequeña, enrollan un pergamino de papel donde escriben el Shemá y lo colocan dentro para colgar en la puerta de su salón.",
+      song: "**Canción - Shemá Israel:**\n*Letra:*\nShemá Israel, Hashem es nuestro Dios,\nDios es Uno solo, nos da su bendición.\nEn mi corazón guardo su Torá,\ncanto Shabateinu lleno de hermandad.\n*Coro:*\n¡Shemá Israel, cantamos con amor!\nUnidos en Santiago, un solo corazón."
+    },
+    storyPages: [
+      { title: "El Deseo de Moisés", text: "Moisés le pidió a Dios con todo su corazón poder cruzar el río Jordán y ver la hermosa Tierra Prometida. Dios le permitió verla desde lejos, desde la cima de una montaña.", emoji: "🙏" },
+      { title: "Escucha, Israel", text: "Moisés enseñó al pueblo la oración más importante: ¡Shemá Israel! 'Escucha Israel, Dios es nuestro Dios, Dios es Uno.' Nos pide amarlo con todo nuestro ser.", emoji: "❤️" },
+      { title: "Enseñar con Amor", text: "Moisés les dijo a los padres: 'Enséñenles estas palabras a sus hijos en casa, caminando, al acostarse y al levantarse.' Las enseñanzas deben vivir en cada momento.", emoji: "👨‍👧" },
+      { title: "La Mezuzá en la Puerta", text: "También nos pidió escribir las palabras sagradas en los marcos de las puertas de nuestras casas. Así nació la hermosa costumbre de la Mezuzá.", emoji: "🚪" }
+    ],
+    alefBetLetters: [
+      { letter: "ש", name: "Shin", sound: "Sh", word: "שמע", wordMeaning: "Shemá (Escucha)" },
+      { letter: "א", name: "Alef", sound: "(silencio)", word: "אחד", wordMeaning: "Uno" },
+      { letter: "מ", name: "Mem", sound: "M", word: "מזוזה", wordMeaning: "Mezuzá" }
+    ]
+  },
+  "Eikev": {
+    name: "Eikev",
+    hebrew: "עקב",
+    book: "Devarim (Deuteronomio)",
+    summary: "Moisés le recuerda al pueblo que si cumplen con las mitzvot (buenas acciones), Dios los bendecirá con lluvias, cosechas y abundancia. Aquí aprendemos la hermosa bendición de Birkat Hamazón (después de comer) y que el ser humano no solo vive de pan.",
+    words: ["BENDICION", "LLUVIA", "COSECHA", "PAN", "GRATITUD", "ABUNDANCIA", "COMER", "AGRADECER"],
+    trivia: [
+      { question: "¿Qué nos pide Moisés hacer después de comer?", options: ["Agradecer a Dios con Birkat Hamazón", "Salir a jugar inmediatamente", "Tomar una siesta"], answer: 0 },
+      { question: "¿De qué no solo vive el ser humano según la Torá?", options: ["No solo de pan, sino de toda palabra de Dios", "No solo de agua", "No solo de juegos"], answer: 0 },
+      { question: "¿Qué promete Dios si el pueblo cumple las mitzvot?", options: ["Lluvias a tiempo y buenas cosechas", "Un palacio de oro", "Vacaciones eternas"], answer: 0 }
+    ],
+    activities: {
+      puppets: "**Guión - El Pan y la Gratitud:**\n*Personajes:* Títere de Panadero, Títere de Niño hambriento y Títere de Ovejita agradecida.\n- *Niño:* ¡Mmm, qué rico pan! ¡Ya terminé de comer!\n- *Panadero:* ¡Espera! Antes de irte, ¿no te olvidas de algo?\n- *Ovejita:* ¡Beeee! ¡Hay que dar las gracias! Birkat Hamazón.\n- *Niño:* ¡Cierto! Gracias Dios por la comida, la lluvia que riega los campos y todo lo bueno.\n- *Panadero:* ¡Así se hace! La gratitud es la receta secreta de la felicidad en Shabateinu NBI.",
+      costumes: "**Taller de Manualidades:**\n'Mi tarjeta de gratitud'. Los niños decoran una tarjeta con forma de pan (Jalá) donde escriben tres cosas por las que están agradecidos esta semana.",
+      song: "**Canción - Gracias por el Pan:**\n*Letra:*\nGracias Dios por el pan de cada día,\npor la lluvia que riega con alegría.\nNo solo de pan vivimos nosotros,\nsino de tu palabra y amor entre todos.\n*Coro:*\n¡Birkat Hamazón, cantar con pasión!\nEn Shabateinu NBI damos la bendición."
+    },
+    storyPages: [
+      { title: "La Promesa de la Tierra", text: "Moisés les contó al pueblo sobre la hermosa tierra que iban a recibir: una tierra con trigo, cebada, uvas, higos, granadas, aceitunas y miel. ¡Siete especies maravillosas!", emoji: "🍇" },
+      { title: "No Solo de Pan", text: "Moisés les recordó que en el desierto Dios les dio maná para enseñarles que el ser humano no solo vive de pan, sino también de la palabra de Dios y el amor.", emoji: "🍞" },
+      { title: "Agradecer Después de Comer", text: "Cuando comamos y estemos satisfechos, debemos bendecir y agradecer a Dios. Así nació la hermosa oración de Birkat Hamazón que decimos después de las comidas.", emoji: "🙏" },
+      { title: "Las Buenas Acciones Traen Bendición", text: "Si cuidamos las mitzvot con amor, Dios enviará lluvias a tiempo para que los campos florezcan y haya comida para todos. ¡La bondad trae abundancia!", emoji: "🌧️" }
+    ],
+    alefBetLetters: [
+      { letter: "ב", name: "Bet", sound: "B", word: "ברכה", wordMeaning: "Bendición" },
+      { letter: "ל", name: "Lamed", sound: "L", word: "לחם", wordMeaning: "Pan" },
+      { letter: "ע", name: "Ayin", sound: "(silencio)", word: "עקב", wordMeaning: "Eikev (Resultado)" }
+    ]
+  },
+  "Re'eh": {
+    name: "Re'eh",
+    hebrew: "ראה",
+    book: "Devarim (Deuteronomio)",
+    summary: "Moisés nos dice: '¡Mira! Pongo ante ti bendición y maldición.' Nos enseña que siempre podemos elegir el camino del bien. También aprendemos sobre la Tzedaká (caridad): abrir nuestra mano con generosidad para ayudar a quienes lo necesitan.",
+    words: ["ELEGIR", "BENDICION", "CAMINO", "TZEDAKA", "GENEROSIDAD", "BIEN", "MANO", "AYUDAR"],
+    trivia: [
+      { question: "¿Qué nos pide Moisés que elijamos?", options: ["El camino de la bendición y el bien", "El camino más corto", "El camino con más dulces"], answer: 0 },
+      { question: "¿Qué es la Tzedaká?", options: ["Dar caridad y ayudar a los demás con generosidad", "Un juego de mesa", "Una comida especial"], answer: 0 },
+      { question: "¿Qué significa el nombre 'Re'eh'?", options: ["Mira / Observa", "Corre", "Duerme"], answer: 0 }
+    ],
+    activities: {
+      puppets: "**Guión - El Camino de la Bondad:**\n*Personajes:* Títere de Niño pensativo y Títere de Ángel con alas brillantes.\n- *Niño:* Hoy tengo que elegir: ¿comparto mi merienda o me la como solo?\n- *Ángel:* ¡Piensa con el corazón! La Torá dice que siempre podemos elegir el bien.\n- *Niño:* ¡Tienes razón! Voy a compartir. ¡Eso es Tzedaká!\n- *Ángel:* ¡Maravilloso! Cuando abres tu mano con generosidad, el mundo se llena de luz.\n- *Niño:* ¡En Shabateinu NBI siempre elegimos el camino de la bondad!",
+      costumes: "**Taller de Manualidades:**\n'Mi alcancía de Tzedaká'. Los niños decoran un vaso de cartón con brillantina, estrellas y la palabra Tzedaká para guardar moneditas y donar antes de Shabat.",
+      song: "**Canción - Elegir el Bien:**\n*Letra:*\nMira, mira, puedo elegir,\nel camino del bien para ser feliz.\nCon Tzedaká abro mi mano y corazón,\n¡compartir es la mejor decisión!\n*Coro:*\n¡Re'eh, mira con amor!\nEn Shabateinu NBI somos luz del Creador."
+    },
+    storyPages: [
+      { title: "Elegir el Camino", text: "Moisés le dijo al pueblo: '¡Mira! Pongo ante ti dos caminos: uno de bendición y otro de maldición. Elige siempre la bendición.' Cada día podemos elegir hacer el bien.", emoji: "🛤️" },
+      { title: "La Generosidad del Corazón", text: "La Torá nos enseña a abrir nuestra mano para ayudar a los necesitados. No debemos endurecer nuestro corazón, sino dar con alegría. Eso se llama Tzedaká.", emoji: "🤲" },
+      { title: "Las Fiestas de Alegría", text: "También aprendemos sobre las tres fiestas de peregrinaje: Pésaj, Shavuot y Sucot, cuando todo el pueblo se reunía con alegría para celebrar y agradecer juntos.", emoji: "🎉" },
+      { title: "El Poder de Elegir", text: "Cada mañana podemos elegir ser amables, generosos y buenos amigos. Esa capacidad de elegir es un regalo de Dios que nos hace especiales.", emoji: "⭐" }
+    ],
+    alefBetLetters: [
+      { letter: "ר", name: "Resh", sound: "R", word: "ראה", wordMeaning: "Mira" },
+      { letter: "צ", name: "Tsade", sound: "Ts", word: "צדקה", wordMeaning: "Tzedaká (Caridad)" },
+      { letter: "ט", name: "Tet", sound: "T", word: "טוב", wordMeaning: "Bueno" }
+    ]
+  },
+  "Shoftim": {
+    name: "Shoftim",
+    hebrew: "שופטים",
+    book: "Devarim (Deuteronomio)",
+    summary: "Moisés nos enseña sobre la justicia y nos pide nombrar jueces y policías honestos. La frase más famosa es: '¡Tzédek, Tzédek tirdof!' — ¡Justicia, justicia perseguirás! También aprendemos a cuidar los árboles y la naturaleza.",
+    words: ["JUSTICIA", "JUECES", "VERDAD", "HONESTIDAD", "ARBOLES", "POLICIA", "CUIDAR", "PAZ"],
+    trivia: [
+      { question: "¿Qué frase famosa sobre la justicia aparece en Shoftim?", options: ["¡Justicia, justicia perseguirás!", "¡Corre, corre sin parar!", "¡Vamos a jugar!"], answer: 0 },
+      { question: "¿A quiénes nos pide nombrar Moisés para mantener el orden?", options: ["Jueces y policías honestos", "Payasos y magos", "Cocineros y panaderos"], answer: 0 },
+      { question: "¿Qué nos enseña la Torá sobre los árboles?", options: ["Que debemos cuidarlos y no destruirlos", "Que debemos cortarlos todos", "Que no son importantes"], answer: 0 }
+    ],
+    activities: {
+      puppets: "**Guión - El Juez Justo:**\n*Personajes:* Títere de Juez con martillo de goma, Títere de Niño y Títere de Niña discutiendo.\n- *Niño:* ¡Ella tomó mi lápiz sin permiso!\n- *Niña:* ¡Pero yo lo necesitaba para mi dibujo!\n- *Juez:* ¡Un momento! Escucharé a los dos con mucho cuidado antes de decidir.\n- *Juez:* La justicia dice que debemos compartir y pedir permiso. ¿Pueden turnarse?\n- *Niño y Niña:* ¡Sí! ¡Gracias, juez justo de Shabateinu NBI!",
+      costumes: "**Taller de Manualidades:**\n'El martillo de la justicia'. Los niños construyen un martillo de cartón decorado con la palabra 'Tzédek' (justicia) en hebreo y practican ser jueces justos.",
+      song: "**Canción - Justicia para Todos:**\n*Letra:*\nJusticia, justicia voy a perseguir,\ncon verdad y amor quiero vivir.\nCuido los árboles, cuido a mis amigos,\n¡en la NBI somos todos testigos!\n*Coro:*\n¡Tzédek, tzédek, cantamos así!\nJusticia y paz en Shabateinu NBI."
+    },
+    storyPages: [
+      { title: "Jueces Honestos", text: "Moisés pidió al pueblo nombrar jueces y policías honestos en todas las ciudades. Ellos debían escuchar con cuidado a todas las personas antes de decidir, sin favorecer a nadie.", emoji: "⚖️" },
+      { title: "¡Justicia, Justicia Perseguirás!", text: "La Torá nos enseña la frase más poderosa: '¡Tzédek, tzédek tirdof!' Debemos buscar la justicia siempre, siendo honestos y tratando a todos con igualdad.", emoji: "🏛️" },
+      { title: "Cuidar los Árboles", text: "Incluso en tiempos difíciles, la Torá nos prohíbe destruir los árboles frutales. ¡La naturaleza es un regalo sagrado que debemos proteger siempre!", emoji: "🌳" },
+      { title: "Ser Justos Cada Día", text: "Podemos practicar la justicia cada día: escuchando a nuestros amigos, compartiendo, diciendo la verdad y tratando a todos con respeto y cariño.", emoji: "🤝" }
+    ],
+    alefBetLetters: [
+      { letter: "צ", name: "Tsade", sound: "Ts", word: "צדק", wordMeaning: "Justicia" },
+      { letter: "ש", name: "Shin", sound: "Sh", word: "שופט", wordMeaning: "Juez" },
+      { letter: "ע", name: "Ayin", sound: "(silencio)", word: "עץ", wordMeaning: "Árbol" }
+    ]
+  },
+  "KiTeitzei": {
+    name: "Ki Teitzei",
+    hebrew: "כי תצא",
+    book: "Devarim (Deuteronomio)",
+    summary: "Esta parashá tiene la mayor cantidad de mitzvot de toda la Torá: ¡74 mandamientos! Aprendemos a devolver objetos perdidos, a cuidar a los animales, a ser honestos en los negocios y a respetar a todos. También aprendemos sobre el Shiluaj Hakén: dejar libre a la madre pájaro.",
+    words: ["MITZVOT", "DEVOLVER", "HONESTIDAD", "ANIMALES", "PAJARO", "BONDAD", "RESPETO", "CUIDAR"],
+    trivia: [
+      { question: "¿Cuántas mitzvot tiene Ki Teitzei, más que cualquier otra parashá?", options: ["74 mitzvot", "10 mitzvot", "3 mitzvot"], answer: 0 },
+      { question: "¿Qué debemos hacer si encontramos un objeto perdido?", options: ["Devolverlo a su dueño", "Quedárnoslo", "Esconderlo"], answer: 0 },
+      { question: "¿Qué mitzvá nos enseña a cuidar a la madre pájaro?", options: ["Shiluaj Hakén: dejarla ir libre antes de tomar los huevos", "Atraparla y llevarla a casa", "Ignorarla"], answer: 0 }
+    ],
+    activities: {
+      puppets: "**Guión - El Tesoro Perdido:**\n*Personajes:* Títere de Niño detective, Títere de Ovejita llorona y Títere de Pajarita.\n- *Ovejita:* ¡Beeee! ¡Perdí mi campana favorita! ¿Alguien la vio?\n- *Niño:* ¡Mira! ¡La encontré aquí debajo de la silla!\n- *Pajarita:* ¡La Torá dice que siempre debemos devolver lo que encontramos!\n- *Niño:* ¡Aquí tienes, Ovejita! Devolver cosas perdidas es una mitzvá hermosa.\n- *Ovejita:* ¡Gracias! ¡En Shabateinu NBI somos honestos y bondadosos!",
+      costumes: "**Taller de Manualidades:**\n'El nido del pájaro'. Los niños construyen un nido de papel crepé y ramitas con un pajarito de cartulina, recordando la mitzvá de cuidar a los animales.",
+      song: "**Canción - 74 Mitzvot:**\n*Letra:*\nSetenta y cuatro mitzvot para aprender,\ndevolver lo perdido y a todos querer.\nCuidar a los pájaros, ser siempre honesto,\n¡en cada mitzvá ponemos lo nuestro!\n*Coro:*\n¡Ki Teitzei nos enseña a actuar!\nCon bondad y amor en Shabat."
+    },
+    storyPages: [
+      { title: "La Parashá de las Mitzvot", text: "Ki Teitzei tiene más mitzvot que cualquier otra parashá: ¡74 mandamientos! Son reglas de amor que nos enseñan a vivir con bondad, honestidad y respeto.", emoji: "📜" },
+      { title: "Devolver lo Perdido", text: "Si encontramos algo que alguien perdió, debemos cuidarlo y devolverlo. No importa si es una moneda pequeña o un animal grande. ¡La honestidad es un tesoro!", emoji: "🔑" },
+      { title: "La Madre Pájaro", text: "Si encontramos un nido con una madre pájaro y sus huevos, debemos dejar ir libre a la mamá antes de tomar los huevos. Esto nos enseña compasión por todos los seres vivos.", emoji: "🐦" },
+      { title: "Pesos y Medidas Justos", text: "La Torá nos pide usar pesas y medidas honestas. No debemos engañar a nadie. Ser honesto en todo lo que hacemos nos acerca a Dios y a los demás.", emoji: "⚖️" }
+    ],
+    alefBetLetters: [
+      { letter: "כ", name: "Kaf", sound: "K", word: "כי", wordMeaning: "Cuando" },
+      { letter: "ה", name: "He", sound: "H", word: "השבה", wordMeaning: "Devolver" },
+      { letter: "צ", name: "Tsade", sound: "Ts", word: "ציפור", wordMeaning: "Pájaro" }
+    ]
+  },
+  "KiTavo": {
+    name: "Ki Tavo",
+    hebrew: "כי תבוא",
+    book: "Devarim (Deuteronomio)",
+    summary: "Cuando el pueblo entre a la Tierra Prometida, debe traer las primicias (primeros frutos) al Templo con alegría y gratitud. Moisés nos recuerda agradecer siempre por todo lo bueno que tenemos y compartir con los que menos tienen.",
+    words: ["PRIMICIAS", "FRUTOS", "GRATITUD", "TEMPLO", "TIERRA", "ALEGRIA", "COMPARTIR", "COSECHA"],
+    trivia: [
+      { question: "¿Qué son las 'Bikurim' (primicias)?", options: ["Los primeros frutos de la cosecha que se ofrecían en el Templo con alegría", "Los juguetes más nuevos", "Las primeras letras del alfabeto"], answer: 0 },
+      { question: "¿Qué debemos sentir cuando recibimos cosas buenas?", options: ["Gratitud y alegría", "Aburrimiento", "Enojo"], answer: 0 },
+      { question: "¿Con quiénes debemos compartir nuestras bendiciones?", options: ["Con los que menos tienen", "Con nadie", "Solo con los ricos"], answer: 0 }
+    ],
+    activities: {
+      puppets: "**Guión - La Canasta de Frutas:**\n*Personajes:* Títere de Granjero con canasta, Títere de Niño y Títere de Fresa gigante.\n- *Granjero:* ¡Miren mi canasta! Las primeras frutas de mi jardín: uvas, higos y granadas.\n- *Fresa:* ¡Y yo! ¡Soy la más roja y dulce de todas!\n- *Niño:* ¿Qué vas a hacer con ellas, Granjero?\n- *Granjero:* Las llevaré al Templo para agradecer a Dios. ¡Son las Bikurim!\n- *Niño:* ¡Qué lindo! En Shabateinu NBI también agradecemos por todo lo bueno.",
+      costumes: "**Taller de Manualidades:**\n'Mi canasta de Bikurim'. Los niños decoran una canasta de papel y le pegan frutas recortadas de cartulina de colores representando las siete especies de Israel.",
+      song: "**Canción - Gracias por los Frutos:**\n*Letra:*\nTraigo mis frutos con alegría,\nlas primicias de este hermoso día.\nUvas, granadas e higos también,\n¡agradezco a Dios por todo su bien!\n*Coro:*\n¡Ki Tavo, llegamos con amor!\nFrutos de la tierra para el Creador."
+    },
+    storyPages: [
+      { title: "Los Primeros Frutos", text: "Cuando los israelitas entraran a la Tierra Prometida y cosecharan sus primeros frutos, debían llevarlos en una hermosa canasta al Templo para agradecer a Dios.", emoji: "🧺" },
+      { title: "La Oración de Gratitud", text: "Al entregar los frutos, el granjero decía: 'Mi padre fue un arameo errante, bajó a Egipto y Dios nos sacó con mano fuerte.' Recordar nuestra historia nos llena de gratitud.", emoji: "🙏" },
+      { title: "Compartir con Todos", text: "La Torá nos pide compartir nuestra cosecha con los levitas, los extranjeros, los huérfanos y las viudas. Cuando compartimos, la bendición se multiplica.", emoji: "🤝" },
+      { title: "Un Pueblo Agradecido", text: "Moisés les recordó que son un pueblo especial, elegido para ser ejemplo de bondad y gratitud. Cuando agradecemos, nuestro corazón se llena de alegría.", emoji: "✨" }
+    ],
+    alefBetLetters: [
+      { letter: "ב", name: "Bet", sound: "B", word: "ביכורים", wordMeaning: "Primicias" },
+      { letter: "פ", name: "Pe", sound: "P", word: "פרי", wordMeaning: "Fruto" },
+      { letter: "ת", name: "Tav", sound: "T", word: "תודה", wordMeaning: "Gracias" }
+    ]
+  },
+  "Nitzavim": {
+    name: "Nitzavim",
+    hebrew: "נצבים",
+    book: "Devarim (Deuteronomio)",
+    summary: "Todo el pueblo de Israel, desde los más grandes hasta los más pequeños, se pone de pie ante Dios para renovar su pacto de amor. Moisés les dice que la Torá no está lejos ni en el cielo: ¡está en nuestro corazón y en nuestra boca! También nos enseña a elegir la vida.",
+    words: ["PACTO", "CORAZON", "VIDA", "ELEGIR", "UNIDOS", "TODOS", "AMOR", "PROMESA"],
+    trivia: [
+      { question: "¿Quiénes se pararon ante Dios para renovar el pacto?", options: ["Todo el pueblo: grandes, pequeños, hombres, mujeres y niños", "Solo los adultos", "Solo los reyes"], answer: 0 },
+      { question: "¿Dónde dice Moisés que está la Torá?", options: ["En nuestro corazón y en nuestra boca, muy cerca de nosotros", "En el cielo inalcanzable", "Al otro lado del mar"], answer: 0 },
+      { question: "¿Qué nos pide Moisés elegir?", options: ["La vida y la bendición", "El camino más fácil", "No elegir nada"], answer: 0 }
+    ],
+    activities: {
+      puppets: "**Guión - Todos Juntos:**\n*Personajes:* Títere de Moisés, Títere de Niño pequeño y Títere de Abuelita.\n- *Moisés:* Hoy, todo el pueblo se para junto ante Dios: ¡grandes y chicos!\n- *Niño:* ¿Yo también cuento, Moisés? ¡Soy muy pequeño!\n- *Abuelita:* ¡Claro que sí, mi amor! Cada persona es importante.\n- *Moisés:* La Torá no está lejos. ¡Está en tu corazón! Elige la vida, elige el bien.\n- *Niño:* ¡Elijo la vida y la bondad! ¡Shabat Shalom desde Shabateinu NBI!",
+      costumes: "**Taller de Manualidades:**\n'El corazón de la Torá'. Los niños recortan un corazón grande de cartulina roja y escriben dentro su mitzvá favorita o una promesa de bondad para la semana.",
+      song: "**Canción - Elige la Vida:**\n*Letra:*\nTodos juntos nos paramos hoy,\ngrandes y chiquitos, ¡aquí estoy!\nLa Torá está en mi corazón,\nelijo la vida con toda pasión.\n*Coro:*\n¡Nitzavim, de pie con amor!\nUnidos en la NBI ante el Creador."
+    },
+    storyPages: [
+      { title: "De Pie Ante Dios", text: "Nitzavim significa 'de pie'. Todo el pueblo de Israel, desde los líderes hasta los niños más pequeños, se paró junto ante Dios para renovar su promesa de amor y fidelidad.", emoji: "🧍" },
+      { title: "La Torá en el Corazón", text: "Moisés les dijo: 'Esta enseñanza no está en el cielo ni al otro lado del mar. ¡Está muy cerca de ti, en tu boca y en tu corazón!' La Torá vive dentro de nosotros.", emoji: "❤️" },
+      { title: "Elige la Vida", text: "Moisés proclamó: 'Pongo ante ti la vida y la muerte, la bendición y la maldición. ¡Elige la vida!' Cada día podemos elegir hacer el bien y ser felices.", emoji: "🌱" },
+      { title: "Un Pacto para Siempre", text: "Este pacto no fue solo para los que estaban presentes ese día, sino también para todas las generaciones futuras. ¡Nosotros también somos parte de esa promesa!", emoji: "🤝" }
+    ],
+    alefBetLetters: [
+      { letter: "ח", name: "Jet", sound: "J", word: "חיים", wordMeaning: "Vida" },
+      { letter: "ל", name: "Lamed", sound: "L", word: "לב", wordMeaning: "Corazón" },
+      { letter: "ב", name: "Bet", sound: "B", word: "ברית", wordMeaning: "Pacto" }
+    ]
+  },
+  "Vayeilech": {
+    name: "Vayeilej",
+    hebrew: "וילך",
+    book: "Devarim (Deuteronomio)",
+    summary: "Moisés tiene 120 años y se despide del pueblo con mucho amor. Le pasa el liderazgo a Josué (Yehoshúa) y le dice: '¡Sé fuerte y valiente!' También nos enseña el Hakhel: reunir a todo el pueblo para leer la Torá juntos cada 7 años.",
+    words: ["DESPEDIDA", "JOSUE", "VALIENTE", "FUERTE", "LIDER", "REUNION", "TORA", "AMOR"],
+    trivia: [
+      { question: "¿Cuántos años tenía Moisés cuando se despidió del pueblo?", options: ["120 años", "50 años", "200 años"], answer: 0 },
+      { question: "¿A quién le pasó Moisés el liderazgo del pueblo?", options: ["A Josué (Yehoshúa)", "A Aarón", "A su hijo"], answer: 0 },
+      { question: "¿Qué le dijo Moisés a Josué para darle ánimo?", options: ["¡Sé fuerte y valiente!", "¡Ten cuidado!", "¡Buena suerte!"], answer: 0 }
+    ],
+    activities: {
+      puppets: "**Guión - Pase de Liderazgo:**\n*Personajes:* Títere de Moisés anciano, Títere de Josué joven y Títere de Ovejita emocionada.\n- *Moisés:* Josué, ha llegado el momento. Tú guiarás al pueblo a la Tierra Prometida.\n- *Josué:* Pero Moisés... ¡tengo un poco de miedo!\n- *Moisés:* ¡Jazak ve'ematz! ¡Sé fuerte y valiente! Dios camina contigo.\n- *Ovejita:* ¡Beeee! ¡Yo confío en ti, Josué! ¡Tú puedes!\n- *Josué:* ¡Gracias! Seré un buen líder con la ayuda de Dios y de Shabateinu NBI.",
+      costumes: "**Taller de Manualidades:**\n'Mi medalla de valentía'. Los niños recortan una medalla de cartulina dorada con la frase 'Jazak Ve'ematz' (Sé fuerte y valiente) y se la cuelgan al cuello.",
+      song: "**Canción - Sé Fuerte y Valiente:**\n*Letra:*\nJazak ve'ematz, no tengas temor,\nDios camina contigo con todo su amor.\nComo Josué, valiente seré,\ncon fuerza y coraje adelante iré.\n*Coro:*\n¡Vayeilej, caminamos con fe!\nEn Shabateinu NBI siempre de pie."
+    },
+    storyPages: [
+      { title: "La Despedida de Moisés", text: "Moisés tenía 120 años y sabía que su viaje estaba terminando. Con mucho amor, fue a despedirse de cada rincón del campamento, hablando con el pueblo una última vez.", emoji: "👴" },
+      { title: "Josué, el Nuevo Líder", text: "Moisés llamó a Josué frente a todo el pueblo y le dijo: '¡Sé fuerte y valiente! Tú llevarás a este pueblo a la hermosa tierra que Dios prometió.' Josué aceptó con valentía.", emoji: "🦁" },
+      { title: "El Hakhel: Todos Reunidos", text: "Moisés pidió que cada siete años se reuniera a todo el pueblo, hombres, mujeres y niños, para leer la Torá juntos. Así nadie olvidaría las enseñanzas de Dios.", emoji: "📖" },
+      { title: "Dios Nunca nos Abandona", text: "Moisés les prometió: 'Dios mismo irá delante de ustedes. No los abandonará ni los dejará. ¡No tengan miedo!' Esas palabras nos acompañan hasta hoy.", emoji: "🌟" }
+    ],
+    alefBetLetters: [
+      { letter: "י", name: "Yod", sound: "Y", word: "יהושע", wordMeaning: "Josué" },
+      { letter: "ח", name: "Jet", sound: "J", word: "חזק", wordMeaning: "Fuerte" },
+      { letter: "ו", name: "Vav", sound: "V", word: "וילך", wordMeaning: "Y fue" }
+    ]
+  },
+  "Ha'azinu": {
+    name: "Ha'azinu",
+    hebrew: "האזינו",
+    book: "Devarim (Deuteronomio)",
+    summary: "Moisés canta una hermosa canción de despedida dirigida al cielo y la tierra. Compara la Torá con la lluvia y el rocío que hacen florecer los campos. Es un poema de amor que nos recuerda que Dios siempre cuida a su pueblo como un águila protege a sus pichones.",
+    words: ["CANCION", "CIELO", "TIERRA", "LLUVIA", "ROCIO", "AGUILA", "POEMA", "CUIDAR"],
+    trivia: [
+      { question: "¿Qué significa Ha'azinu?", options: ["Escuchen / Presten oído", "Canten fuerte", "Corran rápido"], answer: 0 },
+      { question: "¿Con qué compara Moisés las enseñanzas de la Torá?", options: ["Con la lluvia y el rocío que hacen florecer la naturaleza", "Con una piedra dura", "Con un camino oscuro"], answer: 0 },
+      { question: "¿Qué ave usa Moisés para describir cómo Dios cuida al pueblo?", options: ["Un águila que protege a sus pichones", "Un pingüino", "Un loro"], answer: 0 }
+    ],
+    activities: {
+      puppets: "**Guión - El Canto del Rocío:**\n*Personajes:* Títere de Flor sedienta, Títere de Gota de Rocío y Títere de Niño cantarín.\n- *Flor:* Qué lindo amanecer, pero mis hojitas necesitan agua fresca.\n- *Rocío:* ¡Aquí estoy! Soy la gotita de rocío de la mañana, suave y dulce. ¡Plop!\n- *Niño:* ¡La Torá en Ha'azinu compara las enseñanzas con el rocío que ayuda a crecer!\n- *Flor:* ¡Sí! La Torá me nutre igual que el rocío. ¡Ahora mis pétalos están abiertos y felices!\n- *Niño:* ¡Cantemos juntos una canción de agradecimiento en Shabateinu NBI!",
+      costumes: "**Taller de Manualidades:**\n'El móvil de la naturaleza'. Los niños recortan flores de colores y gotitas de lluvia celeste de papel celofán brillante, montándolas en un móvil colgante que simboliza la Torá que nos hace florecer.",
+      song: "**Canción - Torá como Rocío:**\n*Letra:*\nComo lluvia en el pasto, como dulce rocío,\nla Torá en mi alma calma el frío.\nNos ayuda a crecer, a florecer con amor,\n¡cantando en Shabat al gran Creador!\n*Coro:*\n¡Ha'azinu, escucha con amor!\nEn Shabateinu NBI crecemos en paz."
+    },
+    storyPages: [
+      { title: "El Canto del Cielo y la Tierra", text: "Ha'azinu significa 'escuchen'. Moisés cantó una hermosa canción de despedida, llamando al cielo y la tierra como testigos de su amor por el pueblo de Israel.", emoji: "🎵" },
+      { title: "Torá como Lluvia Suave", text: "Moisés cantó: 'Que mi enseñanza gotee como la lluvia, que mi discurso destile como el rocío.' La Torá nutre nuestra alma como el agua nutre a las plantas.", emoji: "🌧️" },
+      { title: "El Águila Protectora", text: "Moisés comparó el cuidado de Dios con un águila que despierta su nido y lleva a sus pichones con cuidado sobre sus alas gigantes. Dios nos protege así.", emoji: "🦅" },
+      { title: "El Último Paso de Moisés", text: "Dios le pidió a Moisés subir al Monte Nebó para contemplar toda la hermosa Tierra de Israel desde la cima. Un momento de paz y gratitud por toda una vida de amor.", emoji: "⛰️" }
+    ],
+    alefBetLetters: [
+      { letter: "ש", name: "Shin", sound: "Sh", word: "שירה", wordMeaning: "Canción" },
+      { letter: "ט", name: "Tet", sound: "T", word: "טל", wordMeaning: "Rocío" },
+      { letter: "ג", name: "Guimel", sound: "G", word: "גשם", wordMeaning: "Lluvia" }
+    ]
+  },
+  "VZotHaBerachah": {
+    name: "V'Zot HaBerajá",
+    hebrew: "וזאת הברכה",
+    book: "Devarim (Deuteronomio)",
+    summary: "¡Moisés bendice a cada tribu de Israel con palabras llenas de amor y completamos la lectura de toda la Torá! Celebramos con gran alegría en Simjat Torá, bailando y abrazando los rollos de la Torá para volver a empezar inmediatamente desde Bereshit.",
+    words: ["BENDICION", "TRIBUS", "TORA", "SIMJAT", "BAILE", "ABRAZO", "FINAL", "INICIO"],
+    trivia: [
+      { question: "¿Qué hace Moisés con cada una de las tribus de Israel?", options: ["Las bendice con palabras llenas de amor", "Les da un regalo de oro", "Les pide que corran"], answer: 0 },
+      { question: "¿En qué fiesta celebramos la finalización de la lectura de la Torá?", options: ["Simjat Torá", "Pésaj", "Janucá"], answer: 0 },
+      { question: "¿Qué hacemos apenas terminamos de leer la Torá en Simjat Torá?", options: ["Comenzamos inmediatamente a leer desde Bereshit", "Cerramos el libro para siempre", "Nos vamos a dormir"], answer: 0 }
+    ],
+    activities: {
+      puppets: "**Guión - La Fiesta de Simjat Torá:**\n*Personajes:* Títere de Rollo de Torá (con carita feliz), Títere de Niño que baila y Títere de Ovejita fiestera.\n- *Torá:* ¡Hola amigos! Hoy terminamos de leer todo mi rollo y estoy muy feliz.\n- *Niño:* ¡Es hora de Simjat Torá! ¡Te abrazaremos fuerte y bailaremos en círculos!\n- *Ovejita:* ¡Beeee! ¡A mí me encanta bailar! Daremos vueltas y vueltas de pura felicidad.\n- *Torá:* Y al terminar... ¡volveremos a abrir mi primer capítulo en Bereshit!\n- *Niño:* ¡La Torá nunca termina en la hermosa familia de Shabateinu NBI!",
+      costumes: "**Taller de Manualidades:**\n'Mi mini Torá'. Usando dos pajitas o palitos de madera y una tira de papel larga decorada con dibujos de mitzvot, los niños construyen su propio mini rollo de Torá para bailar en Simjat Torá.",
+      song: "**Canción - Simjat Torá de Alegría:**\n*Letra:*\nBaila, baila con la Torá,\nes el regalo de la verdad.\nTerminamos Devarim, empezamos Bereshit,\n¡cantando felices en la NBI!\n*Coro:*\n¡Simjat Torá, fiesta de amor!\n¡Jazak, Jazak, V'nitjazek con fervor!"
+    },
+    storyPages: [
+      { title: "Bendiciones de Amor", text: "V'Zot HaBerajá significa 'y esta es la bendición'. Moisés bendijo a cada una de las doce tribus de Israel con palabras únicas, adaptadas a los talentos especiales de cada una.", emoji: "🙌" },
+      { title: "El Monte Nebó", text: "Moisés subió al Monte Nebó. Dios le mostró toda la Tierra Prometida desde allí. Moisés descansó en paz con 120 años, habiendo sido el profeta más grande de la historia.", emoji: "⛰️" },
+      { title: "Completar la Torá", text: "Leemos los últimos versículos de la Torá con mucha emoción y agradecimiento. Nos enseña que cada final es la puerta para un nuevo y hermoso comienzo.", emoji: "📖" },
+      { title: "¡Simjat Torá: Volver a Empezar!", text: "En Simjat Torá celebramos bailando con los rollos de Torá en los brazos. Al terminar el último verso, abrimos inmediatamente Bereshit. ¡La Torá es eterna y nunca termina!", emoji: "🎉" }
+    ],
+    alefBetLetters: [
+      { letter: "ב", name: "Bet", sound: "B", word: "ברכה", wordMeaning: "Bendición" },
+      { letter: "ש", name: "Shin", sound: "Sh", word: "שמחה", wordMeaning: "Alegría" },
+      { letter: "ת", name: "Tav", sound: "T", word: "תורה", wordMeaning: "Torá" }
+    ]
+  }
 };
 
 /**
