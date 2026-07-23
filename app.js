@@ -340,6 +340,8 @@ document.addEventListener('DOMContentLoaded', () => {
       initManualidades();
     } else if (tabId === 'jardin') {
       initJardin();
+    } else if (tabId === 'gematria') {
+      initGematriaTab();
     }
 
     // Detener el secuenciador de música si salimos de la pestaña de música
@@ -2765,6 +2767,44 @@ Equipo Shabateinu - Comunidad Israelita Nueva Bnei Israel (NBI)`;
     } catch(e) {}
   }
 
+  function playGematriaMatchSound() {
+    try {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return;
+
+      const audioCtx = new AudioContextClass();
+      const notes = [
+        { freq: 523.25, timeOffset: 0.00 }, // C5
+        { freq: 659.25, timeOffset: 0.08 }, // E5
+        { freq: 783.99, timeOffset: 0.16 }, // G5
+        { freq: 1046.50, timeOffset: 0.24 } // C6
+      ];
+
+      const now = audioCtx.currentTime;
+      const noteDuration = 0.15;
+
+      notes.forEach(n => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(n.freq, now + n.timeOffset);
+
+        gain.gain.setValueAtTime(0.01, now + n.timeOffset);
+        gain.gain.exponentialRampToValueAtTime(0.15, now + n.timeOffset + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + n.timeOffset + noteDuration);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start(now + n.timeOffset);
+        osc.stop(now + n.timeOffset + noteDuration);
+      });
+    } catch(e) {
+      console.warn("AudioContext error in playGematriaMatchSound:", e);
+    }
+  }
+
   // --- C. JUEGO: PIZARRA Y LIENZO DE PINTURA DIGITAL ---
   const canvasPaint = document.getElementById('paint-canvas');
   const paletteItems = document.querySelectorAll('.color-palette-item');
@@ -3344,7 +3384,8 @@ Equipo Shabateinu - Comunidad Israelita Nueva Bnei Israel (NBI)`;
     { id: 'artist', name: 'Artista Creativo', icon: '🎨', desc: 'Pinta 2 dibujos', condition: (s) => s.paintsSaved >= 2 },
     { id: 'braja_pro', name: 'Bendición de Oro', icon: '🕯️', desc: 'Aprende las 4 Brajot', condition: (s) => s.brajotLearned >= 4 },
     { id: 'reader', name: 'Lector de Torah', icon: '📖', desc: 'Lee 3 cuentos completos', condition: (s) => s.storiesRead >= 3 },
-    { id: 'hebrew_hero', name: 'Héroe del Hebreo', icon: '✡️', desc: 'Aprende 6 letras Alef-Bet', condition: (s) => s.lettersLearned >= 6 }
+    { id: 'hebrew_hero', name: 'Héroe del Hebreo', icon: '✡️', desc: 'Aprende 6 letras Alef-Bet', condition: (s) => s.lettersLearned >= 6 },
+    { id: 'gematria_explorer', name: 'Explorador Guematria', icon: '🔢', desc: 'Encuentra 3 coincidencias de Torá', condition: (s) => (s.gematriaMatches || 0) >= 3 }
   ];
 
   const LEVELS = [
@@ -3366,7 +3407,7 @@ Equipo Shabateinu - Comunidad Israelita Nueva Bnei Israel (NBI)`;
   }
 
   function initQuestState() {
-    const defaults = { xp: 0, triviaCorrect: 0, songsPlayed: 0, paintsSaved: 0, brajotLearned: 0, storiesRead: 0, lettersLearned: 0, unlockedBadges: [] };
+    const defaults = { xp: 0, triviaCorrect: 0, songsPlayed: 0, paintsSaved: 0, brajotLearned: 0, storiesRead: 0, lettersLearned: 0, gematriaMatches: 0, unlockedBadges: [] };
     const saved = getQuestState();
     return { ...defaults, ...saved };
   }
@@ -7526,6 +7567,283 @@ Equipo Shabateinu - Comunidad Israelita Nueva Bnei Israel (NBI)`;
     updateJardinUI();
   }
 
+  // ==========================================================================
+  // MOTOR Y LÓGICA DE INTERFAZ GEMATRIA KID (MILESTONE 2)
+  // ==========================================================================
+  let gematriaState = {
+    currentValue: 0,
+    rewardedValues: new Set()
+  };
+
+  const HEBREW_KEYS = [
+    { char: 'א', val: 1 }, { char: 'ב', val: 2 }, { char: 'ג', val: 3 }, { char: 'ד', val: 4 },
+    { char: 'ה', val: 5 }, { char: 'ו', val: 6 }, { char: 'ז', val: 7 }, { char: 'ח', val: 8 },
+    { char: 'ט', val: 9 }, { char: 'י', val: 10 }, { char: 'כ', val: 20 }, { char: 'ל', val: 30 },
+    { char: 'מ', val: 40 }, { char: 'נ', val: 50 }, { char: 'ס', val: 60 }, { char: 'ע', val: 70 },
+    { char: 'פ', val: 80 }, { char: 'צ', val: 90 }, { char: 'ק', val: 100 }, { char: 'ר', val: 200 },
+    { char: 'ש', val: 300 }, { char: 'ת', val: 400 }
+  ];
+
+  function initGematriaTab() {
+    const inputEl = document.getElementById('gematria-input');
+    const clearBtn = document.getElementById('btn-gematria-clear');
+    const kbContainer = document.getElementById('gematria-keyboard');
+
+    if (!inputEl || !kbContainer) return;
+
+    // Render Virtual Keyboard if empty
+    if (kbContainer.children.length === 0) {
+      renderGematriaKeyboard(kbContainer, inputEl);
+    }
+
+    // Attach Input Event
+    inputEl.removeEventListener('input', handleGematriaInput);
+    inputEl.addEventListener('input', handleGematriaInput);
+
+    // Clear button listener
+    if (clearBtn) {
+      clearBtn.onclick = () => {
+        inputEl.value = '';
+        handleGematriaInput();
+        inputEl.focus();
+      };
+    }
+
+    // Quick tag buttons listeners
+    document.querySelectorAll('.gematria-tag-btn').forEach(btn => {
+      btn.onclick = () => {
+        const word = btn.dataset.word;
+        if (word) {
+          inputEl.value = word;
+          handleGematriaInput();
+        }
+      };
+    });
+
+    // Initial recalculation
+    handleGematriaInput();
+  }
+
+  function renderGematriaKeyboard(kbContainer, inputEl) {
+    kbContainer.innerHTML = '';
+    
+    // Render 22 Hebrew keys
+    HEBREW_KEYS.forEach(k => {
+      const btn = document.createElement('button');
+      btn.className = 'gematria-key';
+      btn.dataset.char = k.char;
+      btn.innerHTML = `<span class="key-char">${k.char}</span><span class="key-val">${k.val}</span>`;
+      btn.addEventListener('click', () => {
+        inputEl.value += k.char;
+        handleGematriaInput();
+      });
+      kbContainer.appendChild(btn);
+    });
+
+    // Space Key
+    const spaceBtn = document.createElement('button');
+    spaceBtn.className = 'gematria-key gematria-key-action';
+    spaceBtn.innerHTML = '<i class="fa-solid fa-arrows-left-right"></i> Espacio';
+    spaceBtn.addEventListener('click', () => {
+      inputEl.value += ' ';
+      handleGematriaInput();
+    });
+    kbContainer.appendChild(spaceBtn);
+
+    // Backspace Key
+    const backBtn = document.createElement('button');
+    backBtn.className = 'gematria-key gematria-key-action';
+    backBtn.innerHTML = '<i class="fa-solid fa-delete-left"></i> Borrar';
+    backBtn.addEventListener('click', () => {
+      inputEl.value = inputEl.value.slice(0, -1);
+      handleGematriaInput();
+    });
+    kbContainer.appendChild(backBtn);
+  }
+
+  function handleGematriaInput() {
+    const inputEl = document.getElementById('gematria-input');
+    const counterEl = document.getElementById('gematria-counter-value');
+    const hebrewResultEl = document.getElementById('gematria-hebrew-result');
+    const badgeEl = document.getElementById('gematria-translit-badge');
+    const breakdownEl = document.getElementById('gematria-breakdown-list');
+    const matchesGrid = document.getElementById('gematria-matches-grid');
+
+    if (!inputEl) return;
+    const text = inputEl.value;
+
+    if (!text || !text.trim()) {
+      if (counterEl) counterEl.textContent = '0';
+      if (hebrewResultEl) hebrewResultEl.textContent = '---';
+      if (badgeEl) badgeEl.style.display = 'none';
+      if (breakdownEl) breakdownEl.textContent = 'Escribe una palabra o usa el teclado hebreo.';
+      gematriaState.currentValue = 0;
+      renderEmptyTorahMatches(matchesGrid);
+      return;
+    }
+
+    if (typeof calculateInputGematria !== 'function') {
+      console.error("calculateInputGematria no está disponible.");
+      return;
+    }
+
+    const result = calculateInputGematria(text);
+
+    // Update Hebrew representation
+    if (hebrewResultEl) {
+      hebrewResultEl.textContent = result.hebrewStr || '---';
+    }
+
+    // Update Transliterated badge
+    if (badgeEl) {
+      if (result.isTransliterated && result.hebrewStr) {
+        badgeEl.style.display = 'inline-flex';
+        badgeEl.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles"></i> Transliterado: "${result.hebrewStr}"`;
+      } else {
+        badgeEl.style.display = 'none';
+      }
+    }
+
+    // Animate counter
+    if (counterEl && result.value !== gematriaState.currentValue) {
+      animateGematriaCounter(counterEl, gematriaState.currentValue, result.value);
+      gematriaState.currentValue = result.value;
+    }
+
+    // Letter Breakdown
+    if (breakdownEl) {
+      if (result.hebrewStr) {
+        const parts = [];
+        for (const ch of result.hebrewStr) {
+          if (typeof HEBREW_GEMATRIA_MAP !== 'undefined' && HEBREW_GEMATRIA_MAP[ch]) {
+            parts.push(`${ch} (${HEBREW_GEMATRIA_MAP[ch]})`);
+          }
+        }
+        if (parts.length > 0) {
+          breakdownEl.textContent = `${parts.join(' + ')} = ${result.value}`;
+        } else {
+          breakdownEl.textContent = `Sin caracteres hebreos reconocidos.`;
+        }
+      } else {
+        breakdownEl.textContent = `No se pudo convertir.`;
+      }
+    }
+
+    // Query Torah Database
+    const matches = (typeof findMatchingTorahConcepts === 'function') ? findMatchingTorahConcepts(result.value) : [];
+    renderTorahMatches(matchesGrid, matches, result.value);
+
+    // Award XP on match
+    if (matches.length > 0 && result.value > 0) {
+      if (!gematriaState.rewardedValues.has(result.value)) {
+        gematriaState.rewardedValues.add(result.value);
+        if (typeof playGematriaMatchSound === 'function') {
+          playGematriaMatchSound();
+        } else if (typeof playSuccessSoundVisual === 'function') {
+          playSuccessSoundVisual();
+        }
+        if (typeof awardXP === 'function') {
+          awardXP(15, `¡Coincidencia de Torá encontrada (${matches[0].transliteration} = ${result.value})! 📜`);
+        }
+        if (typeof incrementStat === 'function') {
+          incrementStat('gematriaMatches');
+        }
+      }
+    }
+  }
+
+  function animateGematriaCounter(element, startVal, endVal) {
+    element.classList.add('pop-anim');
+    setTimeout(() => element.classList.remove('pop-anim'), 300);
+
+    const duration = 400;
+    const startTime = performance.now();
+
+    function step(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.floor(startVal + (endVal - startVal) * progress);
+      element.textContent = current.toLocaleString();
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        element.textContent = endVal.toLocaleString();
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  function renderTorahMatches(container, matches, targetValue) {
+    if (!container) return;
+    container.innerHTML = '';
+
+    if (matches.length === 0) {
+      container.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 2rem 1rem; color: var(--text-secondary);">
+          <i class="fa-solid fa-magnifying-glass" style="font-size: 2rem; color: var(--nbi-cyan); margin-bottom: 0.5rem;"></i>
+          <p>No se encontraron coincidencias exactas para el valor <strong>${targetValue}</strong> en la base de la Torá.</p>
+          <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #94a3b8;">¡Prueba escribir otros nombres o palabras para descubrir equivalencias!</p>
+        </div>
+      `;
+      return;
+    }
+
+    matches.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'gematria-match-card exact-match';
+      card.innerHTML = `
+        <div>
+          <div class="match-card-top">
+            <div class="match-hebrew">${item.hebrew}</div>
+            <div class="match-value-badge">${item.value}</div>
+          </div>
+          <div class="match-titles">
+            <div class="match-translit">${item.transliteration}</div>
+            <div class="match-spanish">${item.spanish}</div>
+          </div>
+          <div class="match-meaning">${item.meaning}</div>
+        </div>
+        <div class="match-card-footer">
+          <span class="match-category"><i class="fa-solid fa-tag"></i> ${item.category}</span>
+          <span class="match-exact-label"><i class="fa-solid fa-star"></i> Coincidencia exacta</span>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  function renderEmptyTorahMatches(container) {
+    if (!container) return;
+    container.innerHTML = '';
+
+    const samples = (typeof TORAH_GEMATRIA_DB !== 'undefined') ? TORAH_GEMATRIA_DB.slice(0, 3) : [];
+    if (samples.length === 0) return;
+
+    samples.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'gematria-match-card';
+      card.style.opacity = '0.75';
+      card.innerHTML = `
+        <div>
+          <div class="match-card-top">
+            <div class="match-hebrew">${item.hebrew}</div>
+            <div class="match-value-badge">${item.value}</div>
+          </div>
+          <div class="match-titles">
+            <div class="match-translit">${item.transliteration}</div>
+            <div class="match-spanish">${item.spanish}</div>
+          </div>
+          <div class="match-meaning">${item.meaning}</div>
+        </div>
+        <div class="match-card-footer">
+          <span class="match-category"><i class="fa-solid fa-tag"></i> ${item.category}</span>
+          <span style="font-size: 0.75rem; color: var(--text-secondary);">Ejemplo de Torá</span>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
 
   init();
 });

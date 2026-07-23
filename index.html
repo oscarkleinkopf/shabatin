@@ -86,6 +86,9 @@
           <li class="nav-item" data-tab="sionista">
             <button id="btn-nav-sionista"><i class="fa-solid fa-map-location-dot"></i> Conexión Israel</button>
           </li>
+          <li class="nav-item" data-tab="gematria">
+            <button id="btn-nav-gematria"><i class="fa-solid fa-calculator"></i> Gematria Kid</button>
+          </li>
         </ul>
 
         <div class="nav-section-title"><i class="fa-solid fa-gamepad"></i> Diversión</div>
@@ -1098,6 +1101,91 @@
       </section>
 
       <!-- ==========================================================================
+           SECCIÓN: GEMATRIA KID (CALCULADORA NUMÉRICA Y CONCEPTOS DE TORÁ)
+           ========================================================================== -->
+      <section id="section-gematria" class="app-section">
+        <div class="section-header">
+          <h2><i class="fa-solid fa-calculator"></i> Gematria Kid - Calculadora de Torá</h2>
+          <p>Escribe tu nombre o cualquier palabra para convertirla a hebreo, calcular su valor numérico y descubrir sus conexiones sagradas con la Torá.</p>
+        </div>
+
+        <!-- Layout Grid de Gematria Kid -->
+        <div class="gematria-layout">
+
+          <!-- Card Superior: Input y Teclado Virtual -->
+          <div class="glass-card gematria-input-card">
+            <div class="gematria-input-header">
+              <label for="gematria-input" class="gematria-label">
+                <i class="fa-solid fa-pen-nib"></i> Escribe tu nombre o palabra:
+              </label>
+              <span id="gematria-translit-badge" class="gematria-badge gematria-badge-translit" style="display: none;">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Transliterado al hebreo
+              </span>
+            </div>
+
+            <div class="gematria-input-wrapper">
+              <input type="text" id="gematria-input" class="gematria-input" placeholder="Ej: Abraham, Sofia, שבת, 18, 702..." autocomplete="off" spellcheck="false" />
+              <button id="btn-gematria-clear" class="gematria-btn-clear" title="Limpiar texto" aria-label="Limpiar texto">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <!-- Sugerencias rápidas -->
+            <div class="gematria-quick-tags">
+              <span class="quick-tag-label"><i class="fa-solid fa-lightbulb"></i> Probar nombres:</span>
+              <button class="gematria-tag-btn" data-word="Sofia">Sofia</button>
+              <button class="gematria-tag-btn" data-word="Abraham">Abraham</button>
+              <button class="gematria-tag-btn" data-word="Moisés">Moisés</button>
+              <button class="gematria-tag-btn" data-word="Sara">Sara</button>
+              <button class="gematria-tag-btn" data-word="Shabat">Shabat</button>
+              <button class="gematria-tag-btn" data-word="Amor">Amor</button>
+            </div>
+
+            <!-- Teclado Virtual Hebreo -->
+            <div class="gematria-keyboard-container">
+              <div class="gematria-keyboard-title">
+                <i class="fa-solid fa-keyboard"></i> Teclado Hebreo Virtual (22 Letras)
+              </div>
+              <div class="gematria-keyboard-grid" id="gematria-keyboard">
+                <!-- Se genera dinámicamente -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Central: Display de Contador y Desglose -->
+          <div class="glass-card gematria-counter-card">
+            <div class="gematria-counter-header">
+              <h3><i class="fa-solid fa-sparkles"></i> Valor Numérico (Gematria)</h3>
+            </div>
+            
+            <div class="gematria-counter-body">
+              <div class="gematria-hebrew-display" id="gematria-hebrew-result">---</div>
+              <div class="gematria-counter-number" id="gematria-counter-value">0</div>
+              <div class="gematria-counter-unit">Puntos de Gematria</div>
+            </div>
+
+            <div class="gematria-breakdown-box" id="gematria-breakdown-box">
+              <div class="breakdown-title"><i class="fa-solid fa-list-ol"></i> Suma de letras:</div>
+              <div class="breakdown-content" id="gematria-breakdown-list">Escribe una palabra para ver la suma letra por letra.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Card Inferior: Coincidencias con Conceptos de la Torá -->
+        <div class="glass-card gematria-matches-card" style="margin-top: 1.5rem;">
+          <div class="matches-header">
+            <h3><i class="fa-solid fa-book-bookmark"></i> Conexiones con la Torá y Palabras Equivalentes</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Conceptos del diccionario de la Torá con el mismo valor numérico</p>
+          </div>
+
+          <div class="gematria-matches-grid" id="gematria-matches-grid">
+            <!-- Rellenado dinámicamente -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
            SECCIÓN: PINTA LAS PARASHOT (INTERACTIVE COLORING BOOK)
            ========================================================================== -->
       <section id="section-colorear" class="app-section">
@@ -1950,7 +2038,8 @@
     <i class="fa-solid fa-bars"></i>
   </button>
 
-  <script src="parashot-db.js?v=2026071701"></script>
-  <script src="app.js?v=2026071701"></script>
+  <script src="parashot-db.js?v=2026072201"></script>
+  <script src="gematria-engine.js?v=2026072201"></script>
+  <script src="app.js?v=2026072201"></script>
 </body>
 </html>
