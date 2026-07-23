@@ -308,6 +308,8 @@ document.addEventListener('DOMContentLoaded', () => {
       initializeGamesTab();
     } else if (tabId === 'brajot') {
       loadBrajotProgress();
+    } else if (tabId === 'mesa') {
+      initMesa();
     } else if (tabId === 'musica') {
       initializeMusicTab();
     } else if (tabId === 'cuento') {
@@ -6541,6 +6543,291 @@ Equipo Shabateinu - Comunidad Israelita Nueva Bnei Israel (NBI)`;
       clearInterval(havdalaState.particleInterval);
       havdalaState.particleInterval = null;
     }
+  }
+
+  // ==========================================================================
+  // MESA DE SHABAT INTERACTIVA LÓGICA
+  // ==========================================================================
+  const mesaState = {
+    selectedItem: 'candles',
+    candlesLit: false,
+    cupFilled: false,
+    coverLifted: false
+  };
+
+  const mesaData = {
+    candles: {
+      title: 'Velas de Shabat',
+      hebrew: 'הדלקת נרות',
+      phonetics: 'Hadlakat Nerot',
+      description: 'El Shabat comienza oficialmente el viernes por la tarde al encender las velas. Esta hermosa tradición trae paz, armonía y luz espiritual al hogar y la familia.',
+      actionText: 'Encender Velas',
+      actionTextAlt: 'Apagar Velas',
+      blessingHebrew: 'בָּרוּךְ אַתָּה יְיָ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, אֲשֶׁר קִדְּשָׁנו... וְצִוָּנוּ לְהַדְלִיק נֵר שֶׁל שַׁבָּת:',
+      blessingPhonetics: 'Baruj Ata Adonai, Eloheinu Melej Haolam, asher kidshanu bemitzvotav vetzivanu lehadlik ner shel Shabat.',
+      blessingTranslation: '"Bendito eres Tú, Adonai Dios nuestro, Rey del Universo, que nos santificó con sus preceptos y nos ordenó encender las velas de Shabat."',
+      speakText: 'Bendición de las velas. Baruj Ata Adonai, Eloheinu Melej Haolam, asher kidshanu bemitzvotav vetzivanu lehadlik ner shel Shabat. Bendito eres Tú, Señor Dios nuestro, Rey del Universo, que nos santificó con sus preceptos y nos ordenó encender las velas de Shabat.'
+    },
+    cup: {
+      title: 'Copa de Kidush',
+      hebrew: 'בורא פרי הגפן',
+      phonetics: 'Borei Pri Hagefen',
+      description: 'El Kidush es la bendición de santificación que se recita sobre una copa de vino o jugo de uva antes de la cena de Shabat. Agradecemos por la creación y por el regalo sagrado del día de descanso.',
+      actionText: 'Llenar Copa de Vino',
+      actionTextAlt: 'Vaciar Copa',
+      blessingHebrew: 'בָּרוּךְ אַתָּה יְיָ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, בּוֹרֵא פְּרִי הַגָּפֶן:',
+      blessingPhonetics: 'Baruj Ata Adonai, Eloheinu Melej Haolam, borei pri hagefen.',
+      blessingTranslation: '"Bendito eres Tú, Adonai Dios nuestro, Rey del Universo, Creador del fruto de la vid."',
+      speakText: 'Bendición del vino. Baruj Ata Adonai, Eloheinu Melej Haolam, borei pri hagefen. Bendito eres Tú, Señor Dios nuestro, Rey del Universo, Creador del fruto de la vid.'
+    },
+    challah: {
+      title: 'Panes de Jalá',
+      hebrew: 'המוציא לחם',
+      phonetics: 'Hamotzí Lejem',
+      description: 'Colocamos dos panes trenzados de Jalá que representan la porción doble de maná que caía del cielo los viernes en el desierto. La trenza simboliza la unión, la paz y la familia.',
+      actionText: 'Quitar Mantel de Jalá',
+      actionTextAlt: 'Cubrir Jalá',
+      blessingHebrew: 'בָּרוּךְ אַתָּה יְיָ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, הַמּוֹצִיא לֶחֶם מִן הָאָרֶץ:',
+      blessingPhonetics: 'Baruj Ata Adonai, Eloheinu Melej Haolam, hamotzi lejem min haaretz.',
+      blessingTranslation: '"Bendito eres Tú, Adonai Dios nuestro, Rey del Universo, que extrae el pan de la tierra."',
+      speakText: 'Bendición del pan. Baruj Ata Adonai, Eloheinu Melej Haolam, hamotzi lejem min haaretz. Bendito eres Tú, Señor Dios nuestro, Rey del Universo, que extrae el pan de la tierra.'
+    },
+    salt: {
+      title: 'Salero de Shabat',
+      hebrew: 'מלח',
+      phonetics: 'Melaj (Sal)',
+      description: 'Es una hermosa costumbre untar la Jalá en sal justo después de decir la bendición de Hamotzí. La sal nunca se echa a perder, simbolizando nuestro pacto eterno de paz con Dios.',
+      actionText: 'Espolvorear Sal 🧂',
+      actionTextAlt: 'Espolvorear Sal 🧂',
+      blessingHebrew: 'וְעַל כָּל קָרְבָּנְךָ תַּקְרִיב מֶלַח:',
+      blessingPhonetics: 'Veal kol korbanja takriv melaj.',
+      blessingTranslation: '"En todas tus ofrendas ofrecerás sal (Levítico 2:13)."',
+      speakText: 'Costumbre de la sal. Untamos el pan bendecido en sal como símbolo del pacto eterno de paz.'
+    }
+  };
+
+  function initMesa() {
+    const items = ['candles', 'cup', 'challah', 'salt'];
+    items.forEach(itemId => {
+      const el = document.getElementById(`mesa-${itemId}`);
+      if (el) {
+        const newEl = el.cloneNode(true);
+        el.parentNode.replaceChild(newEl, el);
+        newEl.addEventListener('click', () => {
+          selectMesaItem(itemId);
+        });
+      }
+    });
+
+    const speakBtn = document.getElementById('btn-mesa-speak');
+    if (speakBtn) {
+      const newSpeakBtn = speakBtn.cloneNode(true);
+      speakBtn.parentNode.replaceChild(newSpeakBtn, speakBtn);
+      newSpeakBtn.addEventListener('click', () => {
+        const itemInfo = mesaData[mesaState.selectedItem];
+        if (itemInfo) {
+          speakNeutralText(itemInfo.speakText);
+        }
+      });
+    }
+
+    const actionBtn = document.getElementById('btn-mesa-action');
+    if (actionBtn) {
+      const newActionBtn = actionBtn.cloneNode(true);
+      actionBtn.parentNode.replaceChild(newActionBtn, actionBtn);
+      newActionBtn.addEventListener('click', triggerMesaAction);
+    }
+
+    const mitzvahChk = document.getElementById('chk-mesa-mitzvah');
+    if (mitzvahChk) {
+      const newMitzvahChk = mitzvahChk.cloneNode(true);
+      mitzvahChk.parentNode.replaceChild(newMitzvahChk, mitzvahChk);
+      newMitzvahChk.addEventListener('change', (e) => {
+        const itemId = mesaState.selectedItem;
+        const key = `shabateinu_mesa_learned_${itemId}`;
+        if (e.target.checked) {
+          if (localStorage.getItem(key) !== 'true') {
+            localStorage.setItem(key, 'true');
+            awardXP(10, `¡Sé realizar la tradición de ${mesaData[itemId].title}! 🌟`);
+          }
+        } else {
+          localStorage.removeItem(key);
+        }
+      });
+    }
+
+    // Actualizar estados visuales de los objetos
+    const flames = document.querySelectorAll('#mesa-candles .candle-flame, #mesa-candles .candle-flame-inner');
+    flames.forEach(fl => {
+      fl.style.display = mesaState.candlesLit ? 'block' : 'none';
+    });
+
+    const wineFill = document.querySelector('#mesa-cup .kidush-wine-fill');
+    const wineSurf = document.querySelector('#mesa-cup .kidush-wine-surface');
+    if (wineFill) wineFill.style.display = mesaState.cupFilled ? 'block' : 'none';
+    if (wineSurf) wineSurf.style.display = mesaState.cupFilled ? 'block' : 'none';
+
+    const challahEl = document.getElementById('mesa-challah');
+    if (challahEl) {
+      if (mesaState.coverLifted) {
+        challahEl.classList.add('lifted');
+      } else {
+        challahEl.classList.remove('lifted');
+      }
+    }
+
+    selectMesaItem(mesaState.selectedItem);
+  }
+
+  function selectMesaItem(itemId) {
+    mesaState.selectedItem = itemId;
+
+    const items = ['candles', 'cup', 'challah', 'salt'];
+    items.forEach(id => {
+      const el = document.getElementById(`mesa-${id}`);
+      if (el) {
+        if (id === itemId) {
+          el.classList.add('selected');
+        } else {
+          el.classList.remove('selected');
+        }
+      }
+    });
+
+    const info = mesaData[itemId];
+    if (info) {
+      document.getElementById('mesa-info-hebrew').textContent = info.hebrew;
+      document.getElementById('mesa-info-phonetics').textContent = info.phonetics;
+      document.getElementById('mesa-info-title').textContent = info.title;
+      document.getElementById('mesa-info-description').textContent = info.description;
+      
+      // Corregir texto del Hoshen/Tetzaveh si tiene puntos suspensivos
+      if (itemId === 'candles') {
+        document.getElementById('mesa-blessing-hebrew').textContent = 'בָּרוּךְ אַתָּה יְיָ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, אֲשֶׁר קִדְּשָׁנוּ בְּמִצְוֹתָיו וְצִוָּנוּ לְהַדְלִיק נֵר שֶׁל שַׁבָּת:';
+      } else {
+        document.getElementById('mesa-blessing-hebrew').textContent = info.blessingHebrew;
+      }
+      
+      document.getElementById('mesa-blessing-phonetics').textContent = info.blessingPhonetics;
+      document.getElementById('mesa-blessing-translation').textContent = info.blessingTranslation;
+
+      const actionBtn = document.getElementById('btn-mesa-action');
+      if (actionBtn) {
+        actionBtn.style.display = 'inline-flex';
+        if (itemId === 'candles') {
+          actionBtn.innerHTML = mesaState.candlesLit ? 
+            `<i class="fa-solid fa-fire-extinguisher"></i> ${info.actionTextAlt}` : 
+            `<i class="fa-solid fa-fire"></i> ${info.actionText}`;
+        } else if (itemId === 'cup') {
+          actionBtn.innerHTML = mesaState.cupFilled ? 
+            `<i class="fa-solid fa-glass-water"></i> ${info.actionTextAlt}` : 
+            `<i class="fa-solid fa-wine-glass"></i> ${info.actionText}`;
+        } else if (itemId === 'challah') {
+          actionBtn.innerHTML = mesaState.coverLifted ? 
+            `<i class="fa-solid fa-eye-slash"></i> ${info.actionTextAlt}` : 
+            `<i class="fa-solid fa-eye"></i> ${info.actionText}`;
+        } else if (itemId === 'salt') {
+          actionBtn.innerHTML = `<i class="fa-solid fa-snowflake"></i> ${info.actionText}`;
+        }
+      }
+
+      const mitzvahChk = document.getElementById('chk-mesa-mitzvah');
+      if (mitzvahChk) {
+        mitzvahChk.checked = localStorage.getItem(`shabateinu_mesa_learned_${itemId}`) === 'true';
+      }
+    }
+  }
+
+  function triggerMesaAction() {
+    const itemId = mesaState.selectedItem;
+    if (itemId === 'candles') {
+      mesaState.candlesLit = !mesaState.candlesLit;
+      const flames = document.querySelectorAll('#mesa-candles .candle-flame, #mesa-candles .candle-flame-inner');
+      flames.forEach(fl => {
+        fl.style.display = mesaState.candlesLit ? 'block' : 'none';
+      });
+      if (mesaState.candlesLit) {
+        playSparkleSound();
+        showToast('🕯️ ¡Velas de Shabat encendidas! Traen luz al hogar.');
+        speakNeutralText("Shabat Shalom. Traemos paz y armonía a nuestro hogar.");
+      }
+    } else if (itemId === 'cup') {
+      mesaState.cupFilled = !mesaState.cupFilled;
+      const wineFill = document.querySelector('#mesa-cup .kidush-wine-fill');
+      const wineSurf = document.querySelector('#mesa-cup .kidush-wine-surface');
+      if (wineFill) wineFill.style.display = mesaState.cupFilled ? 'block' : 'none';
+      if (wineSurf) wineSurf.style.display = mesaState.cupFilled ? 'block' : 'none';
+      if (mesaState.cupFilled) {
+        playSplashSound();
+        showToast('🍷 Copa de Kidush llena. ¡Listos para santificar el vino!');
+      }
+    } else if (itemId === 'challah') {
+      mesaState.coverLifted = !mesaState.coverLifted;
+      const challahEl = document.getElementById('mesa-challah');
+      if (challahEl) {
+        if (mesaState.coverLifted) {
+          challahEl.classList.add('lifted');
+          showToast('🥖 Cubierta removida. ¡Descubrimos los dos panes de Jalá!');
+        } else {
+          challahEl.classList.remove('lifted');
+          showToast('💜 Cubrimos la Jalá con amor para no avergonzarla.');
+        }
+      }
+    } else if (itemId === 'salt') {
+      const shaker = document.getElementById('salt-shaker-anim');
+      if (shaker) {
+        shaker.classList.remove('shaking');
+        void shaker.offsetWidth;
+        shaker.classList.add('shaking');
+        playSparkleSound();
+        setTimeout(() => {
+          spawnSaltParticles();
+        }, 300);
+      }
+    }
+
+    selectMesaItem(itemId);
+  }
+
+  function spawnSaltParticles() {
+    const container = document.getElementById('salt-particles-layer');
+    if (!container) return;
+    const challahEl = document.getElementById('mesa-challah');
+    if (!challahEl) return;
+    
+    for (let i = 0; i < 20; i++) {
+      const p = document.createElement('div');
+      p.className = 'salt-particle';
+      p.style.right = `${60 + Math.random() * 20}px`;
+      p.style.bottom = `${85 + Math.random() * 20}px`;
+      const dx = -100 - Math.random() * 120;
+      const dy = 10 + Math.random() * 30;
+      p.style.setProperty('--dx', `${dx}px`);
+      p.style.setProperty('--dy', `${dy}px`);
+      container.appendChild(p);
+      setTimeout(() => {
+        p.remove();
+      }, 600);
+    }
+    showToast('🧂 ¡Jalá sazonada con sal! Pacto de paz.');
+  }
+
+  function playSplashSound() {
+    try {
+      if (window.AudioContext || window.webkitAudioContext) {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.frequency.setValueAtTime(200, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.3);
+        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.3);
+      }
+    } catch {}
   }
 
   // ==========================================================================
